@@ -1,4 +1,4 @@
-etygsgrundande gruppuppgift: Filmvisarna
+Betygsgrundande gruppuppgift: Filmvisarna
 Introduktion
 
 Företaget Filmvisarna AB är en liten biografkedja som vill börja konkurrera lokalt med SF. De har ett par biografsalonger i Småstad och har säkrat rättigheter att visa ett antal olika filmtitlar.
