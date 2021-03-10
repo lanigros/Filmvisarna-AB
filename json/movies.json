@@ -21,7 +21,11 @@
     "Ian Mckellen",
     "Orlando Bloom"
   ],
-  "description" : "En ödmjuk Hobbit från Shire och åtta följeslagare gick ut på en resa för att förstöra den mäktiga One Ring och rädda Middle-earth från Dark Lord Sauron."
+  "description" : "En ödmjuk Hobbit från Shire och åtta följeslagare gick ut på en resa för att förstöra den mäktiga One Ring och rädda Middle-earth från Dark Lord Sauron.",
+  
+  "images": "LordOfTheRings-Banner.jpg",
+  "youtubeTrailers": "https://www.youtube.com/watch?v=V75dMMIW2B4"
+
   },
   {
   "title" : "The Dark Knight",
@@ -45,7 +49,11 @@
     "Heath LEdger",
     "Aaron Eckhart"
   ],
-  "description" : "När hotet som kallas Jokern förorsakar förstörelse och kaos på Gothams folk måste Batman acceptera ett av de största psykologiska och fysiska testerna för hans förmåga att bekämpa orättvisa."
+  "description" : "När hotet som kallas Jokern förorsakar förstörelse och kaos på Gothams folk måste Batman acceptera ett av de största psykologiska och fysiska testerna för hans förmåga att bekämpa orättvisa.",
+  
+  "images" : "TheDarkKnight-Banner.jpg",
+  "youtubeTrailers" : "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+
 },
 {
   "title" : "Inception",
