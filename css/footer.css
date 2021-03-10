@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;  
+  box-sizing: border-box;
+}
+
+.footer_main{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;  
+  display: block;
+  overflow: hidden;
+  padding: 70px 0;
+  background-color: #1B1B1C;  
+
+}
+
+.footer_right_section{
+  display: block;
+  margin: 0 auto;
+  width: 1100px;
+  /* margin-left: 30px;  */ 
+}
+
+.footer_right_section .logo_container{
+float: left;
+}
