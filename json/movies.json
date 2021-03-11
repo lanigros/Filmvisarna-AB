@@ -23,7 +23,7 @@
   ],
   "description" : "En ödmjuk Hobbit från Shire och åtta följeslagare gick ut på en resa för att förstöra den mäktiga One Ring och rädda Middle-earth från Dark Lord Sauron.",
   
-  "images": "LordOfTheRings-Banner.jpg",
+  "images": "/img/movieImg/LordOfTheRings-Banner.jpg",
   "youtubeTrailers": "https://www.youtube.com/watch?v=V75dMMIW2B4"
 
   },
@@ -51,7 +51,7 @@
   ],
   "description" : "När hotet som kallas Jokern förorsakar förstörelse och kaos på Gothams folk måste Batman acceptera ett av de största psykologiska och fysiska testerna för hans förmåga att bekämpa orättvisa.",
   
-  "images" : "TheDarkKnight-Banner.jpg",
+  "images" : "/img/movieImg/TheDarkKnight-Banner.jpg",
   "youtubeTrailers" : "https://www.youtube.com/watch?v=EXeTwQWrcwY"
 
 },
@@ -79,7 +79,7 @@
   ],
   "description" : "En tjuv som stjäl företagshemligheter genom användning av drömdelningsteknologi får den omvända uppgiften att plantera en idé i en C.E.O.",
   
-  "images" : "Inception-Banner.jpg",
+  "images" : "/img/movieImg/Inception-Banner.jpg",
   "youtubeTrailers":"https://www.youtube.com/watch?v=8hP9D6kZseM"
 },
 {
@@ -105,7 +105,7 @@
   ],
   "description" : "När en vacker främling leder datorhacker Neo till underjorden, upptäcker han den chockerande sanningen - livet han känner till är det utarbetat bedrägeri av en ond cyberintelligens.",
 
-  "images":"Matrix-Banner.jpg",
+  "images":"/img/movieImg/Matrix-Banner.jpg",
   "youtubeTrailers":"https://www.youtube.com/watch?v=m8e-FF8MsqU"
 },
 {
@@ -129,7 +129,7 @@
   ],
   "description" : "Girighet och klassdiskriminering hotar det nybildade symbiotiska förhållandet mellan den rika Park-familjen och den fattiga Kim-klanen.",
 
-  "images":"Parasite-Banner.jpg",
+  "images":"/img/movieImg/Parasite-Banner.jpg",
   "youtubeTrailers":"https://www.youtube.com/watch?v=SEUXfv87Wpk"
 }
 ]
