@@ -1,17 +1,10 @@
 
-async function getMoviesFromJson() {
-  let movies;
-  await $.getJSON('/json/movies.json', (data) => {
-    movies = data;
-
-  });
-  
-}
+$('body').append(`
+<div class="banner-Container">
+<div class="banner-img"></div>
+<div class="banner-text"><h1>Här är vår front banner</h1>
+<p>Innuti denna ska vi lägga en bild som en nice titel och brödtext med en beskrivning om filmen</p></div>
 
 
-function addMainBanner{
-  let mainBanner = <div class="mainBanner"></div>;
-  $('.mainBanner').append(`
-  
-  `)
-}
+</div>
+`)
