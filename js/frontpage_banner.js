@@ -9,13 +9,9 @@ async function getMoviesFromJson() {
 }
 
 
-
-$('body').append(`
-  <html>
-    <div class="main-banner">
-      <h1>Hello</h1>
-    </div>
-  </html>
+function addMainBanner{
+  let mainBanner = <div class="mainBanner"></div>;
+  $('.mainBanner').append(`
   
-
-`)
+  `)
+}
