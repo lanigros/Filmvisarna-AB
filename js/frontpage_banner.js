@@ -11,9 +11,11 @@ async function getMoviesFromJson() {
 
 
 $('body').append(`
-
-  <div class="main-banner">
-    <h1>Hello</h1>
-  </div>
+  <html>
+    <div class="main-banner">
+      <h1>Hello</h1>
+    </div>
+  </html>
+  
 
 `)
