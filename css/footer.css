@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -5,6 +7,8 @@
   text-decoration: none;  
   box-sizing: border-box;
   font-family: Poppins;
+  font-size: 12px;
+  line-height: 20px;
 }
 
 footer .footer_container{
@@ -22,12 +26,14 @@ footer .footer_container{
   background-color: #1B1B1C;
   
   grid-template-areas: 
-    ". a b c ."
+    ". a b c arrowUp"
     ". d e f ."
     ". g h i ."; 
 }
 
-footer .footer_logo_container{
+/* -------------------LOGOTYPE & COPYRIGHT SECTION--------------------- */
+
+footer .footer_logo{
   display: block;
   grid-area: d;  
   align-self: center;
@@ -39,19 +45,17 @@ footer body > footer > div > div > img{
   margin: 0% auto;
 }
 
-footer .copyRight_container{
+footer .copyRight{
   display: flex;
   grid-area: g;     
   margin-top: 0%;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
   color: #FFFFFF;
   opacity: 0.80;
 }
 
-footer .footer_menu_container{
+/* -------------------footer MENU SECTION--------------------- */
+
+footer .footer_menu{
   display: flex;
   grid-area: e;
   justify-self: center;
@@ -59,30 +63,47 @@ footer .footer_menu_container{
   width: 100%;  
 }
 
-body > footer > div > div.footer_menu_container > ul{
+body > footer > div > div.footer_menu > ul{
   margin: 0% auto;
 }
 
-body > footer > div > div.footer_menu_container > ul > li{
+body > footer > div > div.footer_menu > ul > li{
   padding: 4px;
 }
 
 footer a:link, a:visited {
   color: #ffffff;
-  opacity: 0.70;
-  font-family: Poppins;
+  opacity: 0.70;  
 }
 
 footer a:hover{
-color: #e42623;
+  color: #fc5350;
 }
 
-body > footer > div > div.footer_socialmedia_container{
+/* -------------------SOCIALMEDIA SECTION--------------------- */
+
+body > footer > div > div.footer_socialmedia{
   grid-area: f;  
   display: flex;
   justify-self: center;
   align-self: center;
   justify-content: space-around;
   width: 100%;
+}
+
+
+/* -------------------ARROW UP SECTION--------------------- */
+
+footer .arrowUp{ 
+  position: relative;
+  display: flex;
+  grid-area: arrowUp;
+  justify-content: flex-end;  
+
+}
+
+body > footer > div > div.arrowUp > a{
+  position: absolute;  
+  top: -20px;
 }
 
