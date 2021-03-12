@@ -8,12 +8,12 @@ export default class Header {
             <div class="nav-left-items">
               <div class="nav-hamburger">
                 <a class="nav-hamburger-container" href="#">
-                  <img class="hamburger-btn" src="images/hamburger-icon.svg" alt=""></img>
+                  <img class="hamburger-btn" src="img/header/hamburger-icon.svg" alt=""></img>
                 </a>
               </div>
               <div class="nav-logo">
                 <a class="nav-logo-container" href="#">
-                  <img class="logo" src="images/logo-icon.svg" alt=""></img>
+                  <img class="logo" src="img/header/logo-icon.svg" alt=""></img>
                 </a>
               </div>
             </div>
