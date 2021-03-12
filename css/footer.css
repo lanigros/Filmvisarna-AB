@@ -31,10 +31,12 @@ footer .footer_logo_container{
   display: block;
   grid-area: d;  
   align-self: center;
+  margin: 0% auto;
 }
 
 footer body > footer > div > div > img{
   height: 40px;
+  margin: 0% auto;
 }
 
 footer .copyRight_container{
@@ -54,6 +56,11 @@ footer .footer_menu_container{
   grid-area: e;
   justify-self: center;
   align-self: center;  
+  width: 100%;  
+}
+
+body > footer > div > div.footer_menu_container > ul{
+  margin: 0% auto;
 }
 
 body > footer > div > div.footer_menu_container > ul > li{
@@ -67,21 +74,15 @@ footer a:link, a:visited {
 }
 
 footer a:hover{
-color: #ff2424;
+color: #e42623;
 }
 
 body > footer > div > div.footer_socialmedia_container{
   grid-area: f;  
-  display: inline-block;
+  display: flex;
   justify-self: center;
   align-self: center;
-
+  justify-content: space-around;
+  width: 100%;
 }
 
-body > footer > div > div.footer_socialmedia_container a :hover{
-  color: #ff2424;  
-}
-
-.footer_socialmedia_container a:hover{
-  color: #ff2424;    
-}

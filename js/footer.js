@@ -18,9 +18,9 @@ $('body').append(`
       </ul>
     </div>
     <div class="footer_socialmedia_container">
-      <a href="#"><img src="/img/logo/facebook.png"></a>
-      <a href="#"><img src="/img/logo/instagram.png"></a>
-      <a href="#"><img src="/img/logo/twitter.png"></a>
+      <a href="#"><img onmouseover="this.src='/img/logo/facebook30x30-red.png'" onmouseout="this.src='/img/logo/facebook30x30.png'" src="/img/logo/facebook30x30.png"></a>
+      <a href="#"><img onmouseover="this.src='/img/logo/Instagram30x30-red.png'" onmouseout="this.src='/img/logo/Instagram30x30.png'" src="/img/logo/Instagram30x30.png"></a>
+      <a href="#"><img onmouseover="this.src='/img/logo/Twitter30x30-red.png'" onmouseout="this.src='/img/logo/Twitter30x30.png'" src="/img/logo/Twitter30x30.png"></a>
     </div>
   </div>
 </footer>
