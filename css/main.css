@@ -1,2 +1,39 @@
 @import "frontpage_banner.css"; 
 @import "startpage.css"; 
+@import "footer.css"; 
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;  
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.body_container{
+
+  display: grid;  
+  width: 100vw;  
+
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);    
+
+  grid-template-areas: 
+    "h h h h h h h h h h h h"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "c c c c c c c c c c c c"
+    "f f f f f f f f f f f f";
+
+}
+
