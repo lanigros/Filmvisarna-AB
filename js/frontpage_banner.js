@@ -1,5 +1,6 @@
 getImgFromJson();
 
+
 async function getImgFromJson() {
   movieInfo = await $.getJSON('/json/movies.json');
   
