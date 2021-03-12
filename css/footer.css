@@ -104,6 +104,6 @@ footer .arrowUp{
 
 body > footer > div > div.arrowUp > a{
   position: absolute;  
-  top: -20px;
+  top: 0px;
 }
 
