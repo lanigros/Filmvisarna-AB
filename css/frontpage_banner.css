@@ -1,5 +1,4 @@
 .banner-Container {
-  border: 2px solid black;
   width: 100%;
   height: 40vh;
   margin: 0 auto;
@@ -9,7 +8,7 @@
 }
 
 .banner-img {
-  background-color: rgb(7, 7, 117);
+  background-color: rgb(204, 204, 207);
   height: 100%;
   width: 100%;
 }
@@ -18,4 +17,5 @@
   position: absolute;
   top: 10px;
   left: 6px;
+  color: white;
 }
