@@ -1,5 +1,6 @@
-@import "startpage.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import "frontpage_banner.css";
+@import "startpage.css";
 @import "footer.css";
 
 * {
@@ -32,6 +33,7 @@
     ". . c c c c c c c c . ."
     ". . c c c c c c c c . ."
     ". . c c c c c c c c . ."
+    ". . c c c c c c c c . a"
     "f f f f f f f f f f f f"
     "f f f f f f f f f f f f";
 
@@ -42,10 +44,22 @@
   );
 }
 
-footer {
+/* footer{
+  grid-area: f;
+} */
+
+body > div.body_container > footer > div {
   grid-area: f;
 }
 
 .banner-Container {
   grid-area: b;
+}
+
+/* This is the arrow who is laying on the footer */
+.arrowUp {
+  grid-area: a;
+  z-index: 1;
+  justify-self: center;
+  align-self: flex-end;
 }
