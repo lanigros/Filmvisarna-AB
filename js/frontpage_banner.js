@@ -1,7 +1,3 @@
-let bannerImages;
-let bannerTitle;
-let bannerText;
-
 getImgFromJson()
 
 async function getImgFromJson() {
@@ -14,36 +10,18 @@ async function getImgFromJson() {
 
 function renderInfo() {
  
-  $('body').append(`
+$('body').append(`
 
 <div class="banner-Container">
-  <div class="banner-img"><img src="${movieInfo[0].images}"></div>
+  <img src="${movieInfo[0].images}">
     <div class="banner-text">
       <div class="banner-title"><h1>${movieInfo[0].title}</h1></div>
       <div class="banner-desc"><p>${movieInfo[0].description}</p></div>
     </div>
+        <button class="order-btn">Se trailer</button>
+    
 </div>
 
 `)
 
 }
-
-
-
-// $('body').append(`
-
-// <div class="banner-Container">
-// <div class="banner-img"></div>
-
-// <div class="banner-text">
-// <div class="banner-title"></div>
-// <div class="banner-desc"></div>
-// </div>
-
-// </div>
-
-// `)
-
-  //  bannerImages = movies[0].images;
-  // bannerTitle = movies[0].title;
-  // bannerText = movies[0].description;
