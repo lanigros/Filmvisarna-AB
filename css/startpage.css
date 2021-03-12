@@ -9,9 +9,9 @@ html {
   width: 100%;
 }
 
-body {
+main {
   border: 2px solid white;
   width: 80%;
-  margin: 0 auto;
+  margin: 120px auto 0px auto;
   height: 500vh;
 }
