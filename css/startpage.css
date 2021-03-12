@@ -1,0 +1,17 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+html {
+  background: radial-gradient(
+    circle,
+    rgba(133, 27, 27, 1) 0%,
+    rgba(27, 26, 26, 1) 100%
+  );
+
+  width: 100%;
+}
+
+body {
+  border: 2px solid white;
+  width: 80%;
+  margin: 0 auto;
+  height: 500vh;
+}

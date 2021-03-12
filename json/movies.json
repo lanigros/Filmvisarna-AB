@@ -77,7 +77,10 @@
   "Joseph Gordon-Levitt",
   "Elliot Page"
   ],
-  "description" : "En tjuv som stjäl företagshemligheter genom användning av drömdelningsteknologi får den omvända uppgiften att plantera en idé i en C.E.O."
+  "description" : "En tjuv som stjäl företagshemligheter genom användning av drömdelningsteknologi får den omvända uppgiften att plantera en idé i en C.E.O.",
+  
+  "images" : "Inception-Banner.jpg",
+  "youtubeTrailers":"https://www.youtube.com/watch?v=8hP9D6kZseM"
 },
 {
   "title" : "Matrix",
@@ -100,7 +103,10 @@
   "Laurence Fishburne",
   "Carrie-Anne Moss"
   ],
-  "description" : "När en vacker främling leder datorhacker Neo till underjorden, upptäcker han den chockerande sanningen - livet han känner till är det utarbetat bedrägeri av en ond cyberintelligens."
+  "description" : "När en vacker främling leder datorhacker Neo till underjorden, upptäcker han den chockerande sanningen - livet han känner till är det utarbetat bedrägeri av en ond cyberintelligens.",
+
+  "images":"Matrix-Banner.jpg",
+  "youtubeTrailers":"https://www.youtube.com/watch?v=m8e-FF8MsqU"
 },
 {
   "title" : "Parasite",
@@ -121,6 +127,9 @@
   "Lee Sun-kyun",
   "Yeo-jeong Cho"
   ],
-  "description" : "Girighet och klassdiskriminering hotar det nybildade symbiotiska förhållandet mellan den rika Park-familjen och den fattiga Kim-klanen."
+  "description" : "Girighet och klassdiskriminering hotar det nybildade symbiotiska förhållandet mellan den rika Park-familjen och den fattiga Kim-klanen.",
+
+  "images":"Parasite-Banner.jpg",
+  "youtubeTrailers":"https://www.youtube.com/watch?v=SEUXfv87Wpk"
 }
 ]
