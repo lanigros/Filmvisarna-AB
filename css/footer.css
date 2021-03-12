@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "/css/main.css";
+
+
+footer .footer_container{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;  
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+  justify-content: space-around;  
+  background-color: #1B1B1C;
+  
+}
+
