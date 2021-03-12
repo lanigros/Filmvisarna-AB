@@ -2,110 +2,16 @@
 @import "/css/main.css";
 
 
-*{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;  
-  box-sizing: border-box;
-  font-family: Poppins;
-  font-size: 12px;
-  line-height: 20px;
-}
-
 footer .footer_container{
-  display: grid;
+  display: flex;
   position: fixed;
   bottom: 0;
-  width: 100vw; 
-  height: 20vh; 
+  width: 100vw;  
+  padding-top: 50px;
+  padding-bottom: 30px;
 
-  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;    
-  
-  overflow: hidden;
-  
+  justify-content: space-around;  
   background-color: #1B1B1C;
   
-  grid-template-areas: 
-    ". a b c arrowUp"
-    ". d e f ."
-    ". g h i ."; 
-}
-
-/* -------------------LOGOTYPE & COPYRIGHT SECTION--------------------- */
-
-footer .footer_logo{
-  display: block;
-  grid-area: d;  
-  align-self: center;
-  margin: 0% auto;
-}
-
-footer body > footer > div > div > img{
-  height: 40px;
-  margin: 0% auto;
-}
-
-footer .copyRight{
-  display: flex;
-  grid-area: g;     
-  margin-top: 0%;
-  color: #FFFFFF;
-  opacity: 0.80;
-}
-
-/* -------------------footer MENU SECTION--------------------- */
-
-footer .footer_menu{
-  display: flex;
-  grid-area: e;
-  justify-self: center;
-  align-self: center;  
-  width: 100%;  
-}
-
-body > footer > div > div.footer_menu > ul{
-  margin: 0% auto;
-}
-
-body > footer > div > div.footer_menu > ul > li{
-  padding: 4px;
-}
-
-footer a:link, a:visited {
-  color: #ffffff;
-  opacity: 0.70;  
-}
-
-footer a:hover{
-  color: #fc5350;
-}
-
-/* -------------------SOCIALMEDIA SECTION--------------------- */
-
-body > footer > div > div.footer_socialmedia{
-  grid-area: f;  
-  display: flex;
-  justify-self: center;
-  align-self: center;
-  justify-content: space-around;
-  width: 100%;
-}
-
-
-/* -------------------ARROW UP SECTION--------------------- */
-
-footer .arrowUp{ 
-  position: relative;
-  display: flex;
-  grid-area: arrowUp;
-  justify-content: flex-end;  
-
-}
-
-body > footer > div > div.arrowUp > a{
-  position: absolute;  
-  top: 0px;
 }
 
