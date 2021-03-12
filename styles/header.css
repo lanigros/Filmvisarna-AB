@@ -37,15 +37,6 @@ nav .nav-logo {
   margin-left: 40px;
 }
 
-/*.nav-right-items li {
-  list-style: none;
-  margin-right: 32px;
-}
-
-.nav-right-items li:nth-last-of-type(1) {
-  margin-right: 0;
-}*/
-
 nav .nav-right-items {
   display: flex;
   font-family: Montserrat;
