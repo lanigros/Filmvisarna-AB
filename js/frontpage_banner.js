@@ -1,16 +1,16 @@
-getImgFromJson()
+getImgFromJson();
 
 async function getImgFromJson() {
   movieInfo = await $.getJSON('/json/movies.json');
   
-    renderInfo(movieInfo);
+  renderInfo(movieInfo);
   };
  
 
 
 function renderInfo() {
  
-$('body').append(`
+  $('.test_container').append(`
 
 <div class="banner-Container">
   <img src="${movieInfo[0].images}">
@@ -22,6 +22,6 @@ $('body').append(`
     
 </div>
 
-`)
+`);
 
-}
+};

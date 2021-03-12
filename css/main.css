@@ -1,33 +1,32 @@
-@import "frontpage_banner.css"; 
-@import "startpage.css"; 
-@import "footer.css"; 
+@import "startpage.css";
+@import "frontpage_banner.css";
+@import "footer.css";
 
-*{
+* {
   margin: 0;
   padding: 0;
   list-style: none;
-  text-decoration: none;  
+  text-decoration: none;
   box-sizing: border-box;
   font-family: Poppins;
   font-size: 12px;
-  line-height: 20px;  
+  line-height: 20px;
 }
 
-.body_container{ 
-
-  display: grid;  
-  width: 100vw;  
+.body_container {
+  display: grid;
+  width: 100vw;
   height: 100vh;
 
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);    
+  grid-template-rows: repeat(12, 1fr);
 
-  grid-template-areas: 
+  grid-template-areas:
     "h h h h h h h h h h h h"
     "h h h h h h h h h h h h"
     ". . c c c c c c c c . ."
-    ". . c c c c c c c c . ."
-    ". . e e e e e e e e . ."
+    ". . b b b b b b b b . ."
+    ". . b b b b b b b b . ."
     ". . c c c c c c c c . ."
     ". . c c c c c c c c . ."
     ". . c c c c c c c c . ."
@@ -36,24 +35,17 @@
     "f f f f f f f f f f f f"
     "f f f f f f f f f f f f";
 
-    background: radial-gradient(
+  background: radial-gradient(
     circle,
     rgba(133, 27, 27, 1) 0%,
     rgba(27, 26, 26, 1) 100%
   );
 }
 
-footer{
+footer {
   grid-area: f;
 }
 
-.my_banner{
-
-  grid-area: e;
-
+.banner-Container {
+  grid-area: b;
 }
-
-
-
-
-
