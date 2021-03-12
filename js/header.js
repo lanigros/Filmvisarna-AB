@@ -7,22 +7,22 @@ export default class Header {
           <nav>
             <div class="nav-left-items">
               <div class="nav-hamburger">
-                <a class="nav-hamburger-container">
+                <a class="nav-hamburger-container" href="#">
                   <img class="hamburger-btn" src="images/hamburger-icon.svg" alt=""></img>
                 </a>
               </div>
               <div class="nav-logo">
-                <a class="nav-logo-container">
+                <a class="nav-logo-container" href="#">
                   <img class="logo" src="images/logo-icon.svg" alt=""></img>
                 </a>
               </div>
             </div>
             <div class="nav-right-items">
               <div>
-                <a class="nav-login-container">LOGGA IN</a>
+                <a class="nav-login-container" href="#">LOGGA IN</a>
               </div>
               <div>
-                <a class="nav-create-container">NYTT KONTO</a>
+                <a class="nav-create-container" href="#">NYTT KONTO</a>
               </div>
             </div>
           </nav>

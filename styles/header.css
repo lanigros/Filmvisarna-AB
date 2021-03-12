@@ -12,6 +12,12 @@
   height: 120px;
 }
 
+.nav-container a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
