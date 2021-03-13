@@ -52,7 +52,7 @@ body > div.body_container > footer > div {
   grid-area: f;
 }
 
-.test_container {
+body > div.body_container > div.hero-banner > div {
   grid-area: b;
 }
 

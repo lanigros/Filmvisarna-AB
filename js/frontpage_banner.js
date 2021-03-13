@@ -11,7 +11,7 @@ async function getImgFromJson() {
 
 function renderInfo() {
  
-  $('.test_container').append(`
+  $('.hero-banner').append(`
 
 <div class="banner-Container">
   <img src="${movieInfo[0].images}">
