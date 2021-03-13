@@ -1,9 +1,10 @@
+export default class Footer{
 
-function renderFooter() {
+  render() {
 
-  $('.body_container').append(`
-
-  <footer>
+    return /*html*/ `
+  
+    <footer>
     <div class="footer_container">
       <div class="footer_logo">      
           <img src="/img/logo/Filmvisarna logo 2.png" alt="Logotype">
@@ -25,8 +26,13 @@ function renderFooter() {
       
     </div>
   </footer>
+  `;
+      
+  }
+};
 
-`);
 
-
-}
+// Building the fast arrow button
+// $('.body_container').append(`<div class="arrowUp" >
+//     <a href="#"><img onmouseover="this.src='/img/logo/arrowUp40x40-red.png'" onmouseout="this.src='/img/logo/arrowUp40x40.png'" src="/img/logo/arrowUp40x40.png"></a>
+//       </div>`)
