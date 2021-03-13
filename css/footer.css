@@ -1,4 +1,5 @@
 @import "/css/startpage.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 footer {
   display: flex;
@@ -6,6 +7,7 @@ footer {
   bottom: 0;
   width: 100vw;
   background-color: #1b1b1c;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer_container {
