@@ -18,7 +18,7 @@
 
   display: grid;  
   width: 100vw;  
-  height: 100vh;
+  height: 200vh;
 
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);    
@@ -44,11 +44,7 @@
   );
 }
 
-/* footer{
-  grid-area: f;
-} */
-
-body > div.body_container > footer > div{
+footer{
   grid-area: f;
 }
 

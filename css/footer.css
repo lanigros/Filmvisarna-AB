@@ -3,9 +3,10 @@
 
 body > div.body_container > footer{
   display: flex;
-  position: absolute;
+  position: relative;
   bottom: 0;
-  width: 100vw;      
+  width: 100vw; 
+  max-height: min-content;     
   background-color: #1B1B1C; 
     
 }
@@ -19,8 +20,8 @@ body > div.body_container > footer{
   align-content: center;
 
 }
-/* -------------------Selects all children below footer--------------------- */
-body > div.body_container > footer > div *{ 
+
+body > div.body_container > footer > div *{  /* This selects all the children in footer */
    display: inline-block;   
 }
 
@@ -32,12 +33,21 @@ body > div.body_container > footer > div > div.footer_logo{
   align-self: center;  
 }
 
+body > div.body_container > footer > div > div.footer_logo > img{
+  width: 300px;
+}
+
 .copyrightTxt{
   display: block;
   color: #ffffff;
   opacity: 0.70;  
   font-size: 11px;
   padding: 4px;
+}
+
+body > div.body_container > footer > div > div.footer_menu{
+  justify-self: center;
+  align-self: center;
 }
 
 body > div.body_container > footer > div > div.footer_menu > ul > li{
