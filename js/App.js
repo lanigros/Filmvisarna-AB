@@ -20,10 +20,12 @@ export default class App {
     // render partials
 
     // header renders now
-    $('header').html(new Header().render())
+    $('header').html(new Header().render());
 
     // main renders in its router, on instanciation
     this.router = new Router('main');
+
+    $('footer').html(new Footer().render());
 
   }
 
