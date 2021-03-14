@@ -17,16 +17,25 @@
 .body_container{ 
 
   display: grid;  
-  width: 100vw; 
+  width: 100vw;  
   height: 200vh;
 
-  grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 1fr 6fr 1fr;    
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);    
 
   grid-template-areas: 
-    "h h h"
-    ". c a"
-    "f f f";
+    "h h h h h h h h h h h h"
+    "h h h h h h h h h h h h"
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . ."
+    ". . c c c c c c c c . a"
+    "f f f f f f f f f f f f"
+    "f f f f f f f f f f f f";
 
     background: radial-gradient(
     circle,
@@ -39,18 +48,11 @@ footer{
   grid-area: f;
 }
 
-.main_content{
-  display: inline-block;
-  grid-area: c;
-  background-color: rgb(77, 77, 250);
-}
-
 /* This is the arrow who is laying on the footer */
-.arrowUp{    
-  position: relative;
+.arrowUp{  
   grid-area: a;
   z-index: 1;
-  justify-self: right;
+  justify-self: center;
   align-self: flex-end;
 }
 
