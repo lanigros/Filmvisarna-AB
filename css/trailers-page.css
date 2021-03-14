@@ -1,11 +1,11 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 .trailers {
-  max-height: 400px;
+  max-height: 300px;
   border: 1px solid rgb(255, 255, 255);
   display: flex;
   color: rgb(255, 255, 255);
-  overflow: auto;
+  overflow-x: auto;
   font-family: Work Sans;
 }
 
