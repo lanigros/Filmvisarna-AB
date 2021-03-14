@@ -42,12 +42,12 @@ export default class Router{
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
 
-
-
     // if we want a new instance every time we visit a page we instanciate here instead
 
 
   default(){
     return startPage.render()
   }
+
+  
 }

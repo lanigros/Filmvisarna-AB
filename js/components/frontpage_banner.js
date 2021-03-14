@@ -1,11 +1,19 @@
+export default class Banner{
+
+  async function getMovieInfoFromJson() {
+    movieInfo = awat $.getJSON('/json/movies.json');
+
+  }
+
+
 getImgFromJson();
 
 
-async function getImgFromJson() {
-  movieInfo = await $.getJSON('/json/movies.json');
+// async function getImgFromJson() {
+//   movieInfo = await $.getJSON('/json/movies.json');
   
-  renderInfo(movieInfo);
-  };
+//   renderInfo(movieInfo);
+//   };
  
 
 
