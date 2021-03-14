@@ -5,16 +5,15 @@ export default class StartPage {
   async read() {
     // Read data from a JSON file
     this.movieInfo = await $.getJSON('/json/movies.json');
-    console.log('Read');
-    console.table(this.movieInfo);
+    return;
   }
 
         
   render() {
-
-   async function getMovieInfoFromJson() {
-    let movieInfo= await $.getJSON('/json/movies.json')
-}
+  
+  //  async function getMovieInfoFromJson() {
+  //   this.movieInfo= await $.getJSON('/json/movies.json')
+//}
     // getMovieInfoFromJson()
     
     return /*html*/ `
