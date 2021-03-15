@@ -30,6 +30,10 @@ main {
   );
 }
 
+header {
+  grid-area: h;
+}
+
 footer {
   grid-area: f;
 }
