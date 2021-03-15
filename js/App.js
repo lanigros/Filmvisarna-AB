@@ -12,6 +12,7 @@ be completely unaffected by the styling of our pages.*/
 // import Header from './components/Header.js';  (This is what we import when we get Matts header)
 
 import Router from './router.js';
+import Header from './components/header.js';
 import Footer from './components/footer.js';
 
 export default class App {
@@ -20,7 +21,7 @@ export default class App {
     // render partials
 
     // header renders now
-    //$('header').html(new Header().render());
+    $('header').html(new Header().render());
 
     // main renders in its router, on instanciation
     this.router = new Router('main');

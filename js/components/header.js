@@ -1,7 +1,7 @@
 export default class Header {
 
-  constructor() {
-    $('header').html(/*html*/`
+  render() {
+    return /*html*/`
       <div class="nav-container">
         <div class="wrapper">
           <nav>
@@ -28,7 +28,7 @@ export default class Header {
           </nav>
         </div>
       </div>
-    `)
+    `
   }
 
 }
