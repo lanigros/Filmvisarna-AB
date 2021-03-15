@@ -3,13 +3,13 @@ main {
   width: 100vw;
   height: 100vh;
 
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr, auto, 1fr);
   grid-template-rows: repeat(12, 1fr);
 
   grid-template-areas:
     "h h h h h h h h h h h h"
     "h h h h h h h h h h h h"
-    ". . b b b b b b b b . ."
+    ". . . . . . . . . . . ."
     ". . b b b b b b b b . ."
     ". . b b b b b b b b . ."
     ". . c c c c c c c c . ."
@@ -32,7 +32,7 @@ footer {
   grid-area: f;
 }
 
-main > .banner-Container {
+.banner-Container {
   grid-area: b;
 }
 

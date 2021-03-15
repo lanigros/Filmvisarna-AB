@@ -4,7 +4,6 @@
 
 /*----BANNER CONTAINER-----*/
 .banner-Container {
-  display: inline;
   width: 100vw;
   height: 45vh;
   margin: 0 auto;
@@ -33,7 +32,6 @@ img {
   padding-left: 2rem;
   width: 30em;
   height: 100%;
-  grid-area: t;
 }
 
 .banner-title {
