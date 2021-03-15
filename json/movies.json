@@ -1,135 +1,129 @@
 [
   {
-  "title" : "Lord of the Rings: The Fellowship of the Ring",
-  "country": [
-  "New Zealand",
-  "United States"
-],
-  "year": "2001",
-  "genre" : [
-    "Action", 
-    "Äventyr", 
-    "Drama"
-  ],
-  "rated" : "PG-13",
-  "lenght" : "2h 58min",
-  "languages" : "Engelska",
-  "subtitle": "Svenska",
-  "director" : "Peter Jackson",
-  "actors" : [
-    "Elijah Wood",
-    "Ian Mckellen",
-    "Orlando Bloom"
-  ],
-  "description" : "En ödmjuk Hobbit från Shire och åtta följeslagare gick ut på en resa för att förstöra den mäktiga One Ring och rädda Middle-earth från Dark Lord Sauron.",
-  
-  "images": "/img/movieImg/lotr-banner.jpg",
-  "youtubeTrailers": "https://www.youtube.com/watch?v=V75dMMIW2B4"
-
+    "title": "Lord of the Rings: The Fellowship of the Ring",
+    "country": [
+      "New Zealand",
+      "United States"
+    ],
+    "year": "2001",
+    "genre": [
+      "Action",
+      " Äventyr",
+      " Drama"
+    ],
+    "rated": "PG-13",
+    "lenght": "2h 58min",
+    "languages": "Engelska",
+    "subtitle": "Svenska",
+    "director": "Peter Jackson",
+    "actors": [
+      "Elijah Wood",
+      "Ian Mckellen",
+      "Orlando Bloom"
+    ],
+    "description": "En ödmjuk Hobbit från Shire och åtta följeslagare gick ut på en resa för att förstöra den mäktiga One Ring och rädda Middle-earth från Dark Lord Sauron.",
+    "images": "/img/movieImg/lotr-banner.jpg",
+    "youtubeTrailers": "https://www.youtube.com/watch?v=V75dMMIW2B4"
   },
   {
-  "title" : "The Dark Knight",
-  "country": [
-  "United States",
-  "United Kingdom",
-  "Hong-Kong"],
-  "year": "2008",
-  "genre" : [
-    "Action", 
-    "Crime", 
-    "Drama"
-  ],
-  "rated" : "PG-13",
-  "lenght" : "2h 32min",
-  "languages" : "Engelska",
-  "subtitle": "Svenska",
-  "director" : "Christopher Nolan",
-  "actors" : [
-    "Christian Bale",
-    "Heath LEdger",
-    "Aaron Eckhart"
-  ],
-  "description" : "När hotet som kallas Jokern förorsakar förstörelse och kaos på Gothams folk måste Batman acceptera ett av de största psykologiska och fysiska testerna för hans förmåga att bekämpa orättvisa.",
-  
-  "images" : "/img/movieImg/TheDarkKnight-Banner.jpg",
-  "youtubeTrailers" : "https://www.youtube.com/watch?v=EXeTwQWrcwY"
-
-},
-{
-  "title" : "Inception",
-  "country": [
-  "Japan",
-  "Canada"
-  ],
-  "year": "2010",
-  "genre" : [
-  "Action", 
-  "Äventyr", 
-  "Sci-Fi"
-  ],
-  "rated" : "PG-13",
-  "lenght" : "2h 28min",
-  "languages" : "Engelska",
-  "subtitle": "Svenska",
-  "director" : "Christopher Nolan",
-  "actors" : [
-  "Leonardo DiCaprio",
-  "Joseph Gordon-Levitt",
-  "Elliot Page"
-  ],
-  "description" : "En tjuv som stjäl företagshemligheter genom användning av drömdelningsteknologi får den omvända uppgiften att plantera en idé i en C.E.O.",
-  
-  "images" : "/img/movieImg/Inception-Banner.jpg",
-  "youtubeTrailers":"https://www.youtube.com/watch?v=8hP9D6kZseM"
-},
-{
-  "title" : "Matrix",
-  "country": "United States",
-  "year": "1999",
-  "genre" : [
-  "Action", 
-  "Sci-Fi"
-  ],
-  "rated" : "PG-13",
-  "lenght" : "2h 16min",
-  "languages" : "Engelska",
-  "subtitle": "Svenska",
-  "director" : [
-    "Lilly Wachowski", 
-    "Lana Wachowski"
-  ],
-  "actors" : [
-  "Keanu Reeves",
-  "Laurence Fishburne",
-  "Carrie-Anne Moss"
-  ],
-  "description" : "När en vacker främling leder datorhacker Neo till underjorden, upptäcker han den chockerande sanningen - livet han känner till är det utarbetat bedrägeri av en ond cyberintelligens.",
-
-  "images":"/img/movieImg/Matrix-Banner.jpg",
-  "youtubeTrailers":"https://www.youtube.com/watch?v=m8e-FF8MsqU"
-},
-{
-  "title" : "Parasite",
-  "country": "South Korea",
-  "year": "2019",
-  "genre" : [
-  "Drama", 
-  "Thriller",
-  "Komedi"
-  ],
-  "rated" : "PG-13",
-  "lenght" : "2h 16min",
-  "languages" : "Koreanska",
-  "subtitle": "Svenska",
-  "director" : "Boo joon Ho",
-  "actors" : [
-  "Kang-ho Song",
-  "Lee Sun-kyun",
-  "Yeo-jeong Cho"
-  ],
-  "description" : "Girighet och klassdiskriminering hotar det nybildade symbiotiska förhållandet mellan den rika Park-familjen och den fattiga Kim-klanen.",
-
-  "images":"/img/movieImg/Parasite-Banner.jpg",
-  "youtubeTrailers":"https://www.youtube.com/watch?v=SEUXfv87Wpk"
-}
+    "title": "The Dark Knight",
+    "country": [
+      "United States",
+      "United Kingdom",
+      "Hong-Kong"
+    ],
+    "year": "2008",
+    "genre": [
+      "Action ",
+      " Crime ",
+      " Drama "
+    ],
+    "rated": "PG-13",
+    "lenght": "2h 32min",
+    "languages": "Engelska",
+    "subtitle": "Svenska",
+    "director": "Christopher Nolan",
+    "actors": [
+      "Christian Bale",
+      "Heath LEdger",
+      "Aaron Eckhart"
+    ],
+    "description": "När hotet som kallas Jokern förorsakar förstörelse och kaos på Gothams folk måste Batman acceptera ett av de största psykologiska och fysiska testerna för hans förmåga att bekämpa orättvisa.",
+    "images": "/img/movieImg/TheDarkKnight-Banner.jpg",
+    "youtubeTrailers": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+  },
+  {
+    "title": "Inception",
+    "country": [
+      "Japan",
+      "Canada"
+    ],
+    "year": "2010",
+    "genre": [
+      "Action ",
+      " Äventyr ",
+      " Sci-Fi "
+    ],
+    "rated": "PG-13",
+    "lenght": "2h 28min",
+    "languages": "Engelska",
+    "subtitle": "Svenska",
+    "director": "Christopher Nolan",
+    "actors": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page"
+    ],
+    "description": "En tjuv som stjäl företagshemligheter genom användning av drömdelningsteknologi får den omvända uppgiften att plantera en idé i en C.E.O.",
+    "images": "/img/movieImg/Inception-Banner.jpg",
+    "youtubeTrailers": "https://www.youtube.com/watch?v=8hP9D6kZseM"
+  },
+  {
+    "title": "Matrix",
+    "country": "United States",
+    "year": "1999",
+    "genre": [
+      "Action ",
+      " Sci-Fi "
+    ],
+    "rated": "PG-13",
+    "lenght": "2h 16min",
+    "languages": "Engelska",
+    "subtitle": "Svenska",
+    "director": [
+      "Lilly Wachowski",
+      "Lana Wachowski"
+    ],
+    "actors": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss"
+    ],
+    "description": "När en vacker främling leder datorhacker Neo till underjorden, upptäcker han den chockerande sanningen - livet han känner till är det utarbetat bedrägeri av en ond cyberintelligens.",
+    "images": "/img/movieImg/Matrix-Banner.jpg",
+    "youtubeTrailers": "https://www.youtube.com/watch?v=m8e-FF8MsqU"
+  },
+  {
+    "title": "Parasite",
+    "country": "South Korea",
+    "year": "2019",
+    "genre": [
+      "Drama",
+      " Thriller",
+      " Komedi"
+    ],
+    "rated": "PG-13",
+    "lenght": "2h 16min",
+    "languages": "Koreanska",
+    "subtitle": "Svenska",
+    "director": "Boo joon Ho",
+    "actors": [
+      "Kang-ho Song",
+      "Lee Sun-kyun",
+      "Yeo-jeong Cho"
+    ],
+    "description": "Girighet och klassdiskriminering hotar det nybildade symbiotiska förhållandet mellan den rika Park-familjen och den fattiga Kim-klanen.",
+    "images": "/img/movieImg/Parasite-Banner.jpg",
+    "youtubeTrailers": "https://www.youtube.com/watch?v=SEUXfv87Wpk"
+  }
 ]
