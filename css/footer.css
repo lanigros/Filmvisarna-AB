@@ -1,0 +1,63 @@
+@import "/css/startpage.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: #1b1b1c;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer_container {
+  display: flex;
+  width: 100vw;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  justify-content: space-evenly;
+  align-content: center;
+}
+/* -------------------Selects all children below footer--------------------- */
+footer > div * {
+  display: inline-block;
+}
+
+footer > div > div.footer_logo > div {
+  padding: 0;
+}
+footer > div > div.footer_logo {
+  display: flexbox;
+  align-self: center;
+}
+
+.copyrightTxt {
+  display: block;
+  color: #ffffff;
+  opacity: 0.7;
+  font-size: 11px;
+  padding: 4px;
+}
+
+footer > div > div.footer_menu > ul > li {
+  display: block;
+}
+
+footer a:link,
+a:visited {
+  color: #ffffff;
+  opacity: 0.7;
+  font-size: 14px;
+  padding: 4px;
+}
+
+footer a:hover {
+  color: #e42623;
+}
+
+footer > div > div.footer_socialmedia {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  width: 15%;
+}

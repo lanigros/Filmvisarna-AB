@@ -1,2 +1,15 @@
-@import url(startpage.css);
-@import url(header.css);
+@import "frontpage_banner.css";
+@import "header.css";
+@import "startpage.css";
+@import "footer.css";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 20px;
+}
