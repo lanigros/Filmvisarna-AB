@@ -1,6 +1,6 @@
 
 @import url(startpage.css);
-@import url(trailers-page.css);
+@import "trailers-page.css";
 @import "frontpage_banner.css";
 @import "startpage.css";
 @import "footer.css";

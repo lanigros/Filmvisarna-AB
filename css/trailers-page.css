@@ -1,12 +1,18 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 .trailers {
-  max-height: 300px;
-  border: 1px solid rgb(255, 255, 255);
+  max-height: 200px;
+  border: 1px solid rgb(0, 0, 0);
   display: flex;
-  color: rgb(255, 255, 255);
+  color: rgb(245, 0, 0);
   overflow-x: auto;
   font-family: Work Sans;
+  width: 550px;
+  padding-bottom: 45% ;
+  
+  position: relative;
+  top: 400px;
+  left: 400px ;
 }
 
 .trailers::-webkit-scrollbar {
@@ -14,13 +20,18 @@
 }
 
 .trailers .item {
-  min-width: 400px;
-  height: 400px;
+  min-width: 180px;
+  height: 250px;
   text-align: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   margin-right: 2px;
 }
 .TextForTrailers {
 font-family: Work Sans;
-color: aliceblue;
+color: rgb(255, 255, 255);
+font-size: 25px;
+position: relative;
+  top: 300px;
+  left: 600px ;
+  letter-spacing: 2px;
 }
