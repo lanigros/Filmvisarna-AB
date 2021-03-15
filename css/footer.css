@@ -1,9 +1,10 @@
-@import "/css/startpage.css";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "/css/main.css";
+
 
 footer {
+  grid-area: f;
   display: flex;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100vw;
   background-color: #1b1b1c;

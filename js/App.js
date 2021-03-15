@@ -14,6 +14,7 @@ be completely unaffected by the styling of our pages.*/
 import Router from './router.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
+import Header from './components/header(test-Mac).js';
 
 export default class App {
 
@@ -22,6 +23,8 @@ export default class App {
 
     // header renders now
     $('header').html(new Header().render());
+
+    $('header').html(new Header().render())
 
     // main renders in its router, on instanciation
     this.router = new Router('main');

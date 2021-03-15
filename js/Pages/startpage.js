@@ -1,16 +1,19 @@
 export default class StartPage {
-  
+
 
   async read() {
-    let movieInfo = await $.getJSON('/json/movies.json');
-    console.log(movieInfo[0].title);
+    this.movieInfo = await $.getJSON('/json/movies.json');
+  
 
   }
-        
-  render() {
+
+  async render() {
+
+    if (!this.movieInfo) {
+      await this.read();
+    }
     
-    this.read();
-    
+
     return /*html*/ `
   
  <div class="banner-Container">
@@ -21,17 +24,8 @@ export default class StartPage {
     </div>
         <button class="order-btn">Se trailer</button>
     
-</div> 
-
-    
+</div>    
   
   `
   }
-
 }
-
-
- //  async function getMovieInfoFromJson() {
-  //   this.movieInfo= await $.getJSON('/json/movies.json')
-//}
-    // getMovieInfoFromJson()
