@@ -1,9 +1,6 @@
 import App from './App.js';
 new App();
 
-
-
-
 // //Building the body constructor
 // $('body').append('<div class="body_container"></div>');
 
