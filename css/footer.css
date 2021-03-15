@@ -1,7 +1,8 @@
-@import "/css/startpage.css";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "/css/main.css";
+
 
 footer {
+  grid-area: f;
   display: flex;
   position: relative;
   bottom: 0;

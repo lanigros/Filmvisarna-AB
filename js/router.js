@@ -4,16 +4,18 @@ const changeListener = new ChangeListener();
 
 // imported pages
 import StartPage from "./pages/startpage.js";
+import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
 
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
+const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 
 
 
-export default class Router{
+export default class Router {
 
-  constructor(selector, changeListener){
+  constructor(selector, changeListener) {
     this.selector = selector;
     this.changeListener = changeListener;
     // main renders on location hash change
@@ -23,13 +25,13 @@ export default class Router{
     this.setCurrentPage(selector)
   }
 
-  async setCurrentPage(selector){
+  async setCurrentPage(selector) {
     // we get the page name from the hash part of the url (location.hash)
     // and we remove the # (hash) and any - (dashes)
     // so that something like #product-page would become productpage
-    let name = window.location.hash.replace('-','').replace('#','');
+    let name = window.location.hash.replace('-', '').replace('#', '');
     // we check if there is (not) a method with that name (below)
-    if(!this[name]){
+    if (!this[name]) {
       name = 'default'; // if there isn't we will use the method named default
     }
     // we call the method (they are below) and collect the rendered result
@@ -42,12 +44,15 @@ export default class Router{
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
 
-    // if we want a new instance every time we visit a page we instanciate here instead
+  // if we want a new instance every time we visit a page we instanciate here instead
 
+  detailedInfoAboutMovie() {
+    return detailedInfoAboutMovie.render();
+  }
 
-  default(){
+  default() {
     return startPage.render()
   }
 
-  
+
 }

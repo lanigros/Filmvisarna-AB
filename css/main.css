@@ -1,6 +1,10 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import "frontpage_banner.css";
 @import "startpage.css";
 @import "footer.css";
+@import "detailedInfoAboutMovies"; 
+@import "header(test-Mac).css";
 
 * {
   margin: 0;
@@ -11,3 +15,30 @@
   font-size: 12px;
   line-height: 20px;
 }
+
+body{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+  grid-template-columns: 1fr 80% 1fr;
+  grid-template-rows: 1fr 80% 1fr;  
+
+grid-template-areas:
+    "h h h "
+    ". c ."
+    "f f f"; 
+
+  background: radial-gradient(
+    circle,
+    rgba(133, 27, 27, 1) 0%,
+    rgba(27, 26, 26, 1) 100%
+  );
+}
+
+main{
+  grid-area: c;
+}
+
+
+
