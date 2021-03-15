@@ -1,16 +1,6 @@
+@import "/css/startpage.css";
+
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Open+Sans&family=Oswald:wght@700&display=swap");
-
-.hero-banner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-
-  grid-template-areas:
-    ". . . ."
-    ". . . ."
-    ". . . ."
-    ". . . .";
-}
 
 /*----BANNER CONTAINER-----*/
 .banner-Container {
