@@ -7,7 +7,7 @@ export default class Header {
           <nav>
             <div class="nav-left-items">
               <div class="nav-hamburger">
-                <a class="nav-hamburger-container" href="#">
+                <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.width = '250px';">
                   <img class="hamburger-btn" src="img/header/hamburger-icon.svg" alt=""></img>
                 </a>
               </div>
@@ -27,6 +27,13 @@ export default class Header {
             </div>
           </nav>
         </div>
+      </div>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.width = '0';">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
       </div>
     `
   }
