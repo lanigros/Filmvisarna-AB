@@ -2,6 +2,7 @@ export default class Header {
 
   render() {
     return /*html*/`
+    
       <div class="nav-container">
         <div class="wrapper">
           <nav>
@@ -28,6 +29,7 @@ export default class Header {
           </nav>
         </div>
       </div>
+     
     `
   }
 

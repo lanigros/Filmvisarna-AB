@@ -2,9 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import "banner.css";
 @import "header.css";
-@import "startpage.css";
 @import "footer.css";
-@import "detailedInfoAboutMovies";
+@import "detailedInfoAboutMovies.css";
 
 * {
   margin: 0;
