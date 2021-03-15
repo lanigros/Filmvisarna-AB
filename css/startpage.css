@@ -6,12 +6,12 @@ main {
   height: 100vh;
 
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);  
 
-  grid-template-areas:
+grid-template-areas:
     "h h h h h h h h h h h h"
     "h h h h h h h h h h h h"
-    ". . c c c c c c c c . ."
+    ". . b b b b b b b b . ."
     ". . b b b b b b b b . ."
     ". . b b b b b b b b . ."
     ". . c c c c c c c c . ."
@@ -21,7 +21,7 @@ main {
     ". . c c c c c c c c . ."
     ". . c c c c c c c c . ."
     ". . . . . . . . . . . ."
-    "f f f f f f f f f f f f";
+    "f f f f f f f f f f f f"; 
 
   background: radial-gradient(
     circle,
