@@ -7,7 +7,7 @@ export default class Header {
           <nav>
             <div class="nav-left-items">
               <div class="nav-hamburger">
-                <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.width = '250px';">
+                <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.width = '440px';">
                   <img class="hamburger-btn" src="img/header/hamburger-icon.svg" alt=""></img>
                 </a>
               </div>
@@ -30,10 +30,26 @@ export default class Header {
       </div>
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.width = '0';">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#">
+          <img class="alert-icon" src="img/side-nav/alert-icon.svg" alt=""></img>
+          NYHETER
+        </a>
+        <a href="#">
+          <img class="alert-icon" src="img/side-nav/movie-icon.svg" alt=""></img>
+          FILMER
+        </a>
+        <a href="#">
+          <img class="alert-icon" src="img/side-nav/ticket-icon.svg" alt=""></img>
+          BILJETTER
+        </a>
+        <a href="#">
+          <img class="alert-icon" src="img/side-nav/map-icon.svg" alt=""></img>
+          HITTA HIT
+        </a>
+        <a href="#">
+          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt=""></img>
+          PROFIL
+        </a>
       </div>
     `
   }
