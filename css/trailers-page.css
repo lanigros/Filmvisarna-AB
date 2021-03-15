@@ -1,3 +1,4 @@
+@import "main.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 .trailers {
@@ -8,11 +9,14 @@
   overflow-x: auto;
   font-family: Work Sans;
   width: 550px;
-  padding-bottom: 45% ;
+  padding-bottom: 30% ;
   
   position: relative;
-  top: 400px;
-  left: 400px ;
+  top: 250px;
+  left: 450px ;
+  grid-area: c;
+  overflow: scroll;
+  border-radius: 10px;
 }
 
 .trailers::-webkit-scrollbar {
@@ -29,9 +33,9 @@
 .TextForTrailers {
 font-family: Work Sans;
 color: rgb(255, 255, 255);
-font-size: 25px;
+font-size: 30px;
 position: relative;
-  top: 300px;
+  top: 250px;
   left: 600px ;
   letter-spacing: 2px;
 }

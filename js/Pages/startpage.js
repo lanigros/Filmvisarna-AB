@@ -3,7 +3,7 @@ export default class StartPage {
 
   async read() {
     this.movieInfo = await $.getJSON('/json/movies.json');
-  
+
 
   }
 
@@ -12,7 +12,7 @@ export default class StartPage {
     if (!this.movieInfo) {
       await this.read();
     }
-    
+
 
     return /*html*/ `
   
@@ -24,8 +24,18 @@ export default class StartPage {
     </div>
         <button class="order-btn">Se trailer</button>
     
-</div>    
+</div>
+
+<h1 class="TextForTrailers">Kommande filmer</h1>
+    <div class="trailers">
+      <div class="item"><img src="img/movieImg/avangers.jpg">BOX1</div>
+      <div class="item"><img src="img/movieImg/Inception-Banner.jpg">BOX2</div>
+      <div class="item"><img src="img/movieImg/Matrix-Banner.jpg">BOX3</div>
+      <div class="item"><img src="img/movieImg/Parasite-Banner.jpg">BOX4</div>
+      <div class="item"><img src="img/movieImg/TheDarkKnight-Banner.jpeg">BOX5</div>
+    </div>
   
   `
   }
+
 }

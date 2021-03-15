@@ -9,6 +9,13 @@ footer {
   width: 100vw;
   background-color: #1b1b1c;
   font-family: "Poppins", sans-serif;
+
+  position: fixed;
+  left: 0;
+  color: white;
+  text-align: center;
+
+
 }
 
 .footer_container {
