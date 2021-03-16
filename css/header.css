@@ -1,14 +1,26 @@
 @import "/css/main.css";
 
-.nav-container {
-  background: #262525;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 120px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2;
+header {
   grid-area: h;
+  display: flex;
+  /* position: relative;
+  top: 0; */
+  width: 100vw;
+  
+}
+
+.nav-container {
+  background-color: #1b1b1c;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-evenly;
+    align-content: center;
+  /* height: 120px;
+  position: fixed;
+  top: 0; */
+  padding: 0 10%;
+  width: 100%;
+  z-index: 1;
 }
 
 .nav-container a {
@@ -18,12 +30,11 @@
 }
 
 .wrapper {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 40px;
+  width: 100%;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%;
+  transform: translateY(-50%); */
+  
 }
 
 nav {
@@ -70,6 +81,6 @@ nav .nav-right-items {
   align-items: center;
   width: 102px;
   height: 40px;
-  background: #6c1e1e;
-  box-shadow: 0px 0px 14px 4px rgba(245, 112, 93, 0.25);
+  background: #6C1E1E;
+  box-shadow: 0px 0px 14px 4px rgba(15, 7, 6, 0.25);
 }

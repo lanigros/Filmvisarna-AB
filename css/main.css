@@ -9,6 +9,7 @@
 @import "header.css";
 @import "sidenav.css";
 @import "footer.css";
+@import "loginpage.css";
 @import "detailedInfoAboutMovies.css";
 
 * {
@@ -27,7 +28,7 @@ body {
   height: 100vh;
 
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 1fr 80% 1fr;
+  grid-template-rows: 10% auto 19%;
 
   grid-template-areas:
     "h h h "
