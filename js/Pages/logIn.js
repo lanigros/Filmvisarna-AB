@@ -10,9 +10,9 @@ export default class LogIn{
       
       <div class="Input-Container">
             <form>
-              <input type="Email" placeholder="Email adress" id="email" name="email">
+              <input type="Email" placeholder="Email adress" id="email" name="email" required>
               <br>
-              <input type="password" placeholder="Password" id="pswrd" name="pswrd">
+              <input type="password" placeholder="Password" id="pswrd" name="pswrd" required>
               <br>
               <input type="submit" value="Logga in" id="sub-btn">
             </form>
