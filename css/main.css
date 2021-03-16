@@ -4,6 +4,7 @@
 @import "header.css";
 @import "sidenav.css";
 @import "footer.css";
+@import "loginpage.css";
 @import "detailedInfoAboutMovies.css";
 
 * {
