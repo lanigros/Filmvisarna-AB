@@ -1,0 +1,9 @@
+.seating-container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}

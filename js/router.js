@@ -5,11 +5,13 @@ const changeListener = new ChangeListener();
 // imported pages
 import StartPage from "./pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
+import Booking from "./pages/booking.js";
 
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
+const booking = new Booking();
 
 
 
@@ -46,6 +48,10 @@ export default class Router {
 
   // if we want a new instance every time we visit a page we instanciate here instead
 
+  booking() {
+    return booking.render();
+  }
+
   detailedInfoAboutMovie() {
     return detailedInfoAboutMovie.render();
   }
@@ -53,6 +59,5 @@ export default class Router {
   default() {
     return startPage.render()
   }
-
 
 }

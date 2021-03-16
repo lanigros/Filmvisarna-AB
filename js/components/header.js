@@ -39,7 +39,7 @@ export default class Header {
           <img class="alert-icon" src="img/side-nav/movie-icon.svg" alt="">
           FILMER
         </a>
-        <a href="#">
+        <a href="#booking">
           <img class="alert-icon" src="img/side-nav/ticket-icon.svg" alt="">
           BILJETTER
         </a>

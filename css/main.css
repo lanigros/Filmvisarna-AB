@@ -5,6 +5,7 @@
 @import "sidenav.css";
 @import "footer.css";
 @import "detailedInfoAboutMovies.css";
+@import "booking.css";
 
 * {
   margin: 0;
@@ -38,4 +39,6 @@ body {
 
 main {
   grid-area: c;
+  /*need better solution*/
+  align-self: center;
 }
