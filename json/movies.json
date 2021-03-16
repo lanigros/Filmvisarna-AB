@@ -7,9 +7,9 @@
     ],
     "year": "2001",
     "genre": [
-      "Action",
-      "Äventyr",
-      "Drama"
+      "Action ",
+      " Äventyr ",
+      " Drama"
     ],
     "rated": "PG-13",
     "lenght": "2h 58min",
@@ -34,9 +34,9 @@
     ],
     "year": "2008",
     "genre": [
-      "Action",
-      "Crime",
-      "Drama"
+      "Action ",
+      " Crime ",
+      " Drama"
     ],
     "rated": "PG-13",
     "lenght": "2h 32min",
@@ -60,9 +60,9 @@
     ],
     "year": "2010",
     "genre": [
-      "Action",
-      "Äventyr",
-      "Sci-Fi"
+      "Action ",
+      " Äventyr ",
+      " Sci-Fi"
     ],
     "rated": "PG-13",
     "lenght": "2h 28min",
@@ -84,7 +84,7 @@
     "year": "1999",
     "genre": [
       "Action",
-      "Sci-Fi"
+      " Sci-Fi"
     ],
     "rated": "PG-13",
     "lenght": "2h 16min",
@@ -109,8 +109,8 @@
     "year": "2019",
     "genre": [
       "Drama",
-      "Thriller",
-      "Komedi"
+      " Thriller",
+      " Komedi"
     ],
     "rated": "PG-13",
     "lenght": "2h 16min",

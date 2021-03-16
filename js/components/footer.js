@@ -1,10 +1,10 @@
-export default class Footer{
+export default class Footer {
 
   render() {
 
     return /*html*/ `
   
-    <footer>
+    
     <div class="footer_container">
       <div class="footer_logo">      
           <img src="/img/logo/Filmvisarna logo 2.png" alt="Logotype">
@@ -25,9 +25,9 @@ export default class Footer{
       </div>      
       
     </div>
-  </footer>
+ 
   `;
-      
+
   }
 };
 
