@@ -1,10 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import "frontpage_banner.css";
-@import "startpage.css";
+@import "banner.css";
+@import "header.css";
+@import "sidenav.css";
 @import "footer.css";
-@import "detailedInfoAboutMovies.css"; 
-@import "header(test-Mac).css";
+@import "detailedInfoAboutMovies.css";
 
 * {
   margin: 0;
@@ -16,18 +16,18 @@
   line-height: 20px;
 }
 
-body{
+body {
   display: grid;
   width: 100vw;
   height: 100vh;
 
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 1fr auto 1fr;  
+  grid-template-rows: 1fr auto 1fr;
 
-grid-template-areas:
+  grid-template-areas:
     "h h h "
     ". c ."
-    "f f f"; 
+    "f f f";
 
   background: radial-gradient(
     circle,
@@ -36,9 +36,6 @@ grid-template-areas:
   );
 }
 
-main{
+main {
   grid-area: c;
 }
-
-
-

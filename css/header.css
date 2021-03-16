@@ -1,0 +1,75 @@
+@import "/css/main.css";
+
+.nav-container {
+  background: #262525;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  grid-area: h;
+}
+
+.nav-container a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+nav .nav-left-items {
+  display: flex;
+  align-items: center;
+}
+
+nav .nav-logo {
+  margin-left: 40px;
+}
+
+nav .nav-right-items {
+  display: flex;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.06em;
+  color: #ede8e8;
+}
+
+.nav-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 102px;
+  height: 40px;
+  margin-right: 32px;
+  border: 1px solid #ede8e8;
+  box-sizing: border-box;
+}
+
+.nav-create-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 102px;
+  height: 40px;
+  background: #6C1E1E;
+  box-shadow: 0px 0px 14px 4px rgba(15, 7, 6, 0.25);
+}
