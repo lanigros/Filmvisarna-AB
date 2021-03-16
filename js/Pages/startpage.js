@@ -1,12 +1,16 @@
+import Calender from '../components/elementsInStartPage/calender.js';
+
+const calender = new Calender();
 
 export default class StartPage {
-
 
   async read() {
     this.movieInfo = await $.getJSON('/json/movies.json');
   }
 
   async render() {
+
+    calender.render();
 
     if (!this.movieInfo) {
       await this.read();
@@ -21,11 +25,10 @@ export default class StartPage {
           <div class="banner-desc"><p>${this.movieInfo[0].description}</p></div>
         </div>
             <button class="order-btn">Se trailer</button>
-        
-      </div>      
-      
-  
-  `
+
+      </div>
+          `
+
   }
 }
 
