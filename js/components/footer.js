@@ -4,7 +4,6 @@ export default class Footer{
 
     return /*html*/ `
   
-    <footer>
     <div class="footer_container">
       <div class="footer_logo">      
           <img src="/img/logo/Filmvisarna logo 2.png" alt="Logotype">
@@ -23,9 +22,8 @@ export default class Footer{
         <a href="#"><img onmouseover="this.src='/img/logo/Instagram30x30-red.png'" onmouseout="this.src='/img/logo/Instagram30x30.png'" src="/img/logo/Instagram30x30.png"></a>
         <a href="#"><img onmouseover="this.src='/img/logo/Twitter30x30-red.png'" onmouseout="this.src='/img/logo/Twitter30x30.png'" src="/img/logo/Twitter30x30.png"></a>
       </div>      
-      
     </div>
-  </footer>
+  
   `;
       
   }

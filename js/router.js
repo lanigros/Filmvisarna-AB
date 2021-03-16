@@ -3,16 +3,18 @@ import ChangeListener from './ChangeListener.js';
 const changeListener = new ChangeListener();
 
 // imported pages
-import StartPage from "./pages/startpage.js";
+import StartPage from "./Pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
 import Booking from "./pages/booking.js";
 
+import LogIn from "./Pages/logIn.js";
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking();
 
+const logIn = new LogIn();
 
 
 export default class Router {
@@ -50,11 +52,13 @@ export default class Router {
 
   booking() {
     return booking.render();
-  }
+    logIn() {
+      return logIn.render();
+    }
 
-  detailedInfoAboutMovie() {
-    return detailedInfoAboutMovie.render();
-  }
+    detailedInfoAboutMovie() {
+      return detailedInfoAboutMovie.render();
+    }
 
   default() {
     return startPage.render()
