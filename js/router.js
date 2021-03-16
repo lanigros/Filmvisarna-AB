@@ -41,6 +41,8 @@ export default class Router {
   }
 
 
+
+
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
 
