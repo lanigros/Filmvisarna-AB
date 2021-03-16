@@ -3,14 +3,14 @@ import ChangeListener from './ChangeListener.js';
 const changeListener = new ChangeListener();
 
 // imported pages
-import StartPage from "./pages/startpage.js";
+import StartPage from "./Pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
-
+import LogIn from "./Pages/logIn.js";
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
-
+const logIn = new LogIn();
 
 
 export default class Router {
@@ -45,6 +45,10 @@ export default class Router {
   // Our pages (the method names matches the hashes with any slashes - removed)
 
   // if we want a new instance every time we visit a page we instanciate here instead
+
+  logIn() {
+    return logIn.render();
+  }
 
   detailedInfoAboutMovie() {
     return detailedInfoAboutMovie.render();
