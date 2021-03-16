@@ -36,6 +36,22 @@ color: rgb(255, 255, 255);
 font-size: 30px;
 position: relative;
   top: 250px;
-  left: 600px ;
+  left: 550px ;
   letter-spacing: 2px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 120%;
+}
+main {
+  flex-grow: 1;
+}
+
+main p:last-child {
+  display: none;
 }

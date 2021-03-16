@@ -26,6 +26,7 @@ body {
   display: grid;
   width: 100vw;
   height: 100vh;
+  
 
   grid-template-columns: 1fr 80% 1fr;
   grid-template-rows: 10% auto 19%;
