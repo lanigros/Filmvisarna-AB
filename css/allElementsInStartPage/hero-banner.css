@@ -4,12 +4,11 @@
 
 /*----BANNER CONTAINER-----*/
 .banner-Container {
-  width: 100%;
-  height: 45vh;
+  width: 100%;  
   margin: 0 auto;
   display: flex;
   position: relative;
-  top: 20rem;
+  top: 0;
   text-align: left;
   align-content: space-around;
 }
