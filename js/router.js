@@ -5,12 +5,12 @@ const changeListener = new ChangeListener();
 // imported pages
 import StartPage from "./Pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
-import LoginPage from "./Pages/loginpage.js";
+import LogIn from "./Pages/logIn.js";
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
-const loginPage = new LoginPage();
+const logIn = new LogIn();
 
 
 export default class Router {
@@ -46,8 +46,8 @@ export default class Router {
 
   // if we want a new instance every time we visit a page we instanciate here instead
 
-  loginPage() {
-    return loginPage.render();
+  logIn() {
+    return logIn.render();
   }
 
   detailedInfoAboutMovie() {

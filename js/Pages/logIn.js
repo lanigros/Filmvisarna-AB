@@ -1,4 +1,4 @@
-export default class LoginPage{
+export default class LogIn{
 
   render() {
     console.log('Helloo 2')
