@@ -15,10 +15,10 @@ export default class Booking {
       for (let j = 0; j < showingDetails[0].seating[i].length; j++) {
         if (showingDetails[0].seating[i][j] === 0) {
           layout += /*html*/`
-            <input type="checkbox" id='${i + " " + j}'>
-            <label for='${i + " " + j}'></label>
+            <input type="checkbox" id='${String.fromCharCode(65 + i) + " " + j}'>
+            <label for='${String.fromCharCode(65 + i) + " " + j}'></label>
           `
-        } else if (showingDetails[0].seating[i][j] === 1) {
+        } else if (showingDetails[0].seating[i][j] === 1 || showingDetails[0].seating[i][j] === 2) {
           layout += /*html*/`
             <input type="checkbox" disabled>
             <label></label>
