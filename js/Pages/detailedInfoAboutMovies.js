@@ -3,12 +3,15 @@ export default class DetailedInfoAboutMovie {
   async read() {
 
     this.movieInfo = await $.getJSON('/json/movies.json');
-
+    this.movieSchedule = await $.getJSON('/json/movieSchedule.json');
   }
 
   async render() {
 
     if (!this.movieInfo) {
+      await this.read();
+    }
+    if (!this.movieSchedule) {
       await this.read();
     }
 
@@ -24,15 +27,22 @@ export default class DetailedInfoAboutMovie {
         <div class="movie_duration_lenght"><h1>${this.movieInfo[0].lenght}</h1></div>
         <div class="movie_genre"><h1>${this.movieInfo[0].genre}</h1></div>
        
+      
         <div class="movie_trailer_container">
           <!-- Copy & Pasted from YouTube -->
           <iframe width="560" height="349" src="${this.movieInfo[0].youtubeTrailers}" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <div class="movie_desc_container"><p>${this.movieInfo[0].description}</p>
-        </div>
-        
-        <button class="order-btn">Se trailer</button>
+        <div class="movie_desc_container">
+        <p>${this.movieInfo[0].description}</p>
+            <br>
+            <p>Salong: ${this.movieSchedule[4].auditorium}</p>     
+             <P>Nästa tillfälle: ${this.movieSchedule[4].date}</P>     
+              <P>Klockan: ${this.movieSchedule[4].time}</P>       
+                </div>                 
+                   
+                   
+                <button class="order-btn">Boka biljetter</button>
         
         
         
