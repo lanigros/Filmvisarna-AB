@@ -52,13 +52,15 @@ export default class Router {
 
   booking() {
     return booking.render();
-    logIn() {
-      return logIn.render();
-    }
+  }
 
-    detailedInfoAboutMovie() {
-      return detailedInfoAboutMovie.render();
-    }
+  logIn() {
+    return logIn.render();
+  }
+
+  detailedInfoAboutMovie() {
+    return detailedInfoAboutMovie.render();
+  }
 
   default() {
     return startPage.render()
