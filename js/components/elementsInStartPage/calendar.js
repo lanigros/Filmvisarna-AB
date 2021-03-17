@@ -12,21 +12,26 @@ export default class Calendar {
     if (!this.schedule && !this.movieInfo) {
       await this.read();
     }
-
     this.buildCalendar();
   }
+
+  pickedDate;
 
 
   buildCalendar() {
 
+    console.log(this.schedule)
+
     $("main").append(`
     <div class="calendar-Container">
           <div class="calendar"></div>
-          <div class="lilla-salongen-container"><h1>HEEEEEEEEJ</h1></div>
-          <div class="stora-salongen-container"><h1>HEEEEEEEEJ</h1></div>
+          <div class="lilla-salongen-container"><h1>Lilla salongen</h1></div>
+          <div class="stora-salongen-container"><h1>Stora salongen</h1></div>
       </div >`);
 
     console.log("build calendar")
+
+    let dates = [];
 
     //Adding all 31 days in month into "calandar_Container" with own divs.
     for (let day = 1; day <= 31; day++) {
@@ -38,14 +43,35 @@ export default class Calendar {
         name = `<div class="name">${dayName}</div>`;
       }
 
-      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name}   <button class="btn-show-calender">${day}</button>  </div>`);
+      let datum = new Date(2021, 3, day + 1).toISOString().split('T')[0];
+      dates.push(datum);
+
+      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name} <button value="${datum}" class="btn-show-calender">${day}</button>  </div>`);
     }
+
+    $('.btn-show-calender').click(function () {
+      pickedDate = $(this).val();
+      console.log(pickedDate);
+
+      return pickedDate;
+
+    })
+
+  }
+
+  testing() {
+
+
 
   }
 
 
-  
 
 }
+
+
+
+
+
 
 
