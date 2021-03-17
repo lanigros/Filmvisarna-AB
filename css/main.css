@@ -6,6 +6,7 @@
 @import "footer.css";
 @import "loginpage.css";
 @import "detailedInfoAboutMovies.css";
+@import "/css/allElementsInStartPage/calendar.css";
 
 
 * {
@@ -29,7 +30,7 @@ body {
   grid-template-areas:
     "h h h "
     ". c ."
-    ". calender ."
+    ". calendar ."
     "f f f";
 
   background: radial-gradient(

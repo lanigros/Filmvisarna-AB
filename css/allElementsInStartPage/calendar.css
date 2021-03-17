@@ -1,0 +1,19 @@
+@import '/css/main.css'; 
+
+.body > main > div.calandar-Container{
+  grid-area: calendar;
+  display: inline-block;
+  max-width: 50px;
+}
+
+
+body > main > div.calandar-Container > div {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows:repeat(5, 1fr);
+  height: 100%;
+  width: 25%;
+  background-color: rgb(163, 163, 163);
+  justify-items: center;
+}
+

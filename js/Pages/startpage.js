@@ -1,6 +1,6 @@
-import Calender from '../components/elementsInStartPage/calender.js';
+import Calendar from '../components/elementsInStartPage/calendar.js';
 
-const calender = new Calender();
+const calendar = new Calendar();
 
 export default class StartPage {
 
@@ -9,8 +9,6 @@ export default class StartPage {
   }
 
   async render() {
-
-    calender.render();
 
     if (!this.movieInfo) {
       await this.read();
@@ -27,6 +25,9 @@ export default class StartPage {
             <button class="order-btn">Se trailer</button>
 
       </div>
+
+      ${calendar.render()}
+
           `
 
   }
