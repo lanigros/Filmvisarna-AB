@@ -14,26 +14,43 @@
   width: 100%;
   display: inline-block;
   justify-content: center;
-  position: relative;
-  width: 700px;
+  max-width: 610px;
   border-radius: 10px;
-margin: 380px 200px ;
-  
+  position: relative;
   -webkit-overflow-scrolling: touch;
-  
   font-family: Work Sans;
   font-size: 20px;
+  border-radius: 10px;
 }
 
-  .item {
+.trailers::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(27, 26, 26, 1);
+}
+
+.trailers::-webkit-scrollbar {
+  width: 12px;
+  background-color:rgba(27, 26, 26, 1);
+}
+
+.trailers::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rgb(134, 127, 127);
+}
+.title {
+  font-size: 30px;
+  font-family: Work Sans;
+  color: aliceblue;
+  position: relative;
+  margin-top: 300px;
+}
+
+  .trailers .item {
     display: inline-block;
     flex: 0 0 auto;
-  }
-  body > main > div > div{
-  justify-self: center;
-}
-h1 {
-  grid-area: c;
-  color: rgb(255, 255, 255);
-}
+    
+  border-radius: 10px;
 
+  }
