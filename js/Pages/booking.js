@@ -15,11 +15,13 @@ export default class Booking {
       for (let j = 0; j < showingDetails[0].seating[i].length; j++) {
         if (showingDetails[0].seating[i][j] === 0) {
           layout += /*html*/`
-            <input type="checkbox">
+            <input type="checkbox" id='${i + " " + j}'>
+            <label for='${i + " " + j}'></label>
           `
         } else if (showingDetails[0].seating[i][j] === 1) {
           layout += /*html*/`
             <input type="checkbox" disabled>
+            <label></label>
           `
         }
       }
@@ -29,7 +31,7 @@ export default class Booking {
     }
 
     layout += /*html*/`
-        <div class="row">
+        <div class="text-row">
           <em>Välj din plats</em>
         </div>
       </div>

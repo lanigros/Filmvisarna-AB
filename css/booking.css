@@ -3,7 +3,49 @@
   grid-template-columns: auto;
 }
 
-input[type="checkbox"] {
-  height: 20px;
-  width: 20px;
+/* style the "screen" border line */
+.screen-row {
+  padding-bottom: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.text-row {
+  margin-top: 16px;
+}
+
+.text-row em {
+  font-size: 20px;
+}
+
+.row {
+  margin-bottom: -10px; /* how spread out the seats are vertically */
+}
+
+.seating-container input[type="checkbox"] {
+  visibility: hidden; /* hide the default checkbox in order to make a new one */
+  margin-right: -24px; /* how spread out the seats are horizontally */
+  margin-top: -30px
+}
+
+/* styling of the seat boxes */
+.seating-container input[type="checkbox"] + label:before {
+  background-color: white;
+  border: 2px solid black;
+  content: '';
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin: 4px;
+}
+
+.seating-container input[type="checkbox"]:checked + label:before {
+  background: rgb(86, 235, 111);
+}
+
+.seating-container input[type="checkbox"]:disabled + label:before {
+  border: 2px solid rgb(92, 85, 85);
+  background: rgb(92, 85, 85);
 }
