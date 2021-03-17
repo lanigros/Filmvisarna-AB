@@ -25,7 +25,7 @@ export default class Calendar {
 
   buildCalendar() {
 
-    console.log(this.schedule)
+    
 
     $("main").append(`
     <div class="calendar-Container">
@@ -34,11 +34,11 @@ export default class Calendar {
           <div class="stora-salongen-container"><h1>Stora salongen</h1></div>
       </div >`);
 
-    console.log("build calendar")
+    
 
     let dates = [];
-
-    //Adding all 31 days in month into "calandar_Container" with own divs.
+    console.log(dates)
+    //Adding all 31 days in month into "calendar_Container" with own divs.
     for (let day = 1; day <= 31; day++) {
 
       const weekend = isWeekend(day);
@@ -52,7 +52,10 @@ export default class Calendar {
       
       dates.push(datum);
 
-      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name} <button value="${datum}" class="btn-show-calender">${day}</button>  </div>`);
+      $('.calendar').append(`
+      <div class="day ${weekend ? "weekend" : ""}">${name}
+        <button value="${datum}" class="btn-show-calender">${day}</button> 
+      </div>`);
     }
 
     // $('.btn-show-calender').click(function () {
@@ -81,6 +84,8 @@ export default class Calendar {
           console.log('Dagen : ', detailedMovieInfo.weekday)
           
 
+        } if (test !== detailedMovieInfo.date) {
+          console.log('Vi spelar inga filmer denna dagen! Fr.o.m den 12/4 öppnar vi salongerna!')
         }
       });
       
