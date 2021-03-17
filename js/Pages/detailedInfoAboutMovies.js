@@ -3,12 +3,12 @@ export default class DetailedInfoAboutMovie {
   async read() {
 
     this.movieInfo = await $.getJSON('/json/movies.json');
-
+    this.movieDetail = await $.getJSON('/json/movieSchedule.json')
   }
 
   async render() {
 
-    if (!this.movieInfo) {
+    if (!this.movieInfo && !this.movieDetail) {
       await this.read();
     }
 
@@ -30,12 +30,24 @@ export default class DetailedInfoAboutMovie {
         </div>
 
         <div class="movie_desc_container"><p>${this.movieInfo[0].description}</p>
+        <br>
+        <p>Salong: ${this.movieDetail[4].auditorium}</p>
+        <P>Nästa tillfälle: ${this.movieDetail[4].date}</P>
+        <P>Klockan: ${this.movieDetail[4].time}</P>
         </div>
         
-        <button class="order-btn">Se trailer</button>
+        <button class="order-btn">Boka biljetter</button>
         
         
         
         `
   }
 }
+
+
+//
+//  "auditorium": "Stora Salongen",
+//     "film": "Lord of the Rings: The Fellowship of the Ring",
+//     "date": "2021-04-13",
+//     "weekday": "tisdag",
+//     "time": "17.00"
