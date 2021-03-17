@@ -4,7 +4,7 @@ export default class Calendar {
 
   constructor() {
     this.eventHandeler();
-}
+  }
 
   async read() {
     this.schedule = await $.getJSON('/json/movieSchedule.json');
@@ -20,9 +20,6 @@ export default class Calendar {
     this.buildCalendar();
   }
 
-
-
-
   buildCalendar() {
 
     console.log(this.schedule)
@@ -36,60 +33,67 @@ export default class Calendar {
 
     console.log("build calendar")
 
+    $('.calendar').append(`<div class="selectedMonth_container"></div>`);
+    $('.selectedMonth_container').append(`<div class="previousMonth"> < </div>`);
+    $('.selectedMonth_container').append(`<div class="selectedMonth"> Feb </div>`);
+    $('.selectedMonth_container').append(`<div class="nextMonth"> > </div>`);
+
+    $('.calendar').append(`<div class="nameOfDay"> Mon </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Tue </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Wed </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Thu </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Fri </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Sat </div>`);
+    $('.calendar').append(`<div class="nameOfDay"> Sun </div>`);
+
+    for (let i = 0; i < 7; i++) {
+
+      let datum = new Date(2021, 3, i);
+      let x = datum.getDay();
+      console.log(datum)
+      console.log(x);
+    }
+
     let dates = [];
 
     //Adding all 31 days in month into "calandar_Container" with own divs.
     for (let day = 1; day <= 31; day++) {
 
-      const weekend = isWeekend(day);
-      let name = "";
-      if (day <= 7) {
-        const dayName = getDayName(day);
-        name = `<div class="name">${dayName}</div>`;
+      if (day < 4) {
+        $('.calendar').append(`<div class="notAvailable">  </div>`);
+        continue;
       }
 
+      const weekend = isWeekend(day);
+
       let datum = new Date(2021, 3, day + 1).toISOString().split('T')[0];
-      
+
       dates.push(datum);
 
-      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name} <button value="${datum}" class="btn-show-calender">${day}</button>  </div>`);
+      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}"> <button value="${datum}" class="btn-show-calender">${day}</button> </div>`);
     }
-
-    // $('.btn-show-calender').click(function () {
-    //   let pickedDate = $(this.schedule).val();
-    //   console.log(pickedDate);
-
-
-    // })
 
   }
 
-    eventHandeler(){
-      $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
-    }
+  eventHandeler() {
+    $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
+  }
 
-    renderSaloonInfo(event){
-      let test = event.target.value;
-      this.schedule.forEach(detailedMovieInfo => {
+  renderSaloonInfo(event) {
+    console.log(event);
+    let test = event.target.value;
+    this.schedule.forEach(detailedMovieInfo => {
 
+      if (test === detailedMovieInfo.date) {
+        console.log('I salong : ', detailedMovieInfo.auditorium)
+        console.log('Film som spelas : ', detailedMovieInfo.film)
+        console.log('Tid: ', detailedMovieInfo.time)
+        console.log('Datum : ', detailedMovieInfo.date)
+        console.log('Dagen : ', detailedMovieInfo.weekday)
+      }
+    });
 
-        if (test === detailedMovieInfo.date) {
-          console.log('I salong : ', detailedMovieInfo.auditorium)
-          console.log('Film som spelas : ', detailedMovieInfo.film)
-          console.log('Tid: ', detailedMovieInfo.time)
-          console.log('Datum : ', detailedMovieInfo.date)
-          console.log('Dagen : ', detailedMovieInfo.weekday)
-          
-
-        }
-      });
-      
-    }
-
-
-
-
-  
+  }
 }
 
 

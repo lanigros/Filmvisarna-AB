@@ -7,6 +7,7 @@ const isWeekend = day => {
 const getDayName = day => {
 
   const date = new Date(2021, 3, day);
+  console.log(date);
 
   return new Intl.DateTimeFormat("sv-SE", { weekday: "short" }).format(date);
 
