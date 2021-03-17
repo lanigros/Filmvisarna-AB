@@ -18,10 +18,7 @@ body > main > div.calendar-Container > div {
   width: 100%;
   background-color: transparent;
   justify-items: center;
-}
-
-.day {
-  background-color: rgb(227, 227, 228);
+  align-items: center;
 }
 
 .btn-show-calendar {

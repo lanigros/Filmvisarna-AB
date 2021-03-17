@@ -84,9 +84,8 @@ export default class Calendar {
           console.log('Dagen : ', detailedMovieInfo.weekday)
           
 
-        } if (test !== detailedMovieInfo.date) {
-          console.log('Vi spelar inga filmer denna dagen! Fr.o.m den 12/4 öppnar vi salongerna!')
-        }
+        } 
+        
       });
       
     }
