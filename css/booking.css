@@ -32,7 +32,7 @@
 
 /* styling of the seat boxes */
 .seating-container input[type="checkbox"] + label:before {
-  background-color: white;
+  background-color: #ede8e8;
   border: 2px solid black;
   content: '';
   display: inline-block;
