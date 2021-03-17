@@ -3,16 +3,13 @@ import { isWeekend, getDayName } from "./date-helper.js";
 export default class Calendar {
 
   async read() {
-    this.movieInfo = await $.getJSON('/json/movies.json');
+    this.movieSchedule = await $.getJSON('./json/movieSchedule.json')
   }
 
-  async render() {
+  render(movieInfo) {
 
-    if (!this.movieInfo) {
-      await this.read();
-    }
-
-    this.buildCalendar();
+    /* buildCalendar(); */
+    console.log(movieInfo[0].title)
 
   }
 
