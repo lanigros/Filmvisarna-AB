@@ -28,7 +28,7 @@ export default class StartPage {
 
       ${calendar.render()}
 
-          `
+      `
 
   }
 }
