@@ -3,8 +3,9 @@ import { isWeekend, getDayName } from "./date-helper.js";
 export default class Calendar {
 
   async read() {
-    this.schedule = await $.getJSON('/json/movieSchedule.json');
+    
     this.movieInfo = await $.getJSON('/json/movies.json');
+    this.schedule = await $.getJSON('/json/movieSchedule.json');
   }
 
   async render() {
@@ -22,8 +23,11 @@ export default class Calendar {
     $("main").append(`
     <div class="calendar-Container">
           <div class="calendar"></div>
-          <div class="lilla-salongen-container"><h1>HEEEEEEEEJ</h1></div>
-          <div class="stora-salongen-container"><h1>HEEEEEEEEJ</h1></div>
+          <div class="lilla-salongen-container"><h1>Lilla Salongen</h1>
+          <div class="ongoing-Movies"></div>
+          </div>
+          <div class="stora-salongen-container"><h1>Stora Salongen</h1>
+          </div>
       </div >`);
 
     console.log("build calendar")
@@ -41,11 +45,11 @@ export default class Calendar {
       $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name}   <button class="btn-show-calender">${day}</button>  </div>`);
     }
 
+    const data = this.schedule;
+    
+    $.each(data, function(i, name) {
+    alert(item.name);
+    });
+
   }
-
-
-  
-
 }
-
-
