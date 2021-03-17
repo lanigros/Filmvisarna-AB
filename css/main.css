@@ -1,12 +1,15 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import "/css/allElementsInStartPage/hero-banner.css";
+
+@import "/css/allElementsInStartPage/hero-banner.css";@import "/css/allElementsInStartPage/showMoviesPickedFromCalender.css";
+@import "/css/allElementsInStartPage/calendar.css";
+
 @import "header.css";
 @import "sidenav.css";
 @import "footer.css";
 @import "loginpage.css";
 @import "detailedInfoAboutMovies.css";
-@import "/css/allElementsInStartPage/calendar.css";
+
 
 
 * {

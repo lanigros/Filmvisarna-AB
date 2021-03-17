@@ -1,5 +1,4 @@
 import { isWeekend, getDayName } from "./date-helper.js";
-
 export default class Calendar {
 
   async read() {
@@ -14,7 +13,6 @@ export default class Calendar {
 
     this.buildCalendar();
   }
-
 
 
   buildCalendar() {
@@ -34,10 +32,18 @@ export default class Calendar {
         name = `<div class="name">${dayName}</div>`;
       }
 
-      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name}   <a href="#">${day}</a>   </div>`);
+      $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name}   <button class="btn-show-calender">${day}</button>  </div>`);
     }
 
   }
+
+
+  calendarShow() {
+
+  }
+
+
+
 }
 
 
