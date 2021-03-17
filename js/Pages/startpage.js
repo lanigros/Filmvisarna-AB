@@ -25,14 +25,13 @@ export default class StartPage {
         <button class="order-btn">Se trailer</button>
     
 </div>
-
-<h1 class="TextForTrailers">Kommande filmer</h1>
     <div class="trailers">
+<h1 src="title">Kommande Filmer</h1>
       <div class="item"><img src="img/movieImg/avangers.jpg">BOX1</div>
-      <div class="item"><img src="img/movieImg/Inception-Banner.jpg">BOX2</div>
-      <div class="item"><img src="img/movieImg/Matrix-Banner.jpg">BOX3</div>
-      <div class="item"><img src="img/movieImg/Parasite-Banner.jpg">BOX4</div>
-      <div class="item"><img src="img/movieImg/TheDarkKnight-Banner.jpeg">BOX5</div>
+      <div class="item"><img src="img/movieImg/avangers.jpg">BOX2</div>
+      <div class="item"><img src="img/movieImg/avangers.jpg">BOX3</div>
+      <div class="item"><img src="img/movieImg/avangers.jpg">BOX4</div>
+      <div class="item"><img src="img/movieImg/avangers.jpg">BOX5</div>
     </div>
   
   `

@@ -1,57 +1,39 @@
 @import "main.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+
 .trailers {
-  max-height: 200px;
-  border: 1px solid rgb(0, 0, 0);
-  display: flex;
-  color: rgb(245, 0, 0);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+    display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto;
-  font-family: Work Sans;
-  width: 550px;
-  padding-bottom: 30% ;
-  
+ grid-area: c;
+  width: 100%;
+  display: inline-block;
+  justify-content: center;
   position: relative;
-  top: 250px;
-  left: 450px ;
-  grid-area: c;
-  overflow: scroll;
+  width: 700px;
   border-radius: 10px;
+margin: 380px 200px ;
+  
+  -webkit-overflow-scrolling: touch;
+  
+  font-family: Work Sans;
+  font-size: 20px;
 }
 
-.trailers::-webkit-scrollbar {
-  width: 0;
+  .item {
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+  body > main > div > div{
+  justify-self: center;
+}
+h1 {
+  grid-area: c;
+  color: rgb(255, 255, 255);
 }
 
-.trailers .item {
-  min-width: 180px;
-  height: 250px;
-  text-align: center;
-  background-color: rgb(0, 0, 0);
-  margin-right: 2px;
-}
-.TextForTrailers {
-font-family: Work Sans;
-color: rgb(255, 255, 255);
-font-size: 30px;
-position: relative;
-  top: 250px;
-  left: 550px ;
-  letter-spacing: 2px;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 120%;
-}
-main {
-  flex-grow: 1;
-}
-
-main p:last-child {
-  display: none;
-}
