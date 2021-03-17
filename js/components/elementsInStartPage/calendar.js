@@ -2,6 +2,10 @@ import { isWeekend, getDayName } from "./date-helper.js";
 
 export default class Calendar {
 
+  constructor() {
+    this.eventHandeler();
+}
+
   async read() {
     this.schedule = await $.getJSON('/json/movieSchedule.json');
     this.movieInfo = await $.getJSON('/json/movies.json');
@@ -12,10 +16,11 @@ export default class Calendar {
     if (!this.schedule && !this.movieInfo) {
       await this.read();
     }
+
     this.buildCalendar();
   }
 
-  pickedDate;
+
 
 
   buildCalendar() {
@@ -44,29 +49,47 @@ export default class Calendar {
       }
 
       let datum = new Date(2021, 3, day + 1).toISOString().split('T')[0];
+      
       dates.push(datum);
 
       $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}">${name} <button value="${datum}" class="btn-show-calender">${day}</button>  </div>`);
     }
 
-    $('.btn-show-calender').click(function () {
-      pickedDate = $(this).val();
-      console.log(pickedDate);
-
-      return pickedDate;
-
-    })
-
-  }
-
-  testing() {
+    // $('.btn-show-calender').click(function () {
+    //   let pickedDate = $(this.schedule).val();
+    //   console.log(pickedDate);
 
 
+    // })
 
   }
 
+    eventHandeler(){
+      $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
+    }
+
+    renderSaloonInfo(event){
+      let test = event.target.value;
+      this.schedule.forEach(detailedMovieInfo => {
 
 
+        if (test === detailedMovieInfo.date) {
+          console.log('I salong : ', detailedMovieInfo.auditorium)
+          console.log('Film som spelas : ', detailedMovieInfo.film)
+          console.log('Tid: ', detailedMovieInfo.time)
+          console.log('Datum : ', detailedMovieInfo.date)
+          console.log('Dagen : ', detailedMovieInfo.weekday)
+          
+
+        }
+      });
+      
+    }
+
+
+
+
+  
 }
 
 

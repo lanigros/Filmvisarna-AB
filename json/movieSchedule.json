@@ -17,7 +17,7 @@
     "auditorium": "Stora Salongen",
     "film": "Inception",
     "date": "2021-04-12",
-    "Weekdays": "måndag",
+    "weekday": "måndag",
     "time": "21.00"
   },
   {
@@ -164,7 +164,7 @@
     "auditorium": "Stora Salongen",
     "film": "Inception",
     "date": "2021-04-19",
-    "Weekdays": "måndag",
+    "weekday": "måndag",
     "time": "21.00"
   },
   {
@@ -311,7 +311,7 @@
     "auditorium": "Stora Salongen",
     "film": "Lord of the Rings: The Fellowship of the Ring",
     "date": "2021-04-26",
-    "Weekdays": "måndag",
+    "weekday": "måndag",
     "time": "21.00"
   },
   {
@@ -458,7 +458,7 @@
     "auditorium": "Stora Salongen",
     "film": "Lord of the Rings: The Fellowship of the Ring",
     "date": "2021-05-03",
-    "Weekdays": "måndag",
+    "weekday": "måndag",
     "time": "21.00"
   },
   {
