@@ -1,7 +1,21 @@
 export default class LogIn{
 
-  render() {
+  constructor() {
+    this.eventHadeler();
+  }
+
+  async read() {
+    this.account = await $.getJSON("./json/account.json");
+  }
+
+
+  async render() {
   
+    if (!this.account) {
+      await this.read()
+    }
+    console.log(this.account)
+
     return `
     
     <div class="Login-Container">
@@ -46,5 +60,23 @@ export default class LogIn{
     `
    
   }
+
+  eventHadeler() {
+    $('main').on("click", "#crt-btn", () => {
+      var newEmail = $('#crt-email').val();
+      var newPswrd = $('#crt-pswrd').val();
+      var newName = $('#fname').val();
+      var newLastName = $('#lname').val();
+      console.log(newEmail, newPswrd, newLastName, newName)
+      //createNewUser(newEmail, newPswrd, newName, newLastName);
+    });
+  }
+
+  // createNewUser(newEmail, newPswrd, newName, newLastName) {
+  //   let newUserInfo = [newEmail, newPswrd, newName, newLastName];
+  //   console.log(newUserInfo);
+  // }
+
+
 
 }
