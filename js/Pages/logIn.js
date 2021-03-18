@@ -51,8 +51,6 @@ export default class LogIn{
                   <input type="Text" placeholder="Efternamn" id="lname" name="lname" required>
                   <br>
                   <input type="submit" value="Skapa" id="crt-btn">
-
-                  
                 </form>
               </div>
           </div>
@@ -64,7 +62,6 @@ export default class LogIn{
   }
 
   eventHandeler() {
-console.log('Aktiverad eventhandler ja')
 
     $('main').on("submit", "#reg-form", (event) => {
       event.preventDefault();
