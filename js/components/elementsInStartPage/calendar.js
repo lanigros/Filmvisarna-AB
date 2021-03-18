@@ -128,11 +128,11 @@ export default class Calendar {
     let day = 0;
 
     for (let i = howManyDaysToSkip; i > 0; i--) {
-      $('.calendar').append(`<div class="notAvailable"> - </div>`);
+      $('.calendar').append(`<div class="notAvailable"></div>`);
     }
 
     //Adding all 31 days in month into "calendar_Container" with own divs.
-    for (let i = 1; i <= 31; i++) {
+    for (let i = 1; i <= howManyDaysToLoop; i++) {
 
       day++;
 
