@@ -6,7 +6,6 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 108px;
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  z-index: 999;
 }
 
 /* The navigation menu links */
