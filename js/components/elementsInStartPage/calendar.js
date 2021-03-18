@@ -1,4 +1,4 @@
-import { isWeekend, getDayName } from "./date-helper.js";
+import { isWeekend, getDayName, daysInMonth } from "./date-helper.js";
 
 export default class Calendar {
 
@@ -30,9 +30,9 @@ export default class Calendar {
       </div >`);
 
     $('.calendar').append(`<div class="selectedMonth_container"></div>`);
-    $('.selectedMonth_container').append(`<div class="previousMonth"> < </div>`);
+    $('.selectedMonth_container').append(`<button class="btn_previousMonth"> < show previous month </button>`);
     $('.selectedMonth_container').append(`<div class="selectedMonth"> Feb </div>`);
-    $('.selectedMonth_container').append(`<div class="nextMonth"> > </div>`);
+    $('.selectedMonth_container').append(`<button class="btn_nextMonth"> show next month> </button>`);
 
     $('.calendar').append(`<div class="nameOfDay"> Mon </div>`);
     $('.calendar').append(`<div class="nameOfDay"> Tue </div>`);
@@ -42,21 +42,30 @@ export default class Calendar {
     $('.calendar').append(`<div class="nameOfDay"> Sat </div>`);
     $('.calendar').append(`<div class="nameOfDay"> Sun </div>`);
 
+    //This loop sets the
     for (let i = 0; i < 7; i++) {
 
       let datum = new Date(2021, 3, i);
-      let x = datum.getDay();
+      let x = datum.getMonth();
       console.log(datum)
-      console.log(x);
+      console.log("x =", x);
+      console.log(daysInMonth(2021, x));
+
     }
 
     let dates = [];
     console.log(dates)
-    //Adding all 31 days in month into "calendar_Container" with own divs.
-    for (let day = 1; day <= 31; day++) {
 
-      if (day < 4) {
+    let day = 0;
+
+    //Adding all 31 days in month into "calendar_Container" with own divs.
+    for (let i = 1; i <= 34; i++) {
+
+      day++;
+
+      if (i < 4) {
         $('.calendar').append(`<div class="notAvailable">  </div>`);
+        day--;
         continue;
       }
 
@@ -73,6 +82,8 @@ export default class Calendar {
 
   eventHandeler() {
     $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
+    $('main').on("click", ".btn_previousMonth", (event) => this.renderSaloonInfo(event));
+    $('main').on("click", ".btn_nexyMonth", (event) => this.renderSaloonInfo(event));
   }
 
   renderSaloonInfo(event) {

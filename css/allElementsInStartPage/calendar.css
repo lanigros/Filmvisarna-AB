@@ -1,7 +1,7 @@
 @import "/css/main.css";
 
 .calendar-Container {
-  grid-area: c;
+  grid-area: ca;
   display: grid;
   width: 100%;
   height: auto;
@@ -23,12 +23,18 @@ body > main > div.calendar-Container > div {
 }
 
 body > main > div.calendar-Container > div.calendar > div.selectedMonth_container{
-  grid-column: 1 / end;
+  grid-column: 1 / 8;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  text-align: center;
 }
 body > main > div.calendar-Container > div.calendar > div.selectedMonth_container *{
   display: inline-block;
+}
+
+body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > .previousMonth:hover{
+  background-color: red;
+  cursor: pointer;
 }
 
 body > main > div.calendar-Container > div.calendar > div > div{
