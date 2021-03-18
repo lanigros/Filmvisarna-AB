@@ -17,4 +17,10 @@ function daysInMonth(year, month) {
   return new Date(year, month, 0).getDate();
 }
 
-export { isWeekend, getDayName, daysInMonth };
+function getCurrentMonth() {
+  return new Date().toLocaleString('default', { month: 'long' });
+}
+
+
+
+export { isWeekend, getDayName, daysInMonth, getCurrentMonth };

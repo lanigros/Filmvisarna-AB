@@ -1,4 +1,4 @@
-import { isWeekend, getDayName, daysInMonth } from "./date-helper.js";
+import { isWeekend, getDayName, daysInMonth, getCurrentMonth } from "./date-helper.js";
 
 export default class Calendar {
 
@@ -31,7 +31,7 @@ export default class Calendar {
 
     $('.calendar').append(`<div class="selectedMonth_container"></div>`);
     $('.selectedMonth_container').append(`<button class="btn_previousMonth"> < show previous month </button>`);
-    $('.selectedMonth_container').append(`<div class="selectedMonth"> Feb </div>`);
+    $('.selectedMonth_container').append(`<div class="selectedMonth"> ${getCurrentMonth()} </div>`);
     $('.selectedMonth_container').append(`<button class="btn_nextMonth"> show next month> </button>`);
 
     $('.calendar').append(`<div class="nameOfDay"> Mon </div>`);
@@ -42,19 +42,49 @@ export default class Calendar {
     $('.calendar').append(`<div class="nameOfDay"> Sat </div>`);
     $('.calendar').append(`<div class="nameOfDay"> Sun </div>`);
 
-    //This loop sets the
+
     for (let i = 0; i < 7; i++) {
 
       let datum = new Date(2021, 3, i);
+
       let x = datum.getMonth();
-      console.log(datum)
+      let z = getCurrentMonth();
+      console.log("datum = ", datum)
+      console.log("current month = ", z);
       console.log("x =", x);
       console.log(daysInMonth(2021, x));
 
     }
+    this.renderDatesInCalendar();
+  }
+
+  eventHandeler() {
+    $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
+    $('main').on("click", ".btn_previousMonth", (event) => this.renderSaloonInfo(event));
+    $('main').on("click", ".btn_nextMonth", (event) => this.renderSaloonInfo(event));
+  }
+
+  renderSaloonInfo(event) {
+    console.log(event);
+    let test = event.target.value;
+    this.schedule.forEach(detailedMovieInfo => {
+
+      if (test === detailedMovieInfo.date) {
+        console.log('I salong : ', detailedMovieInfo.auditorium)
+        console.log('Film som spelas : ', detailedMovieInfo.film)
+        console.log('Tid: ', detailedMovieInfo.time)
+        console.log('Datum : ', detailedMovieInfo.date)
+        console.log('Dagen : ', detailedMovieInfo.weekday)
+      }
+    });
+
+  }
+
+  renderDatesInCalendar() {
+    console.log("Fired from renderDatesInCalendar");
 
     let dates = [];
-    console.log(dates)
+    console.log("fhda", dates)
 
     let day = 0;
 
@@ -77,30 +107,8 @@ export default class Calendar {
 
       $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}"> <button value="${datum}" class="btn-show-calender">${day}</button> </div>`);
     }
-
   }
 
-  eventHandeler() {
-    $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
-    $('main').on("click", ".btn_previousMonth", (event) => this.renderSaloonInfo(event));
-    $('main').on("click", ".btn_nexyMonth", (event) => this.renderSaloonInfo(event));
-  }
-
-  renderSaloonInfo(event) {
-    console.log(event);
-    let test = event.target.value;
-    this.schedule.forEach(detailedMovieInfo => {
-
-      if (test === detailedMovieInfo.date) {
-        console.log('I salong : ', detailedMovieInfo.auditorium)
-        console.log('Film som spelas : ', detailedMovieInfo.film)
-        console.log('Tid: ', detailedMovieInfo.time)
-        console.log('Datum : ', detailedMovieInfo.date)
-        console.log('Dagen : ', detailedMovieInfo.weekday)
-      }
-    });
-
-  }
 }
 
 
