@@ -25,8 +25,6 @@ export default class Calendar {
 
   buildCalendar() {
 
-    
-
     $("main").append(`
     <div class="calendar-Container">
           <div class="calendar"></div>
@@ -34,8 +32,7 @@ export default class Calendar {
           <div class="stora-salongen-container"><h1>Stora salongen</h1></div>
       </div >`);
 
-    
-
+  
     let dates = [];
     console.log(dates)
     //Adding all 31 days in month into "calendar_Container" with own divs.
@@ -57,13 +54,6 @@ export default class Calendar {
         <button value="${datum}" class="btn-show-calender">${day}</button> 
       </div>`);
     }
-
-    // $('.btn-show-calender').click(function () {
-    //   let pickedDate = $(this.schedule).val();
-    //   console.log(pickedDate);
-
-
-    // })
 
   }
 
