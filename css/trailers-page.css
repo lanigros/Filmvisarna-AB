@@ -17,11 +17,11 @@
   font-size: 20px;
   border-radius: 10px;
 max-width: 610px;
+max-height: 610px;
   position: relative;
-  margin-top:  66rem;
-
+  margin-top:  25rem;
+margin-right: 5rem;
   margin-bottom: 5rem;
-  left: -77.3rem;
   
 }
 .trailers::-webkit-scrollbar-track {

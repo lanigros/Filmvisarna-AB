@@ -26,7 +26,6 @@ export default class StartPage {
     
 </div>
 
-    <h1 class="title"> Kommande Filmer</h1>
     <div class="trailers">
       <div class="item"><img src="img/movieImg/joker.jpg"></div>
       <div class="item"><img src="img/movieImg/avangers.jpg"></div>
