@@ -1,3 +1,5 @@
+@import "/css/main.css";
+
 .seating-container {
   display: grid;
   grid-template-columns: auto;
@@ -13,11 +15,33 @@
 }
 
 .text-row {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .text-row em {
   font-size: 20px;
+}
+
+.button-row {
+  margin-top: 4px;
+}
+
+.button-row .booking-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(138, 131, 131);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 102px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.button-row .booking-btn:hover {
+  background-color: rgb(107, 103, 103);
+  cursor: pointer;
 }
 
 .row {

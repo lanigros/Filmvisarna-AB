@@ -77,6 +77,9 @@ export default class Booking {
         <div class="text-row">
           <em>Välj din plats</em>
         </div>
+        <div class="button-row">
+          <a class="booking-btn" href="#">BOK NU</a>
+        </div>
       </div>
     `
 
