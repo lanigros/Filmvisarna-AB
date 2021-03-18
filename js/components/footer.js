@@ -1,4 +1,5 @@
-export default class Footer{
+export default class Footer {
+
 
   render() {
 
@@ -24,9 +25,11 @@ export default class Footer{
       </div>      
     </div>
   
+    
   `;
-      
+
   }
+
 };
 
 

@@ -1,0 +1,56 @@
+@import "/css/main.css";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+
+.trailers {
+  white-space: nowrap;
+    display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+ grid-area: c;
+  width: 100%;
+  display: inline-block;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: Work Sans;
+  font-size: 20px;
+  border-radius: 10px;
+max-width: 610px;
+max-height: 610px;
+  position: relative;
+  margin-top:  1rem;
+  margin-bottom: 5rem;
+  
+}
+.trailers::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(27, 26, 26, 1);
+}
+
+.trailers::-webkit-scrollbar {
+  width: 12px;
+  background-color:rgba(27, 26, 26, 1);
+}
+
+.trailers::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rgb(134, 127, 127);
+}
+.title {
+  font-size: 30px;
+  font-family: Work Sans;
+  color: aliceblue;
+    margin-top: 5rem;
+
+  position: relative;
+}
+
+  .trailers .item {
+    display: inline-block;
+    flex: 0 0 auto;
+  border-radius: 10px;
+
+  }

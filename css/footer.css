@@ -9,6 +9,8 @@ footer {
   width: 100vw;
   background-color: #1b1b1c;
   font-family: "Poppins", sans-serif;
+  
+
 }
 
 .footer_container {
@@ -62,3 +64,4 @@ footer > div > div.footer_socialmedia {
   align-self: center;
   width: 15%;
 }
+
