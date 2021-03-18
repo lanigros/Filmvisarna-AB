@@ -1,6 +1,5 @@
 @import "/css/main.css";
 
-
 footer {
   grid-area: f;
   display: flex;
@@ -9,8 +8,6 @@ footer {
   width: 100vw;
   background-color: #1b1b1c;
   font-family: "Poppins", sans-serif;
-  
-
 }
 
 .footer_container {
@@ -23,7 +20,7 @@ footer {
 }
 /* -------------------Selects all children below footer--------------------- */
 footer > div * {
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 footer > div > div.footer_logo > div {
@@ -64,4 +61,3 @@ footer > div > div.footer_socialmedia {
   align-self: center;
   width: 15%;
 }
-

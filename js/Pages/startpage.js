@@ -27,15 +27,16 @@ export default class StartPage {
     
 </div>
 
-
-<div class="title">Kommande Filmer</div>
-    <div class="trailers">
-      <div class="item"><img src="img/movieImg/joker.jpg"></div>
-      <div class="item"><img src="img/movieImg/avangers.jpg"></div>
-      <div class="item"><img src="img/movieImg/kong.jpg"></div>
-      <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
-      <div class="item"><img src="img/movieImg/dora.jpg"></div>
-  </div>
+  <div class="trailer-wrapper">
+    <div class="title">Kommande Filmer</div>
+        <div class="trailers">
+          <div class="item"><img src="img/movieImg/joker.jpg"></div>
+          <div class="item"><img src="img/movieImg/avangers.jpg"></div>
+          <div class="item"><img src="img/movieImg/kong.jpg"></div>
+          <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
+          <div class="item"><img src="img/movieImg/dora.jpg"></div>
+        </div>
+  </div>  
 
 ${calendar.render()}
   
