@@ -51,7 +51,7 @@ export default class Router {
   // if we want a new instance every time we visit a page we instanciate here instead
 
   booking() {
-    return booking.render('booking/dk-ls-210412-1900.json');
+    return booking.render('booking/dk-ss-210412-1700.json');
   }
 
   logIn() {

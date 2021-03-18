@@ -1,59 +1,66 @@
 export default class Booking {
 
   constructor(changeListener) {
-    this.file
+    /* this.file is the file the showing JSON file that is being ready at a given time */
+    this.file;
     this.changeListener = changeListener;
     this.addEventHandlers();
   }
 
   addEventHandlers() {
-    // Listen to clicks on the add person button => run addPerson
-    $('body').on('click', '.seating-container input[type="checkbox"] + label', () => this.updateBookingJSON(this.file));
-    // Listen to changes to persons.json => run read
-    this.changeListener.on(this.file, () => this.reRender(this.file));
+    // Listen to changes on checkboxes => run updateBookingJSON
+    $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingJSON(event));
   }
 
-  async read(file) {
+  async read() {
     // Read data from a JSON file
-    this.showingDetails = await JSON._load(file);
-    console.log('Read');
-    console.table(this.showingDetails);
+    this.showingDetails = await JSON._load(this.file);
   }
 
   // custom method for rerendering without route change
-  reRender(file) {
-    this.read(file);
-    $('main').html(this.render(file));
+  async reRender() {
+    await this.read();
+    $('main').append(this.render(this.file));
   }
 
   async render(file) {
-    this.file = file;
-    console.log('rendering')
-    if (!this.showingDetails) {
-      await this.read(file)
+    /* if we're accessing a different file, read new file and add change listener */
+    /* also remove change listener from old file */
+    if (this.file !== file) {
+      this.changeListener.remove(this.file);//remove old file listener
+      this.file = file;//update file we're looking at
+      await this.read(file);//read new file
+      this.changeListener.on(this.file, () => this.reRender());//add listener on new file
     }
+    /* add heading part of seating chart */
     let layout = /*html*/`
       <div class="seating-container">
         <div class="screen-row">
           <h1>SKÄRM</h1>
         </div>
     `
+    /* add seating/checkboxes part of seating chart */
     for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
       layout += /*html*/`
         <div class="row">
       `
       for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
+        /* convert i and j into the ticket number for a seat */
+        /* this can be used for the checkbox ID among other things */
         let id = String.fromCharCode(65 + i) + " " + (j + 1);
+        /* populate seat if available */
         if (this.showingDetails[0].seating[i][j] === 0) {
           layout += /*html*/`
             <input type="checkbox" id='${id}'>
             <label for='${id}'></label>
           `
+          /* populate seat if currently being selected */
         } else if (this.showingDetails[0].seating[i][j] === 1) {
           layout += /*html*/`
             <input type="checkbox" id='${id}' checked>
             <label for='${id}'></label>
           `
+          /* populate seat if already taken */
         } else {
           layout += /*html*/`
             <input type="checkbox" id='${id}' disabled>
@@ -65,7 +72,7 @@ export default class Booking {
         </div>
       `
     }
-
+    /* closing tags and footer part of seating chart */
     layout += /*html*/`
         <div class="text-row">
           <em>Välj din plats</em>
@@ -76,25 +83,24 @@ export default class Booking {
     return layout;
   }
 
-  async updateBookingJSON(file) {
-    let checkboxes = document.querySelectorAll('.seating-container input[type = "checkbox"]');
-    let count = 0;
-    console.table(checkboxes);
-    for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
-      for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
-        if (checkboxes[count].disabled == true) {
-          this.showingDetails[0].seating[i][j] = 2;
-        } else if (checkboxes[count].checked == true) {
-          this.showingDetails[0].seating[i][j] = 1;
-        } else {
-          this.showingDetails[0].seating[i][j] = 0;
-        }
-        count++;
-      }
+  async updateBookingJSON(event) {
+    let checkbox = event.target;
+    let value = checkbox.id;
+    /* convert the ticket number (value) into the index numbers used in the seating chart array */
+    value = value.split(" ");
+    value[0] = value[0].charCodeAt(0) - 65;
+    value[1]--;
+
+    /* update the status of the checkbox (seat) in the seating chart array */
+    if (checkbox.disabled == true) {
+      this.showingDetails[0].seating[value[0]][value[1]] = 2;
+    } else if (checkbox.checked == true) {
+      this.showingDetails[0].seating[value[0]][value[1]] = 1;
+    } else {
+      this.showingDetails[0].seating[value[0]][value[1]] = 0;
     }
     // Save the data to a JSON file
-    await JSON._save(file, this.showingDetails);
-    console.log('Saved');
+    await JSON._save(this.file, this.showingDetails);
   }
 
 }

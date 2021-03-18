@@ -19,6 +19,16 @@ export default class ChangeListener {
     this.events.push({ file, func });
   }
 
+  // Removes all events for a given file
+  remove(file) {
+    for (let i = 0; i < this.events.length; i++) {
+      if (this.events[i].file === file) {
+        this.events.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
   fileChange(filePath) {
     // Loop through registered events and call them on file match
     this.events.forEach(({ file, func }) => {
