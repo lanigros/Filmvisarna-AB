@@ -1,5 +1,5 @@
 import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentMonthInString, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
-import { } from "./littleSalon.js";
+import { buildLittleSalon } from "./littleAndBigSalon-calendar.js";
 
 var pickedMonthInCalandar = getCurrentMonthInNumber();
 console.log("start:", pickedMonthInCalandar)
@@ -29,8 +29,8 @@ export default class Calendar {
     $("main").append(`
     <div class="calendar-Container">
           <div class="calendar"></div>
-          <div class="lilla-salongen-container"><h1>Lilla salongen</h1></div>
-          <div class="stora-salongen-container"><h1>Stora salongen</h1></div>
+          <div class="lilla-salongen-container"></div>
+          <div class="stora-salongen-container"></div>
       </div >`);
 
     $('.calendar').append(`<div class="selectedMonth_container"></div>`);
@@ -47,8 +47,12 @@ export default class Calendar {
     $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sat </p> </div>`);
     $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sun </p> </div>`);
 
+    buildLittleSalon();
+
     this.renderDatesInCalendar(pickedMonthInCalandar);
   }
+
+
 
   eventHandeler() {
     $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
@@ -62,6 +66,8 @@ export default class Calendar {
     this.schedule.forEach(detailedMovieInfo => {
 
       if (test === detailedMovieInfo.date) {
+
+        $('.txtholder-date-litleSalon').append(detailedMovieInfo.date)
 
         console.log('I salong : ', detailedMovieInfo.auditorium)
         console.log('Film som spelas : ', detailedMovieInfo.film)
