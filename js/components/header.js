@@ -20,10 +20,10 @@ export default class Header {
             </div>
             <div class="nav-right-items">
               <div>
-                <a class="nav-login-container" href="#loginpage">LOGGA IN</a>
+                <a class="nav-login-container" href="#logIn">LOGGA IN</a>
               </div>
               <div>
-                <a class="nav-create-container" href="#">NYTT KONTO</a>
+                <a class="nav-create-container" href="#logIn">NYTT KONTO</a>
               </div>
             </div>
           </nav>
