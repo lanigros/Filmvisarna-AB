@@ -40,6 +40,6 @@ body {
 
 main {
   grid-area: c;
-  /*need better solution*/
-  align-self: center;
+  /* Centering Matt's seating chart, need a better solution
+  align-self: center;*/
 }
