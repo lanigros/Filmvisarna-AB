@@ -10,17 +10,22 @@ const getDayName = day => {
   console.log(date);
 
   return new Intl.DateTimeFormat("sv-SE", { weekday: "short" }).format(date);
-
 }
 
-function daysInMonth(year, month) {
+function getDaysInMonth(year, month) {
   return new Date(year, month, 0).getDate();
 }
 
-function getCurrentMonth() {
+function getCurrentMonthInString() {
   return new Date().toLocaleString('default', { month: 'long' });
 }
 
+function getCurrentMonthInNumber() {
+  return new Date().getMonth();
+}
 
+function getCurrentYear() {
+  return new Date().getFullYear();
+}
 
-export { isWeekend, getDayName, daysInMonth, getCurrentMonth };
+export { isWeekend, getDayName, getDaysInMonth, getCurrentMonthInString, getCurrentMonthInNumber, getCurrentYear };
