@@ -2,6 +2,7 @@ export default class LogIn{
 
   constructor() {
     this.eventHandeler();
+    this.createNewUser();
   }
 
   async read() {
@@ -14,7 +15,7 @@ export default class LogIn{
     if (!this.account) {
       await this.read()
     }
-    console.log(this.account)
+  
 
     return `
     
@@ -69,19 +70,35 @@ export default class LogIn{
       var newPswrd = $("#crt-pswrd").val();
       var newName = $("#fname").val();
       var newLastName = $("#lname").val();
-      console.log("klickad button startat create");
 
-       createNewUser(newEmail, newPswrd, newName, newLastName);
+      let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName });
+
+      
+      this.createNewUser(newUserInfo);
+      
+      
+      
     });
   }
 
-   createNewUser(newEmail, newPswrd, newName, newLastName) {
-    
-     newUser = JSON.stringify({Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName});
-    
-     this.account.push(newUser);
+   async createNewUser(info) {
+     
+     console.log(info);
 
-     console.log(this.account);
+     let test = JSON.stringify(info)
+     console.log(test)
+     
+     this.account[0].push(test)
+
+     console.log(account)
+    
+    
+    //var completeInfo = JSON.parse(info);
+     //console.log(completeInfo)
+    
+     //newUser.this.account.push({ newUserInfo });
+    // account[0]
+     //await JSON._save('./json/account.json', this.account);
    }
 
 
@@ -89,3 +106,5 @@ export default class LogIn{
 }
 
 /*<input type="submit" value="Skapa" id="crt-btn">*/
+
+// yourObj.theTeam.push({"teamId":"4","status":"pending"});
