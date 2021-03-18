@@ -9,7 +9,10 @@
   grid-template-rows: 100%;
   grid-template-areas: "cl ls ss";
   justify-content: space-between;
+  font-family: Poppins;
 }
+
+/* --------- THE CALENDAR ------------ */
 
 body > main > div.calendar-Container > div {
   grid-area: cl;
@@ -18,62 +21,118 @@ body > main > div.calendar-Container > div {
   grid-template-rows: 30px 30px repeat(5, 1fr);
   height: 100%;
   width: 100%;
-  background-color: transparent;
+  background-color: red;
   justify-items: center;
+  border-radius: 10px;
+}
+
+body > main > div.calendar-Container > div.calendar > div {  
+  height: 100%;
+  width: 100%;
+
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+
 }
 
 body > main > div.calendar-Container > div.calendar > div.selectedMonth_container{
   grid-column: 1 / 8;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
 }
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container *{
-  display: inline-block;
+
+body > main > div.calendar-Container > div.calendar > div.nameOfDay_container{
+    grid-column: 1 / 8;    
+    display: flex;
+    width: 100%;
+    justify-content: auto;
+    align-items: center; 
+    
 }
+
+body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > div > p{
+  color: aliceblue;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+/* /* This is needed when pressing the buttons */
+body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > div > div > p{
+  color: aliceblue;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 5px;
+} 
+
+body > main > div.calendar-Container > div.calendar > div.nameOfDay_container > div:nth-child(7) > p{
+  color: rgb(255, 92, 92);
+}
+
+body > main > div.calendar-Container > div.calendar > div.nameOfDay_container > div {
+  width: inherit;
+}
+
+
+body > main > div.calendar-Container > div.calendar > div.nameOfDay_container > div > p{
+  color: rgb(255, 255, 255);  
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;  
+  font-size: 15px;
+}
+
+
+
+
+body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > button{
+  width: 30%;
+  font-size: 15px;
+}
+
+/* ------ buttons  ------ */
+
+body > main > div.calendar-Container > div.calendar > div > button{
+  cursor: pointer;  
+  border: none;   
+  border-radius: 30px;  
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;  
+  font-size: 20px; 
+}
+
+/* ------ hoover effects  ------ */
 
 body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > .previousMonth:hover{
   background-color: red;
   cursor: pointer;
 }
 
-body > main > div.calendar-Container > div.calendar > div > div{
-  display: block;
-}
-
-body > main > div.calendar-Container > div.calendar > div{
-  justify-self: center;
-  align-self: center;
-  text-align: center;
-}
-
-body > main > div.calendar-Container > div.calendar > div {
-  background-color: rgb(227, 227, 228);
-  height: 100%;
-  width: 100%;
-}
-body > main > div.calendar-Container > div.calendar > div > button{
-  height: 100%;
-  width: 100%;  
-  font-size: 20px;
-}
-
-
-.btn-show-calendar {
-  height: 100%;
-  width: 100%;
-  align-self: center;
-  justify-self: center;
-  
-}
-
-body > main > div.calendar-Container > div.calendar > div > button{
-  cursor: pointer;
-}
-
 body > main > div.calendar-Container > div.calendar > div > button:hover{
-  background-color: rgb(241, 1, 1);
+  color:red;  
 }
+
+/* --------- END OF CALENDAR  ------------ */
+
+
+
+
+
+
+
+}
+/* --------- CALENDAR BUTTONS ------------ */
+body > main > div.calendar-Container > div.calendar > div{
+  border: none;
+  border-radius: 20px;
+}
+
+
+
+/* --------- SALON ------------ */
 
 body > main > div.calendar-Container > div.lilla-salongen-container {
   grid-area: ls;

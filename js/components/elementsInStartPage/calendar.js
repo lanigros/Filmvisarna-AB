@@ -33,17 +33,18 @@ export default class Calendar {
       </div >`);
 
     $('.calendar').append(`<div class="selectedMonth_container"></div>`);
-    $('.selectedMonth_container').append(`<button class="btn_previousMonth"> < show previous month </button>`);
-    $('.selectedMonth_container').append(`<div class="selectedMonth" value="${getCurrentMonthInNumber() + 1}"> ${getThePickedMonth(pickedMonthInCalandar)} </div>`);
-    $('.selectedMonth_container').append(`<button class="btn_nextMonth"> show next month> </button>`);
+    $('.selectedMonth_container').append(`<button class="btn_previousMonth"><</button>`);
+    $('.selectedMonth_container').append(`<div class="selectedMonth"> <p>${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
+    $('.selectedMonth_container').append(`<button class="btn_nextMonth"> > </button>`);
 
-    $('.calendar').append(`<div class="nameOfDay"> Mon </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Tue </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Wed </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Thu </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Fri </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Sat </div>`);
-    $('.calendar').append(`<div class="nameOfDay"> Sun </div>`);
+    $('.calendar').append(`<div class="nameOfDay_container"></div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Mon </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Tue </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Wed </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Thu </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Fri </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sat </p> </div>`);
+    $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sun </p> </div>`);
 
     this.renderDatesInCalendar(pickedMonthInCalandar);
   }
@@ -79,7 +80,7 @@ export default class Calendar {
 
       pickedMonthInCalandar--;
       calcStartDayOfSpecificMonth(pickedMonthInCalandar);
-      $('.selectedMonth').html(`<div class="selectedMonth" value="${getCurrentMonthInNumber() + 1}"> ${getThePickedMonth(pickedMonthInCalandar)} </div>`);
+      $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
 
@@ -95,7 +96,7 @@ export default class Calendar {
       $('.notAvailable').replaceWith("");
 
       pickedMonthInCalandar++;
-      $('.selectedMonth').html(`<div class="selectedMonth" value="${getCurrentMonthInNumber() + 1}"> ${getThePickedMonth(pickedMonthInCalandar)} </div>`);
+      $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)} </p></div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
 
