@@ -1,7 +1,7 @@
 export default class LogIn{
 
   constructor() {
-    this.eventHadeler();
+    this.eventHandeler();
   }
 
   async read() {
@@ -41,7 +41,7 @@ export default class LogIn{
       <div class="Title-Container"><h1>Nytt konto</h1></div>
       
       <div class="Input-Container">
-                <form>
+                <form id="reg-form">
                   <input type="Email" placeholder="Email adress" id="crt-email" name="email" required>
                   <br>
                   <input type="password" placeholder="Lösenord (8-16 tecken)" id="crt-pswrd" name="pswrd" required>
@@ -51,6 +51,8 @@ export default class LogIn{
                   <input type="Text" placeholder="Efternamn" id="lname" name="lname" required>
                   <br>
                   <input type="submit" value="Skapa" id="crt-btn">
+
+                  
                 </form>
               </div>
           </div>
@@ -61,22 +63,32 @@ export default class LogIn{
    
   }
 
-  eventHadeler() {
-    $('main').on("click", "#crt-btn", () => {
-      var newEmail = $('#crt-email').val();
-      var newPswrd = $('#crt-pswrd').val();
-      var newName = $('#fname').val();
-      var newLastName = $('#lname').val();
-      console.log(newEmail, newPswrd, newLastName, newName)
-      //createNewUser(newEmail, newPswrd, newName, newLastName);
+  eventHandeler() {
+console.log('Aktiverad eventhandler ja')
+
+    $('main').on("submit", "#reg-form", (event) => {
+      event.preventDefault();
+      var newEmail = $("#crt-email").val();
+      var newPswrd = $("#crt-pswrd").val();
+      var newName = $("#fname").val();
+      var newLastName = $("#lname").val();
+      console.log("klickad button startat create");
+
+       createNewUser(newEmail, newPswrd, newName, newLastName);
     });
   }
 
-  // createNewUser(newEmail, newPswrd, newName, newLastName) {
-  //   let newUserInfo = [newEmail, newPswrd, newName, newLastName];
-  //   console.log(newUserInfo);
-  // }
+   createNewUser(newEmail, newPswrd, newName, newLastName) {
+    
+     newUser = JSON.stringify({Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName});
+    
+     this.account.push(newUser);
+
+     console.log(this.account);
+   }
 
 
 
 }
+
+/*<input type="submit" value="Skapa" id="crt-btn">*/
