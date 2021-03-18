@@ -1,4 +1,5 @@
 import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentMonthInString, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
+import { } from "./littleSalon.js";
 
 var pickedMonthInCalandar = getCurrentMonthInNumber();
 console.log("start:", pickedMonthInCalandar)
@@ -61,6 +62,7 @@ export default class Calendar {
     this.schedule.forEach(detailedMovieInfo => {
 
       if (test === detailedMovieInfo.date) {
+
         console.log('I salong : ', detailedMovieInfo.auditorium)
         console.log('Film som spelas : ', detailedMovieInfo.film)
         console.log('Tid: ', detailedMovieInfo.time)
@@ -140,6 +142,8 @@ export default class Calendar {
 
     }
   }
+
+
 
 }
 
