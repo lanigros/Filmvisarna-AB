@@ -57,7 +57,7 @@ export default class Router {
   // if we want a new instance every time we visit a page we instanciate here instead
 
   confirmation() {
-    return confirmation.render();
+    return confirmation.render(booking.showingDetails, booking.latestBookedSeats);
   }
 
   booking() {
