@@ -3,7 +3,11 @@
 .seating-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto repeat(4, min-content) auto;/* keep the seating/text content close to each other */
+  grid-template-rows: auto repeat(5, min-content) auto;/* keep the seating/text content close to each other */
+}
+
+.movie-details-row em {
+  font-size: 20px;
 }
 
 /* style the "screen" border line */

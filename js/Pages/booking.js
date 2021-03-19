@@ -36,6 +36,9 @@ export default class Booking {
     let layout = /*html*/`
       <div class="seating-container">
         <div class="buffer"></div>
+        <div class="movie-details-row">
+          <em>${this.showingDetails[0].film}: ${this.showingDetails[0].date} (${this.showingDetails[0].time})</em>
+        </div>
         <div class="screen-row">
           <h1>SKÄRM</h1>
         </div>
