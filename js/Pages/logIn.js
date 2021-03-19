@@ -29,7 +29,7 @@ export default class LogIn {
                 <br>
                 <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
                 <br>
-                <input type="submit" value="Logga in" id="sub-btn">
+                <input type="submit" value="Logga in" id="log-btn">
               </form>
           </div>
       </div>
@@ -64,11 +64,11 @@ export default class LogIn {
 
   eventHandeler() {
     $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
+    $('main').on('submit', '#log-btn', () => this.logInUser);
   }
 
-  async createNewUser(event) {
-    // event.preventDefault();
-
+  async createNewUser() {
+  
     let newEmail = $("#crt-email").val();
     let newPswrd = $("#crt-pswrd").val();
     let newName = $("#fname").val();
@@ -81,5 +81,10 @@ export default class LogIn {
     alert('Ditt konto har skapats!')
   }
 
+  logInUser() {
+
+    
+
+  }
 
 }
