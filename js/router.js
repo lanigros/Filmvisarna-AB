@@ -6,15 +6,15 @@ const changeListener = new ChangeListener();
 import StartPage from "./Pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
 import Booking from "./pages/booking.js";
-
 import LogIn from "./Pages/logIn.js";
 
+// imported utility classes
+import FileFunctions from "./fileFunctions.js";
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking(changeListener);
-
 const logIn = new LogIn();
 
 
