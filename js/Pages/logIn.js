@@ -1,9 +1,14 @@
+import Header from '../components/header.js';
+
+const header = new Header();
+
 export default class LogIn {
 
   constructor() {
     this.regHandeler();
     this.logHandeler();
   }
+
 
   async read() {
     this.account = await $.getJSON("./json/account.json");
@@ -88,19 +93,31 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-   
+    var activeUser = "";
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
       
       this.account.forEach(user => {
         if (logEmail === user.Email && logPswrd === user.Password) {
           console.log('Login success!');
-        } else
-          console.log('Log in failed.');
-    });
-
-    
-
+          activeUser = user.Email;
+          this.activeMember(activeUser);
+          
+          return false;
+        } 
+         
+    });   
   }
+
+  activeMember(activeUser) {
+    console.log(activeUser);
+    $('.nav-right-items').replaceWith(`
+     Välkommen ${activeUser}
+    <a class="active-user-profile" href="#">
+    <img src="./img/side-nav/vector-icon.svg"></a>`);
+    
+  
+  }
+
 
 }
