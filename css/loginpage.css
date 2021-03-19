@@ -91,14 +91,6 @@
   line-height: 1em;
 }
 
-.success-account {
-  grid-area: sa;
-  color: aliceblue;
-  background: aliceblue;
-  width: 100%;
-  height: 100%;
-}
-
 .Input-Container {
   grid-area: i;
   display: flex;
