@@ -1,5 +1,5 @@
 import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentMonthInString, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
-import { buildLittleSalon, renderInfoIntoLittleSalon, clearInfoOnLittleSalon } from "./littleAndBigSalon-calendar.js";
+import { renderInfoIntoSalons, buildStructurOfBothSalonsIntoCalendar } from "./littleAndBigSalon-calendar.js";
 
 var pickedMonthInCalandar = getCurrentMonthInNumber();
 console.log("start:", pickedMonthInCalandar)
@@ -22,15 +22,14 @@ export default class Calendar {
     }
 
     this.buildCalendar();
+    buildStructurOfBothSalonsIntoCalendar();
   }
 
   buildCalendar() {
 
     $("main").append(`
     <div class="calendar-Container">
-          <div class="calendar"></div>
-          <div class="lilla-salongen-container"></div>
-          <div class="stora-salongen-container"></div>
+          <div class="calendar"></div>        
       </div >`);
 
     $('.calendar').append(`<div class="selectedMonth_container"></div>`);
@@ -47,8 +46,6 @@ export default class Calendar {
     $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sat </p> </div>`);
     $('.nameOfDay_container').append(`<div class="nameOfDay"><p> Sun </p> </div>`);
 
-    buildLittleSalon();
-
     this.renderDatesInCalendar(pickedMonthInCalandar);
   }
 
@@ -62,8 +59,6 @@ export default class Calendar {
   renderSaloonInfo(event) {
     /* console.log(event); */
 
-    clearInfoOnLittleSalon();
-
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
 
@@ -74,7 +69,7 @@ export default class Calendar {
     });
 
     console.log(temporarilyMovieList)
-    renderInfoIntoLittleSalon(temporarilyMovieList);
+    renderInfoIntoSalons(temporarilyMovieList);
 
 
     /* 

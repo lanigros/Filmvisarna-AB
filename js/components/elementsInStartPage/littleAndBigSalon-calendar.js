@@ -1,45 +1,89 @@
 
+function buildStructurOfBothSalonsIntoCalendar() {
 
-function buildLittleSalon() {
+  console.log("called buildStructurOfBothSalonsIntoCalendar function")
 
-  console.log("written by: buildLittleSalon")
+  $('.calendar-Container').append(`<div class="bothSalons-container"></div>`);
 
-  $('.lilla-salongen-container').append(`
-    <div class="titleOfSalon"> <h1> Lilla salongen</h1>
-      <div class="txtholder-date-litleSalon"></div>
-      <div class="txtholder-movieTitle-litleSalon"></div>
-    </div>      
+  $('.bothSalons-container').append(`
+  <div class="little-salon-container">
+    <div class="titleOfSalon"> <h1> Lilla salongen</h1></div>
+    <div class="movieInfo-container-calendarSalon">
+      <div class="txtholder-movieDate-calendarSalon"></div>
+      <div class="txtholder-movieTitle-calendarSalon"></div>
+      <div class="txtholder-movieTime-calendarSalon"></div>
+    </div>
+  </div>  
+  `);
 
-  `
-  );
+  $('.bothSalons-container').append(`
+  <div class="big-salon-container">
+    <div class="titleOfSalon"> <h1>Stora salongen</h1></div>
+    <div class="movieInfo-container-calendarSalon">
+      <div class="txtholder-movieDate-calendarSalon"></div>
+      <div class="txtholder-movieTitle-calendarSalon"></div>
+      <div class="txtholder-movieTime-calendarSalon"></div>
+    </div>
+  </div>
+  `);
 }
 
-function renderInfoIntoLittleSalon(jsonFile) {
+function renderInfoIntoSalons(jsonFile) {
 
-  $('.txtholder-date-litleSalon').append(`    
-    <p>Datum: ${jsonFile[0].date}</p>
-  `
-  );
+  clearTheSalons();
+
+  if (jsonFile.length === 0) {
+    $('.little-salon-container').append(`      
+      <div class="txtholder-movieTitle-calendarSalon">Tyvärr, inga filmer visas idag.</div>`);
+    $('.big-salon-container').append(`      
+      <div class="txtholder-movieTitle-calendarSalon">Tyvärr, inga filmer visas idag.</div>`);
+    return;
+  }
+
+  $('.little-salon-container').append(`
+    <div class="txtholder-movieDate-calendarSalon">
+      <p>Datum: ${jsonFile[0].date}</p>
+    </div>`);
+  $('.big-salon-container').append(`
+     <div class="txtholder-movieDate-calendarSalon">
+      <p>Datum: ${jsonFile[0].date}</p>
+    </div>`);
 
   jsonFile.forEach(movie => {
 
-    console.log("yoo");
-
     if (movie.auditorium === "Lilla Salongen") {
-
-      $('.txtholder-movieTitle-litleSalon').append(`
-      <p>${movie.film}</p>
+      $('.little-salon-container').append(`      
+      <div class="txtholder-movieTitle-calendarSalon"><p> ${movie.film} </p></div>
+      <div class="txtholder-movieTime-calendarSalon"><p> ${movie.time}</p></div>
+      <button class="btn-salon-calendar">Boka</button>
+      <button class="btn-salon-calendar">Om filmen</button>
+      
       `)
+    }
 
+    if (movie.auditorium === "Stora Salongen") {
+      $('.big-salon-container').append(`      
+      <div class="txtholder-movieTitle-calendarSalon"><p> ${movie.film} </p></div>
+      <div class="txtholder-movieTime-calendarSalon"><p> ${movie.time}</p></div>
+      <button class="btn-salon-calendar">Boka</button>
+      <button class="btn-salon-calendar">Om filmen</button>
+      `)
     }
 
   });
 }
 
-function clearInfoOnLittleSalon() {
-  $('.txtholder-date-litleSalon p').replaceWith("");
-  $('.txtholder-movieTitle-litleSalon p').replaceWith("");
+function clearTheSalons() {
+
+  console.log("clearTheSalons function:");
+
+  $('.little-salon-container').html(`
+    <div class="titleOfSalon"> <h1>Lilla salongen</h1></div>    
+  `)
+
+  $('.big-salon-container').html(`
+    <div class="titleOfSalon"> <h1>Stora salongen</h1></div> 
+  `)
 }
 
-
-export { buildLittleSalon, renderInfoIntoLittleSalon, clearInfoOnLittleSalon };
+export { buildStructurOfBothSalonsIntoCalendar, renderInfoIntoSalons };
