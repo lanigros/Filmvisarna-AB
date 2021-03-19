@@ -10,6 +10,8 @@ export default class Booking {
   addEventHandlers() {
     // Listen to changes on checkboxes => run updateBookingJSON
     $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingJSON(event));
+    // Listen to changes on the booking button => run confirmBookingJSON
+    $('body').on('click', '.seating-container .booking-btn', () => this.confirmBookingJSON());
   }
 
   async read() {
@@ -84,7 +86,7 @@ export default class Booking {
           <em>Välj din plats</em>
         </div>
         <div class="button-row">
-          <a class="booking-btn" href="#">BOK NU</a>
+          <a class="booking-btn" href="#confirmation">BOK NU</a>
         </div>
         <div class="buffer"></div>
       </div>
@@ -109,6 +111,20 @@ export default class Booking {
     } else {
       this.showingDetails[0].seating[value[0]][value[1]] = 0;
     }
+    // Save the data to a JSON file
+    await JSON._save(this.file, this.showingDetails);
+  }
+
+  async confirmBookingJSON() {
+    /* loop through array and turn any unconfirmed bookings into confirmed bookings */
+    for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
+      for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
+        if (this.showingDetails[0].seating[i][j] === 1) {
+          this.showingDetails[0].seating[i][j] = 2;
+        }
+      }
+    }
+
     // Save the data to a JSON file
     await JSON._save(this.file, this.showingDetails);
   }
