@@ -1,6 +1,13 @@
+@import url(startpage.css);
+@import "trailers-page.css";
+@import "frontpage_banner.css";
+@import "startpage.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import "banner.css";
+
+@import "/css/allElementsInStartPage/hero-banner.css";
+@import "/css/allElementsInStartPage/calendar.css";
+
 @import "header.css";
 @import "sidenav.css";
 @import "footer.css";
@@ -24,11 +31,13 @@ body {
   height: 100vh;
 
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 10% auto 19%;
+  grid-template-rows: 13% 100px auto auto 19%;
 
   grid-template-areas:
     "h h h "
+    ". . ."
     ". c ."
+    ". ca ."
     "f f f";
 
   background: radial-gradient(
@@ -39,5 +48,6 @@ body {
 }
 
 main {
+  /* display: block; */
   grid-area: c;
 }

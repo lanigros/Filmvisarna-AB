@@ -9,12 +9,14 @@ import Booking from "./pages/booking.js";
 
 import LogIn from "./Pages/logIn.js";
 
+
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking(changeListener);
 
 const logIn = new LogIn();
+
 
 
 export default class Router {
@@ -43,6 +45,8 @@ export default class Router {
     // and finally replace the router selector html with the rendered result
     $(selector).html(result);
   }
+
+
 
 
   ////////////////

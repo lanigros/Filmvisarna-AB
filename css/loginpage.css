@@ -1,35 +1,83 @@
 @import "./main.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
-main {
-  display: flex;
-  justify-content: center;
-}
 
 .Login-Container {
+  display: flex;
   grid-area: c;
-  width: 50vw;
+  display: grid;
+  width: 100vw;
   height: 75vh;
   border-radius: 10px;
   text-align: center;
   align-self: center;
+  justify-content: center;
   border-radius: 5px;
-  background: url(../img/movieImg/Login-background.jpg);
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "lw lw lw . rc rc rc"
+    "lw lw lw d rc rc rc"
+    "lw lw lw . rc rc rc";
+}
+
+.box-divider {
+  grid-area: d;
+  height: 50vh;
+  width: 5px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 10%,
+    rgb(255, 255, 255) 50%,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .Login-wrapper {
+  align-self: center;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background-blend-mode: multiply, multiply;
+  grid-area: lw;
   display: grid;
-  height: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  height: 75%;
+  width: 75%;
+  border-radius: 3%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    "l l l"
-    "i i i"
+    ". lwt ."
+    ". i ."
     ". . .";
 }
 
-.Title-Container {
-  grid-area: l;
+.Register-wrapper {
+  align-self: center;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  grid-area: rc;
+  display: grid;
+  height: 75%;
+  width: 75%;
+  border-radius: 3%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". rwt ."
+    ". i ."
+    ". . .";
+}
+
+.Login-wrapper > .Title-Container {
+  grid-area: lwt;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.Register-wrapper > .Title-Container {
+  grid-area: rwt;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -43,6 +91,10 @@ main {
   color: rgb(243, 243, 243);
 }
 
+.Register-wrapper > .Title-Container > h1 {
+  line-height: 1em;
+}
+
 .Input-Container {
   grid-area: i;
   display: flex;
@@ -51,8 +103,12 @@ main {
   height: 20%;
 }
 
-#email,
-#pswrd {
+#crt-email,
+#log-email,
+#crt-pswrd,
+#log-pswrd,
+#fname,
+#lname {
   width: 20em;
   height: 3em;
   margin: 2px;
@@ -64,6 +120,16 @@ main {
 }
 
 #sub-btn {
+  width: 15em;
+  height: 3em;
+  margin-top: 1em;
+  font-family: "Josefin Sans", sans-serif;
+  border: none;
+  color: rgb(233, 233, 233);
+  background-color: rgb(37, 37, 37);
+}
+
+#crt-btn {
   width: 15em;
   height: 3em;
   margin-top: 1em;

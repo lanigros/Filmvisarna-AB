@@ -1,10 +1,11 @@
-export default class StartPage {
+import Calendar from '../components/elementsInStartPage/calendar.js';
 
+const calendar = new Calendar();
+
+export default class StartPage {
 
   async read() {
     this.movieInfo = await $.getJSON('/json/movies.json');
-  
-
   }
 
   async render() {
@@ -12,7 +13,7 @@ export default class StartPage {
     if (!this.movieInfo) {
       await this.read();
     }
-    
+
 
     return /*html*/ `
   
@@ -24,8 +25,23 @@ export default class StartPage {
     </div>
         <button class="order-btn">Se trailer</button>
     
-</div>    
+</div>
+
+  <div class="trailer-wrapper">
+    <div class="title">Kommande Filmer</div>
+        <div class="trailers">
+          <div class="item"><img src="img/movieImg/joker.jpg"></div>
+          <div class="item"><img src="img/movieImg/avangers.jpg"></div>
+          <div class="item"><img src="img/movieImg/kong.jpg"></div>
+          <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
+          <div class="item"><img src="img/movieImg/dora.jpg"></div>
+        </div>
+  </div>  
+
+${calendar.render()}
   
   `
   }
+
 }
+

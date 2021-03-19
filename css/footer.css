@@ -1,6 +1,5 @@
 @import "/css/main.css";
 
-
 footer {
   grid-area: f;
   display: flex;
@@ -21,7 +20,7 @@ footer {
 }
 /* -------------------Selects all children below footer--------------------- */
 footer > div * {
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 footer > div > div.footer_logo > div {
