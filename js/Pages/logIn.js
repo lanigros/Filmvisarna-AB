@@ -1,11 +1,19 @@
 export default class LogIn {
 
   constructor() {
-    this.eventHandeler();
+    this.regHandeler();
+    this.logHandeler();
   }
 
   async read() {
     this.account = await $.getJSON("./json/account.json");
+  }
+
+   regHandeler() {
+    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event)); 
+  }
+  logHandeler() {
+    $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
 
 
@@ -24,7 +32,7 @@ export default class LogIn {
           <div class="Title-Container"><h1>login</h1></div>
         
           <div class="Input-Container">
-              <form>
+              <form id="log-form">
                 <input type="Email" placeholder="Email adress" id="log-email" name="email" required>
                 <br>
                 <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
@@ -62,13 +70,10 @@ export default class LogIn {
    
   }
 
-  eventHandeler() {
-    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
-    $('main').on('submit', '#log-btn', () => this.logInUser);
-  }
+ 
 
-  async createNewUser() {
-  
+  async createNewUser(event) {
+    event.preventDefault();
     let newEmail = $("#crt-email").val();
     let newPswrd = $("#crt-pswrd").val();
     let newName = $("#fname").val();
@@ -81,7 +86,18 @@ export default class LogIn {
     alert('Ditt konto har skapats!')
   }
 
-  logInUser() {
+  logInUser(event) {
+    event.preventDefault();
+   
+    let logEmail = $("#log-email").val();
+    let logPswrd = $("#log-pswrd").val();
+      
+      this.account.forEach(user => {
+        if (logEmail === user.Email && logPswrd === user.Password) {
+          console.log('Login success!');
+        } else
+          console.log('Log in failed.');
+    });
 
     
 
