@@ -1,8 +1,10 @@
 export default class Booking {
 
   constructor(changeListener) {
-    /* this.file is the file the showing JSON file that is being ready at a given time */
+    /* this.file is the showing JSON file that is being read at a given time */
     this.file;
+    /* this.latestBookedSeats is an array of seats that are being booked this session */
+    this.latestBookedSeats = [];
     this.changeListener = changeListener;
     this.addEventHandlers();
   }
@@ -26,9 +28,10 @@ export default class Booking {
   }
 
   async render(file) {
-    /* if we're accessing a different file, read new file and add change listener */
+    /* if we're accessing a different booking file, read new file and add change listener */
     /* also remove change listener from old file */
     if (this.file !== file) {
+      this.latestBookedSeats = [];//clear the array that keeps track of seats being booked
       this.changeListener.remove(this.file);//remove old file listener
       this.file = file;//update file we're looking at
       await this.read(file);//read new file
@@ -97,7 +100,8 @@ export default class Booking {
 
   async updateBookingJSON(event) {
     let checkbox = event.target;
-    let value = checkbox.id;
+    let seatID = checkbox.id;
+    let value = seatID;
     /* convert the ticket number (value) into the index numbers used in the seating chart array */
     value = value.split(" ");
     value[0] = value[0].charCodeAt(0) - 65;
@@ -108,9 +112,12 @@ export default class Booking {
       this.showingDetails[0].seating[value[0]][value[1]] = 2;
     } else if (checkbox.checked == true) {
       this.showingDetails[0].seating[value[0]][value[1]] = 1;
+      this.latestBookedSeats.push(seatID);/* add this seat to this session's array */
     } else {
       this.showingDetails[0].seating[value[0]][value[1]] = 0;
+      this.remove(this.latestBookedSeats, seatID);/* remove this seat from this session's array */
     }
+    console.log(this.latestBookedSeats);
     // Save the data to a JSON file
     await JSON._save(this.file, this.showingDetails);
   }
@@ -127,6 +134,15 @@ export default class Booking {
 
     // Save the data to a JSON file
     await JSON._save(this.file, this.showingDetails);
+  }
+
+  /* utility function for removing a value from an array */
+  remove(array, value) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === value) {
+        array.splice(i, 1);
+      }
+    }
   }
 
 }
