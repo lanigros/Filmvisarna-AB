@@ -19,9 +19,10 @@ footer {
   align-content: center;
 }
 /* -------------------Selects all children below footer--------------------- */
-footer > div * {
-  /* display: inline-block; */
-}
+
+/* footer > div * {
+ display: inline-block;
+} */
 
 footer > div > div.footer_logo > div {
   padding: 0;

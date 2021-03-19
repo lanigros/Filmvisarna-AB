@@ -1,25 +1,21 @@
 @import "./main.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
-
 .Login-Container {
-  display: flex;
-  grid-area: c;
   display: grid;
-  width: 100vw;
+  width: 100%;
   height: 75vh;
   border-radius: 10px;
   text-align: center;
   align-self: center;
   justify-content: center;
   border-radius: 5px;
-
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    "lw lw lw . rc rc rc"
-    "lw lw lw d rc rc rc"
-    "lw lw lw . rc rc rc";
+    "lw . rc"
+    "lw d rc"
+    "lw . rc";
 }
 
 .box-divider {
@@ -66,7 +62,7 @@
   grid-template-areas:
     ". rwt ."
     ". i ."
-    ". . .";
+    ". sa .";
 }
 
 .Login-wrapper > .Title-Container {
@@ -93,6 +89,14 @@
 
 .Register-wrapper > .Title-Container > h1 {
   line-height: 1em;
+}
+
+.success-account {
+  grid-area: sa;
+  color: aliceblue;
+  background: aliceblue;
+  width: 100%;
+  height: 100%;
 }
 
 .Input-Container {

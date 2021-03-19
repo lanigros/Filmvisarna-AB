@@ -1,8 +1,7 @@
-export default class LogIn{
+export default class LogIn {
 
   constructor() {
     this.eventHandeler();
-    this.createNewUser();
   }
 
   async read() {
@@ -20,28 +19,29 @@ export default class LogIn{
     return `
     
     <div class="Login-Container">
-      <div class="Login-wrapper">
-        <div class="Title-Container"><h1>login</h1></div>
       
-        <div class="Input-Container">
-            <form>
-              <input type="Email" placeholder="Email adress" id="log-email" name="email" required>
-              <br>
-              <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
-              <br>
-              <input type="submit" value="Logga in" id="sub-btn">
-            </form>
-        </div>
-     </div>
+      <div class="Login-wrapper">
+          <div class="Title-Container"><h1>login</h1></div>
+        
+          <div class="Input-Container">
+              <form>
+                <input type="Email" placeholder="Email adress" id="log-email" name="email" required>
+                <br>
+                <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
+                <br>
+                <input type="submit" value="Logga in" id="sub-btn">
+              </form>
+          </div>
+      </div>
     
 
       <div class="box-divider"></div>
 
   
       <div class="Register-wrapper">
-      <div class="Title-Container"><h1>Nytt konto</h1></div>
+        <div class="Title-Container"><h1>Nytt konto</h1></div>
       
-      <div class="Input-Container">
+              <div class="Input-Container">
                 <form id="reg-form">
                   <input type="Email" placeholder="Email adress" id="crt-email" name="email" required>
                   <br>
@@ -63,48 +63,23 @@ export default class LogIn{
   }
 
   eventHandeler() {
-
-    $('main').on("submit", "#reg-form", (event) => {
-      event.preventDefault();
-      var newEmail = $("#crt-email").val();
-      var newPswrd = $("#crt-pswrd").val();
-      var newName = $("#fname").val();
-      var newLastName = $("#lname").val();
-
-      let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName });
-
-      
-      this.createNewUser(newUserInfo);
-      
-      
-      
-    });
+    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
 
-   async createNewUser(info) {
-     
-     console.log(info);
+  async createNewUser(event) {
+    // event.preventDefault();
 
-     let test = JSON.stringify(info)
-     console.log(test)
-     
-     this.account[0].push(test)
-
-     console.log(account)
+    let newEmail = $("#crt-email").val();
+    let newPswrd = $("#crt-pswrd").val();
+    let newName = $("#fname").val();
+    let newLastName = $("#lname").val();
     
-    
-    //var completeInfo = JSON.parse(info);
-     //console.log(completeInfo)
-    
-     //newUser.this.account.push({ newUserInfo });
-    // account[0]
-     //await JSON._save('./json/account.json', this.account);
-   }
-
+    let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName });
+    this.account.push(newUserInfo);
+    await JSON._save('account.json', this.account);
+    console.log('New account was successfully created!')
+    alert('Ditt konto har skapats!')
+  }
 
 
 }
-
-/*<input type="submit" value="Skapa" id="crt-btn">*/
-
-// yourObj.theTeam.push({"teamId":"4","status":"pending"});
