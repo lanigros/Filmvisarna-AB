@@ -35,9 +35,11 @@ export default class Booking {
     /* add heading part of seating chart */
     let layout = /*html*/`
       <div class="seating-container">
+        <div class="buffer"></div>
         <div class="screen-row">
           <h1>SKÄRM</h1>
         </div>
+        <div class="seating-rows-container">
     `
     /* add seating/checkboxes part of seating chart */
     for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
@@ -74,12 +76,14 @@ export default class Booking {
     }
     /* closing tags and footer part of seating chart */
     layout += /*html*/`
+        </div>
         <div class="text-row">
           <em>Välj din plats</em>
         </div>
         <div class="button-row">
           <a class="booking-btn" href="#">BOK NU</a>
         </div>
+        <div class="buffer"></div>
       </div>
     `
 
