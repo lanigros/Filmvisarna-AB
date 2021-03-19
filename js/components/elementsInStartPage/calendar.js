@@ -1,5 +1,5 @@
 import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentMonthInString, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
-import { buildLittleSalon } from "./littleAndBigSalon-calendar.js";
+import { buildLittleSalon, renderInfoIntoLittleSalon, clearInfoOnLittleSalon } from "./littleAndBigSalon-calendar.js";
 
 var pickedMonthInCalandar = getCurrentMonthInNumber();
 console.log("start:", pickedMonthInCalandar)
@@ -53,7 +53,6 @@ export default class Calendar {
   }
 
 
-
   eventHandeler() {
     $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
     $('main').on("click", ".btn_previousMonth", (event) => this.pressingBtnPreviousMonth(event));
@@ -61,21 +60,37 @@ export default class Calendar {
   }
 
   renderSaloonInfo(event) {
-    console.log(event);
-    let test = event.target.value;
-    this.schedule.forEach(detailedMovieInfo => {
+    /* console.log(event); */
 
-      if (test === detailedMovieInfo.date) {
+    clearInfoOnLittleSalon();
 
-        $('.txtholder-date-litleSalon').append(detailedMovieInfo.date)
+    let pickedDate = event.target.value;
+    let temporarilyMovieList = [];
 
-        console.log('I salong : ', detailedMovieInfo.auditorium)
-        console.log('Film som spelas : ', detailedMovieInfo.film)
-        console.log('Tid: ', detailedMovieInfo.time)
-        console.log('Datum : ', detailedMovieInfo.date)
-        console.log('Dagen : ', detailedMovieInfo.weekday)
+    this.schedule.forEach(movie => {
+      if (movie.date === pickedDate) {
+        temporarilyMovieList.push(movie);
       }
     });
+
+    console.log(temporarilyMovieList)
+    renderInfoIntoLittleSalon(temporarilyMovieList);
+
+
+    /* 
+        this.schedule.forEach(detailedMovieInfo => {
+    
+          if (test === detailedMovieInfo.date) {
+    
+            
+    
+            console.log('I salong : ', detailedMovieInfo.auditorium)
+            console.log('Film som spelas : ', detailedMovieInfo.film)
+            console.log('Tid: ', detailedMovieInfo.time)
+            console.log('Datum : ', detailedMovieInfo.date)
+            console.log('Dagen : ', detailedMovieInfo.weekday)
+          }
+        }); */
 
   }
 

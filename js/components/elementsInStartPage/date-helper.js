@@ -50,7 +50,6 @@ function calcStartDayOfSpecificMonth(month) {
       return 5;
     case "sön":
       return 6;
-
   }
 
 }
