@@ -45,4 +45,3 @@ ${calendar.render()}
 
 }
 
-/* <img src="${this.movieInfo[0].images}"></img> */

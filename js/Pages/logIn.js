@@ -112,10 +112,10 @@ export default class LogIn {
   activeMember(activeUser) {
     console.log(activeUser);
     $('.nav-right-items').replaceWith(`
-    <div calss="active-User-Container">
+    <div class="active-User-Container"> 
     <p>Välkommen ${activeUser.Name}!</p>
-    <a class="active-user-profile" href="#">
-    <img src="./img/side-nav/vector-icon.svg"></a>
+    <a class="active-user-profile" href="#">Mina sidor</a>
+    <img src="./img/side-nav/vector-icon.svg">
     </div>
     `);
     

@@ -22,5 +22,11 @@
     "Password": "tester",
     "Name": "testest",
     "Lastname": "testtest"
+  },
+  {
+    "Email": "matilda@davidsson.se",
+    "Password": "Bajs",
+    "Name": "Matilda",
+    "Lastname": "Davidsson"
   }
 ]
