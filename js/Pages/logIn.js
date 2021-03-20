@@ -100,7 +100,7 @@ export default class LogIn {
       this.account.forEach(user => {
         if (logEmail === user.Email && logPswrd === user.Password) {
           console.log('Login success!');
-          activeUser = user.Email;
+          activeUser = user;
           this.activeMember(activeUser);
           
           return false;
@@ -112,9 +112,12 @@ export default class LogIn {
   activeMember(activeUser) {
     console.log(activeUser);
     $('.nav-right-items').replaceWith(`
-     Välkommen ${activeUser}
+    <div calss="active-User-Container">
+    <p>Välkommen ${activeUser.Name}!</p>
     <a class="active-user-profile" href="#">
-    <img src="./img/side-nav/vector-icon.svg"></a>`);
+    <img src="./img/side-nav/vector-icon.svg"></a>
+    </div>
+    `);
     
   
   }

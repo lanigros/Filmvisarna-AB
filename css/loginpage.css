@@ -134,3 +134,19 @@
   color: rgb(233, 233, 233);
   background-color: rgb(37, 37, 37);
 }
+
+.active-User-Container {
+  display: flex;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.06em;
+  color: #ede8e8;
+}
+
+.active-User-Container > img {
+  max-height: 20px;
+  max-width: 20px;
+}
