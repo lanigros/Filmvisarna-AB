@@ -13,6 +13,7 @@
 @import "footer.css";
 @import "loginpage.css";
 @import "detailedInfoAboutMovies.css";
+@import "contactUs.css";
 
 * {
   margin: 0;

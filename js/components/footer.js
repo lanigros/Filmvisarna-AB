@@ -15,7 +15,7 @@ export default class Footer {
           <li><a href="#">Om oss</a></li>
           <li><a href="#">Q&A</a></li>
           <li><a href="#">Hitta hit</a></li>
-          <li><a href="#">Kontakt</a></li>
+          <li><a href="#contactUs">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer_socialmedia">
