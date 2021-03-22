@@ -1,34 +1,35 @@
 @import "/css/main.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
 .profile-page-container {
   grid-area: c;
   display: grid;
   width: 100%;
   height: 100%;
-  border: 2px solid black;
   align-self: center;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
+    ". pd ."
     "ui pd ub"
-    "ui pd ub";
+    ". pd .";
 }
 
 .profile-wrapper {
   grid-area: ui;
   height: 100%;
   width: 100%;
-  border: 2px solid black;
 }
 
 .bookings-wrapper {
   grid-area: ub;
   height: 100%;
   width: 100%;
-  border: 2px solid black;
 }
 
 .profile-divider {
+  align-self: center;
   grid-area: pd;
   height: 50vh;
   width: 5px;
@@ -44,9 +45,41 @@
 }
 
 .profile-title {
-  border: 2px solid black;
+  text-align: center;
+  color: rgb(241, 241, 241);
+  font-size: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 .profile-text-container {
-  border: 2px solid black;
+  font-family: "Roboto", sans-serif;
+  color: rgb(241, 241, 241);
+  letter-spacing: 1px;
+  height: 30%;
+}
+
+.profile-text-container > p {
+  font-size: 15px;
+}
+
+.bookings-title {
+  text-align: center;
+  color: rgb(241, 241, 241);
+  font-size: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 38px;
+}
+
+.bookings-text-container {
+  font-family: "Roboto", sans-serif;
+  color: rgb(241, 241, 241);
+  letter-spacing: 1px;
+}
+
+.bookings-text-container > p {
+  font-size: 15px;
 }

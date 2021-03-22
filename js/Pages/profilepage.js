@@ -32,9 +32,13 @@ export default class ProfilePage{
         </div>
         <div class="profile-divider"></div>
         <div class="bookings-wrapper">
-        <h1 class="bookings-title">Mina bokningar</h1>
+        <h1 class="bookings-title">bokningar</h1>
         <div class="bookings-text-container">
-        <p>Datum: </p>
+        <p>Film : </p>
+        <p>Salong : </p>
+        <p>Tid : </p>
+        <p>Plats : </p>
+        <p>(Avboka knapp)</p>
         </div>
         </div>
     </div>
