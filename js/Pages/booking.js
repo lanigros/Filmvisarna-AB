@@ -23,17 +23,25 @@ export default class Booking {
 
   // custom method for rerendering without route change
   async reRender() {
+    /* if we're there's no booking file specified, go back to home page */
+    if (!file) {
+      document.location.href = "/";
+    }
     await this.read();
     $('main').append(this.render(this.file));
   }
 
   async render(file) {
+    /* if we're there's no booking file specified, go back to home page */
+    if (!file) {
+      document.location.href = "/";
+    }
     /* if we're accessing a different booking file, read new file and add change listener */
     /* also remove change listener from old file */
     if (this.file !== file) {
       this.latestBookedSeats = [];//clear the array that keeps track of seats being booked
       this.changeListener.remove(this.file);//remove old file listener
-      this.file = file;//update file we're looking at
+      this.file = 'booking/' + file;//update file we're looking at
       await this.read(file);//read new file
       this.changeListener.on(this.file, () => this.reRender());//add listener on new file
     }
@@ -45,7 +53,9 @@ export default class Booking {
           <em>${this.showingDetails[0].film}: ${this.showingDetails[0].date} (${this.showingDetails[0].time})</em>
         </div>
         <div class="screen-row">
+          <div></div>
           <h1>SKÄRM</h1>
+          <div></div>
         </div>
         <div class="seating-rows-container">
     `
@@ -89,7 +99,7 @@ export default class Booking {
           <em>Välj din plats</em>
         </div>
         <div class="button-row">
-          <a class="booking-btn" href="#confirmation">BOK NU</a>
+          <a class="booking-btn" href="#confirmation">BOKA NU</a>
         </div>
         <div class="buffer"></div>
       </div>

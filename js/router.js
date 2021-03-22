@@ -10,9 +10,6 @@ import LogIn from "./Pages/logIn.js";
 import Confirmation from "./Pages/confirmation.js";
 import ProfilePage from "./Pages/profilepage.js"
 
-// imported utility classes
-import FileFunctions from "./fileFunctions.js";
-
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
@@ -31,6 +28,10 @@ export default class Router {
     // main renders on location hash change
     // register the event listener for that:
     window.onhashchange = () => this.setCurrentPage(selector);
+    // a global variable used when rendering the correct booking information
+    this.bookingJSONFile;
+    // create an event listener for the buttons linking to the booking page
+    $('body').on('click', '.link-to-booking-page', (event) => this.bookingJSONFile = event.target.id);
     // but also render it right now, based on the current hash or default page
     this.setCurrentPage(selector)
   }
@@ -51,8 +52,6 @@ export default class Router {
   }
 
 
-
-
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
 
@@ -67,7 +66,7 @@ export default class Router {
   }
 
   booking() {
-    return booking.render('booking/dk-ss-210412-1700.json');
+    return booking.render(this.bookingJSONFile);
   }
 
   logIn() {
@@ -79,6 +78,7 @@ export default class Router {
   }
 
   default() {
+    console.log("called from default in router");
     return startPage.render()
   }
 
