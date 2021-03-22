@@ -1,3 +1,5 @@
+// imported utility classes
+import FileFunctions from "/js/fileFunctions.js";
 
 function buildStructurOfBothSalonsIntoCalendar() {
 
@@ -53,7 +55,9 @@ function renderInfoIntoSalons(jsonFile) {
       $('.little-salon-container').append(`      
       <div class="txtholder-movieTitle-calendarSalon"><p> ${movie.film} </p></div>
       <div class="txtholder-movieTime-calendarSalon"><p> ${movie.time}</p></div>
-      <button class="btn-salon-calendar">Boka</button>
+      <button class="btn-salon-calendar">
+        <a class="link-to-booking-page" href="#booking" id="${FileFunctions.getBookingFile(movie.film, movie.auditorium, movie.date, movie.time)}">Boka</a>
+      </button>
       <button class="btn-salon-calendar">Om filmen</button>
       
       `)
@@ -63,7 +67,9 @@ function renderInfoIntoSalons(jsonFile) {
       $('.big-salon-container').append(`      
       <div class="txtholder-movieTitle-calendarSalon"><p> ${movie.film} </p></div>
       <div class="txtholder-movieTime-calendarSalon"><p> ${movie.time}</p></div>
-      <button class="btn-salon-calendar">Boka</button>
+      <button class="btn-salon-calendar">
+        <a class="link-to-booking-page" href="#booking" id="${FileFunctions.getBookingFile(movie.film, movie.auditorium, movie.date, movie.time)}">Boka</a>
+      </button>
       <button class="btn-salon-calendar">Om filmen</button>
       `)
     }
