@@ -115,7 +115,7 @@ export default class LogIn {
     $('.nav-right-items').replaceWith(`
     <div class="active-User-Container"> 
     <p>Välkommen ${activeUser.Name}!</p>
-    <a class="active-user-profile" href="#">Mina sidor</a>
+    <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <img src="./img/side-nav/vector-icon.svg">
     </div>
     `);
@@ -123,5 +123,6 @@ export default class LogIn {
   
   }
 
+  
 
 }

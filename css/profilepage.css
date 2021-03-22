@@ -1,26 +1,38 @@
 @import "/css/main.css";
 
 .profile-page-container {
+  grid-area: c;
   display: grid;
   width: 100%;
   height: 100%;
   border: 2px solid black;
+  align-self: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-area: "ui d ub" "ui d ub";
+  grid-template-areas:
+    "ui pd ub"
+    "ui pd ub";
 }
 
 .profile-wrapper {
   grid-area: ui;
   height: 100%;
   width: 100%;
-  background: black;
+  border: 2px solid black;
+}
+
+.bookings-wrapper {
+  grid-area: ub;
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
 }
 
 .profile-divider {
-  grid-area: d;
+  grid-area: pd;
   height: 50vh;
   width: 5px;
+  justify-self: center;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
@@ -29,4 +41,12 @@
     rgba(255, 255, 255, 0) 90%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+
+.profile-title {
+  border: 2px solid black;
+}
+
+.profile-text-container {
+  border: 2px solid black;
 }
