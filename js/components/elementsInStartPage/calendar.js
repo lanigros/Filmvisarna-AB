@@ -1,8 +1,7 @@
-import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentMonthInString, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
+import { isWeekend, getDaysInMonth, getCurrentMonthInNumber, getCurrentYear, getThePickedMonth, calcStartDayOfSpecificMonth } from "./date-helper.js";
 import { renderInfoIntoSalons, buildStructurOfBothSalonsIntoCalendar } from "./littleAndBigSalon-calendar.js";
 
 var pickedMonthInCalandar = getCurrentMonthInNumber();
-console.log("start:", pickedMonthInCalandar)
 
 export default class Calendar {
 
@@ -17,12 +16,16 @@ export default class Calendar {
 
   async render() {
 
-    if (!this.schedule && !this.movieInfo) {
-      await this.read();
-    }
+    console.log("Called from start of async render in calendarpage")
+
+    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out commented. // Mac
+    await this.read();
+    //}
 
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
+
+    console.log("Called from end of async render in calendarpage")
   }
 
   buildCalendar() {
@@ -57,7 +60,6 @@ export default class Calendar {
   }
 
   renderSaloonInfo(event) {
-    /* console.log(event); */
 
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
@@ -68,24 +70,7 @@ export default class Calendar {
       }
     });
 
-    console.log(temporarilyMovieList)
     renderInfoIntoSalons(temporarilyMovieList);
-
-
-    /* 
-        this.schedule.forEach(detailedMovieInfo => {
-    
-          if (test === detailedMovieInfo.date) {
-    
-            
-    
-            console.log('I salong : ', detailedMovieInfo.auditorium)
-            console.log('Film som spelas : ', detailedMovieInfo.film)
-            console.log('Tid: ', detailedMovieInfo.time)
-            console.log('Datum : ', detailedMovieInfo.date)
-            console.log('Dagen : ', detailedMovieInfo.weekday)
-          }
-        }); */
 
   }
 
@@ -123,17 +108,12 @@ export default class Calendar {
 
   //This function calculates how many days it should render per month. It also calculates what weekday the month starts with. 
   renderDatesInCalendar(selectedMonth) {
-    console.log("Fired from renderDatesInCalendar");
-    console.log("SelectedMonth = ", selectedMonth)
 
     let howManyDaysToLoop = getDaysInMonth(selectedMonth);
-    console.log("howManyDaysInMonth:", howManyDaysToLoop)
 
     let howManyDaysToSkip = calcStartDayOfSpecificMonth(selectedMonth);
-    console.log("howManyDaysToSkip: ", howManyDaysToSkip)
 
     let dates = [];
-    console.log("Array", dates)
 
     let day = 0;
 
@@ -158,8 +138,6 @@ export default class Calendar {
 
     }
   }
-
-
 
 }
 

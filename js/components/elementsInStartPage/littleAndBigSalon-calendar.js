@@ -1,8 +1,6 @@
 
 function buildStructurOfBothSalonsIntoCalendar() {
 
-  console.log("called buildStructurOfBothSalonsIntoCalendar function")
-
   $('.calendar-Container').append(`<div class="bothSalons-container"></div>`);
 
   $('.bothSalons-container').append(`

@@ -73,6 +73,7 @@ export default class Router {
   }
 
   default() {
+    console.log("called from default in router");
     return startPage.render()
   }
 

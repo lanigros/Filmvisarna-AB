@@ -7,8 +7,6 @@ const isWeekend = day => {
 const getDayName = day => {
 
   const date = new Date(2021, 3, day);
-  console.log(date);
-
   return new Intl.DateTimeFormat("sv-SE", { weekday: "short" }).format(date);
 }
 
@@ -30,10 +28,8 @@ function getCurrentYear() {
 
 function calcStartDayOfSpecificMonth(month) {
   const date = new Date(2021, month - 1, 1);
-  console.log("DATE:", date);
 
   let x = Intl.DateTimeFormat("sv-SE", { weekday: "short" }).format(date);
-  console.log("calcStartDayOfSpecificMonth: ", x);
 
   switch (x) {
     case "mån":
