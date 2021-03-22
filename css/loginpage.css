@@ -1,5 +1,6 @@
 @import "./main.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
 .Login-Container {
   display: grid;
@@ -137,16 +138,26 @@
 
 .active-User-Container {
   display: flex;
-  font-family: Montserrat;
+  align-content: center;
+  justify-content: space-around;
+  font-family: "Dosis", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: -0.06em;
   color: #ede8e8;
+  width: 20em;
 }
 
 .active-User-Container > img {
-  max-height: 20px;
-  max-width: 20px;
+  height: 2em;
+}
+
+.active-User-Container > p {
+  align-self: center;
+  font-size: 15px;
+}
+.active-User-Container > a {
+  align-self: center;
+  font-size: 15px;
 }
