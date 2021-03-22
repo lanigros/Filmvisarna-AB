@@ -94,7 +94,7 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    var activeUser = "";
+    activeUser = "";
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
       
