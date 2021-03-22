@@ -18,7 +18,7 @@ export default class Calendar {
 
     console.log("Called from start of async render in calendarpage")
 
-    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out commented. // Mac
+    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out comment. // Mac
     await this.read();
     //}
 
@@ -51,7 +51,6 @@ export default class Calendar {
 
     this.renderDatesInCalendar(pickedMonthInCalandar);
   }
-
 
   eventHandeler() {
     $('main').on("click", ".btn-show-calender", (event) => this.renderSaloonInfo(event));
