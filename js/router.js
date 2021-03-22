@@ -9,9 +9,6 @@ import Booking from "./pages/booking.js";
 import LogIn from "./Pages/logIn.js";
 import Confirmation from "./Pages/confirmation.js";
 
-// imported utility classes
-import FileFunctions from "./fileFunctions.js";
-
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
@@ -29,6 +26,10 @@ export default class Router {
     // main renders on location hash change
     // register the event listener for that:
     window.onhashchange = () => this.setCurrentPage(selector);
+    // a global variable used when rendering the correct booking information
+    this.bookingJSONFile;
+    // create an event listener for the buttons linking to the booking page
+    $('body').on('click', '.link-to-booking-page', (event) => this.bookingJSONFile = event.target.id);
     // but also render it right now, based on the current hash or default page
     this.setCurrentPage(selector)
   }
@@ -49,8 +50,6 @@ export default class Router {
   }
 
 
-
-
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
 
@@ -61,7 +60,7 @@ export default class Router {
   }
 
   booking() {
-    return booking.render('booking/dk-ls-210412-1900.json');
+    return booking.render(this.bookingJSONFile);
   }
 
   logIn() {

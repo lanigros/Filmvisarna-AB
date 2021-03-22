@@ -33,7 +33,7 @@ export default class Booking {
     if (this.file !== file) {
       this.latestBookedSeats = [];//clear the array that keeps track of seats being booked
       this.changeListener.remove(this.file);//remove old file listener
-      this.file = file;//update file we're looking at
+      this.file = 'booking/' + file;//update file we're looking at
       await this.read(file);//read new file
       this.changeListener.on(this.file, () => this.reRender());//add listener on new file
     }
