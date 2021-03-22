@@ -23,11 +23,19 @@ export default class Booking {
 
   // custom method for rerendering without route change
   async reRender() {
+    /* if we're there's no booking file specified, go back to home page */
+    if (!file) {
+      document.location.href = "/";
+    }
     await this.read();
     $('main').append(this.render(this.file));
   }
 
   async render(file) {
+    /* if we're there's no booking file specified, go back to home page */
+    if (!file) {
+      document.location.href = "/";
+    }
     /* if we're accessing a different booking file, read new file and add change listener */
     /* also remove change listener from old file */
     if (this.file !== file) {
@@ -91,7 +99,7 @@ export default class Booking {
           <em>Välj din plats</em>
         </div>
         <div class="button-row">
-          <a class="booking-btn" href="#confirmation">BOK NU</a>
+          <a class="booking-btn" href="#confirmation">BOKA NU</a>
         </div>
         <div class="buffer"></div>
       </div>
