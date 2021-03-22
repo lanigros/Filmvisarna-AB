@@ -1,9 +1,9 @@
 [
   {
-    "Email" : "Tobias.Gonzalez@live.se",
-    "Password"  : "Test",
-    "Name": "Tobias",
-    "Lastname": "Gonzalez"
+    "Email": "Kajsabajsa@live.se",
+    "Password": "Bajs",
+    "Name": "Kajsa",
+    "Lastname": "Bajskorv",
+    "bookedShows": []
   }
-
 ]
