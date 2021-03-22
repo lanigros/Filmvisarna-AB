@@ -163,3 +163,19 @@
   align-self: center;
   font-size: 15px;
 }
+
+.menu-divider {
+  height: 20px;
+  width: 1px;
+  background-color: rgb(238, 238, 238);
+}
+
+#log-out-option {
+  font-family: "Dosis", sans-serif;
+  width: auto;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: inherit;
+}

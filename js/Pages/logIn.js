@@ -5,6 +5,7 @@ const header = new Header();
 export default class LogIn {
 
   constructor() {
+    this.logOutHandeler();
     this.regHandeler();
     this.logHandeler();
   }
@@ -19,6 +20,10 @@ export default class LogIn {
   }
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
+  }
+
+  logOutHandeler() {
+    $('main').on('click', '#log-out-option', () => this.logOutHandeler());
   }
 
 
@@ -110,17 +115,25 @@ export default class LogIn {
     });   
   }
 
-  activeMember(activeUser) {
-    console.log(activeUser);
-    $('.nav-right-items').replaceWith(`
-    <div class="active-User-Container"> 
+  activeMember() {
+  
+    $('.nav-right-items').replaceWith( /*html*/ `
+    <div class="active-User-Container">
+    <div class="menu-divider"></div>
     <p>Välkommen ${window.activeUser.Name}!</p>
+    <div class="menu-divider"></div>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
-    <img src="./img/side-nav/vector-icon.svg">
+    <div class="menu-divider"></div>
+    <button id="log-out-option">Logga ut</button>
     </div>
     `);
     
   
+  }
+
+  logOutHandeler() {
+    window.activeUser = false;
+    console.log('Logged out')
   }
 
 
