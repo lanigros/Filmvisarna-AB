@@ -13,9 +13,7 @@ export default class Header {
                 </a>
               </div>
               <div class="nav-logo">
-                <a class="nav-logo-container" href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
-                  <img class="logo" src="img/header/logo-icon.svg" alt="">
-                </a>
+                <img class="logo" src="img/header/logo-icon.svg" alt="">
               </div>
             </div>
             <div class="nav-right-items">
