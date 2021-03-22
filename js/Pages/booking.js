@@ -45,7 +45,9 @@ export default class Booking {
           <em>${this.showingDetails[0].film}: ${this.showingDetails[0].date} (${this.showingDetails[0].time})</em>
         </div>
         <div class="screen-row">
+          <div></div>
           <h1>SKÄRM</h1>
+          <div></div>
         </div>
         <div class="seating-rows-container">
     `
