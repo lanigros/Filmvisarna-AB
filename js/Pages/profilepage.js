@@ -1,12 +1,14 @@
-import logIn from ("./pages/logIn.js");
 
 export default class ProfilePage{
+
+
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json")
   }
 
 
+  
 
   async render() {
 
@@ -15,7 +17,7 @@ export default class ProfilePage{
     }
     
 
-    console.log(activeUser);
+    console.log();
 
     return /*html*/ `
     
@@ -23,9 +25,9 @@ export default class ProfilePage{
         <div class="profile-wrapper">
         <h1 class="profile-title">profil</h1>
         <div class="profile-text-container">
-        <p>Epost-adress: ${activeUser.Email}</p>
-        <p>Namn: ${this.currentUser.Name}</p>
-        <p>Efternamn: ${this.currentUser.Lastname}</p>
+        <p>Epost-adress: </p>
+        <p>Namn: </p>
+        <p>Efternamn:</p>
         </div>
         </div>
         <div class="profile-divider"></div>
