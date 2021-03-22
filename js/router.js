@@ -8,6 +8,7 @@ import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
 import Booking from "./pages/booking.js";
 import LogIn from "./Pages/logIn.js";
 import Confirmation from "./Pages/confirmation.js";
+import ProfilePage from "./Pages/profilepage.js"
 
 // imported utility classes
 import FileFunctions from "./fileFunctions.js";
@@ -18,6 +19,7 @@ const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking(changeListener);
 const logIn = new LogIn();
 const confirmation = new Confirmation();
+const profilepage = new ProfilePage();
 
 
 
@@ -55,6 +57,10 @@ export default class Router {
   // Our pages (the method names matches the hashes with any slashes - removed)
 
   // if we want a new instance every time we visit a page we instanciate here instead
+
+  profilepage() {
+    return profilepage.render();
+  }
 
   confirmation() {
     return confirmation.render(booking.showingDetails, booking.latestBookedSeats);

@@ -10,6 +10,7 @@
 @import "detailedInfoAboutMovies.css";
 @import "booking.css";
 @import "confirmation.css";
+@import "profilepage.css";
 
 * {
   margin: 0;
