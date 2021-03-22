@@ -18,14 +18,14 @@ export default class ContactUs {
     <label for="fname">Namn:</label>
     <input type="text" id="fname" name="firstname" placeholder="Namn">
 
-    <label for="lname">E-post:</label>
+    <label for="epost">E-post:</label>
     <input type="text" id="lname" name="epost" placeholder="namn@epost.com">
 
-    <label for="country">Stad</label>
-    <select id="country" name="country">
-      <option value="australia">Stockholm</option>
-      <option value="canada">Göteborg</option>
-      <option value="usa">Malmö</option>
+    <label class="stad"><br>Stad:</label>
+    <select id="stad" name="stad">
+      <option value="stockholm">Stockholm</option>
+      <option value="goteborg">Göteborg</option>
+      <option value="malmo">Malmö</option>
     </select>
 
     <label for="subject">Ärende / Meddelande</label>
