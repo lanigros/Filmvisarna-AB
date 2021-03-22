@@ -43,6 +43,7 @@ export default class DetailedInfoAboutMovie {
                    
                    
                 <button class="order-btn">Boka biljetter</button>
+                <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button
         
         
         
