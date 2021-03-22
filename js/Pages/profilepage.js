@@ -25,9 +25,9 @@ export default class ProfilePage{
         <div class="profile-wrapper">
         <h1 class="profile-title">profil</h1>
         <div class="profile-text-container">
-        <p>Epost-adress: </p>
-        <p>Namn: </p>
-        <p>Efternamn:</p>
+        <p>Epost-adress: ${window.activeUser.Email} </p>
+        <p>Namn: ${window.activeUser.Name}</p>
+        <p>Efternamn: ${window.activeUser.Lastname}</p>
         </div>
         </div>
         <div class="profile-divider"></div>

@@ -101,7 +101,7 @@ export default class LogIn {
       this.account.forEach(user => {
         if (logEmail === user.Email && logPswrd === user.Password) {
           alert('Login success!');
-          activeUser = user;
+          window.activeUser = user;
           this.activeMember(activeUser);
           
           return false;
@@ -114,7 +114,7 @@ export default class LogIn {
     console.log(activeUser);
     $('.nav-right-items').replaceWith(`
     <div class="active-User-Container"> 
-    <p>Välkommen ${activeUser.Name}!</p>
+    <p>Välkommen ${window.activeUser.Name}!</p>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <img src="./img/side-nav/vector-icon.svg">
     </div>
