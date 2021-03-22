@@ -1,32 +1,9 @@
 [
   {
     "Email": "Kajsabajsa@live.se",
-    "Password": "reber",
-    "Name": "berb",
-    "Lastname": "brrr"
-  },
-  {
-    "Email": "Tobias.Gonzalze@live.se",
-    "Password": "Ingenannan",
-    "Name": "Tobias",
-    "Lastname": "Johansson"
-  },
-  {
-    "Email": "Kajsabajsa@live.se",
-    "Password": "testest",
-    "Name": "test",
-    "Lastname": "testest"
-  },
-  {
-    "Email": "Tester@test.test",
-    "Password": "tester",
-    "Name": "testest",
-    "Lastname": "testtest"
-  },
-  {
-    "Email": "matilda@davidsson.se",
     "Password": "Bajs",
-    "Name": "Matilda",
-    "Lastname": "Davidsson"
+    "Name": "Kajsa",
+    "Lastname": "Bajskorv",
+    "bookedShows": []
   }
 ]

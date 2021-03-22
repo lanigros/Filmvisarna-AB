@@ -83,8 +83,9 @@ export default class LogIn {
     let newPswrd = $("#crt-pswrd").val();
     let newName = $("#fname").val();
     let newLastName = $("#lname").val();
+    let bookedShows = [];
     
-    let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName });
+    let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
     await JSON._save('account.json', this.account);
     console.log('New account was successfully created!')
@@ -99,7 +100,7 @@ export default class LogIn {
       
       this.account.forEach(user => {
         if (logEmail === user.Email && logPswrd === user.Password) {
-          console.log('Login success!');
+          alert('Login success!');
           activeUser = user;
           this.activeMember(activeUser);
           
