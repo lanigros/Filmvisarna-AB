@@ -6,12 +6,8 @@
   width: 100%;
   display: inline-block;
   justify-content: center;
-
 }
 
-body > main > div > div{
-  justify-self: center;
-}
 
 
 
