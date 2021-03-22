@@ -9,15 +9,11 @@ h1, p{
   position: relative;
   margin: 0 auto;
   grid-area: c;
-  width: 100%;    
-  justify-content: center;  
+  width: 100%;
+  display: inline-block;
+  justify-content: center;
 }
 
-
-body > main > div > div.banner_movie_container > img{
-  max-height: 100%;
-  max-width: 100%;
-}
 
 /* -------- TRAILER CONTENT (YOUTUBE) -------------- */
 
