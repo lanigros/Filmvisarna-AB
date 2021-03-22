@@ -21,23 +21,26 @@ body > main > div.calendar-Container > div.calendar {
   grid-template-rows: 30px 30px repeat(5, 1fr);
   height: 100%;
   width: 100%;
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 0.123);
   justify-items: center;
   border-radius: 10px;
   padding: 10%;
 }
 
-body > main > div.calendar-Container > div.calendar > div {  
+body > main > div.calendar-Container > div.calendar > div {
   height: 100%;
   width: 100%;
 
   justify-self: center;
   align-self: center;
   text-align: center;
-
 }
 
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container {
   grid-column: 1 / 8;
   display: flex;
   justify-content: space-between;
@@ -45,16 +48,21 @@ body > main > div.calendar-Container > div.calendar > div.selectedMonth_containe
   text-align: center;
 }
 
-body > main > div.calendar-Container > div.calendar > div.nameOfDay_container{
-    grid-column: 1 / 8;    
-    display: flex;
-    width: 100%;
-    justify-content: auto;
-    align-items: center; 
-    
+body > main > div.calendar-Container > div.calendar > div.nameOfDay_container {
+  grid-column: 1 / 8;
+  display: flex;
+  width: 100%;
+  justify-content: auto;
+  align-items: center;
 }
 
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > div > p{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > div
+  > p {
   color: aliceblue;
   font-size: 20px;
   text-align: center;
@@ -62,51 +70,76 @@ body > main > div.calendar-Container > div.calendar > div.selectedMonth_containe
 }
 
 /* /* This is needed when pressing the buttons */
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > div > div > p{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > div
+  > div
+  > p {
   color: aliceblue;
   font-size: 20px;
   text-align: center;
   letter-spacing: 5px;
-} 
+}
 
-
-body > main > div.calendar-Container > div.calendar > div.nameOfDay_container > div {
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.nameOfDay_container
+  > div {
   width: inherit;
 }
 
-
-body > main > div.calendar-Container > div.calendar > div.nameOfDay_container > div > p{
-  color: rgb(14, 14, 14);  
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.nameOfDay_container
+  > div
+  > p {
+  color: rgb(14, 14, 14);
   background-color: rgba(255, 255, 255, 0.411);
-  border-radius: 5px;  
+  border-radius: 5px;
   font-size: 15px;
 }
 
-
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > button{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > button {
   width: 30%;
   font-size: 15px;
 }
 
 /* ------ buttons  ------ */
 
-body > main > div.calendar-Container > div.calendar > div > button{
-  cursor: pointer;  
-  border: none;   
-  border-radius: 30px;  
+body > main > div.calendar-Container > div.calendar > div > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
   background-color: rgb(255, 255, 255);
   height: 100%;
-  width: 100%;  
-  font-size: 20px; 
+  width: 100%;
+  font-size: 20px;
   outline-style: none;
 }
 
-body > main > div.calendar-Container > div.calendar > div{
+body > main > div.calendar-Container > div.calendar > div {
   border: none;
   border-radius: 20px;
 }
 
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > button{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > button {
   background-color: rgba(255, 255, 255, 0.411);
   color: aliceblue;
   outline: none;
@@ -114,59 +147,60 @@ body > main > div.calendar-Container > div.calendar > div.selectedMonth_containe
 
 /* ------ hoover effects  ------ */
 
-body > main > div.calendar-Container > div.calendar > div.selectedMonth_container > .previousMonth:hover{
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > .previousMonth:hover {
   background-color: red;
   cursor: pointer;
 }
 
-body > main > div.calendar-Container > div.calendar > div > button:hover{
-  color:red;  
+body > main > div.calendar-Container > div.calendar > div > button:hover {
+  color: red;
 }
 
 /* --------- END OF CALENDAR  ------------ */
 
-
-
-
 /* --------- SALON ------------ */
 
-body > main > div.calendar-Container > div.bothSalons-container{
+body > main > div.calendar-Container > div.bothSalons-container {
   grid-area: salon;
   display: flex;
   justify-content: space-evenly;
   border-radius: 10px;
-
 }
 
-.btn-salon-calendar{
+.btn-salon-calendar {
   width: 25%;
   height: 10%;
   background-color: rgba(255, 255, 255, 0.123);
   color: aliceblue;
-  
+
   cursor: pointer;
   border: none;
-  border-radius: 30px;  
-  outline-style: none; 
+  border-radius: 30px;
+  outline-style: none;
 
   margin-left: 5%;
 }
 
-.btn-salon-calendar:hover{
+.btn-salon-calendar:hover {
   color: red;
 }
 
-.txtholder-time-calendarSalon{
+.txtholder-time-calendarSalon {
   display: inline-flex;
 }
 
-body > main > div.calendar-Container > div.bothSalons-container > div {  
+body > main > div.calendar-Container > div.bothSalons-container > div {
   display: block;
   width: 49%;
   height: 100%;
   background-color: rgb(128, 0, 0);
-  color: aliceblue; 
-  padding: 10px; 
+  color: aliceblue;
+  padding: 10px;
   border-radius: 10px;
 }
 
@@ -177,7 +211,12 @@ body > main > div.calendar-Container > div.bothSalons-container > div {
   text-align: left;
 }
 
-body > main > div.calendar-Container > div.bothSalons-container > div.little-salon-container > p{
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.little-salon-container
+  > p {
   margin-bottom: 10%;
 }
 
@@ -188,31 +227,41 @@ body > main > div.calendar-Container > div.bothSalons-container > div.little-sal
   margin-bottom: 15px;
 }
 
-body > main > div.calendar-Container > div.bothSalons-container > div.little-salon-container {  
- 
-  background-color: rgb(12, 92, 12);  
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.little-salon-container {
+  background-color: rgba(255, 255, 255, 0.123);
 }
 
-body > main > div.calendar-Container > div.bothSalons-container > div.big-salon-container {  
-  
-  background-color: rgb(33, 126, 126);  
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.big-salon-container {
+  background-color: rgba(255, 255, 255, 0.123);
 }
 
-
-body > main > div.calendar-Container > div.bothSalons-container > div.big-salon-container > p{
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.big-salon-container
+  > p {
   margin-bottom: 5px;
 }
 
-.txtholder-movieDate-calendarSalon{
+.txtholder-movieDate-calendarSalon {
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
-.txtholder-time-calendarSalon{
+.txtholder-time-calendarSalon {
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-.txtholder-movieTitle-calendarSalon p{
+.txtholder-movieTitle-calendarSalon p {
   font-size: 20px;
 }
