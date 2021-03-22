@@ -61,7 +61,7 @@ export default class Router {
   }
 
   booking() {
-    return booking.render('booking/dk-ss-210412-1700.json');
+    return booking.render('booking/dk-ls-210412-1900.json');
   }
 
   logIn() {
