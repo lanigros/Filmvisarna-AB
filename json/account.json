@@ -1,0 +1,26 @@
+[
+  {
+    "Email": "Kajsabajsa@live.se",
+    "Password": "reber",
+    "Name": "berb",
+    "Lastname": "brrr"
+  },
+  {
+    "Email": "Tobias.Gonzalze@live.se",
+    "Password": "Ingenannan",
+    "Name": "Tobias",
+    "Lastname": "Johansson"
+  },
+  {
+    "Email": "Kajsabajsa@live.se",
+    "Password": "testest",
+    "Name": "test",
+    "Lastname": "testest"
+  },
+  {
+    "Email": "Tester@test.test",
+    "Password": "tester",
+    "Name": "testest",
+    "Lastname": "testtest"
+  }
+]
