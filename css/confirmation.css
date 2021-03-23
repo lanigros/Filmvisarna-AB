@@ -1,2 +1,31 @@
 @import "/css/main.css";
 
+.confirmation-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.confirmation-container .text-container {
+  display: grid;
+  grid-template-rows: 1fr repeat(6, auto) 1fr;
+}
+
+.text-container .title-row {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0px 10px 0px;
+}
+
+.text-container .row {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+
+.confirmation-container h2 {
+  font-size: 20px;
+}
+
+.confirmation-container p {
+  font-size: 18px;
+}
