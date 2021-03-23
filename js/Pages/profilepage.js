@@ -12,8 +12,8 @@ export default class ProfilePage{
 
   async render() {
 
-    let bookedTicket = window.activeUser.bookedShows;
-    console.log(bookedTicket);
+    
+    console.log();
 
     if (!this.currentUser) {
       await this.read();
@@ -36,7 +36,7 @@ export default class ProfilePage{
         <div class="bookings-wrapper">
         <h1 class="bookings-title">bokningar</h1>
         <div class="bookings-text-container">
-        <p class="bookedTicketInfo">${bookedTicket.film}</p>
+        <p class="bookedTicketInfo"></p>
         <p>(Avboka knapp)</p>
         </div>
         </div>
