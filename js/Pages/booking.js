@@ -1,6 +1,7 @@
 export default class Booking {
 
   constructor(changeListener) {
+    this.setSessionStorage();
     /* this.file is the showing JSON file that is being read at a given time */
     this.file;
     /* this.latestBookedSeats is an array of seats that are being booked this session */
@@ -34,14 +35,22 @@ export default class Booking {
   async render(file) {
     /* if we're there's no booking file specified, go back to home page */
     if (!file) {
-      document.location.href = "/";
+      if (this.tempStore.bookingFile) {
+        this.file = this.tempStore.bookingFile;
+      } else {
+        document.location.href = "/";
+      }
     }
     /* if we're accessing a different booking file, read new file and add change listener */
     /* also remove change listener from old file */
     if (this.file !== file) {
       this.latestBookedSeats = [];//clear the array that keeps track of seats being booked
       this.changeListener.remove(this.file);//remove old file listener
-      this.file = 'booking/' + file;//update file we're looking at
+      if (file) {
+        this.file = 'booking/' + file;//update file we're looking at
+      }
+      this.tempStore.bookingFile = this.file;
+      this.tempStore.save();
       await this.read(file);//read new file
       this.changeListener.on(this.file, () => this.reRender());//add listener on new file
     }
@@ -197,6 +206,16 @@ export default class Booking {
     }
 
     return null;
+  }
+
+  setSessionStorage() {
+    this.tempStore = {};
+    try {
+      this.tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    this.tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
+    }
   }
 
 }
