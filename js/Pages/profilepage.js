@@ -43,12 +43,12 @@ export default class ProfilePage{
   }
 
   ticketLooper() {
-    let user = window.activeUser;
     
-    for (let i = 0; i < user.bookedShows.length; i++){
+    console.log(activeUser.bookedShows.length);
+    for (let i = 0; i < this.activeUser.bookedShows.length; i++){
       $('.bookings-text-container').append( /*html*/ `
       <div class=tickets></div>`)
-      bookedShows.forEach(ticketInfo => {
+      activeUser.bookedShows.forEach(ticketInfo => {
         $('.tickets').append(/*html*/ `
         <p>${ticketInfo}</p>
         `)
