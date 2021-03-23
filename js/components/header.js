@@ -13,7 +13,9 @@ export default class Header {
                 </a>
               </div>
               <div class="nav-logo">
-                <img class="logo" src="img/header/logo-icon.svg" alt="">
+                <a class="nav-logo-container" href="/">
+                  <img class="logo" src="img/header/logo-icon.svg" alt="">
+                </a>
               </div>
             </div>
             <div class="nav-right-items">
