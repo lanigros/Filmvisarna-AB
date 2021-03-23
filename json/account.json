@@ -5,5 +5,19 @@
     "Name": "Kajsa",
     "Lastname": "Bajskorv",
     "bookedShows": []
+  },
+  {
+    "Email": "test@test.se",
+    "Password": "test",
+    "Name": "test",
+    "Lastname": "Bajskorv",
+    "bookedShows": []
+  },
+  {
+    "Email": "matt@tobiasoffice.se",
+    "Password": "matt",
+    "Name": "matt",
+    "Lastname": "matt",
+    "bookedShows": []
   }
 ]
