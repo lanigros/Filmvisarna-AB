@@ -75,7 +75,7 @@ export default class Booking {
             <label for='${id}'></label>
           `
           /* populate seat if currently being selected */
-        } else if (this.showingDetails[0].seating[i][j] === 1) {
+        } else if (this.showingDetails[0].seating[i][j] === 1 && (this.latestBookedSeats.lenght > 0 && this.latestBookedSeats.includes(id))) {
           layout += /*html*/`
             <input type="checkbox" id='${id}' checked>
             <label for='${id}'></label>
