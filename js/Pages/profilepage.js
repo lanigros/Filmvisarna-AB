@@ -1,7 +1,7 @@
 
 export default class ProfilePage{
 
-
+  
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json")
@@ -12,13 +12,15 @@ export default class ProfilePage{
 
   async render() {
 
+    let bookedTicket = window.activeUser.bookedShows;
+    console.log(bookedTicket);
+
     if (!this.currentUser) {
       await this.read();
     }
     
-
-    console.log();
-
+    
+  
     return /*html*/ `
     
     <div class="profile-page-container">
@@ -34,19 +36,11 @@ export default class ProfilePage{
         <div class="bookings-wrapper">
         <h1 class="bookings-title">bokningar</h1>
         <div class="bookings-text-container">
-        <p>Film : </p>
-        <p>Salong : </p>
-        <p>Tid : </p>
-        <p>Plats : </p>
+        <p class="bookedTicketInfo">${bookedTicket.film}</p>
         <p>(Avboka knapp)</p>
         </div>
         </div>
     </div>
-    
-    
     `
-
   }
-
-
 }
