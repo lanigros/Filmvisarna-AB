@@ -9,8 +9,6 @@ export default class Booking {
     this.addEventHandlers();
   }
 
-  //window.activeUser.bookedShows
-
   addEventHandlers() {
     // Listen to changes on checkboxes => run updateBookingJSON
     $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingJSON(event));
@@ -176,8 +174,24 @@ export default class Booking {
     let accounts = await JSON._load('account.json');
 
     for (let i = 0; i < accounts.length; i++) {
+      /* find active user in account.json */
       if (accounts[i].Email === window.activeUser.Email) {
-        accounts[i].bookedShows.push(bookedShows);
+        /* if there are already bookings for this showing, append most recent booking */
+        let identical = false;
+        for (let j = 0; j < accounts[i].bookedShows.length; j++) {
+          if (accounts[i].bookedShows[j].auditorium === bookedShows.auditorium && accounts[i].bookedShows[j].film === bookedShows.film && accounts[i].bookedShows[j].date === bookedShows.date && accounts[i].bookedShows[j].time === bookedShows.time) {
+            for (let k = 0; k < bookedShows.seats.length; k++) {
+              accounts[i].bookedShows[j].seats.push(bookedShows.seats[k]);
+            }
+            accounts[i].bookedShows[j].seats.sort;
+            identical = true;
+          }
+        }
+        /* if there are no other bookings for this showing, simply add the booking information to the account */
+        if (!identical) {
+          accounts[i].bookedShows.push(bookedShows);
+        }
+
         return accounts;
       }
     }
