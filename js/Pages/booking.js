@@ -9,6 +9,8 @@ export default class Booking {
     this.addEventHandlers();
   }
 
+  //window.activeUser.bookedShows
+
   addEventHandlers() {
     // Listen to changes on checkboxes => run updateBookingJSON
     $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingJSON(event));
@@ -24,7 +26,7 @@ export default class Booking {
   // custom method for rerendering without route change
   async reRender() {
     /* if we're there's no booking file specified, go back to home page */
-    if (!file) {
+    if (!this.file) {
       document.location.href = "/";
     }
     await this.read();
@@ -75,7 +77,7 @@ export default class Booking {
             <label for='${id}'></label>
           `
           /* populate seat if currently being selected */
-        } else if (this.showingDetails[0].seating[i][j] === 1) {
+        } else if (this.showingDetails[0].seating[i][j] === 1 && (this.latestBookedSeats.length > 0 && this.latestBookedSeats.includes(id))) {
           layout += /*html*/`
             <input type="checkbox" id='${id}' checked>
             <label for='${id}'></label>
@@ -136,7 +138,8 @@ export default class Booking {
     /* loop through array and turn any unconfirmed bookings into confirmed bookings */
     for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
       for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
-        if (this.showingDetails[0].seating[i][j] === 1) {
+        let id = String.fromCharCode(65 + i) + " " + (j + 1);
+        if (this.showingDetails[0].seating[i][j] === 1 && (this.latestBookedSeats.length > 0 && this.latestBookedSeats.includes(id))) {
           this.showingDetails[0].seating[i][j] = 2;
         }
       }
@@ -144,6 +147,19 @@ export default class Booking {
 
     // Save the data to a JSON file
     await JSON._save(this.file, this.showingDetails);
+
+    let bookedShows = ({
+      auditorium: this.showingDetails[0].auditorium,
+      film: this.showingDetails[0].film,
+      date: this.showingDetails[0].date,
+      time: this.showingDetails[0].time,
+      seats: this.latestBookedSeats
+    });
+
+    /* create an array of all accounts and add the latest booking information to the appropriate account */
+    let accounts = await this.addTicketArray(bookedShows);
+    /* save all accounts back to accounts JSON */
+    await JSON._save('account.json', accounts);
   }
 
   /* utility function for removing a value from an array */
@@ -153,6 +169,20 @@ export default class Booking {
         array.splice(i, 1);
       }
     }
+  }
+
+  /* search the account.json file for the appropriate user and add booking details to their bookedShows variable */
+  async addTicketArray(bookedShows) {
+    let accounts = await JSON._load('account.json');
+
+    for (let i = 0; i < accounts.length; i++) {
+      if (accounts[i].Email === window.activeUser.Email) {
+        accounts[i].bookedShows.push(bookedShows);
+        return accounts;
+      }
+    }
+
+    return null;
   }
 
 }
