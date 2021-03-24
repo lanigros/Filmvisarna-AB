@@ -18,14 +18,22 @@
 
 .profile-wrapper {
   grid-area: ui;
-  height: 100%;
+  height: 34em;
   width: 100%;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  border-radius: 13px;
+  text-align: center;
+  padding: 10px;
 }
 
 .bookings-wrapper {
   grid-area: ub;
-  height: 100%;
+  height: 34em;
   width: 100%;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  border-radius: 13px;
+  max-height: 34em;
+  padding: 1em;
 }
 
 .profile-divider {
@@ -51,6 +59,8 @@
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
+  margin: 0;
+  padding: 1em;
 }
 
 .profile-text-container {
@@ -58,6 +68,7 @@
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
   height: 30%;
+  padding: 1em;
 }
 
 .profile-text-container > p {
@@ -71,6 +82,8 @@
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
+  margin: 0;
+  padding: 1em;
 }
 
 .bookings-text-container {
@@ -78,6 +91,8 @@
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
   overflow: auto;
+  max-height: 24em;
+  scroll-behavior: smooth;
 }
 
 .bookings-text-container > p {
@@ -89,6 +104,7 @@
   margin-top: 10px;
   transition: background-color 1s linear;
   text-indent: 10px;
+  padding: 10px;
 }
 
 .booked-tickets:hover {

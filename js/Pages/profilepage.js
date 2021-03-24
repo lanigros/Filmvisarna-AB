@@ -57,7 +57,8 @@ export default class ProfilePage {
     $('main').on('click', ".show-bookings-btn", () => this.ticketLooper());
   }
 
-   ticketLooper() {
+  ticketLooper() {
+     
    
     console.log('Start ticketlooper')
      for (let i = 0; i < activeUser.bookedShows.length; i++) {
