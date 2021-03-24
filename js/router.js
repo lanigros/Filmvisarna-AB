@@ -30,10 +30,12 @@ export default class Router {
     // main renders on location hash change
     // register the event listener for that:
     window.onhashchange = () => this.setCurrentPage(selector);
+    // add variable to read and save session storage
+    this.setSessionStorage();
     // a global variable used when rendering the correct booking information
     this.bookingJSONFile;
     // create an event listener for the buttons linking to the booking page
-    $('body').on('click', '.link-to-booking-page', (event) => this.bookingJSONFile = event.target.id);
+    $('body').on('click', '.link-to-booking-page', (event) => this.setBookingFile(event));
     // but also render it right now, based on the current hash or default page
     this.setCurrentPage(selector)
   }
@@ -53,6 +55,27 @@ export default class Router {
     $(selector).html(result);
   }
 
+  ////////////////
+  // Create variable to read and save session storage
+  setSessionStorage() {
+    this.tempStore = {};
+    try {
+      this.tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    this.tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
+    }
+  }
+
+  // Set the booking file being accessed in the session storage and declare if the booking file is different
+  async setBookingFile(event) {
+    if (!(this.tempStore.bookingFile === 'booking/' + event.target.id)) {
+      changeListener.remove(this.tempStore.bookingFile);
+      this.tempStore.bookingFile = 'booking/' + event.target.id;
+      this.tempStore.bookingFileHasChanged = true;
+      this.tempStore.save();
+    }
+  }
 
   ////////////////
   // Our pages (the method names matches the hashes with any slashes - removed)
@@ -65,11 +88,11 @@ export default class Router {
   }
 
   confirmation() {
-    return confirmation.render(booking.showingDetails, booking.latestBookedSeats);
+    return confirmation.render();
   }
 
   booking() {
-    return booking.render(this.bookingJSONFile);
+    return booking.render();
   }
 
   logIn() {

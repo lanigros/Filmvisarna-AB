@@ -12,8 +12,8 @@ export default class LogIn {
     this.account = await $.getJSON("./json/account.json");
   }
 
-   regHandeler() {
-    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event)); 
+  regHandeler() {
+    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
@@ -25,11 +25,11 @@ export default class LogIn {
 
 
   async render() {
-  
+
     if (!this.account) {
       await this.read()
     }
-  
+
 
     return `
     
@@ -74,10 +74,10 @@ export default class LogIn {
       </div>
    </div> 
     `
-   
+
   }
 
- 
+
 
   async createNewUser(event) {
     event.preventDefault();
@@ -86,7 +86,7 @@ export default class LogIn {
     let newName = $("#fname").val();
     let newLastName = $("#lname").val();
     let bookedShows = [];
-    
+
     let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
     await JSON._save('account.json', this.account);
@@ -99,17 +99,18 @@ export default class LogIn {
     let activeUser = "";
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
-      
-      this.account.forEach(user => {
-        if (logEmail === user.Email && logPswrd === user.Password) {
-          alert('Login success!');
-          window.activeUser = user;
-          this.activeMember(activeUser);
-          
-          return false;
-        } 
-         
-    });   
+
+    this.account.forEach(user => {
+      if (logEmail === user.Email && logPswrd === user.Password) {
+        alert('Login success!');
+        activeUser = user;
+        window.activeUser = activeUser;
+        this.activeMember(activeUser);
+
+        return false;
+      }
+
+    });
   }
 
   activeMember() {
@@ -124,8 +125,8 @@ export default class LogIn {
     <button id="log-out-option">Logga ut</button>
     </div>
     `);
-    
-  
+
+
   }
 
   logOutHandeler() {
