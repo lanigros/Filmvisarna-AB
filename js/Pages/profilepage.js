@@ -53,9 +53,7 @@ export default class ProfilePage {
   }
 
   ticketLooper() {
-    console.log(this.user);
-    console.log(activeUser.bookedShows.length);
-    console.log(JSON.stringify(this.user.bookedShows[2]));
+    
 
     let ticketInfoMaster = JSON.stringify(this.user.bookedShows);
     
@@ -63,5 +61,11 @@ export default class ProfilePage {
 
       $('.bookings-text-container').append( /*html*/ `<div class=tickets><p>${ticketInfoMaster}</p></div>`);
     };
+
+    let tickets = user.bookedShows.
+    this.user.forEach(element => {
+      
+    });
+
   }
 }
