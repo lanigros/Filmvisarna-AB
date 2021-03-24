@@ -1,8 +1,10 @@
 export default class Confirmation {
 
-  render(movieDetails, seatArray) {
-    if (!movieDetails || !seatArray) {
+  render() {
+    this.setSessionStorage();
+    if (!this.tempStore.bookingShowingDetails || !this.tempStore.bookingLatestBookedSeats) {
       document.location.href = "/";
+      return;
     }
     let layout = /*html*/`
       <div class="confirmation-container">
@@ -14,32 +16,32 @@ export default class Confirmation {
           </div>
           <div class="row">
             <h2>Film: </h2>
-            <p>${movieDetails[0].film}</p>
+            <p>${this.tempStore.bookingShowingDetails.film}</p>
           </div>
           <div class="row">
             <h2>Datum: </h2>
-            <p>${movieDetails[0].date}</p>
+            <p>${this.tempStore.bookingShowingDetails.date}</p>
           </div>
           <div class="row">
             <h2>Tid: </h2>
-            <p>${movieDetails[0].time}</p>
+            <p>${this.tempStore.bookingShowingDetails.time}</p>
           </div>
           <div class="row">
             <h2>Salong: </h2>
-            <p>${movieDetails[0].auditorium}</p>
+            <p>${this.tempStore.bookingShowingDetails.auditorium}</p>
           </div>
             <div class="row">
             <h2>Plats: </h2>
     `;
 
-    for (let i = 0; i < seatArray.length; i++) {
+    for (let i = 0; i < this.tempStore.bookingLatestBookedSeats.length; i++) {
       if (i === 0) {
         layout += /*html*/`
-          <p>${seatArray[i]}</p>
+          <p>${this.tempStore.bookingLatestBookedSeats[i]}</p>
         `;
       } else {
         layout += /*html*/`
-          <p>, ${seatArray[i]}</p>
+          <p>, ${this.tempStore.bookingLatestBookedSeats[i]}</p>
         `;
       }
     }
@@ -53,6 +55,16 @@ export default class Confirmation {
     `;
 
     return layout;
+  }
+
+  setSessionStorage() {
+    this.tempStore = {};
+    try {
+      this.tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    this.tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
+    }
   }
 
 }

@@ -19,6 +19,9 @@ export default class Booking {
 
   // custom method for rerendering without route change
   async reRender() {
+    if (document.location.href !== "#booking") {
+      return;
+    }
     $('main').append(await this.render());
   }
 
@@ -32,11 +35,14 @@ export default class Booking {
     }
     // if this is a new booking file, add event handler and reset session variables
     if (this.tempStore.bookingFileHasChanged) {
-      this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
       this.tempStore.bookingLatestBookedSeats = []; // contains tickets that are being or were recently booked
       this.tempStore.bookingUnconfirmedSeatingSelection = (await JSON._load(this.tempStore.bookingFile))[0].seating; // contains the seating chart not yet saved to the JSON
       this.tempStore.bookingFileHasChanged = false;
       this.tempStore.save();
+    }
+    // add change listener for booking file if not present
+    if (!this.changeListener.contains(this.tempStore.bookingFile)) {
+      this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
     }
     // if the user is not logged in, go to login page
     /*if (!this.tempStore.activeUser) {
