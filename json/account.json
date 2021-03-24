@@ -43,6 +43,16 @@
         "seats": [
           "A 5"
         ]
+      },
+      {
+        "auditorium": "Stora Salongen",
+        "film": "The Dark Knight",
+        "date": "2021-04-20",
+        "time": "21.00",
+        "seats": [
+          "F 4",
+          "F 5"
+        ]
       }
     ]
   },

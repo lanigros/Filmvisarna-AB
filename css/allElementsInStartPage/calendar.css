@@ -1,7 +1,7 @@
 @import "/css/main.css";
 
 .calendar-Container {
-  grid-area: ca; /* grid from on main */
+  grid-area: c; /* grid from on main */
   display: grid;
   width: 100%;
   height: auto;

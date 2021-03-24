@@ -36,6 +36,11 @@ export default class StartPage {
               <div class="item"><img src="img/movieImg/kong.jpg"></div>
               <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
               <div class="item"><img src="img/movieImg/dora.jpg"></div>
+              <div class="item"><img src="img/movieImg/joker.jpg"></div>
+              <div class="item"><img src="img/movieImg/avangers.jpg"></div>
+              <div class="item"><img src="img/movieImg/kong.jpg"></div>
+              <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
+              <div class="item"><img src="img/movieImg/dora.jpg"></div>
             </div>
       </div>
       

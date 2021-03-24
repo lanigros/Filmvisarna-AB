@@ -30,12 +30,11 @@ body {
   height: 100vh;
   overflow-x: hidden;
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: minmax(fitcontent, 13%) auto auto 19%;
+  grid-template-rows: 13% auto 19%;
 
   grid-template-areas:
     "h h h "
     ". c ."
-    ". ca ."
     "f f f";
 
   background: radial-gradient(
