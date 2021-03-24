@@ -30,7 +30,7 @@ export default class ChangeListener {
   }
 
   fileChange(filePath) {
-    
+
     if (filePath.includes('.git')) { return; }
     // Loop through registered events and call them on file match
     this.events.forEach(({ file, func }) => {
