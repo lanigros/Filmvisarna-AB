@@ -77,8 +77,28 @@
   font-family: "Roboto", sans-serif;
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
+  overflow: auto;
 }
 
 .bookings-text-container > p {
   font-size: 15px;
+}
+
+.booked-tickets {
+  background-color: rgba(255, 255, 255, 0.411);
+  margin-top: 10px;
+  transition: background-color 1s linear;
+  text-indent: 10px;
+}
+
+.booked-tickets:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+.show-bookings-btn {
+  height: 30px;
+  width: 115px;
+  font-size: 10px;
+  cursor: pointer;
+  font-weight: bolder;
 }

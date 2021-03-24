@@ -25,6 +25,24 @@
           "H 8",
           "H 7"
         ]
+      },
+      {
+        "auditorium": "Stora Salongen",
+        "film": "Parasite",
+        "date": "2021-04-17",
+        "time": "21.00",
+        "seats": [
+          "H 9"
+        ]
+      },
+      {
+        "auditorium": "Stora Salongen",
+        "film": "The Dark Knight",
+        "date": "2021-04-29",
+        "time": "17.00",
+        "seats": [
+          "A 5"
+        ]
       }
     ]
   },

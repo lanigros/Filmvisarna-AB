@@ -2,11 +2,10 @@
 
 export default class ProfilePage {
 
+
   constructor() {
     this.eventHandeler();
   }
-
-
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
@@ -16,6 +15,8 @@ export default class ProfilePage {
 
   async render() {
 
+    
+
     if (!this.currentUser) {
       await this.read();
     }
@@ -24,6 +25,7 @@ export default class ProfilePage {
     }
 
     
+
     return /*html*/ `
     
     <div class="profile-page-container">
@@ -38,24 +40,27 @@ export default class ProfilePage {
           <div class="profile-divider"></div>
           <div class="bookings-wrapper">
             <h1 class="bookings-title">bokningar</h1>
-            <div class="bookings-text-container"> Hej!
+            <div class="bookings-text-container">
+            <button class="show-bookings-btn">Visa min bokningar</button>
             </div>
               
-              <p>(Avboka knapp)</p>
+              
           </div>
           </div>
     </div>
     `
+  
   }
 
 
   eventHandeler() {
-    $('main').on("click", ".bookings-text-container", () => this.ticketLooper())
+    $('main').on('click', ".show-bookings-btn", () => this.ticketLooper());
   }
 
-  ticketLooper() {
-    console.log('Ticketlooper start')
-    for (let i = 0; i < activeUser.bookedShows.length; i++) {
+   ticketLooper() {
+   
+    console.log('Start ticketlooper')
+     for (let i = 0; i < activeUser.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
       <p>Film : ${activeUser.bookedShows[i].film}</p> 
@@ -65,19 +70,6 @@ export default class ProfilePage {
       <p>Platser : ${activeUser.bookedShows[i].seats}</p> 
       </div>
       `)
-    };
-    
-    //    console.log('hello')
-    // const tickets = this.user.bookedShows[0];
-    
-    // for (const property in tickets) {
-    //   console.log(`${property}: ${Object[property]}`);
-    // }
-    
-    //let bookedShowsLength = activeUser.bookedShows.length;
-
-    
-
-
+    }; console.log('End ticketlooper')
   }
 }
