@@ -9,7 +9,8 @@ import Booking from "./pages/booking.js";
 import LogIn from "./Pages/logIn.js";
 import ContactUs from "./Pages/contactUS.js";
 import Confirmation from "./Pages/confirmation.js";
-import ProfilePage from "./Pages/profilepage.js"
+import ProfilePage from "./Pages/profilepage.js";
+
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
@@ -57,6 +58,7 @@ export default class Router {
   // Our pages (the method names matches the hashes with any slashes - removed)
 
   // if we want a new instance every time we visit a page we instanciate here instead
+ 
 
   profilepage() {
     return profilepage.render();

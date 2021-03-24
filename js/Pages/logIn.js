@@ -1,6 +1,3 @@
-import Header from '../components/header.js';
-
-const header = new Header();
 
 export default class LogIn {
 

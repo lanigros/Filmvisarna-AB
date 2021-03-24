@@ -7,22 +7,23 @@
     "bookedShows": [
       {
         "auditorium": "Lilla Salongen",
-        "film": "Matrix",
-        "date": "2021-04-24",
+        "film": "Inception",
+        "date": "2021-04-23",
         "time": "19.00",
         "seats": [
-          "F 7",
-          "F 6"
+          "E 8",
+          "E 7"
         ]
       },
       {
-        "auditorium": "Lilla Salongen",
-        "film": "Matrix",
-        "date": "2021-04-24",
-        "time": "19.00",
+        "auditorium": "Stora Salongen",
+        "film": "Lord of the Rings: The Fellowship of the Ring",
+        "date": "2021-04-18",
+        "time": "17.00",
         "seats": [
-          "B 6",
-          "B 5"
+          "H 9",
+          "H 8",
+          "H 7"
         ]
       }
     ]

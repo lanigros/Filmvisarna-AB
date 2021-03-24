@@ -1,4 +1,5 @@
 
+
 export default class ProfilePage {
 
   constructor() {
@@ -9,7 +10,7 @@ export default class ProfilePage {
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
-    this.user = await window.activeUser;
+    this.user = window.activeUser;
   }
 
 
@@ -21,6 +22,7 @@ export default class ProfilePage {
     if (!this.user) {
       await this.read();
     }
+
     
     return /*html*/ `
     
@@ -36,8 +38,7 @@ export default class ProfilePage {
           <div class="profile-divider"></div>
           <div class="bookings-wrapper">
             <h1 class="bookings-title">bokningar</h1>
-            <div class="bookings-text-container">
-            <p>Film : ${this.user.bookedShows.auditorium}</p>
+            <div class="bookings-text-container"> Hej!
             </div>
               
               <p>(Avboka knapp)</p>
@@ -53,19 +54,30 @@ export default class ProfilePage {
   }
 
   ticketLooper() {
-    
-
-    let ticketInfoMaster = JSON.stringify(this.user.bookedShows);
-    
-    for (let i = 0; i < activeUser["bookedShows"].length; i++) {
-
-      $('.bookings-text-container').append( /*html*/ `<div class=tickets><p>${ticketInfoMaster}</p></div>`);
+    console.log('Ticketlooper start')
+    for (let i = 0; i < activeUser.bookedShows.length; i++) {
+      $('.bookings-text-container').append(/*html*/ `
+      <div class="booked-tickets">
+      <p>Film : ${activeUser.bookedShows[i].film}</p> 
+      <p>Datum : ${activeUser.bookedShows[i].date}</p> 
+      <p>Tid : ${activeUser.bookedShows[i].time}</p> 
+      <p>Salong : ${activeUser.bookedShows[i].auditorium}</p> 
+      <p>Platser : ${activeUser.bookedShows[i].seats}</p> 
+      </div>
+      `)
     };
+    
+    //    console.log('hello')
+    // const tickets = this.user.bookedShows[0];
+    
+    // for (const property in tickets) {
+    //   console.log(`${property}: ${Object[property]}`);
+    // }
+    
+    //let bookedShowsLength = activeUser.bookedShows.length;
 
-    let tickets = user.bookedShows.
-    this.user.forEach(element => {
-      
-    });
+    
+
 
   }
 }
