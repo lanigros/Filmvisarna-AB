@@ -31,7 +31,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: minmax(fitcontent, 10%) auto 19%;
+  grid-template-rows: minmax(min-content, 10%) auto 19%;
 
   grid-template-areas:
     "h h h "
