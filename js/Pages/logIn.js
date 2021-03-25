@@ -108,14 +108,13 @@ export default class LogIn {
 
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
-        alert('Login success!');
+        alert('Inloggning lyckades!');
         activeUser = user;
         window.activeUser = activeUser;
         this.activeMember(activeUser);
 
         return false;
-      }
-
+      }  
     });
   }
 

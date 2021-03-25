@@ -22,8 +22,8 @@ export default class StartPage {
         <div class="banner-title"><h1>${this.movieInfo[0].title}</h1></div>
         <div class="banner-desc"><p>${this.movieInfo[0].description}</p></div>
       </div>
-          <button class="order-btn">Se trailer</button>
-
+          <button class="trailer-btn">Se trailer</button>
+    
     </div>
 
       <div class="trailer-wrapper">
