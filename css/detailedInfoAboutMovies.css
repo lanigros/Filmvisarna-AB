@@ -17,10 +17,12 @@
 }
 
 .movie-banner {
-  background: url(../img/movieImg/lotr-banner.jpg);
+  background: url(../img/movieImg/lotr-tall.jpg);
   grid-area: mb;
   background-color: antiquewhite;
   width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .movie_title {
@@ -58,4 +60,17 @@ p {
 
 .order-btn {
   margin: 10px 0 5px 0;
+  font-family: "Josefin Sans", sans-serif;
+  align-content: center;
+  justify-content: center;
+  height: 3.2em;
+  width: 10.5em;
+  cursor: pointer;
+  border: none;
+  bottom: 1em;
+  right: 2em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  background-color: #2d2a2a;
+  padding: 1em;
 }
