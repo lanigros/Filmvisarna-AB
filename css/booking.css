@@ -8,15 +8,21 @@
 
 .movie-details-row em {
   font-size: 20px;
+  display: flex;/* center the content */
+  justify-content: center;/* center the content */
 }
 
 /* style the "screen" border line */
 .screen-row {
-  padding-bottom: 0px;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+}
+
+.screen-row h1 {
+  display: flex;/* center the content */
+  justify-content: center;/* center the content */
   border-bottom: 2px solid black;
+  padding-bottom: 16px;
 }
 
 /* style the row asking user to select their seat */

@@ -1,10 +1,8 @@
-import Header from '../components/header.js';
-
-const header = new Header();
 
 export default class LogIn {
 
   constructor() {
+    this.logOutHandeler();
     this.regHandeler();
     this.logHandeler();
   }
@@ -14,20 +12,24 @@ export default class LogIn {
     this.account = await $.getJSON("./json/account.json");
   }
 
-   regHandeler() {
-    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event)); 
+  regHandeler() {
+    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
 
+  logOutHandeler() {
+    $('main').on('click', '#log-out-option', () => this.logOutHandeler());
+  }
+
 
   async render() {
-  
+
     if (!this.account) {
       await this.read()
     }
-  
+
 
     return `
     
@@ -72,10 +74,10 @@ export default class LogIn {
       </div>
    </div> 
     `
-   
+
   }
 
- 
+
 
   async createNewUser(event) {
     event.preventDefault();
@@ -84,7 +86,7 @@ export default class LogIn {
     let newName = $("#fname").val();
     let newLastName = $("#lname").val();
     let bookedShows = [];
-    
+
     let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
     await JSON._save('account.json', this.account);
@@ -94,34 +96,44 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    var activeUser = "";
+    let activeUser = "";
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
-      
-      this.account.forEach(user => {
-        if (logEmail === user.Email && logPswrd === user.Password) {
-          alert('Login success!');
-          activeUser = user;
-          this.activeMember(activeUser);
-          
-          return false;
-        } 
-         
-    });   
+
+    this.account.forEach(user => {
+      if (logEmail === user.Email && logPswrd === user.Password) {
+        alert('Login success!');
+        activeUser = user;
+        window.activeUser = activeUser;
+        this.activeMember(activeUser);
+
+        return false;
+      }
+
+    });
   }
 
-  activeMember(activeUser) {
-    console.log(activeUser);
-    $('.nav-right-items').replaceWith(`
-    <div class="active-User-Container"> 
-    <p>Välkommen ${activeUser.Name}!</p>
-    <a class="active-user-profile" href="#">Mina sidor</a>
-    <img src="./img/side-nav/vector-icon.svg">
+  activeMember() {
+  
+    $('.nav-right-items').replaceWith( /*html*/ `
+    <div class="active-User-Container">
+    <div class="menu-divider"></div>
+    <p>Välkommen ${window.activeUser.Name}!</p>
+    <div class="menu-divider"></div>
+    <a class="active-user-profile" href="#profilepage">Mina sidor</a>
+    <div class="menu-divider"></div>
+    <button id="log-out-option">Logga ut</button>
     </div>
     `);
-    
-  
+
+
+  }
+
+  logOutHandeler() {
+    window.activeUser = false;
+    console.log('Logged out')
   }
 
 
 }
+

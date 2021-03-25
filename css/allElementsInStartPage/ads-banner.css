@@ -1,0 +1,12 @@
+@import "./main.css";
+
+.ads-banner {
+  grid-area: c;
+  background-image: url("/img/movieImg/Just-nu-Container.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}

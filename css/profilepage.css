@@ -1,0 +1,155 @@
+@import "/css/main.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
+
+.profile-page-container {
+  grid-area: c;
+  display: grid;
+  width: 100%;
+  height: 68vh;
+  align-self: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". pd ."
+    "ui pd ub"
+    ". pd .";
+}
+
+.profile-wrapper {
+  grid-area: ui;
+  height: 34em;
+  width: 100%;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  border-radius: 13px;
+  text-align: center;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    ". pt ."
+    ". pi .";
+}
+
+.bookings-wrapper {
+  grid-area: ub;
+  width: 100%;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  border-radius: 13px;
+  max-height: 34em;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 26% 74%;
+  grid-template-areas:
+    ". bwt ."
+    ". bwti .";
+}
+
+.profile-divider {
+  align-self: center;
+  grid-area: pd;
+  height: 50vh;
+  width: 5px;
+  justify-self: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 10%,
+    rgb(255, 255, 255) 50%,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.profile-title {
+  grid-area: pt;
+  text-align: center;
+  color: rgb(241, 241, 241);
+  font-size: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0;
+  padding: 1em;
+}
+
+.profile-text-container {
+  grid-area: pi;
+  font-family: "Roboto", sans-serif;
+  color: rgb(241, 241, 241);
+  letter-spacing: 1px;
+  height: 30%;
+  padding: 1em;
+}
+
+.profile-text-container > p {
+  font-size: 15px;
+}
+
+.bookings-title {
+  grid-area: bwt;
+  text-align: center;
+  color: rgb(241, 241, 241);
+  font-size: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0;
+  padding: 1em;
+}
+
+.bookings-text-container {
+  grid-area: bwti;
+  font-family: "Roboto", sans-serif;
+  color: rgb(241, 241, 241);
+  letter-spacing: 1px;
+  overflow: auto;
+  max-height: 24em;
+  scroll-behavior: smooth;
+}
+
+.bookings-text-container > p {
+  font-size: 15px;
+}
+
+.booked-tickets {
+  background-color: rgba(255, 255, 255, 0.411);
+  margin-top: 10px;
+  transition: background-color 1s linear;
+  text-indent: 10px;
+  padding: 10px;
+}
+
+.booked-tickets:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+.show-bookings-btn {
+  grid-area: bwbtn;
+  height: 30px;
+  width: 115px;
+  font-size: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.bookings-text-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(27, 26, 26, 1);
+}
+
+.bookings-text-container::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 10px;
+  background-color: rgba(27, 26, 26, 1);
+}
+
+.bookings-text-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(134, 127, 127);
+}

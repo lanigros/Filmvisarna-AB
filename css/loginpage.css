@@ -9,7 +9,7 @@
   border-radius: 10px;
   text-align: center;
   align-self: center;
-  justify-content: center;
+  justify-items: center;
   border-radius: 5px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
@@ -31,6 +31,7 @@
     rgba(255, 255, 255, 0) 90%,
     rgba(255, 255, 255, 0) 100%
   );
+  justify-self: center;
 }
 
 .Login-wrapper {
@@ -160,4 +161,20 @@
 .active-User-Container > a {
   align-self: center;
   font-size: 15px;
+}
+
+.menu-divider {
+  height: 20px;
+  width: 1px;
+  background-color: rgb(238, 238, 238);
+}
+
+#log-out-option {
+  font-family: "Dosis", sans-serif;
+  width: auto;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: inherit;
 }

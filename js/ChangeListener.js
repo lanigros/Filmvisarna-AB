@@ -29,8 +29,19 @@ export default class ChangeListener {
     }
   }
 
+  // determines if there is a listener on a given file
+  contains(file) {
+    for (let i = 0; i < this.events.length; i++) {
+      if (this.events[i].file === file) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   fileChange(filePath) {
-    
+
     if (filePath.includes('.git')) { return; }
     // Loop through registered events and call them on file match
     this.events.forEach(({ file, func }) => {

@@ -1,42 +1,8 @@
-@import "/css/main.css"; 
+@import "/css/main.css";
 
-h1, p{
-  color: rgb(209, 209, 209);
-  font-family: "Poppins", sans-serif;
-}
-
-.detailedInfoAboutMovie-Container{
-  position: relative;
-  margin: 0 auto;
+.detailedInfoAboutMovie-Container {
   grid-area: c;
   width: 100%;
   display: inline-block;
   justify-content: center;
-}
-
-
-/* -------- TRAILER CONTENT (YOUTUBE) -------------- */
-
-body > main > div > div.movie_trailer_container{
-  width: 50%;  
-  display: inline-block;
-  position: relative;
-  padding-bottom: 29.25%; /* 16:9 */
-  height: 0;
-}
-
-.movie_trailer_container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* -------- MOVIE DESCRIPTION -------------- */
-
-body > main > div > div.movie_desc_container{
-  position: absolute;
-  display: inline-block;  
-  padding-left: 10px;    
 }

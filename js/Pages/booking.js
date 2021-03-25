@@ -1,79 +1,100 @@
 export default class Booking {
 
   constructor(changeListener) {
-    /* this.file is the showing JSON file that is being read at a given time */
-    this.file;
-    /* this.latestBookedSeats is an array of seats that are being booked this session */
-    this.latestBookedSeats = [];
     this.changeListener = changeListener;
     this.addEventHandlers();
   }
 
   addEventHandlers() {
     // Listen to changes on checkboxes => run updateBookingJSON
-    $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingJSON(event));
+    $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingArray(event));
     // Listen to changes on the booking button => run confirmBookingJSON
     $('body').on('click', '.seating-container .booking-btn', () => this.confirmBookingJSON());
   }
 
   async read() {
-    // Read data from a JSON file
-    this.showingDetails = await JSON._load(this.file);
+    this.tempStore.bookingShowingDetails = (await JSON._load(this.tempStore.bookingFile))[0];
+    this.tempStore.save();
   }
 
   // custom method for rerendering without route change
   async reRender() {
-    await this.read();
-    $('main').append(this.render(this.file));
+    if (document.location.href !== "#booking") {
+      return;
+    }
+    $('main').append(await this.render());
   }
 
-  async render(file) {
-    /* if we're accessing a different booking file, read new file and add change listener */
-    /* also remove change listener from old file */
-    if (this.file !== file) {
-      this.latestBookedSeats = [];//clear the array that keeps track of seats being booked
-      this.changeListener.remove(this.file);//remove old file listener
-      this.file = file;//update file we're looking at
-      await this.read(file);//read new file
-      this.changeListener.on(this.file, () => this.reRender());//add listener on new file
+  async render() {
+    // set the session storage during each render so that information is up-to-date
+    this.setSessionStorage();
+    // if we're there's no booking file specified, go back to home page
+    if (!this.tempStore.bookingFile) {
+      document.location.href = "/";
+      return;
     }
+    // if this is a new booking file, add event handler and reset session variables
+    if (this.tempStore.bookingFileHasChanged) {
+      this.tempStore.bookingLatestBookedSeats = []; // contains tickets that are being or were recently booked
+      this.tempStore.bookingUnconfirmedSeatingSelection = (await JSON._load(this.tempStore.bookingFile))[0].seating; // contains the seating chart not yet saved to the JSON
+      this.tempStore.bookingFileHasChanged = false;
+      this.tempStore.save();
+    }
+    // add change listener for booking file if not present
+    if (!this.changeListener.contains(this.tempStore.bookingFile)) {
+      this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
+    }
+    // if the user is not logged in, go to login page
+    /*if (!this.tempStore.activeUser) {
+      document.location.href = "#login";
+      return;
+    }*/
+
+    await this.read(this.tempStore.bookingFile);
+
     /* add heading part of seating chart */
     let layout = /*html*/`
       <div class="seating-container">
         <div class="buffer"></div>
         <div class="movie-details-row">
-          <em>${this.showingDetails[0].film}: ${this.showingDetails[0].date} (${this.showingDetails[0].time})</em>
+          <em>${this.tempStore.bookingShowingDetails.film}: ${this.tempStore.bookingShowingDetails.date} (${this.tempStore.bookingShowingDetails.time})</em>
         </div>
         <div class="screen-row">
+          <div></div>
           <h1>SKÄRM</h1>
+          <div></div>
         </div>
         <div class="seating-rows-container">
     `
     /* add seating/checkboxes part of seating chart */
-    for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
+    for (let i = 0; i < this.tempStore.bookingUnconfirmedSeatingSelection.length; i++) {
       layout += /*html*/`
         <div class="row">
       `
-      for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
+      for (let j = 0; j < this.tempStore.bookingUnconfirmedSeatingSelection[i].length; j++) {
         /* convert i and j into the ticket number for a seat */
         /* this can be used for the checkbox ID among other things */
         let id = String.fromCharCode(65 + i) + " " + (j + 1);
-        /* populate seat if available */
-        if (this.showingDetails[0].seating[i][j] === 0) {
+        /* populate seat if unavailable */
+        /* note that we can look at either the bookingShowingDetails or bookingUnconfirmedSeatingSelection variables for this, but we choose to look at bookingShowingDetails since this is the source of truth for confirmed bookings */
+        if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
+          if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] !== 2) {
+            this.remove(this.tempStore.bookingLatestBookedSeats, id);
+            this.tempStore.bookingUnconfirmedSeatingSelection[i][j] = 2;
+            this.tempStore.save();
+          }
           layout += /*html*/`
-            <input type="checkbox" id='${id}'>
+            <input type="checkbox" id='${id}' disabled>
             <label for='${id}'></label>
           `
-          /* populate seat if currently being selected */
-        } else if (this.showingDetails[0].seating[i][j] === 1) {
+        } else if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
           layout += /*html*/`
             <input type="checkbox" id='${id}' checked>
             <label for='${id}'></label>
           `
-          /* populate seat if already taken */
         } else {
           layout += /*html*/`
-            <input type="checkbox" id='${id}' disabled>
+            <input type="checkbox" id='${id}'>
             <label for='${id}'></label>
           `
         }
@@ -89,7 +110,7 @@ export default class Booking {
           <em>Välj din plats</em>
         </div>
         <div class="button-row">
-          <a class="booking-btn" href="#confirmation">BOK NU</a>
+          <a class="booking-btn" href="#confirmation">BOKA NU</a>
         </div>
         <div class="buffer"></div>
       </div>
@@ -98,7 +119,7 @@ export default class Booking {
     return layout;
   }
 
-  async updateBookingJSON(event) {
+  async updateBookingArray(event) {
     let checkbox = event.target;
     let seatID = checkbox.id;
     let value = seatID;
@@ -109,31 +130,54 @@ export default class Booking {
 
     /* update the status of the checkbox (seat) in the seating chart array */
     if (checkbox.disabled == true) {
-      this.showingDetails[0].seating[value[0]][value[1]] = 2;
+      this.tempStore.bookingUnconfirmedSeatingSelection[value[0]][value[1]] = 2;
+      this.remove(this.tempStore.bookingLatestBookedSeats, seatID);
     } else if (checkbox.checked == true) {
-      this.showingDetails[0].seating[value[0]][value[1]] = 1;
-      this.latestBookedSeats.push(seatID);/* add this seat to this session's array */
+      this.tempStore.bookingUnconfirmedSeatingSelection[value[0]][value[1]] = 1;
+      this.tempStore.bookingLatestBookedSeats.push(seatID);
     } else {
-      this.showingDetails[0].seating[value[0]][value[1]] = 0;
-      this.remove(this.latestBookedSeats, seatID);/* remove this seat from this session's array */
+      this.tempStore.bookingUnconfirmedSeatingSelection[value[0]][value[1]] = 0;
+      this.remove(this.tempStore.bookingLatestBookedSeats, seatID);
     }
-    console.log(this.latestBookedSeats);
-    // Save the data to a JSON file
-    await JSON._save(this.file, this.showingDetails);
+    this.tempStore.save();
   }
 
   async confirmBookingJSON() {
+    await this.read(); // make sure that our data is up-to-date with the JSON
     /* loop through array and turn any unconfirmed bookings into confirmed bookings */
-    for (let i = 0; i < this.showingDetails[0].seating.length; i++) {
-      for (let j = 0; j < this.showingDetails[0].seating[i].length; j++) {
-        if (this.showingDetails[0].seating[i][j] === 1) {
-          this.showingDetails[0].seating[i][j] = 2;
+    for (let i = 0; i < this.tempStore.bookingUnconfirmedSeatingSelection.length; i++) {
+      for (let j = 0; j < this.tempStore.bookingUnconfirmedSeatingSelection[i].length; j++) {
+        let id = String.fromCharCode(65 + i) + " " + (j + 1);
+        if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
+          this.tempStore.bookingUnconfirmedSeatingSelection[i][j] = 2;
+          if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
+            this.remove(this.tempStore.bookingLatestBookedSeats, id);
+          } else {
+            this.tempStore.bookingShowingDetails.seating[i][j] = 2;
+          }
+          this.tempStore.save();
         }
       }
     }
 
-    // Save the data to a JSON file
-    await JSON._save(this.file, this.showingDetails);
+    let temp = [];
+    temp.push(this.tempStore.bookingShowingDetails);
+
+    await JSON._save(this.tempStore.bookingFile, temp);
+
+    /* the following steps are to save the bookings to the user in the accounts JSON */
+    let bookedShows = ({
+      auditorium: this.tempStore.bookingShowingDetails.auditorium,
+      film: this.tempStore.bookingShowingDetails.film,
+      date: this.tempStore.bookingShowingDetails.date,
+      time: this.tempStore.bookingShowingDetails.time,
+      seats: this.tempStore.bookingLatestBookedSeats
+    });
+
+    /* create an array of all accounts and add the latest booking information to the appropriate account */
+    let accounts = await this.addTicketArray(bookedShows);
+    /* save all accounts back to accounts JSON */
+    await JSON._save('account.json', accounts);
   }
 
   /* utility function for removing a value from an array */
@@ -142,6 +186,46 @@ export default class Booking {
       if (array[i] === value) {
         array.splice(i, 1);
       }
+    }
+  }
+
+  /* search the account.json file for the appropriate user and add booking details to their bookedShows variable */
+  async addTicketArray(bookedShows) {
+    let accounts = await JSON._load('account.json');
+
+    for (let i = 0; i < accounts.length; i++) {
+      /* find active user in account.json */
+      if (accounts[i].Email === window.activeUser.Email) {
+        /* if there are already bookings for this showing, append most recent booking */
+        let identical = false;
+        for (let j = 0; j < accounts[i].bookedShows.length; j++) {
+          if (accounts[i].bookedShows[j].auditorium === bookedShows.auditorium && accounts[i].bookedShows[j].film === bookedShows.film && accounts[i].bookedShows[j].date === bookedShows.date && accounts[i].bookedShows[j].time === bookedShows.time) {
+            for (let k = 0; k < bookedShows.seats.length; k++) {
+              accounts[i].bookedShows[j].seats.push(bookedShows.seats[k]);
+            }
+            accounts[i].bookedShows[j].seats.sort;
+            identical = true;
+          }
+        }
+        /* if there are no other bookings for this showing, simply add the booking information to the account */
+        if (!identical) {
+          accounts[i].bookedShows.push(bookedShows);
+        }
+
+        return accounts;
+      }
+    }
+
+    return null;
+  }
+
+  setSessionStorage() {
+    this.tempStore = {};
+    try {
+      this.tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    this.tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
     }
   }
 
