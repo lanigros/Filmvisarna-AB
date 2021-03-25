@@ -1,8 +1,61 @@
 @import "/css/main.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap");
 
 .detailedInfoAboutMovie-Container {
   grid-area: c;
+}
+
+.banner_movie_container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "mb mb mb mdc mdc ."
+    "mb mb mb mtc mtc .";
+  padding: 3em;
+}
+
+.movie-banner {
+  background: url(../img/movieImg/lotr-banner.jpg);
+  grid-area: mb;
+  background-color: antiquewhite;
   width: 100%;
-  display: inline-block;
-  justify-content: center;
+}
+
+.movie_title {
+  grid-area: mbt;
+}
+
+.movie_duration_lenght {
+  grid-area: mdl;
+}
+
+.movie_trailer_container {
+  grid-area: mtc;
+}
+
+.movie_desc_container {
+  grid-area: mdc;
+}
+
+.movie_desc_container > h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  color: #efefef;
+  font-size: 3em;
+  line-height: 1.1em;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.movie_desc_container > h3,
+h4,
+p {
+  color: #efefef;
+  font-family: "Open Sans", sans-serif;
+}
+
+.order-btn {
+  margin: 10px 0 5px 0;
 }

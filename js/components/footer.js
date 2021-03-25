@@ -1,6 +1,5 @@
 export default class Footer {
 
-
   render() {
 
     return /*html*/ `
