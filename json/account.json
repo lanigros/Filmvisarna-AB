@@ -76,5 +76,24 @@
     "Name": "Matilda",
     "Lastname": "Davidsson",
     "bookedShows": []
+  },
+  {
+    "Email": "Elis@tester.testforgonorrea.se",
+    "Password": "bajs",
+    "Name": "Elis",
+    "Lastname": "Möregårdh",
+    "bookedShows": [
+      {
+        "auditorium": "Stora Salongen",
+        "film": "The Dark Knight",
+        "date": "2021-04-17",
+        "time": "17.00",
+        "seats": [
+          "F 4",
+          "F 5",
+          "F 3"
+        ]
+      }
+    ]
   }
 ]

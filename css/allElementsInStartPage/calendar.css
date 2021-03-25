@@ -10,6 +10,8 @@
   grid-template-areas: "calendar salon";
   justify-content: space-between;
   font-family: Poppins;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 /* --------- THE CALENDAR ------------ */
