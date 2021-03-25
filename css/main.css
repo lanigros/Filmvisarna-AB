@@ -22,6 +22,7 @@
   box-sizing: border-box;
   font-size: 12px;
   line-height: 20px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,7 +31,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 13% auto 19%;
+  grid-template-rows: 10% auto 19%;
 
   grid-template-areas:
     "h h h "
