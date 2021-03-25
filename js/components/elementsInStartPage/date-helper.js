@@ -28,6 +28,7 @@ function getCurrentYear() {
 
 function calcStartDayOfSpecificMonth(month) {
   const date = new Date(2021, month - 1, 1);
+
   let x = Intl.DateTimeFormat("sv-SE", { weekday: "short" }).format(date);
 
   switch (x) {
@@ -46,6 +47,7 @@ function calcStartDayOfSpecificMonth(month) {
     case "sön":
       return 6;
   }
+
 }
 
 //@param = a number that represents a month
