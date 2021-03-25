@@ -1,10 +1,10 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
 
-const calendar = new Calendar();
 
 export default class StartPage {
 
   async read() {
+    this.schedule = await $.getJSON('/json/movieSchedule.json');
     this.movieInfo = await $.getJSON('/json/movies.json');
   }
 
@@ -15,6 +15,8 @@ export default class StartPage {
     if (!this.movieInfo) {
       await this.read();
     }
+
+    const calendar = new Calendar(this.schedule, this.movieInfo);
 
     return /*html*/ `
   
@@ -46,7 +48,7 @@ export default class StartPage {
       
       <div class="ads-banner"></div>
 
-    ${calendar.render()}    
+    ${calendar.render()}
   
   `}
 

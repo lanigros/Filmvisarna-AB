@@ -5,24 +5,19 @@ var pickedMonthInCalandar = getCurrentMonthInNumber();
 
 export default class Calendar {
 
-  constructor() {
+  constructor(schedule, movieInfo) {
     this.eventHandeler();
+    this.schedule = schedule;
+    this.movieInfo = movieInfo;
+    this.render();
+    console.log(this.schedule)
+    console.log(this.movieInfo)
   }
 
-  async read() {
-    this.schedule = await $.getJSON('/json/movieSchedule.json');
-    this.movieInfo = await $.getJSON('/json/movies.json');
-  }
 
-  async render() {
-
-    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out comment. // Mac
-    await this.read();
-    //}
-
+  render() {
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
-
   }
 
   buildCalendar() {
