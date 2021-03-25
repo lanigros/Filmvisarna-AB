@@ -16,8 +16,6 @@ export default class Calendar {
 
   async render() {
 
-    console.log("Called from start of async render in calendarpage")
-
     //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out comment. // Mac
     await this.read();
     //}
@@ -25,7 +23,6 @@ export default class Calendar {
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
 
-    console.log("Called from end of async render in calendarpage")
   }
 
   buildCalendar() {
@@ -63,6 +60,7 @@ export default class Calendar {
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
 
+    //Adding all movies that plays on the picked date into a temporarily array.
     this.schedule.forEach(movie => {
       if (movie.date === pickedDate) {
         temporarilyMovieList.push(movie);
@@ -85,9 +83,7 @@ export default class Calendar {
       $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
-
     }
-
   }
 
   pressingBtnNextMonth() {
@@ -101,11 +97,10 @@ export default class Calendar {
       $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)} </p></div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
-
     }
   }
 
-  //This function calculates how many days it should render per month. It also calculates what weekday the month starts with. 
+  //This function calculates how many days it should render per month. It also calculates what weekday a month starts with. 
   renderDatesInCalendar(selectedMonth) {
 
     let howManyDaysToLoop = getDaysInMonth(selectedMonth);

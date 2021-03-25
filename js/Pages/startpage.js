@@ -46,8 +46,7 @@ export default class StartPage {
       
       <div class="ads-banner"></div>
 
-    ${calendar.render()}
-    ${console.log("Called from end of async render in startpage")}
+    ${calendar.render()}    
   
   `}
 
