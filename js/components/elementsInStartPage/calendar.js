@@ -16,9 +16,7 @@ export default class Calendar {
 
   async render() {
 
-    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out comment. // Mac
     await this.read();
-    //}
 
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();

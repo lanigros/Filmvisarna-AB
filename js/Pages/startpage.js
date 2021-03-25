@@ -1,7 +1,5 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
 
-const calendar = new Calendar();
-
 export default class StartPage {
 
   async read() {
@@ -14,19 +12,32 @@ export default class StartPage {
       await this.read();
     }
 
-    return /*html*/ `
-  
-    <div class="banner-Container">
+    this.buildBannerInStartPage();
+    this.buildUpCommingMovies();
+    new Calendar().render();
+
+  }
+
+  buildBannerInStartPage() {
+    $("main").append(`
+    
+      <div class="banner-Container">
 
       <div class="banner-text">
         <div class="banner-title"><h1>${this.movieInfo[0].title}</h1></div>
         <div class="banner-desc"><p>${this.movieInfo[0].description}</p></div>
       </div>
           <button class="trailer-btn">Se trailer</button>
-    
-    </div>
 
-      <div class="trailer-wrapper">
+      </div>
+    
+    `)
+  }
+
+  buildUpCommingMovies() {
+    $("main").append(`
+    
+       <div class="trailer-wrapper">
         <div class="title">Kommande Filmer</div>
             <div class="trailers">
               <div class="item"><img src="img/movieImg/joker.jpg"></div>
@@ -40,12 +51,9 @@ export default class StartPage {
               <div class="item"><img src="img/movieImg/grimsby.jpg"></div>
               <div class="item"><img src="img/movieImg/dora.jpg"></div>
             </div>
-      </div>
-
-    ${calendar.render()}    
-  
-  `}
-
+      </div>       
+    `)
+  }
 }
-}
+
 
