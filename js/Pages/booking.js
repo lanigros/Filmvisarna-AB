@@ -51,10 +51,10 @@ export default class Booking {
       this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
     }
     // if the user is not logged in, go to login page
-    /*if (!this.tempStore.activeUser) {
+    if (!window.activeUser) {
       document.location.href = "#login";
       return;
-    }*/
+    }
 
     await this.read(this.tempStore.bookingFile);
 
@@ -172,6 +172,12 @@ export default class Booking {
       return;
     }
 
+    // if no bookings were made, reload page
+    if (this.tempStore.bookingLatestBookedSeats.length < 1) {
+      document.location.href = "#booking";
+      return;
+    }
+
     /* now, since there are no conflits, loop through array and turn any unconfirmed bookings into confirmed bookings */
     for (let i = 0; i < this.tempStore.bookingUnconfirmedSeatingSelection.length; i++) {
       for (let j = 0; j < this.tempStore.bookingUnconfirmedSeatingSelection[i].length; j++) {
@@ -182,14 +188,7 @@ export default class Booking {
         }
       }
     }
-
     this.tempStore.save();
-
-    // if no bookings were made, reload page
-    if (this.tempStore.bookingLatestBookedSeats.length < 1) {
-      document.location.href = "#booking";
-      return;
-    }
 
     let temp = [];
     temp.push(this.tempStore.bookingShowingDetails);
@@ -209,6 +208,10 @@ export default class Booking {
     let accounts = await this.addTicketArray(bookedShows);
     /* save all accounts back to accounts JSON */
     await JSON._save('account.json', accounts);
+
+    /* turn this this variable so that the confirmation page will display once and only once */
+    this.tempStore.bookingLatestBookedSeats = [];
+    this.tempStore.save();
   }
 
   /* utility function for removing a value from an array */
