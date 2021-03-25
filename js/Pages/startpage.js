@@ -1,6 +1,8 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
+import PlayingNow from '../components/elementsInStartPage/playing-now.js';
 
 const calendar = new Calendar();
+const playingNow = new PlayingNow();
 
 export default class StartPage {
 
@@ -45,6 +47,10 @@ export default class StartPage {
       </div>
       
       <div class="ads-banner"></div>
+
+
+      ${playingNow.render()}
+
 
     ${calendar.render()}
     ${console.log("Called from end of async render in startpage")}
