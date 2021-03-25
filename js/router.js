@@ -16,7 +16,7 @@ import ProfilePage from "./Pages/profilepage.js";
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking(changeListener);
-const logIn = new LogIn();
+const logIn = new LogIn(changeListener);
 const contactUs = new ContactUs();
 const confirmation = new Confirmation();
 const profilepage = new ProfilePage();
@@ -81,7 +81,7 @@ export default class Router {
   // Our pages (the method names matches the hashes with any slashes - removed)
 
   // if we want a new instance every time we visit a page we instanciate here instead
- 
+
 
   profilepage() {
     return profilepage.render();
