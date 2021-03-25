@@ -13,10 +13,15 @@ export default class StartPage {
       await this.read();
     }
 
+    this.startPageClear();
     this.buildBannerInStartPage();
     this.buildUpCommingMovies();
     new Calendar(this.schedule, this.movieInfo).render();
 
+  }
+
+  startPageClear() {
+    $("main").html(``)
   }
 
   buildBannerInStartPage() {
