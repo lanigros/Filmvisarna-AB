@@ -28,6 +28,12 @@ export default class Booking {
   async render() {
     // set the session storage during each render so that information is up-to-date
     this.setSessionStorage();
+    // if there was a conflicting booking when trying to confirm, alert the user
+    // note that this variable is set in the confirmBookingJSON function
+    if (this.conflictingBooking) {
+      this.conflictingBooking = false;
+      setTimeout(function () { alert("En eller flera bokningar gjordes av någon annan"); }, 100); // delay so that the booking page reloads instead of stopping on the confirmation page
+    }
     // if we're there's no booking file specified, go back to home page
     if (!this.tempStore.bookingFile) {
       document.location.href = "/";
@@ -144,20 +150,45 @@ export default class Booking {
 
   async confirmBookingJSON() {
     await this.read(); // make sure that our data is up-to-date with the JSON
-    /* loop through array and turn any unconfirmed bookings into confirmed bookings */
+
+    this.conflictingBooking = false;
+
+    /* first, loop through array and determine if there are any booking conflicts */
+    for (let i = 0; i < this.tempStore.bookingUnconfirmedSeatingSelection.length; i++) {
+      for (let j = 0; j < this.tempStore.bookingUnconfirmedSeatingSelection[i].length; j++) {
+        let id = String.fromCharCode(65 + i) + " " + (j + 1);
+        if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
+          if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
+            this.remove(this.tempStore.bookingLatestBookedSeats, id);
+            this.conflictingBooking = true;
+          }
+        }
+      }
+    }
+    this.tempStore.save();
+
+    if (this.conflictingBooking) {
+      document.location.href = "#booking";
+      return;
+    }
+
+    /* now, since there are no conflits, loop through array and turn any unconfirmed bookings into confirmed bookings */
     for (let i = 0; i < this.tempStore.bookingUnconfirmedSeatingSelection.length; i++) {
       for (let j = 0; j < this.tempStore.bookingUnconfirmedSeatingSelection[i].length; j++) {
         let id = String.fromCharCode(65 + i) + " " + (j + 1);
         if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
           this.tempStore.bookingUnconfirmedSeatingSelection[i][j] = 2;
-          if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
-            this.remove(this.tempStore.bookingLatestBookedSeats, id);
-          } else {
-            this.tempStore.bookingShowingDetails.seating[i][j] = 2;
-          }
-          this.tempStore.save();
+          this.tempStore.bookingShowingDetails.seating[i][j] = 2;
         }
       }
+    }
+
+    this.tempStore.save();
+
+    // if no bookings were made, reload page
+    if (this.tempStore.bookingLatestBookedSeats.length < 1) {
+      document.location.href = "#booking";
+      return;
     }
 
     let temp = [];
