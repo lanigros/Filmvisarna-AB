@@ -52,7 +52,7 @@ export default class Booking {
     }
     // if the user is not logged in, go to login page
     if (!window.activeUser) {
-      document.location.href = "#login";
+      document.location.href = "#logIn";
       return;
     }
 
