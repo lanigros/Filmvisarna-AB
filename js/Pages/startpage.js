@@ -1,5 +1,6 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
 
+const calendar = new Calendar(this.schedule, this.movieInfo);
 
 export default class StartPage {
 
@@ -10,13 +11,11 @@ export default class StartPage {
 
   async render() {
 
-    console.log("Called from start of async render in startpage");
-
     if (!this.movieInfo) {
       await this.read();
     }
 
-    const calendar = new Calendar(this.schedule, this.movieInfo);
+
 
     return /*html*/ `
   
