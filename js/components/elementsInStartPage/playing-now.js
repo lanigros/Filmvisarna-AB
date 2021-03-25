@@ -7,8 +7,9 @@ export default class PlayingNow{
   }
 
 
-   render() {
+    render() {
     
+     
     return /*html*/ `
     <div class="playing-now-title"><h1>Spelas just NU!</h1></div>
     <div class="playing-now-container">
