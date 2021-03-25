@@ -36,9 +36,7 @@ export default class DetailedInfoAboutMovie {
         <P>Klockan: ${this.movieDetail[4].time}</P>
         </div>
         
-        <button class="order-btn">Boka biljetter</button>
-        
-        
+        <button class="order-btn">Boka biljetter</button>          
         
         `
   }
