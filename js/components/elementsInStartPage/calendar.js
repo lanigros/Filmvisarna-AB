@@ -5,18 +5,13 @@ var pickedMonthInCalandar = getCurrentMonthInNumber();
 
 export default class Calendar {
 
-  constructor() {
+  constructor(schedule, movieInfo) {
     this.eventHandeler();
+    this.schedule = schedule;
+    this.movieInfo = movieInfo;
   }
 
-  async read() {
-    this.schedule = await $.getJSON('/json/movieSchedule.json');
-    this.movieInfo = await $.getJSON('/json/movies.json');
-  }
-
-  async render() {
-
-    await this.read();
+  render() {
 
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
@@ -109,6 +104,7 @@ export default class Calendar {
 
     let day = 0;
 
+    //Adds empty "boxes" at start of the calendar 
     for (let i = howManyDaysToSkip; i > 0; i--) {
       $('.calendar').append(`<div class="notAvailable"></div>`);
     }
