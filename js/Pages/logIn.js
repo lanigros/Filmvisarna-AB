@@ -1,10 +1,12 @@
 
 export default class LogIn {
 
-  constructor() {
+  constructor(changeListener) {
+    this.changeListener = changeListener;
     this.logOutHandeler();
     this.regHandeler();
     this.logHandeler();
+    this.changeHandler();
   }
 
 
@@ -21,6 +23,10 @@ export default class LogIn {
 
   logOutHandeler() {
     $('main').on('click', '#log-out-option', () => this.logOutHandeler());
+  }
+
+  changeHandler() {
+    this.changeListener.on('account.json', () => this.updateAccount());
   }
 
 
@@ -114,7 +120,7 @@ export default class LogIn {
   }
 
   activeMember() {
-  
+
     $('.nav-right-items').replaceWith( /*html*/ `
     <div class="active-User-Container">
     <div class="menu-divider"></div>
@@ -134,6 +140,17 @@ export default class LogIn {
     console.log('Logged out')
   }
 
+  async updateAccount() {
+    if (!window.activeUser) {
+      return;
+    }
 
+    await this.read();
+
+    this.account.forEach(user => {
+      if (window.activeUser.Email === user.Email) {
+        window.activeUser = user;
+      }
+    })
+  }
 }
-

@@ -2,8 +2,8 @@ export default class Confirmation {
 
   render() {
     this.setSessionStorage();
-    if (!this.tempStore.bookingShowingDetails || !this.tempStore.bookingLatestBookedSeats) {
-      document.location.href = "/";
+    if (!this.tempStore.bookingFile || this.tempStore.bookingLatestBookedSeats.length < 1) {
+      document.location.href = "#profilepage";
       return;
     }
     let layout = /*html*/`
