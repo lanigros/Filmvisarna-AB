@@ -14,15 +14,8 @@ export default class StartPage {
       await this.read();
     }
 
-    renderStartPageElements();
-    calendar.render();
-
-  }
-
-  renderStartPageElements() {
-
-    $("main").append(`
-    
+    return /*html*/ `
+  
     <div class="banner-Container">
 
       <div class="banner-text">
@@ -49,10 +42,10 @@ export default class StartPage {
             </div>
       </div>
 
-      <div class="ads-banner"></div>
-    
-    `)
+    ${calendar.render()}    
+  
+  `}
 
-  }
+}
 }
 
