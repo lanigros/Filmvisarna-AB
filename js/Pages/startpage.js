@@ -1,6 +1,9 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
 
+
 export default class StartPage {
+
+ 
 
   async read() {
     this.schedule = await $.getJSON('/json/movieSchedule.json');
@@ -16,6 +19,7 @@ export default class StartPage {
     this.startPageClear();
     this.buildBannerInStartPage();
     this.buildUpCommingMovies();
+    this.adBanner();
     new Calendar(this.schedule, this.movieInfo).render();
 
   }
@@ -40,6 +44,8 @@ export default class StartPage {
     `)
   }
 
+   
+
   buildUpCommingMovies() {
     $("main").append(`
     
@@ -58,6 +64,13 @@ export default class StartPage {
               <div class="item"><img src="img/movieImg/dora.jpg"></div>
             </div>
       </div>       
+    `)
+  }
+
+
+  adBanner() {
+    $('main').append(`
+    <div class="ads-banner"></div>
     `)
   }
 }
