@@ -3,7 +3,7 @@
 .seating-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto repeat(5, min-content) auto;/* keep the seating/text content close to each other */
+  grid-template-rows: auto repeat(6, min-content) auto;/* keep the seating/text content close to each other */
 }
 
 .movie-details-row em {
@@ -94,4 +94,59 @@
 .seating-container input[type="checkbox"]:disabled + label:before {
   border: 2px solid rgb(92, 85, 85);
   background: rgb(92, 85, 85);
+}
+
+.age-btn-row {
+  display: flex;/* center the content */
+  justify-content: center;/* center the content */
+  margin-top: 8px;
+}
+
+.single-age-container {
+  text-align: center;
+  margin-right: 32px;
+}
+
+.single-age-container:last-of-type {
+  margin-right: 0px;
+}
+
+.single-age-container .age-btn-wrapper {
+  display: flex;/* center the content */
+  justify-content: center;/* center the content */
+  align-items: center;/* center the content */
+}
+
+.age-btn-wrapper .age-btn-minus {
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.age-btn-wrapper .age-btn-minus:hover {
+  cursor: pointer;
+}
+
+.age-btn-wrapper .age-btn-plus {
+  font-size: 24px;
+  margin-left: 8px;
+}
+.age-btn-wrapper .age-btn-plus:hover {
+  cursor: pointer;
+}
+
+.age-btn-wrapper .age-btn-value {
+  background-color: #ede8e8;
+  width: 32px;
+  height: 32px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.single-age-container p {
+  font-size: 14px;
+  color: black;
 }

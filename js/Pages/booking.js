@@ -8,6 +8,8 @@ export default class Booking {
   addEventHandlers() {
     // Listen to changes on checkboxes => run updateBookingJSON
     $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateBookingArray(event));
+    // Listen to changes on checkboxes => run updateAgeField
+    $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateAgeField(event));
     // Listen to changes on the booking button => run confirmBookingJSON
     $('body').on('click', '.seating-container .booking-btn', () => this.confirmBookingJSON());
   }
@@ -51,10 +53,10 @@ export default class Booking {
       this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
     }
     // if the user is not logged in, go to login page
-    if (!window.activeUser) {
+    /*if (!window.activeUser) {
       document.location.href = "#logIn";
       return;
-    }
+    }*/
 
     await this.read(this.tempStore.bookingFile);
 
@@ -115,10 +117,46 @@ export default class Booking {
         <div class="text-row">
           <em>Välj din plats</em>
         </div>
+    `
+    layout += this.ageButtons();
+    layout += /*html*/`
         <div class="button-row">
           <a class="booking-btn" href="#confirmation">BOKA NU</a>
         </div>
         <div class="buffer"></div>
+      </div>
+    `
+
+    return layout;
+  }
+
+  ageButtons() {
+    let layout = /*html*/`
+      <div class="age-btn-row">
+        <div class="single-age-container">
+          <div class="age-btn-wrapper">
+            <span class="age-btn-minus">-</span>
+            <div class="age-btn-value">1</div>
+            <span class="age-btn-plus">+</span>
+          </div>
+          <p>Barn (0-15)</p>
+        </div>
+        <div class="single-age-container">
+          <div class="age-btn-wrapper">
+            <span class="age-btn-minus">-</span>
+            <div class="age-btn-value">2</div>
+            <span class="age-btn-plus">+</span>
+          </div>
+          <p>Normal</p>
+        </div>
+        <div class="single-age-container">
+          <div class="age-btn-wrapper">
+            <span class="age-btn-minus">-</span>
+            <div class="age-btn-value">3</div>
+            <span class="age-btn-plus">+</span>
+          </div>
+          <p>Pensionär</p>
+        </div>
       </div>
     `
 
