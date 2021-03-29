@@ -202,7 +202,6 @@ export default class Booking {
         if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
           if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
             this.remove(this.tempStore.bookingLatestBookedSeats, id);
-            this.subtractPerson();
             this.conflictingBooking = true;
           }
         }
@@ -254,7 +253,7 @@ export default class Booking {
 
     /* turn off this variable so that the confirmation page will display once and only once */
     this.tempStore.bookingLatestBookedSeats = [];
-    this.tempStore.bookingChildAdultRetiree = [];
+    this.tempStore.bookingChildAdultRetiree = [0, 0, 0];
     this.tempStore.save();
   }
 
