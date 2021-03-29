@@ -7,6 +7,7 @@ export default class LogIn {
     this.regHandeler();
     this.logHandeler();
     this.changeHandler();
+    this.setSessionStorage();
   }
 
 
@@ -35,7 +36,9 @@ export default class LogIn {
     if (!this.account) {
       await this.read()
     }
-
+    if (this.tempStore.activeUser) {
+      this.activeMember();
+    }
 
     return `
     
@@ -100,16 +103,8 @@ export default class LogIn {
     alert('Ditt konto har skapats!')
   }
 
+
   logInUser(event) {
-
-    let tempStore = {};
-try {
-  tempStore = JSON.parse(sessionStorage.store);
-} catch (e) { }
-tempStore.save = function () {
-  sessionStorage.store = JSON.stringify(this);
-}
-
     event.preventDefault();
     let activeUser = "";
     let logEmail = $("#log-email").val();
@@ -118,15 +113,25 @@ tempStore.save = function () {
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
-        tempStore.activeUser = user;
-        tempStore.save();
-        activeUser = user;
-        window.activeUser = activeUser;
-        this.activeMember(activeUser);
-
+        this.tempStore.activeUser = user;
+        this.tempStore.save();
+        
+       this.tempStore.activeUser = activeUser;
+        this.activeMember(this.tempStore.activeUser);
         return false;
       }  
     });
+  }
+
+setSessionStorage() {
+  this.tempStore = {};
+try {
+  this.tempStore = JSON.parse(sessionStorage.store);
+} catch (e) { }
+this.tempStore.save = function () {
+  sessionStorage.store = JSON.stringify(this);
+}
+
   }
 
   activeMember() {
@@ -134,7 +139,7 @@ tempStore.save = function () {
     $('.nav-right-items').replaceWith( /*html*/ `
     <div class="active-User-Container">
     <div class="menu-divider"></div>
-    <p>Välkommen ${window.activeUser.Name}!</p>
+    <p>Välkommen ${this.tempStore.activeUser.Name}!</p>
     <div class="menu-divider"></div>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <div class="menu-divider"></div>
@@ -146,7 +151,7 @@ tempStore.save = function () {
   }
 
   logOutHandeler() {
-    window.activeUser = false;
+    
     console.log('Logged out')
   }
 
