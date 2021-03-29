@@ -1,3 +1,9 @@
 [
-
+  {
+    "Email": "test@test.se",
+    "Password": "test",
+    "Name": "test",
+    "Lastname": "test",
+    "bookedShows": []
+  }
 ]
