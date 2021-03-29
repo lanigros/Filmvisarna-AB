@@ -7,14 +7,30 @@ export default class ProfilePage {
     this.eventHandeler();
   }
 
+
+  setLocalStorage() {
+    
+ let tempStore = {};
+try {
+  tempStore = JSON.parse(sessionStorage.store);
+} catch (e) { }
+tempStore.save = function () {
+  sessionStorage.store = JSON.stringify(this);
+}
+  }
+
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
     this.user = window.activeUser;
   }
 
 
+
+
+
   async render() {
 
+    console.log(this.localSession);
     
 
     if (!this.currentUser) {
@@ -32,9 +48,9 @@ export default class ProfilePage {
           <div class="profile-wrapper">
           <h1 class="profile-title">profil</h1>
           <div class="profile-text-container">
-          <p>Epost-adress: ${activeUser.Email} </p>
-          <p>Namn: ${activeUser.Name}</p>
-          <p>Efternamn: ${activeUser.Lastname}</p>
+          <p>Epost-adress: ${window.activeUser.Email} </p>
+          <p>Namn: ${window.activeUser.Name}</p>
+          <p>Efternamn: ${window.activeUser.Lastname}</p>
           </div>
           </div>
           <div class="profile-divider"></div>

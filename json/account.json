@@ -14,6 +14,34 @@
           "E 5",
           "E 6"
         ]
+      },
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Matrix",
+        "date": "2021-05-01",
+        "time": "19.00",
+        "seats": [
+          "D 6",
+          "D 7"
+        ]
+      }
+    ]
+  },
+  {
+    "Email": "Kajsabajsa@live.se",
+    "Password": "test",
+    "Name": "Kajsa",
+    "Lastname": "Bajsson",
+    "bookedShows": [
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Lord of the Rings: The Fellowship of the Ring",
+        "date": "2021-04-17",
+        "time": "19.00",
+        "seats": [
+          "E 9",
+          "E 8"
+        ]
       }
     ]
   }
