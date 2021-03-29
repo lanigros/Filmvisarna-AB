@@ -12,6 +12,10 @@ export default class Booking {
     $('body').on('change', '.seating-container input[type="checkbox"]', (event) => this.updateAgeField(event));
     // Listen to changes on the booking button => run confirmBookingJSON
     $('body').on('click', '.seating-container .booking-btn', () => this.confirmBookingJSON());
+    // Listen to the minus buttons => run updateAgeMinus
+    $('body').on('click', '.age-btn-minus', (event) => this.updateAgeMinus(event));
+    // Listen to the plus buttons => run updateAgePlus
+    $('body').on('click', '.age-btn-plus', (event) => this.updateAgePlus(event));
   }
 
   async read() {
@@ -118,9 +122,11 @@ export default class Booking {
         <div class="text-row">
           <em>Välj din plats</em>
         </div>
+        <div class="age-btn-row">
     `
     layout += this.ageButtons();
     layout += /*html*/`
+        </div>
         <div class="button-row">
           <a class="booking-btn" href="#confirmation">BOKA NU</a>
         </div>
@@ -133,31 +139,29 @@ export default class Booking {
 
   ageButtons() {
     return /*html*/`
-      <div class="age-btn-row">
-        <div class="single-age-container">
-          <div class="age-btn-wrapper">
-            <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[0]}</div>
-            <span class="age-btn-plus">+</span>
-          </div>
-          <p>Barn (0-15)</p>
+      <div class="single-age-container">
+        <div class="age-btn-wrapper">
+          <span class="age-btn-minus" id="child-minus">-</span>
+          <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[0]}</div>
+          <span class="age-btn-plus" id="child-plus">+</span>
         </div>
-        <div class="single-age-container">
-          <div class="age-btn-wrapper">
-            <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[1]}</div>
-            <span class="age-btn-plus">+</span>
-          </div>
-          <p>Normal</p>
+        <p>Barn (0-15)</p>
+      </div>
+      <div class="single-age-container">
+        <div class="age-btn-wrapper">
+          <span class="age-btn-minus" id="adult-minus">-</span>
+          <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[1]}</div>
+          <span class="age-btn-plus" id="adult-plus">+</span>
         </div>
-        <div class="single-age-container">
-          <div class="age-btn-wrapper">
-            <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[2]}</div>
-            <span class="age-btn-plus">+</span>
-          </div>
-          <p>Pensionär</p>
+        <p>Normal</p>
+      </div>
+      <div class="single-age-container">
+        <div class="age-btn-wrapper">
+          <span class="age-btn-minus" id="retiree-minus">-</span>
+          <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[2]}</div>
+          <span class="age-btn-plus" id="retiree-plus">+</span>
         </div>
+        <p>Pensionär</p>
       </div>
     `
   }
@@ -312,6 +316,60 @@ export default class Booking {
         this.tempStore.bookingChildAdultRetiree[0]--;
       } else {
         this.tempStore.bookingChildAdultRetiree[2]--;
+      }
+    }
+    this.tempStore.save();
+
+    /* re-render the ticket-type button totals */
+    $('.age-btn-row').html(this.ageButtons());
+  }
+
+  updateAgeMinus(event) {
+    /* if anything is subtracted from child or retiree, add it to the adult category */
+    if (event.target.id === "child-minus" && this.tempStore.bookingChildAdultRetiree[0] > 0) {
+      this.tempStore.bookingChildAdultRetiree[0]--;
+      this.tempStore.bookingChildAdultRetiree[1]++;
+    } else if (event.target.id === "retiree-minus" && this.tempStore.bookingChildAdultRetiree[2] > 0) {
+      this.tempStore.bookingChildAdultRetiree[2]--;
+      this.tempStore.bookingChildAdultRetiree[1]++;
+      /* if something is subtracted from adult, add it to the child category */
+    } else if (event.target.id === "adult-minus" && this.tempStore.bookingChildAdultRetiree[1] > 0) {
+      this.tempStore.bookingChildAdultRetiree[1]--;
+      this.tempStore.bookingChildAdultRetiree[0]++;
+    }
+    this.tempStore.save();
+
+    /* re-render the ticket-type button totals */
+    $('.age-btn-row').html(this.ageButtons());
+  }
+
+  updateAgePlus(event) {
+    /* if anything is added to child, subtract from adult or retiree */
+    if (event.target.id === "child-plus" && this.tempStore.bookingLatestBookedSeats.length > 0) {
+      if (this.tempStore.bookingChildAdultRetiree[1] > 0) {
+        this.tempStore.bookingChildAdultRetiree[1]--;
+        this.tempStore.bookingChildAdultRetiree[0]++;
+      } else if (this.tempStore.bookingChildAdultRetiree[2] > 0) {
+        this.tempStore.bookingChildAdultRetiree[2]--;
+        this.tempStore.bookingChildAdultRetiree[0]++;
+      }
+      /* if anything is added to retiree, subtract from adult or child */
+    } else if (event.target.id === "retiree-plus" && this.tempStore.bookingLatestBookedSeats.length > 0) {
+      if (this.tempStore.bookingChildAdultRetiree[1] > 0) {
+        this.tempStore.bookingChildAdultRetiree[1]--;
+        this.tempStore.bookingChildAdultRetiree[2]++;
+      } else if (this.tempStore.bookingChildAdultRetiree[0] > 0) {
+        this.tempStore.bookingChildAdultRetiree[0]--;
+        this.tempStore.bookingChildAdultRetiree[2]++;
+      }
+      /* if anything is added to adult, subtract from child or retiree */
+    } else if (event.target.id === "adult-plus" && this.tempStore.bookingLatestBookedSeats.length > 0) {
+      if (this.tempStore.bookingChildAdultRetiree[0] > 0) {
+        this.tempStore.bookingChildAdultRetiree[0]--;
+        this.tempStore.bookingChildAdultRetiree[1]++;
+      } else if (this.tempStore.bookingChildAdultRetiree[2] > 0) {
+        this.tempStore.bookingChildAdultRetiree[2]--;
+        this.tempStore.bookingChildAdultRetiree[1]++;
       }
     }
     this.tempStore.save();
