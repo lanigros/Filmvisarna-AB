@@ -38,12 +38,13 @@ export default class Booking {
     }
     // if we're there's no booking file specified, go back to home page
     if (!this.tempStore.bookingFile) {
-      document.location.href = "/";
+      document.location.href = "#";
       return;
     }
     // if this is a new booking file, add event handler and reset session variables
     if (this.tempStore.bookingFileHasChanged) {
       this.tempStore.bookingLatestBookedSeats = []; // contains tickets that are being or were recently booked
+      this.tempStore.bookingChildAdultRetiree = [0, 0, 0]; // contains the number of child (index 0), adult (index 1), and retiree (index 2) tickets being booked
       this.tempStore.bookingUnconfirmedSeatingSelection = (await JSON._load(this.tempStore.bookingFile))[0].seating; // contains the seating chart not yet saved to the JSON
       this.tempStore.bookingFileHasChanged = false;
       this.tempStore.save();
@@ -131,12 +132,12 @@ export default class Booking {
   }
 
   ageButtons() {
-    let layout = /*html*/`
+    return /*html*/`
       <div class="age-btn-row">
         <div class="single-age-container">
           <div class="age-btn-wrapper">
             <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">1</div>
+            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[0]}</div>
             <span class="age-btn-plus">+</span>
           </div>
           <p>Barn (0-15)</p>
@@ -144,7 +145,7 @@ export default class Booking {
         <div class="single-age-container">
           <div class="age-btn-wrapper">
             <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">2</div>
+            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[1]}</div>
             <span class="age-btn-plus">+</span>
           </div>
           <p>Normal</p>
@@ -152,15 +153,13 @@ export default class Booking {
         <div class="single-age-container">
           <div class="age-btn-wrapper">
             <span class="age-btn-minus">-</span>
-            <div class="age-btn-value">3</div>
+            <div class="age-btn-value">${this.tempStore.bookingChildAdultRetiree[2]}</div>
             <span class="age-btn-plus">+</span>
           </div>
           <p>Pensionär</p>
         </div>
       </div>
     `
-
-    return layout;
   }
 
   async updateBookingArray(event) {
@@ -299,6 +298,26 @@ export default class Booking {
     this.tempStore.save = function () {
       sessionStorage.store = JSON.stringify(this);
     }
+  }
+
+  updateAgeField(event) {
+    let checkbox = event.target;
+    /* if a box is checked, add an adult ticket */
+    if (checkbox.checked == true) {
+      this.tempStore.bookingChildAdultRetiree[1]++;
+    } else { /* if the box is unchecked, subtract a ticket from adult, child, or retiree as applicable */
+      if (this.tempStore.bookingChildAdultRetiree[1] > 0) {
+        this.tempStore.bookingChildAdultRetiree[1]--;
+      } else if (this.tempStore.bookingChildAdultRetiree[0] > 0) {
+        this.tempStore.bookingChildAdultRetiree[0]--;
+      } else {
+        this.tempStore.bookingChildAdultRetiree[2]--;
+      }
+    }
+    this.tempStore.save();
+
+    /* re-render the ticket-type button totals */
+    $('.age-btn-row').html(this.ageButtons());
   }
 
 }
