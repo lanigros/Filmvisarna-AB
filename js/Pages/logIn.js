@@ -36,9 +36,9 @@ export default class LogIn {
     if (!this.account) {
       await this.read()
     }
-    if (!this.store.loggedIn) {
-      delete this.store.loggedIn;
-      this.store.save();
+    if (!this.localSession.loggedIn) {
+      delete this.localSession.loggedIn;
+      this.localSession.save();
     }
 
     return `
@@ -115,21 +115,21 @@ export default class LogIn {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
         window.activeUser = user;
-        this.store.loggedIn = user;
-        this.store.save();
+        this.localSession.loggedIn = user;
+        this.localSession.save();
         
-        this.activeMember(this.store.loggedIn);
+        this.activeMember(this.localSession.loggedIn);
         return false;
       }  
     });
   }
 
 setLocalStorage() {
-  this.store = {};
+  this.localSession = {};
 try {
-  this.store = JSON.parse(sessionStorage.store);
+  this.localSession = JSON.parse(sessionStorage.store);
 } catch (e) { }
-this.store.save = function () {
+this.localSession.save = function () {
   localStorage.store = JSON.stringify(this);
 }
 
@@ -140,7 +140,7 @@ this.store.save = function () {
     $('.nav-right-items').replaceWith( /*html*/ `
     <div class="active-User-Container">
     <div class="menu-divider"></div>
-    <p>Välkommen ${this.store.loggedIn.Name}!</p>
+    <p>Välkommen ${this.localSession.loggedIn.Name}!</p>
     <div class="menu-divider"></div>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <div class="menu-divider"></div>
@@ -153,19 +153,19 @@ this.store.save = function () {
 
   logOutHandeler() {
     
-    delete this.store.loggedIn;
-    this.store.save();
+    delete this.localSession.loggedIn;
+    this.localSession.save();
   }
 
   async updateAccount() {
-    if (!this.store.activeUser) {
+    if (!this.localSession.activeUser) {
       return;
     }
 
     await this.read();
 
     this.account.forEach(user => {
-      if (this.store.activeUser.Email === user.Email) {
+      if (this.localSession.activeUser.Email === user.Email) {
         window.activeUser = user;
       }
     })

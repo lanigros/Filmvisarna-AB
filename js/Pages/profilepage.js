@@ -60,7 +60,7 @@ export default class ProfilePage {
   ticketLooper() {
      
    
-    console.log('Start ticketlooper')
+   
      for (let i = 0; i < activeUser.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
@@ -71,6 +71,6 @@ export default class ProfilePage {
       <p>Platser : ${activeUser.bookedShows[i].seats}</p> 
       </div>
       `)
-    }; console.log('End ticketlooper')
+    };
   }
 }
