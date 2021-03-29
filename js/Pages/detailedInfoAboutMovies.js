@@ -8,6 +8,8 @@ export default class DetailedInfoAboutMovie {
 
   async render() {
 
+    
+
     if (!this.movieInfo && !this.movieDetail) {
       await this.read();
     }
