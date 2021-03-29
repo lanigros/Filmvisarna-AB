@@ -5,17 +5,15 @@ var pickedMonthInCalandar = getCurrentMonthInNumber();
 
 export default class Calendar {
 
-  constructor(schedule, movieInfo) {
+  constructor() {
     this.eventHandeler();
-    this.schedule = schedule;
-    this.movieInfo = movieInfo;
   }
 
-  render() {
-
+  render(schedule, movieInfo) {
+    this.schedule = schedule;
+    this.movieInfo = movieInfo;
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
-
   }
 
   buildCalendar() {
@@ -25,8 +23,8 @@ export default class Calendar {
           <div class="calendar"></div>        
       </div >`);
 
-    $('.calendar').append(`<div class="selectedMonth_container"></div>`);
-    $('.selectedMonth_container').append(`<button class="btn_previousMonth"><</button>`);
+    $('.calendar').html(`<div class="selectedMonth_container"></div>`);
+    $('.selectedMonth_container').html(`<button class="btn_previousMonth"><</button>`);
     $('.selectedMonth_container').append(`<div class="selectedMonth"> <p>${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
     $('.selectedMonth_container').append(`<button class="btn_nextMonth"> > </button>`);
 
@@ -66,6 +64,8 @@ export default class Calendar {
 
   pressingBtnPreviousMonth() {
 
+    console.log(pickedMonthInCalandar)
+
     if (pickedMonthInCalandar > 1 && pickedMonthInCalandar <= 13) {
 
       $('.day').replaceWith("");
@@ -81,7 +81,9 @@ export default class Calendar {
 
   pressingBtnNextMonth() {
 
-    if (pickedMonthInCalandar >= 1 && pickedMonthInCalandar < 12) {
+    console.log(pickedMonthInCalandar)
+
+    if (pickedMonthInCalandar > 0 && pickedMonthInCalandar < 12) {
 
       $('.day').replaceWith("");
       $('.notAvailable').replaceWith("");

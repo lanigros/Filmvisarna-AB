@@ -5,5 +5,23 @@
     "Name": "test",
     "Lastname": "test",
     "bookedShows": []
+  },
+  {
+    "Email": "test@hotmail.com",
+    "Password": "test",
+    "Name": "test",
+    "Lastname": "test",
+    "bookedShows": [
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Inception",
+        "date": "2021-04-16",
+        "time": "19.00",
+        "seats": [
+          "D 5",
+          "D 6"
+        ]
+      }
+    ]
   }
 ]
