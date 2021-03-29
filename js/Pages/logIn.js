@@ -101,6 +101,15 @@ export default class LogIn {
   }
 
   logInUser(event) {
+
+    let tempStore = {};
+try {
+  tempStore = JSON.parse(sessionStorage.store);
+} catch (e) { }
+tempStore.save = function () {
+  sessionStorage.store = JSON.stringify(this);
+}
+
     event.preventDefault();
     let activeUser = "";
     let logEmail = $("#log-email").val();
@@ -109,6 +118,8 @@ export default class LogIn {
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
+        tempStore.activeUser = user;
+        tempStore.save();
         activeUser = user;
         window.activeUser = activeUser;
         this.activeMember(activeUser);
