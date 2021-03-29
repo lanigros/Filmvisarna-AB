@@ -104,7 +104,6 @@ export default class Router {
   }
 
   default() {
-
     return startPage.render()
   }
 
