@@ -3,11 +3,11 @@ export default class LogIn {
 
   constructor(changeListener) {
     this.changeListener = changeListener;
-    this.logOutHandeler();
     this.regHandeler();
     this.logHandeler();
     this.changeHandler();
-    this.setSessionStorage();
+    this.setLocalStorage();
+    this.logOutHandeler();
   }
 
 
@@ -36,8 +36,9 @@ export default class LogIn {
     if (!this.account) {
       await this.read()
     }
-    if (this.tempStore.activeUser) {
-      this.activeMember();
+    if (!this.store.loggedIn) {
+      delete this.store.loggedIn;
+      this.store.save();
     }
 
     return `
@@ -113,23 +114,23 @@ export default class LogIn {
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
-        this.tempStore.activeUser = user;
-        this.tempStore.save();
+        window.activeUser = user;
+        this.store.loggedIn = user;
+        this.store.save();
         
-       this.tempStore.activeUser = activeUser;
-        this.activeMember(this.tempStore.activeUser);
+        this.activeMember(this.store.loggedIn);
         return false;
       }  
     });
   }
 
-setSessionStorage() {
-  this.tempStore = {};
+setLocalStorage() {
+  this.store = {};
 try {
-  this.tempStore = JSON.parse(sessionStorage.store);
+  this.store = JSON.parse(sessionStorage.store);
 } catch (e) { }
-this.tempStore.save = function () {
-  sessionStorage.store = JSON.stringify(this);
+this.store.save = function () {
+  localStorage.store = JSON.stringify(this);
 }
 
   }
@@ -139,7 +140,7 @@ this.tempStore.save = function () {
     $('.nav-right-items').replaceWith( /*html*/ `
     <div class="active-User-Container">
     <div class="menu-divider"></div>
-    <p>Välkommen ${this.tempStore.activeUser.Name}!</p>
+    <p>Välkommen ${this.store.loggedIn.Name}!</p>
     <div class="menu-divider"></div>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <div class="menu-divider"></div>
@@ -152,18 +153,19 @@ this.tempStore.save = function () {
 
   logOutHandeler() {
     
-    console.log('Logged out')
+    delete this.store.loggedIn;
+    this.store.save();
   }
 
   async updateAccount() {
-    if (!window.activeUser) {
+    if (!this.store.activeUser) {
       return;
     }
 
     await this.read();
 
     this.account.forEach(user => {
-      if (window.activeUser.Email === user.Email) {
+      if (this.store.activeUser.Email === user.Email) {
         window.activeUser = user;
       }
     })

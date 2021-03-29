@@ -4,6 +4,17 @@
     "Password": "test",
     "Name": "test",
     "Lastname": "test",
-    "bookedShows": []
+    "bookedShows": [
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Parasite",
+        "date": "2021-05-08",
+        "time": "19.00",
+        "seats": [
+          "E 5",
+          "E 6"
+        ]
+      }
+    ]
   }
 ]
