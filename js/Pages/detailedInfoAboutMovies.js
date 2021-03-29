@@ -25,6 +25,7 @@ export default class DetailedInfoAboutMovie {
           <iframe width="560" height="349" src="${this.movieInfo[0].youtubeTrailers}" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="movie_desc_container">
+        <h2>hello</h2>
         <h1>${this.movieInfo[0].title}</h1>
         <h3>${this.movieInfo[0].lenght}</h3>
         <h4>${this.movieInfo[0].genre}</h4>
