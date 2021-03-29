@@ -95,6 +95,7 @@ export default class Booking {
             this.remove(this.tempStore.bookingLatestBookedSeats, id);
             this.tempStore.bookingUnconfirmedSeatingSelection[i][j] = 2;
             this.tempStore.save();
+            this.subtractPerson();
           }
           layout += /*html*/`
             <input type="checkbox" id='${id}' disabled>
@@ -201,6 +202,7 @@ export default class Booking {
         if (this.tempStore.bookingUnconfirmedSeatingSelection[i][j] === 1) {
           if (this.tempStore.bookingShowingDetails.seating[i][j] === 2) {
             this.remove(this.tempStore.bookingLatestBookedSeats, id);
+            this.subtractPerson();
             this.conflictingBooking = true;
           }
         }
@@ -250,8 +252,9 @@ export default class Booking {
     /* save all accounts back to accounts JSON */
     await JSON._save('account.json', accounts);
 
-    /* turn this this variable so that the confirmation page will display once and only once */
+    /* turn off this variable so that the confirmation page will display once and only once */
     this.tempStore.bookingLatestBookedSeats = [];
+    this.tempStore.bookingChildAdultRetiree = [];
     this.tempStore.save();
   }
 
@@ -376,6 +379,19 @@ export default class Booking {
 
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
+  }
+
+
+  /* used to remove a someone from the age array if needed */
+  subtractPerson() {
+    if (this.tempStore.bookingChildAdultRetiree[1] > 0) {
+      this.tempStore.bookingChildAdultRetiree[1]--;
+    } else if (this.tempStore.bookingChildAdultRetiree[0] > 0) {
+      this.tempStore.bookingChildAdultRetiree[0]--;
+    } else if (this.tempStore.bookingChildAdultRetiree[2] > 0) {
+      this.tempStore.bookingChildAdultRetiree[2]--;
+    }
+    this.tempStore.save();
   }
 
 }
