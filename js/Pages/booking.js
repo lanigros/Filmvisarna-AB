@@ -1,3 +1,5 @@
+//import tempStore from '../tempStore.js';  (-- Tobias imported here --)
+
 export default class Booking {
 
   constructor(changeListener) {
@@ -50,7 +52,7 @@ export default class Booking {
     if (!this.changeListener.contains(this.tempStore.bookingFile)) {
       this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
     }
-    // if the user is not logged in, go to login page
+    // if the user is not logged in, go to login page         (--Tobias made a change here--)
     if (!window.activeUser) {
       document.location.href = "#logIn";
       return;

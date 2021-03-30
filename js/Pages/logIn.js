@@ -3,7 +3,7 @@ import tempStore from '../tempStore.js';
 
 export default class LogIn {
 
-
+  
  
   constructor(changeListener) {
     this.changeListener = changeListener;
@@ -37,7 +37,8 @@ export default class LogIn {
 
 
   async render() {
-
+    const header = new Header();
+    
     if (!this.account) {
       await this.read()
     }
@@ -131,30 +132,38 @@ export default class LogIn {
 
   activeMember() {
 
-      
+    if (this.activeUser.Email) {
+
+      console.log('If the active user has an email');
+
     $('.nav-right-items').replaceWith( /*html*/ `
-    <div class="active-User-Container">
-    <div class="menu-divider"></div>
-    <p>Välkommen ${this.activeUser.Name}!</p>
-    <div class="menu-divider"></div>
-    <a class="active-user-profile" href="#profilepage">Mina sidor</a>
-    <div class="menu-divider"></div>
-    <button id="logOut">Logga ut</button>
-    </div>
+        <div class="active-User-Container">
+        <div class="menu-divider"></div>
+        <p>Välkommen ${this.activeUser.Name}!</p>
+        <div class="menu-divider"></div>
+        <a class="active-user-profile" href="#profilepage">Mina sidor</a>
+        <div class="menu-divider"></div>
+        <button id="logOut">Logga ut</button>
+        </div>
     `);
+      
+    } else {
+      $('header').replaceWith();
+    }
+
+    
       
 
   }
 
   logOut() {
 
-    tempStore.clear();
+    
     // this.tempStore.save(this);
-    console.log(tempStore)
-    console.log('cleared tempStore')
-
-    // this.tempSession.removeItem('konto');
-
+    
+    console.log('cleared tempStore');
+    tempStore.removeItem(store);
+   
     // console.log(this.localSession.loggedIn)
     // delete this.localSession.loggedIn;
     // this.localSession.save();

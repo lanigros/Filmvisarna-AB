@@ -47,9 +47,9 @@ export default class ProfilePage {
           <div class="profile-wrapper">
           <h1 class="profile-title">profil</h1>
           <div class="profile-text-container">
-          <p>Epost-adress: ${this.currentTester.Email} </p>
-          <p>Namn: ${this.currentUser.Name}</p>
-          <p>Efternamn: ${this.currentUser.Lastname}</p>
+          <p>Epost-adress: ${this.user.Email} </p>
+          <p>Namn: ${this.user.Name}</p>
+          <p>Efternamn: ${this.user.Lastname}</p>
           </div>
           </div>
           <div class="profile-divider"></div>
@@ -76,14 +76,14 @@ export default class ProfilePage {
      
    
    
-     for (let i = 0; i < this.currentUser.bookedShows.length; i++) {
+     for (let i = 0; i < this.user.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
-      <p>Film : ${this.currentUser.bookedShows[i].film}</p> 
-      <p>Datum : ${this.currentUser.bookedShows[i].date}</p> 
-      <p>Tid : ${this.currentUser.bookedShows[i].time}</p> 
-      <p>Salong : ${this.currentUser.bookedShows[i].auditorium}</p> 
-      <p>Platser : ${this.currentUser.bookedShows[i].seats}</p> 
+      <p>Film : ${this.user.bookedShows[i].film}</p> 
+      <p>Datum : ${this.user.bookedShows[i].date}</p> 
+      <p>Tid : ${this.user.bookedShows[i].time}</p> 
+      <p>Salong : ${this.user.bookedShows[i].auditorium}</p> 
+      <p>Platser : ${this.user.bookedShows[i].seats}</p> 
       </div>
       `)
     };
