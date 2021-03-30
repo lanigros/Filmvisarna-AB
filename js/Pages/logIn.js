@@ -1,31 +1,20 @@
 import Header from '../components/header.js';
-
+import tempStore from '../tempStore.js';
 
 export default class LogIn {
 
 
  
-
   constructor(changeListener) {
     this.changeListener = changeListener;
     this.regHandeler();
     this.logHandeler();
     this.changeHandler();
-    this.setLocalStorage();
-    //this.logOutHandeler();
+    this.logOutHandeler();
   
   }
 
-  setLocalStorage() {
-    this.tempStore = {};
-    try {
-      this.tempStore = JSON.parse(sessionStorage.store);
-    } catch (e) { }
-    this.tempStore.save = function () {
-      sessionStorage.store = JSON.stringify(this);
-    }
-  }
-
+ 
 
   async read() {
     this.account = await $.getJSON("./json/account.json");
@@ -39,7 +28,7 @@ export default class LogIn {
   }
 
   logOutHandeler() {
-    $('header').on('click', '#logOut', () => this.logOutHandeler());
+    $('header').on('click', '#logOut', () => this.logOut());
   }
 
   changeHandler() {
@@ -129,9 +118,9 @@ export default class LogIn {
         alert('Inloggning lyckades!');
         this.activeUser = user;
         console.log(this.activeUser)
-        this.tempStore.currentTester = this.activeUser;
-        this.tempStore.save();
-        console.log(this.tempStore.currentTester)
+        tempStore.currentTester = this.activeUser;
+        tempStore.save();
+        console.log(tempStore.currentTester)
         this.activeMember(this.activeUser);
         // return false;
       }
@@ -157,11 +146,11 @@ export default class LogIn {
 
   }
 
-  logOutHandeler() {
+  logOut() {
 
-    this.tempStore.clear();
+    tempStore.clear();
     // this.tempStore.save(this);
-    console.log(this.tempStore)
+    console.log(tempStore)
     console.log('cleared tempStore')
 
     // this.tempSession.removeItem('konto');
@@ -172,14 +161,14 @@ export default class LogIn {
   }
 
   async updateAccount() {
-    if (!this.tempStore.activeUser) {
+    if (!tempStore.activeUser) {
       return;
     }
 
     await this.read();
 
     this.account.forEach(user => {
-      if (this.tempStore.activeUser.Email === user.Email) {
+      if (tempStore.activeUser.Email === user.Email) {
         window.activeUser = user;
       }
     })
