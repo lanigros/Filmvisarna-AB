@@ -282,6 +282,7 @@ export default class Booking {
               accounts[i].bookedShows[j].seats.push(bookedShows.seats[k]);
             }
             accounts[i].bookedShows[j].seats.sort;
+            accounts[i].bookedShows[j].price += bookedShows.price; // update the price rather than overwrite or ignore it
             identical = true;
           }
         }
