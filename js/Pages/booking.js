@@ -243,7 +243,8 @@ export default class Booking {
       film: this.tempStore.bookingShowingDetails.film,
       date: this.tempStore.bookingShowingDetails.date,
       time: this.tempStore.bookingShowingDetails.time,
-      seats: this.tempStore.bookingLatestBookedSeats
+      seats: this.tempStore.bookingLatestBookedSeats,
+      price: (this.tempStore.bookingChildAdultRetiree[0] * 65) + (this.tempStore.bookingChildAdultRetiree[1] * 85) + (this.tempStore.bookingChildAdultRetiree[2] * 75)
     });
 
     /* create an array of all accounts and add the latest booking information to the appropriate account */
