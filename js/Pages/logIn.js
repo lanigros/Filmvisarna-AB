@@ -12,19 +12,18 @@ export default class LogIn {
     this.logHandeler();
     this.changeHandler();
     this.setLocalStorage();
-    this.logOutHandeler();
+    //this.logOutHandeler();
   
   }
 
   setLocalStorage() {
-
- let tempStore = {};
-try {
-  tempStore = JSON.parse(sessionStorage.store);
-} catch (e) { }
-tempStore.save = function () {
-  sessionStorage.store = JSON.stringify(this);
-}
+    let tempStore = {};
+    try {
+      tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
+    }
   }
 
 
@@ -40,7 +39,7 @@ tempStore.save = function () {
   }
 
   logOutHandeler() {
-    $('header').on('click', '#log-out-option', () => this.logOutHandeler());
+    $('header').on('click', '#logOut', () => this.logOutHandeler());
   }
 
   changeHandler() {
@@ -121,22 +120,20 @@ tempStore.save = function () {
 
   logInUser(event) {
     event.preventDefault();
+    let activeUser = "";
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
 
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
-        this.currentUser = user;
-        this.tempStore.setItem('konto', user);
-        console.log(this.tempStore.getItem(konto))
-        this.tempStore.save();
-
-        console.log(this.tempStore.loggedIn);
-        
-        this.activeMember(this.currentUser);
-        return false;
-      }  
+        this.activeUser = user;
+        console.log(this.activeUser)
+        this.tempStore = activeUser;
+        this.tempStore.save;
+        this.activeMember(this.activeUser);
+        // return false;
+      }
     });
   }
 
@@ -144,40 +141,50 @@ tempStore.save = function () {
 
   activeMember() {
 
+      
     $('.nav-right-items').replaceWith( /*html*/ `
     <div class="active-User-Container">
     <div class="menu-divider"></div>
-    <p>Välkommen ${this.currentUser.Name}!</p>
+    <p>Välkommen ${this.activeUser.Name}!</p>
     <div class="menu-divider"></div>
     <a class="active-user-profile" href="#profilepage">Mina sidor</a>
     <div class="menu-divider"></div>
-    <button id="log-out-option">Logga ut</button>
+    <button id="logOut">Logga ut</button>
     </div>
     `);
+      
+    
+
+    
 
 
   }
 
   logOutHandeler() {
 
-    this.tempSession.removeItem('konto');
+    this.tempStore.clear();
+    // this.tempStore.save(this);
+    console.log(this.tempStore)
+    console.log('cleared tempStore')
+
+    // this.tempSession.removeItem('konto');
 
     // console.log(this.localSession.loggedIn)
     // delete this.localSession.loggedIn;
     // this.localSession.save();
   }
 
-  // async updateAccount() {
-  //   if (!this.localSession.activeUser) {
-  //     return;
-  //   }
+  async updateAccount() {
+    if (!this.tempStore.activeUser) {
+      return;
+    }
 
-  //   await this.read();
+    await this.read();
 
-  //   this.account.forEach(user => {
-  //     if (this.localSession.activeUser.Email === user.Email) {
-  //       window.activeUser = user;
-  //     }
-  //   })
+    this.account.forEach(user => {
+      if (this.tempStore.activeUser.Email === user.Email) {
+        window.activeUser = user;
+      }
+    })
+  }
 }
-
