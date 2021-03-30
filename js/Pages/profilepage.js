@@ -1,4 +1,4 @@
-
+import tempStore from '../tempStore.js';
 
 export default class ProfilePage {
 
@@ -8,19 +8,19 @@ export default class ProfilePage {
   }
 
 
- setLocalStorage() {
-    this.tempStore = {};
-    try {
-      this.tempStore = JSON.parse(sessionStorage.store);
-    } catch (e) { }
-    this.tempStore.save = function () {
-      sessionStorage.store = JSON.stringify(this);
-    }
-  }
+//  setLocalStorage() {
+//     this.tempStore = {};
+//     try {
+//       this.tempStore = JSON.parse(sessionStorage.store);
+//     } catch (e) { }
+//     this.tempStore.save = function () {
+//       sessionStorage.store = JSON.stringify(this);
+//     }
+//   }
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
-   
+    this.user = tempStore.currentTester;
   }
 
 
@@ -29,7 +29,7 @@ export default class ProfilePage {
 
   async render() {
 
-    console.log(this.tempStore.currentTester);
+    console.log(this.user);
     
 
     if (!this.currentUser) {
