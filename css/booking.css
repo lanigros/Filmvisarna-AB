@@ -55,6 +55,10 @@
   border: 1px solid black;
 }
 
+.button-row .booking-btn#exp-booking-btn {
+  width: 186px;
+}
+
 .button-row .booking-btn:hover {
   background-color: rgb(107, 103, 103);
   cursor: pointer;

@@ -129,7 +129,7 @@ export default class Booking {
     layout += /*html*/`
         </div>
         <div class="button-row">
-          <a class="booking-btn" href="#confirmation">BOKA NU</a>
+          ${this.generateBookingPriceButton()}
         </div>
         <div class="buffer"></div>
       </div>
@@ -324,6 +324,7 @@ export default class Booking {
 
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
+    $('.button-row').html(this.generateBookingPriceButton());
   }
 
   updateAgeMinus(event) {
@@ -343,6 +344,7 @@ export default class Booking {
 
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
+    $('.button-row').html(this.generateBookingPriceButton());
   }
 
   updateAgePlus(event) {
@@ -378,6 +380,7 @@ export default class Booking {
 
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
+    $('.button-row').html(this.generateBookingPriceButton());
   }
 
 
@@ -391,6 +394,21 @@ export default class Booking {
       this.tempStore.bookingChildAdultRetiree[2]--;
     }
     this.tempStore.save();
+  }
+
+  /* calculates the current price of tickets and returns how the booking button should display */
+  generateBookingPriceButton() {
+    let price = 0;
+    price += this.tempStore.bookingChildAdultRetiree[0] * 65;
+    price += this.tempStore.bookingChildAdultRetiree[1] * 85;
+    price += this.tempStore.bookingChildAdultRetiree[2] * 75;
+
+    /* re-render the booking button */
+    if (price === 0) {
+      return /*html*/`<a class="booking-btn" href="#confirmation">BOKA NU</a>`;
+    } else {
+      return /*html*/`<a class="booking-btn" href="#confirmation" id="exp-booking-btn">BOKA NU (${price} kr)</a>`;
+    }
   }
 
 }
