@@ -17,11 +17,11 @@ export default class LogIn {
   }
 
   setLocalStorage() {
-    let tempStore = {};
+    this.tempStore = {};
     try {
-      tempStore = JSON.parse(sessionStorage.store);
+      this.tempStore = JSON.parse(sessionStorage.store);
     } catch (e) { }
-    tempStore.save = function () {
+    this.tempStore.save = function () {
       sessionStorage.store = JSON.stringify(this);
     }
   }
@@ -129,8 +129,9 @@ export default class LogIn {
         alert('Inloggning lyckades!');
         this.activeUser = user;
         console.log(this.activeUser)
-        this.tempStore = activeUser;
-        this.tempStore.save;
+        this.tempStore.currentTester = this.activeUser;
+        this.tempStore.save();
+        console.log(this.tempStore.currentTester)
         this.activeMember(this.activeUser);
         // return false;
       }
@@ -153,10 +154,6 @@ export default class LogIn {
     </div>
     `);
       
-    
-
-    
-
 
   }
 

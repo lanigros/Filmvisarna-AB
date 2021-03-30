@@ -8,20 +8,19 @@ export default class ProfilePage {
   }
 
 
-  setLocalStorage() {
-    
- let tempStore = {};
-try {
-  tempStore = JSON.parse(sessionStorage.store);
-} catch (e) { }
-tempStore.save = function () {
-  sessionStorage.store = JSON.stringify(this);
-}
+ setLocalStorage() {
+    this.tempStore = {};
+    try {
+      this.tempStore = JSON.parse(sessionStorage.store);
+    } catch (e) { }
+    this.tempStore.save = function () {
+      sessionStorage.store = JSON.stringify(this);
+    }
   }
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
-    this.user = window.activeUser;
+   
   }
 
 
@@ -30,7 +29,7 @@ tempStore.save = function () {
 
   async render() {
 
-    console.log(this.localSession);
+    console.log(this.tempStore.currentTester);
     
 
     if (!this.currentUser) {
@@ -48,9 +47,9 @@ tempStore.save = function () {
           <div class="profile-wrapper">
           <h1 class="profile-title">profil</h1>
           <div class="profile-text-container">
-          <p>Epost-adress: ${window.activeUser.Email} </p>
-          <p>Namn: ${window.activeUser.Name}</p>
-          <p>Efternamn: ${window.activeUser.Lastname}</p>
+          <p>Epost-adress: ${this.currentTester.Email} </p>
+          <p>Namn: ${this.currentUser.Name}</p>
+          <p>Efternamn: ${this.currentUser.Lastname}</p>
           </div>
           </div>
           <div class="profile-divider"></div>
@@ -77,14 +76,14 @@ tempStore.save = function () {
      
    
    
-     for (let i = 0; i < activeUser.bookedShows.length; i++) {
+     for (let i = 0; i < this.currentUser.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
-      <p>Film : ${activeUser.bookedShows[i].film}</p> 
-      <p>Datum : ${activeUser.bookedShows[i].date}</p> 
-      <p>Tid : ${activeUser.bookedShows[i].time}</p> 
-      <p>Salong : ${activeUser.bookedShows[i].auditorium}</p> 
-      <p>Platser : ${activeUser.bookedShows[i].seats}</p> 
+      <p>Film : ${this.currentUser.bookedShows[i].film}</p> 
+      <p>Datum : ${this.currentUser.bookedShows[i].date}</p> 
+      <p>Tid : ${this.currentUser.bookedShows[i].time}</p> 
+      <p>Salong : ${this.currentUser.bookedShows[i].auditorium}</p> 
+      <p>Platser : ${this.currentUser.bookedShows[i].seats}</p> 
       </div>
       `)
     };
