@@ -134,7 +134,7 @@ export default class LogIn {
     $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
-        <p>Välkommen ${this.activeUser.Name}!</p>
+        <p>Välkommen ${tempStore.currentTester.Name}!</p>
         <div class="menu-divider"></div>
         <a class="active-user-profile" href="#profilepage">Mina sidor</a>
         <div class="menu-divider"></div>
@@ -160,14 +160,15 @@ export default class LogIn {
   }
 
   loggedInOrNot() {
-  
+    
+    
 
     if (sessionStorage) {
     
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
-        <p>Välkommen ${this.activeUser.Name}!</p>
+        <p>Välkommen ${tempStore.currentTester.Name}!</p>
         <div class="menu-divider"></div>
         <a class="active-user-profile" href="#profilepage">Mina sidor</a>
         <div class="menu-divider"></div>

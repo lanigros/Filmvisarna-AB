@@ -3,10 +3,10 @@
   function setLocalStorage() {
   
     try {
-      tempStore = JSON.parse(sessionStorage.store);
+      tempStore = JSON.parse(sessionStorage.logInStore);
     } catch (e) { }
       tempStore.save = function () {
-      sessionStorage.store = JSON.stringify(this);
+      sessionStorage.logInStore = JSON.stringify(this);
     }
 }
   
