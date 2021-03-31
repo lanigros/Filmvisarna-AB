@@ -1,5 +1,7 @@
-import Header from '../components/header.js';
+
 import tempStore from '../tempStore.js';
+
+let loggedIn = false;
 
 export default class LogIn {
 
@@ -11,7 +13,7 @@ export default class LogIn {
     this.logHandeler();
     this.changeHandler();
     this.logOutHandeler();
-  
+    this.loggedInCheck();
   }
 
  
@@ -35,9 +37,13 @@ export default class LogIn {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
 
+  loggedInCheck() {
+    window.onload = () => this.loggedInOrNot();
+  }
+
 
   async render() {
-    const header = new Header();
+    
     
     if (!this.account) {
       await this.read()
@@ -107,7 +113,6 @@ export default class LogIn {
     alert('Ditt konto har skapats!')
   }
 
-
   logInUser(event) {
     event.preventDefault();
     
@@ -118,7 +123,7 @@ export default class LogIn {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
         this.activeUser = user;
-      
+        loggedIn = true;
         tempStore.currentTester = this.activeUser;
         tempStore.save();
         
@@ -128,19 +133,12 @@ export default class LogIn {
     });
   }
 
-
-
   activeMember() {
 
-    if (!tempStore.currentTester) {
+    if (!loggedIn) { return }
 
-      console.log('Logged On FALSE');
-      return
-      
-    } else {
-
+    else {
       console.log('logged on TRUE');
-
     $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
@@ -152,17 +150,11 @@ export default class LogIn {
         </div>
     `);
     }
-
-    
-      
-
   }
 
   logOut() {
-
-    
+    loggedIn = false;
     sessionStorage.clear();
-
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
         <div>
@@ -171,13 +163,35 @@ export default class LogIn {
         <div>
           <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
         </div>
-      </div>
-            
+      </div>     
     `);
+  }
+
+  loggedInOrNot() {
     
+    console.log('testing loggedinornot')
+
+    if (sessionStorage) {
+
+      console.log('logged in or not = true!');
     
-   
-  
+      $('.nav-right-items').replaceWith( /*html*/ `
+        <div class="active-User-Container">
+        <div class="menu-divider"></div>
+        <p>Välkommen ${tempStore.currentTester.Name}!</p>
+        <div class="menu-divider"></div>
+        <a class="active-user-profile" href="#profilepage">Mina sidor</a>
+        <div class="menu-divider"></div>
+        <button id="logOut">Logga ut</button>
+        </div>
+    `);
+
+    }
+
+    else {
+      return;
+    }
+
   }
 
   async updateAccount() {
