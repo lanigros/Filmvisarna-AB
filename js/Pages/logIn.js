@@ -110,7 +110,7 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    let activeUser = "";
+    
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
 
@@ -118,10 +118,10 @@ export default class LogIn {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
         this.activeUser = user;
-        console.log(this.activeUser)
+      
         tempStore.currentTester = this.activeUser;
         tempStore.save();
-        console.log(tempStore.currentTester)
+        
         this.activeMember(this.activeUser);
         // return false;
       }
@@ -132,9 +132,14 @@ export default class LogIn {
 
   activeMember() {
 
-    if (this.activeUser.Email) {
+    if (!tempStore.currentTester) {
 
-      console.log('If the active user has an email');
+      console.log('Logged On FALSE');
+      return
+      
+    } else {
+
+      console.log('logged on TRUE');
 
     $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
@@ -146,9 +151,6 @@ export default class LogIn {
         <button id="logOut">Logga ut</button>
         </div>
     `);
-      
-    } else {
-      $('header').replaceWith();
     }
 
     
@@ -159,14 +161,23 @@ export default class LogIn {
   logOut() {
 
     
-    // this.tempStore.save(this);
+    sessionStorage.clear();
+
+    $('.active-User-Container').replaceWith( /*html*/ `
+      <div class="nav-right-items">
+        <div>
+            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a>
+        </div>
+        <div>
+          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
+        </div>
+      </div>
+            
+    `);
     
-    console.log('cleared tempStore');
-    tempStore.removeItem(store);
+    
    
-    // console.log(this.localSession.loggedIn)
-    // delete this.localSession.loggedIn;
-    // this.localSession.save();
+  
   }
 
   async updateAccount() {

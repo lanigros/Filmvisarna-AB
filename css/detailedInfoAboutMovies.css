@@ -1,4 +1,4 @@
-@import "/css/main.css";
+@import "./main.css";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap");
 
 .detailedInfoAboutMovie-Container {

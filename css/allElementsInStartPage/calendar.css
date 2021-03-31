@@ -1,4 +1,4 @@
-@import "/css/main.css";
+@import "./main.css";
 
 .calendar-Container {
   grid-area: c; /* grid from on main */

@@ -1,15 +1,15 @@
-@import "/css/main.css";
+@import "./main.css";
 
 .seating-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto repeat(5, min-content) auto;/* keep the seating/text content close to each other */
+  grid-template-rows: auto repeat(5, min-content) auto; /* keep the seating/text content close to each other */
 }
 
 .movie-details-row em {
   font-size: 20px;
-  display: flex;/* center the content */
-  justify-content: center;/* center the content */
+  display: flex; /* center the content */
+  justify-content: center; /* center the content */
 }
 
 /* style the "screen" border line */
@@ -19,8 +19,8 @@
 }
 
 .screen-row h1 {
-  display: flex;/* center the content */
-  justify-content: center;/* center the content */
+  display: flex; /* center the content */
+  justify-content: center; /* center the content */
   border-bottom: 2px solid black;
   padding-bottom: 16px;
 }
@@ -28,8 +28,8 @@
 /* style the row asking user to select their seat */
 .text-row {
   margin-top: 8px;
-  display: flex;/* center the content */
-  justify-content: center;/* center the content */
+  display: flex; /* center the content */
+  justify-content: center; /* center the content */
 }
 
 .text-row em {
@@ -38,8 +38,8 @@
 
 .button-row {
   margin-top: 12px;
-  display: flex;/* center the content */
-  justify-content: center;/* center the content */
+  display: flex; /* center the content */
+  justify-content: center; /* center the content */
 }
 
 .button-row .booking-btn {
@@ -62,25 +62,25 @@
 
 .row {
   margin-bottom: -10px; /* how spread out the seats are vertically */
-  display: flex;/* center the content */
-  justify-content: center;/* center the content */
+  display: flex; /* center the content */
+  justify-content: center; /* center the content */
 }
 
 .seating-container .buffer {
-  margin: 20px 0px 0px 0px;/* create buffer between header/footer when shrinking page */
+  margin: 20px 0px 0px 0px; /* create buffer between header/footer when shrinking page */
 }
 
 .seating-container input[type="checkbox"] {
   visibility: hidden; /* hide the default checkbox in order to make a new one */
   margin-right: -18px; /* how spread out the seats are horizontally */
-  margin-top: -30px
+  margin-top: -30px;
 }
 
 /* styling of the seat boxes */
 .seating-container input[type="checkbox"] + label:before {
   background-color: #ede8e8;
   border: 2px solid black;
-  content: '';
+  content: "";
   display: inline-block;
   height: 24px;
   width: 24px;
