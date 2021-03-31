@@ -28,15 +28,12 @@ export default class LogIn {
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
-
   logOutHandeler() {
     $('header').on('click', '#logOut', () => this.logOut());
   }
-
   changeHandler() {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
-
   loggedInCheck() {
     window.onload = () => this.loggedInOrNot();
   }
@@ -95,8 +92,6 @@ export default class LogIn {
     `
 
   }
-
-
 
   async createNewUser(event) {
     event.preventDefault();
@@ -168,12 +163,9 @@ export default class LogIn {
   }
 
   loggedInOrNot() {
-    
-    console.log('testing loggedinornot')
+  
 
     if (sessionStorage) {
-
-      console.log('logged in or not = true!');
     
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
