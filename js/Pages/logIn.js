@@ -1,4 +1,4 @@
-
+//import the Tempstore session storage to the page
 import tempStore from '../tempStore.js';
 
 let loggedIn = false;
@@ -6,7 +6,7 @@ let loggedIn = false;
 export default class LogIn {
 
   
- 
+ //Created a constructor that handels different kinds of events.
   constructor(changeListener) {
     this.changeListener = changeListener;
     this.regHandeler();
@@ -20,21 +20,30 @@ export default class LogIn {
     this.account = await $.getJSON("./json/account.json");
   }
 
+  //When pressing btn on register run this function
   regHandeler() {
     $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
+  
+  //When pressing btn on login run this function
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
+
+    //When pressing btn on register run this function
   logOutHandeler() {
     $('header').on('click', '#logOut', () => this.logOut());
   }
+    //When a change is made inside of the account ( such as tickets ), run this
   changeHandler() {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
+    //When browser refreshes, this function
   loggedInCheck() {
     window.onload = () => this.loggedInOrNot();
   }
+
+
   async render() {
     
     
@@ -89,6 +98,7 @@ export default class LogIn {
 
   }
 
+  // create a new user
   async createNewUser(event) {
     event.preventDefault();
     let newEmail = $("#crt-email").val();
@@ -103,6 +113,8 @@ export default class LogIn {
     console.log('New account was successfully created!')
     alert('Ditt konto har skapats!')
   }
+
+  //Log in a user and save to the sessionstorage called logInStore
 
   logInUser(event) {
     event.preventDefault();
@@ -125,6 +137,8 @@ export default class LogIn {
     });
   }
 
+  //When a user is logged in, render out a new kind of information on the navbar
+
   activeMember() {
 
     if (!loggedIn) { return }
@@ -144,6 +158,7 @@ export default class LogIn {
     }
   }
 
+  //When you log out, clear out the sessionstorage and return the navbar to normal.
   logOut() {
     loggedIn = false;
     sessionStorage.clear();
@@ -159,9 +174,8 @@ export default class LogIn {
     `);
   }
 
+  //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
-    
-    
 
     if (sessionStorage) {
     
