@@ -1,3 +1,5 @@
+//import tempStore from '../tempStore.js';  (-- Tobias imported here --)
+
 export default class Booking {
 
   constructor(changeListener) {

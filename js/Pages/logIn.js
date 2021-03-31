@@ -1,14 +1,20 @@
 
+import tempStore from '../tempStore.js';
+
+let loggedIn = false;
+
 export default class LogIn {
 
+  
+ 
   constructor(changeListener) {
     this.changeListener = changeListener;
-    this.logOutHandeler();
     this.regHandeler();
     this.logHandeler();
     this.changeHandler();
+    this.logOutHandeler();
+    this.loggedInCheck();
   }
-
 
   async read() {
     this.account = await $.getJSON("./json/account.json");
@@ -20,22 +26,22 @@ export default class LogIn {
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
-
   logOutHandeler() {
-    $('main').on('click', '#log-out-option', () => this.logOutHandeler());
+    $('header').on('click', '#logOut', () => this.logOut());
   }
-
   changeHandler() {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
-
-
+  loggedInCheck() {
+    window.onload = () => this.loggedInOrNot();
+  }
   async render() {
-
+    
+    
     if (!this.account) {
       await this.read()
     }
-
+  
 
     return `
     
@@ -83,8 +89,6 @@ export default class LogIn {
 
   }
 
-
-
   async createNewUser(event) {
     event.preventDefault();
     let newEmail = $("#crt-email").val();
@@ -102,52 +106,93 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    let activeUser = "";
+    
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
 
     this.account.forEach(user => {
       if (logEmail === user.Email && logPswrd === user.Password) {
         alert('Inloggning lyckades!');
-        activeUser = user;
-        window.activeUser = activeUser;
-        this.activeMember(activeUser);
+        this.activeUser = user;
+        loggedIn = true;
 
-        return false;
-      }  
+        tempStore.currentTester = this.activeUser;
+        tempStore.save();
+        
+        this.activeMember(this.activeUser);
+        // return false;
+      }
     });
   }
 
   activeMember() {
 
+    if (!loggedIn) { return }
+
+    else {
+      console.log('logged on TRUE');
     $('.nav-right-items').replaceWith( /*html*/ `
-    <div class="active-User-Container">
-    <div class="menu-divider"></div>
-    <p>Välkommen ${window.activeUser.Name}!</p>
-    <div class="menu-divider"></div>
-    <a class="active-user-profile" href="#profilepage">Mina sidor</a>
-    <div class="menu-divider"></div>
-    <button id="log-out-option">Logga ut</button>
-    </div>
+        <div class="active-User-Container">
+        <div class="menu-divider"></div>
+        <p>Välkommen ${tempStore.currentTester.Name}!</p>
+        <div class="menu-divider"></div>
+        <a class="active-user-profile" href="#profilepage">Mina sidor</a>
+        <div class="menu-divider"></div>
+        <button id="logOut">Logga ut</button>
+        </div>
     `);
-
-
+    }
   }
 
-  logOutHandeler() {
-    window.activeUser = false;
-    console.log('Logged out')
+  logOut() {
+    loggedIn = false;
+    sessionStorage.clear();
+    $('.active-User-Container').replaceWith( /*html*/ `
+      <div class="nav-right-items">
+        <div>
+            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a>
+        </div>
+        <div>
+          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
+        </div>
+      </div>     
+    `);
+  }
+
+  loggedInOrNot() {
+    
+    
+
+    if (sessionStorage) {
+    
+      $('.nav-right-items').replaceWith( /*html*/ `
+        <div class="active-User-Container">
+        <div class="menu-divider"></div>
+        <p>Välkommen ${tempStore.currentTester.Name}!</p>
+        <div class="menu-divider"></div>
+        <a class="active-user-profile" href="#profilepage">Mina sidor</a>
+        <div class="menu-divider"></div>
+        <button id="logOut">Logga ut</button>
+        </div>
+    `);
+
+    }
+
+    else {
+      return;
+    }
+
   }
 
   async updateAccount() {
-    if (!window.activeUser) {
+    if (!tempStore.activeUser) {
       return;
     }
 
     await this.read();
 
     this.account.forEach(user => {
-      if (window.activeUser.Email === user.Email) {
+      if (tempStore.activeUser.Email === user.Email) {
         window.activeUser = user;
       }
     })

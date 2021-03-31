@@ -1,4 +1,4 @@
-@import "/css/main.css";
+@import "./main.css";
 
 footer {
   grid-area: f;
@@ -20,7 +20,7 @@ footer {
 }
 /* -------------------Selects all children below footer--------------------- */
 
-.footer_menu{
+.footer_menu {
   align-self: center;
 }
 

@@ -1,4 +1,4 @@
-
+import tempStore from '../tempStore.js';
 
 export default class ProfilePage {
 
@@ -7,14 +7,29 @@ export default class ProfilePage {
     this.eventHandeler();
   }
 
+
+//  setLocalStorage() {
+//     this.tempStore = {};
+//     try {
+//       this.tempStore = JSON.parse(sessionStorage.store);
+//     } catch (e) { }
+//     this.tempStore.save = function () {
+//       sessionStorage.store = JSON.stringify(this);
+//     }
+//   }
+
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
-    this.user = window.activeUser;
+    this.user = tempStore.currentTester;
   }
+
+
+
 
 
   async render() {
 
+    console.log(this.user);
     
 
     if (!this.currentUser) {
@@ -32,9 +47,9 @@ export default class ProfilePage {
           <div class="profile-wrapper">
           <h1 class="profile-title">profil</h1>
           <div class="profile-text-container">
-          <p>Epost-adress: ${window.activeUser.Email} </p>
-          <p>Namn: ${window.activeUser.Name}</p>
-          <p>Efternamn: ${window.activeUser.Lastname}</p>
+          <p>Epost-adress: ${this.user.Email} </p>
+          <p>Namn: ${this.user.Name}</p>
+          <p>Efternamn: ${this.user.Lastname}</p>
           </div>
           </div>
           <div class="profile-divider"></div>
@@ -60,17 +75,17 @@ export default class ProfilePage {
   ticketLooper() {
      
    
-    console.log('Start ticketlooper')
-     for (let i = 0; i < activeUser.bookedShows.length; i++) {
+   
+     for (let i = 0; i < this.user.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
-      <p>Film : ${activeUser.bookedShows[i].film}</p> 
-      <p>Datum : ${activeUser.bookedShows[i].date}</p> 
-      <p>Tid : ${activeUser.bookedShows[i].time}</p> 
-      <p>Salong : ${activeUser.bookedShows[i].auditorium}</p> 
-      <p>Platser : ${activeUser.bookedShows[i].seats}</p> 
+      <p>Film : ${this.user.bookedShows[i].film}</p> 
+      <p>Datum : ${this.user.bookedShows[i].date}</p> 
+      <p>Tid : ${this.user.bookedShows[i].time}</p> 
+      <p>Salong : ${this.user.bookedShows[i].auditorium}</p> 
+      <p>Platser : ${this.user.bookedShows[i].seats}</p> 
       </div>
       `)
-    }; console.log('End ticketlooper')
+    };
   }
 }
