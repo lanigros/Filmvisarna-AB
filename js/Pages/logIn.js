@@ -167,7 +167,7 @@ export default class LogIn {
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
-        <p>Välkommen ${tempStore.currentTester.Name}!</p>
+        <p>Välkommen ${this.activeUser.Name}!</p>
         <div class="menu-divider"></div>
         <a class="active-user-profile" href="#profilepage">Mina sidor</a>
         <div class="menu-divider"></div>
