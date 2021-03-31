@@ -65,12 +65,13 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
-.order-btn > a{
+.order-btn{
   margin: 10px 0 5px 0;
   font-family: "Josefin Sans", sans-serif;
   align-content: center;
   justify-content: center;
-  height: 3.2em;
+  /* height: 3.2em; */
+  border-radius: 10%;
   width: 10.5em;
   cursor: pointer;
   border: none;
@@ -80,4 +81,9 @@ p {
   color: rgb(255, 255, 255);
   background-color: #2d2a2a;
   padding: 1em;
+}
+
+.order-btn:hover{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
 }
