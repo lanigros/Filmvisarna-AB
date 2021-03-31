@@ -1,9 +1,8 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
 
+const calendar = new Calendar();
 
 export default class StartPage {
-
- 
 
   async read() {
     this.schedule = await $.getJSON('/json/movieSchedule.json');
@@ -20,7 +19,7 @@ export default class StartPage {
     this.buildBannerInStartPage();
     this.buildUpCommingMovies();
     this.adBanner();
-    new Calendar(this.schedule, this.movieInfo).render();
+    calendar.render(this.schedule, this.movieInfo);
 
   }
 
@@ -43,8 +42,6 @@ export default class StartPage {
     
     `)
   }
-
-   
 
   buildUpCommingMovies() {
     $("main").append(`
