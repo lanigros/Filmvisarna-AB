@@ -58,7 +58,7 @@ function renderInfoIntoSalons(jsonFile) {
       <button class="btn-salon-calendar">
         <a class="link-to-booking-page" href="#booking" id="${FileFunctions.getBookingFile(movie.film, movie.auditorium, movie.date, movie.time)}">Boka</a>
       </button>
-      <button class="btn-salon-calendar"><a href="#detailedInfoAboutMovie">Om filmen</a></button>
+      <button class="btn-salon-calendar"><a href="#detailedInfoAboutMovie/${movie.film}/${movie.auditorium}/${movie.date}/${movie.time}">Om filmen</a></button>
       `)
     }
 
@@ -69,7 +69,7 @@ function renderInfoIntoSalons(jsonFile) {
       <button class="btn-salon-calendar">
         <a class="link-to-booking-page" href="#booking" id="${FileFunctions.getBookingFile(movie.film, movie.auditorium, movie.date, movie.time)}">Boka</a>
       </button>
-      <button class="btn-salon-calendar"><a href="#detailedInfoAboutMovie">Om filmen</a></button>
+      <button class="btn-salon-calendar"><a href="#detailedInfoAboutMovie/${movie.film}/${movie.auditorium}/${movie.date}/${movie.time}">Om filmen</a></button>
       `)
     }
 
