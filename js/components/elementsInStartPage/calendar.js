@@ -19,9 +19,11 @@ export default class Calendar {
   buildCalendar() {
 
     $("main").append(`
-    <div class="calendar-Container">
-          <div class="calendar"></div>        
-      </div >`);
+
+    <div class="calendar_title">Boka platser</div>
+    <div class="calendar-Container">      
+      <div class="calendar"></div>        
+    </div >`);
 
     $('.calendar').html(`<div class="selectedMonth_container"></div>`);
     $('.selectedMonth_container').html(`<button class="btn_previousMonth"><</button>`);

@@ -17,9 +17,10 @@ export default class StartPage {
 
     this.startPageClear();
     this.buildBannerInStartPage();
+    calendar.render(this.schedule, this.movieInfo);
     this.buildUpCommingMovies();
     this.adBanner();
-    calendar.render(this.schedule, this.movieInfo);
+
 
   }
 
@@ -45,9 +46,8 @@ export default class StartPage {
 
   buildUpCommingMovies() {
     $("main").append(`
-    
-       <div class="trailer-wrapper">
-        <div class="title">Kommande Filmer</div>
+      <div class="title">Kommande Filmer</div>
+       <div class="trailer-wrapper">        
             <div class="trailers">
               <div class="item"><img src="img/movieImg/joker.jpg"></div>
               <div class="item"><img src="img/movieImg/avangers.jpg"></div>

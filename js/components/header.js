@@ -5,7 +5,7 @@ export default class Header {
     
       <div class="nav-container">
         <div class="wrapper">
-          <nav>
+          <nav class="main-nav">
             <div class="nav-left-items">
               <div class="nav-hamburger">
                 <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.width = '440px';">
