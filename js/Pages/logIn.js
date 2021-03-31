@@ -16,8 +16,6 @@ export default class LogIn {
     this.loggedInCheck();
   }
 
- 
-
   async read() {
     this.account = await $.getJSON("./json/account.json");
   }
@@ -37,8 +35,6 @@ export default class LogIn {
   loggedInCheck() {
     window.onload = () => this.loggedInOrNot();
   }
-
-
   async render() {
     
     
@@ -119,6 +115,7 @@ export default class LogIn {
         alert('Inloggning lyckades!');
         this.activeUser = user;
         loggedIn = true;
+
         tempStore.currentTester = this.activeUser;
         tempStore.save();
         
