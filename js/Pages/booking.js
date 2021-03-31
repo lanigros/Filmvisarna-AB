@@ -1,4 +1,4 @@
-//import tempStore from '../tempStore.js';  (-- Tobias imported here --)
+import tempStore from '../tempStore.js';
 
 export default class Booking {
 
@@ -60,10 +60,10 @@ export default class Booking {
       this.changeListener.on(this.tempStore.bookingFile, () => this.reRender());
     }
     // if the user is not logged in, go to login page
-    /*if (!window.activeUser) {
+    if (!tempStore.currentTester) {
       document.location.href = "#logIn";
       return;
-    }*/
+    }
 
     await this.read(this.tempStore.bookingFile);
 
@@ -275,7 +275,7 @@ export default class Booking {
 
     for (let i = 0; i < accounts.length; i++) {
       /* find active user in account.json */
-      if (accounts[i].Email === window.activeUser.Email) {
+      if (accounts[i].Email === tempStore.currentTester.Email) {
         /* if there are already bookings for this showing, append most recent booking */
         let identical = false;
         for (let j = 0; j < accounts[i].bookedShows.length; j++) {
@@ -293,11 +293,14 @@ export default class Booking {
           accounts[i].bookedShows.push(bookedShows);
         }
 
+        tempStore.currentTester = accounts[i]; // save booking to logged-in user session storage
+        tempStore.save();
+
         return accounts;
       }
     }
 
-    return null;
+    return accounts;
   }
 
   setSessionStorage() {
