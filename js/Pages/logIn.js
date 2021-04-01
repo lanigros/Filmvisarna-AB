@@ -5,8 +5,8 @@ let loggedIn = false;
 
 export default class LogIn {
 
-  
- //Created a constructor that handels different kinds of events.
+
+  //Created a constructor that handels different kinds of events.
   constructor(changeListener) {
     this.changeListener = changeListener;
     this.regHandeler();
@@ -24,33 +24,33 @@ export default class LogIn {
   regHandeler() {
     $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
-  
+
   //When pressing btn on login run this function
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
 
-    //When pressing btn on register run this function
+  //When pressing btn on register run this function
   logOutHandeler() {
     $('header').on('click', '#logOut', () => this.logOut());
   }
-    //When a change is made inside of the account ( such as tickets ), run this
+  //When a change is made inside of the account ( such as tickets ), run this
   changeHandler() {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
-    //When browser refreshes, this function
+  //When browser refreshes, this function
   loggedInCheck() {
     window.onload = () => this.loggedInOrNot();
   }
 
 
   async render() {
-    
-    
+
+
     if (!this.account) {
       await this.read()
     }
-  
+
 
     return `
     
@@ -118,7 +118,7 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    
+
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
 
@@ -130,9 +130,15 @@ export default class LogIn {
 
         tempStore.currentTester = this.activeUser;
         tempStore.save();
-        
+
         this.activeMember(this.activeUser);
         // return false;
+
+        // if we were directed here from a booking page, return to booking page after logging in
+        if (tempStore.bookingLoginRedirect === true) {
+          document.location.href = '#booking';
+          return;
+        }
       }
     });
   }
@@ -145,7 +151,7 @@ export default class LogIn {
 
     else {
       console.log('logged on TRUE');
-    $('.nav-right-items').replaceWith( /*html*/ `
+      $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
         <p>Välkommen ${tempStore.currentTester.Name}!</p>
@@ -178,7 +184,7 @@ export default class LogIn {
   loggedInOrNot() {
 
     if (sessionStorage) {
-    
+
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>

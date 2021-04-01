@@ -61,9 +61,14 @@ export default class Booking {
     }
     // if the user is not logged in, go to login page
     if (!tempStore.currentTester) {
+      tempStore.bookingLoginRedirect = true; // set session storage to redirect back to the booking page after logging in
+      tempStore.save();
       document.location.href = "#logIn";
       return;
     }
+
+    tempStore.bookingLoginRedirect = false; // erase session storage on this variable since we're not redirecting to the login page
+    tempStore.save();
 
     await this.read(this.tempStore.bookingFile);
 
