@@ -31,8 +31,12 @@ export default class ProfilePage {
               <div class="profile-picture"></div>
                 <div class="profile-text-container">
                 <p>Epost-adress: ${this.user.Email} </p>
+                <p>Mobilnummer: 070-666 666 </p>
                 <p>Namn: ${this.user.Name}</p>
                 <p>Efternamn: ${this.user.Lastname}</p>
+                <p>Betalsätt: Faktura</p>
+                <button class="remove-account">Ta bort konto</button>
+                <button class="options-account">inställningar</button>
                 </div>
           </div>
         
@@ -57,17 +61,15 @@ export default class ProfilePage {
   }
 
   ticketLooper() {
-     
-   console.log(this.user)
-   
-     for (let i = 0; i < this.currentUser.bookedShows.length; i++) {
+     for (let i = 0; i < this.user.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
       <p>Film : ${this.user.bookedShows[i].film}</p> 
       <p>Datum : ${this.user.bookedShows[i].date}</p> 
       <p>Tid : ${this.user.bookedShows[i].time}</p> 
       <p>Salong : ${this.user.bookedShows[i].auditorium}</p> 
-      <p>Platser : ${this.user.bookedShows[i].seats}</p> 
+      <p>Platser : ${this.user.bookedShows[i].seats}</p>
+      <button class="cancel-btn">avboka</button> 
       </div>
       `)
     };

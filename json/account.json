@@ -52,6 +52,17 @@
           "H 8"
         ],
         "price": 170
+      },
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Parasite",
+        "date": "2021-04-25",
+        "time": "19.00",
+        "seats": [
+          "F 6",
+          "F 7"
+        ],
+        "price": 170
       }
     ]
   }

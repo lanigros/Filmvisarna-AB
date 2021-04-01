@@ -12,7 +12,7 @@
   grid-template-columns: 25% 75%;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    "ui  ub"
+    "ui ub"
     "ui ub"
     "ui ub";
 }
@@ -31,7 +31,7 @@
   grid-template-areas:
     ". pp ."
     ". pt ."
-    ". pi .";
+    "pi pi pi";
 }
 
 .profile-picture {
@@ -71,11 +71,13 @@
 }
 
 .profile-text-container {
+  border-top: 1px solid #f3f3f3;
   grid-area: pi;
+  width: 100%;
   font-family: "Roboto", sans-serif;
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
-  height: 30%;
+
   padding: 1em;
 }
 
