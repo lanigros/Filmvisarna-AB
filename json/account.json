@@ -4,7 +4,19 @@
     "Password": "test",
     "Name": "test",
     "Lastname": "test",
-    "bookedShows": []
+    "bookedShows": [
+      {
+        "auditorium": "Stora Salongen",
+        "film": "The Dark Knight",
+        "date": "2021-04-25",
+        "time": "17.00",
+        "seats": [
+          "H 6",
+          "H 7"
+        ],
+        "price": 170
+      }
+    ]
   },
   {
     "Email": "test@hotmail.com",
