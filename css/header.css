@@ -28,19 +28,22 @@ header {
 
 .wrapper {
   width: 100%;
-  display: relative;
+  height: 100%;
+  
 }
 
-nav {
+.main-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 72px;
+  justify-content: space-between;  
+  width: 100%;
+  height: 100%;
 }
 
 nav .nav-left-items {
   display: flex;
   align-items: center;
+  width: 40%;
 }
 
 nav .nav-logo {
