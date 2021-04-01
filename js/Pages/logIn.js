@@ -160,9 +160,10 @@ export default class LogIn {
 
   //When you log out, clear out the sessionstorage and return the navbar to normal.
   logOut() {
-    loggedIn = false;
-    sessionStorage.clear();
-    $('.active-User-Container').replaceWith( /*html*/ `
+ 
+    delete sessionStorage.currentTester();
+    if (!sessionStorage.logInStore) {
+      $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
         <div>
             <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a>
@@ -171,13 +172,14 @@ export default class LogIn {
           <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
         </div>
       </div>     
-    `);
+    `);}
+  
   }
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
 
-    if (sessionStorage) {
+    if (sessionStorage.logInStore) {
     
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
