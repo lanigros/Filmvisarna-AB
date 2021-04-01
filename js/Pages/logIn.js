@@ -180,6 +180,12 @@ export default class LogIn {
         </div>
       </div>     
     `);
+
+    // if you log out while on a booking page, return to the login page
+    if (document.location.href.includes('#booking')) {
+      document.location.href = '#logIn';
+      return;
+    }
   }
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
