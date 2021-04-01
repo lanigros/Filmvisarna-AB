@@ -1,6 +1,7 @@
 @import "./main.css";
 
 .seating-container {
+  font-family: "Montserrat";
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto repeat(6, min-content) auto; /* keep the seating/text content close to each other */
@@ -27,7 +28,7 @@
 
 /* style the row asking user to select their seat */
 .text-row {
-  margin-top: 8px;
+  margin-top: 2rem;
   display: flex; /* center the content */
   justify-content: center; /* center the content */
 }
@@ -56,7 +57,8 @@
 }
 
 .button-row .booking-btn#exp-booking-btn {
-  width: 186px;
+  padding: 13px;
+  width: 220px;
 }
 
 .button-row .booking-btn:hover {

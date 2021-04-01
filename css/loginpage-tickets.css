@@ -1,0 +1,12 @@
+.booked-tickets {
+  display: inline-block;
+  margin: 0;
+  width: 97%;
+  font-family: "Montserrat";
+  height: 32%;
+}
+
+.booked-tickets-info {
+  height: 100%;
+  width: 50%;
+}

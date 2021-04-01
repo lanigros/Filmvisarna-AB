@@ -1,4 +1,5 @@
 @import "./main.css";
+@import "./loginpage-tickets.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
@@ -20,14 +21,12 @@
 .profile-wrapper {
   border-right: 1px solid #f3f3f3;
   grid-area: ui;
-
   width: 100%;
-
   text-align: center;
-  padding: 10px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 2.5fr 1.5fr 6fr;
   grid-template-areas:
     ". pp ."
     ". pt ."
@@ -103,7 +102,7 @@
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
   overflow: auto;
-  max-height: 24em;
+
   scroll-behavior: smooth;
 }
 
@@ -117,7 +116,7 @@
   transition: background-color 1s linear;
   text-indent: 10px;
   padding: 10px;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .booked-tickets:hover {
@@ -152,19 +151,24 @@
   background-color: rgb(134, 127, 127);
 }
 
-/* 
-.profile-divider {
-  align-self: center;
-  grid-area: pd;
-  height: 50vh;
-  width: 5px;
-  justify-self: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 10%,
-    rgb(255, 255, 255) 50%,
-    rgba(255, 255, 255, 0) 90%,
-    rgba(255, 255, 255, 0) 100%
-  );
-} */
+.remove-account,
+.options-account {
+  margin-top: 2em;
+  text-transform: uppercase;
+  border: none;
+  height: 30px;
+  width: 120px;
+  background: rgb(241, 241, 241);
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+.remove-account {
+  background-color: rgb(131, 24, 5);
+}
+
+.options-account {
+  background: rgb(182, 182, 182);
+  width: 150px;
+}

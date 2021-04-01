@@ -63,6 +63,29 @@
           "F 7"
         ],
         "price": 170
+      },
+      {
+        "auditorium": "Stora Salongen",
+        "film": "Inception",
+        "date": "2021-04-30",
+        "time": "21.00",
+        "seats": [
+          "H 7",
+          "H 8",
+          "A 1"
+        ],
+        "price": 235
+      },
+      {
+        "auditorium": "Stora Salongen",
+        "film": "The Dark Knight",
+        "date": "2021-04-23",
+        "time": "17.00",
+        "seats": [
+          "F 5",
+          "F 3"
+        ],
+        "price": 170
       }
     ]
   }
