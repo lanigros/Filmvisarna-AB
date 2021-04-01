@@ -8,55 +8,38 @@ export default class ProfilePage {
   }
 
 
-//  setLocalStorage() {
-//     this.tempStore = {};
-//     try {
-//       this.tempStore = JSON.parse(sessionStorage.store);
-//     } catch (e) { }
-//     this.tempStore.save = function () {
-//       sessionStorage.store = JSON.stringify(this);
-//     }
-//   }
-
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
     this.user = tempStore.currentTester;
   }
 
 
-
-
-
   async render() {
-
-    console.log(this.user);
-    
 
     if (!this.currentUser) {
       await this.read();
     }
     if (!this.user) {
       await this.read();
-    }
-
-    
+    } 
 
     return /*html*/ `
     
     <div class="profile-page-container">
           <div class="profile-wrapper">
-          <h1 class="profile-title">profil</h1>
-          <div class="profile-text-container">
-          <p>Epost-adress: ${this.user.Email} </p>
-          <p>Namn: ${this.user.Name}</p>
-          <p>Efternamn: ${this.user.Lastname}</p>
+              <h1 class="profile-title">${this.user.Name}</h1>
+              <div class="profile-picture"></div>
+                <div class="profile-text-container">
+                <p>Epost-adress: ${this.user.Email} </p>
+                <p>Namn: ${this.user.Name}</p>
+                <p>Efternamn: ${this.user.Lastname}</p>
+                </div>
           </div>
-          </div>
-          <div class="profile-divider"></div>
+        
           <div class="bookings-wrapper">
             <h1 class="bookings-title">bokningar</h1>
             <div class="bookings-text-container">
-            <button class="show-bookings-btn">Visa min bokningar</button>
+            
             </div>
               
               
@@ -69,14 +52,15 @@ export default class ProfilePage {
 
 
   eventHandeler() {
-    $('main').on('click', ".show-bookings-btn", () => this.ticketLooper());
+   
+    window.onload = () => this.ticketLooper();
   }
 
   ticketLooper() {
      
+   console.log(this.user)
    
-   
-     for (let i = 0; i < this.user.bookedShows.length; i++) {
+     for (let i = 0; i < this.currentUser.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
       <p>Film : ${this.user.bookedShows[i].film}</p> 

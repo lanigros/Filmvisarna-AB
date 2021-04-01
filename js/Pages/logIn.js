@@ -144,7 +144,7 @@ export default class LogIn {
     if (!loggedIn) { return }
 
     else {
-      console.log('logged on TRUE');
+      
     $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
