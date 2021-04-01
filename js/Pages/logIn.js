@@ -167,7 +167,9 @@ export default class LogIn {
   //When you log out, clear out the sessionstorage and return the navbar to normal.
   logOut() {
     loggedIn = false;
-    sessionStorage.clear();
+
+    delete sessionStorage.logInStore;
+
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
         <div>
