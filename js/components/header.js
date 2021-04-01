@@ -1,9 +1,19 @@
 export default class Header {
 
   render() {
-    return /*html*/`
-    
-      <div class="nav-container">
+
+    this.buildHeaderStructure();
+    this.buildSideNav();
+    this.buildLogInButtons();
+    $(window).resize(this.buildLogInButtons);
+
+  }
+
+  buildHeaderStructure() {
+
+    $('header').html(`
+
+    <div class="nav-container">
         <div class="wrapper">
           <nav class="main-nav">
             <div class="nav-left-items">
@@ -14,22 +24,24 @@ export default class Header {
               </div>
               <div class="nav-logo">
                 <a class="nav-logo-container" href="#">
-                  <img class="logo" src="img/header/logo-icon.svg" alt="">
+                  <img class="logo" src="img/logo/Filmvisarna logo 2.png" alt="">
                 </a>
               </div>
             </div>
-            <div class="nav-right-items">
-              <div>
-                <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a>
-              </div>
-              <div>
-                <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
-              </div>
+            <div class="nav-right-items">              
             </div>
           </nav>
         </div>
-      </div>
-      <div id="mySidenav" class="sidenav">
+      </div>   
+    
+    `)
+
+  }
+
+  buildSideNav() {
+    $('header').append(`
+
+    <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.width = '0';">&times;</a>
         <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
           <img class="alert-icon" src="img/side-nav/alert-icon.svg" alt="">
@@ -47,12 +59,29 @@ export default class Header {
           <img class="alert-icon" src="img/side-nav/map-icon.svg" alt="">
           HITTA HIT
         </a>
-        <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">
           <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
-          PROFIL
+          LOGGA IN
         </a>
+
       </div>
-    `
+    
+    `)
   }
 
+  buildLogInButtons() {
+
+    if (window.innerWidth > 760) {
+      $('.nav-right-items').html(`        
+        <div><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a></div>
+        <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a></div>        
+      `)
+
+    }
+
+    if (window.innerWidth <= 760) {
+      $('.nav-right-items').html(`
+      `)
+    }
+  }
 }
