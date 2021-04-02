@@ -203,13 +203,10 @@ export default class LogIn {
         <button id="logOut">Logga ut</button>
         </div>
     `);
-
     }
-
     else {
       return;
     }
-
   }
 
   async updateAccount() {

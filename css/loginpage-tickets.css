@@ -1,12 +1,27 @@
 .booked-tickets {
   display: inline-block;
-  margin: 0;
-  width: 97%;
+  margin: 0 auto 0 auto;
+  width: 80%;
   font-family: "Montserrat";
-  height: 32%;
+  height: 30%;
 }
 
 .booked-tickets-info {
+  display: inline-block;
   height: 100%;
-  width: 50%;
+  width: 80%;
+  padding: 5px;
+  column-count: 3;
+}
+
+.cancel-btn-holder {
+  height: 50%;
+  float: right;
+  width: 15%;
+}
+
+.cancel-btn {
+  width: 70px;
+  height: 30px;
+  box-shadow: rgba(0, 0, 0, 0.5);
 }

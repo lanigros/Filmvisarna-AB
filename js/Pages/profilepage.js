@@ -64,7 +64,7 @@ export default class ProfilePage {
      for (let i = 0; i < this.user.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
-      
+
       <div class="booked-tickets-info">
       <h3>Film :</h3> <p>${this.user.bookedShows[i].film}</p>
       <h3>Datum :</h3><p>${this.user.bookedShows[i].date}</p> 
@@ -72,8 +72,10 @@ export default class ProfilePage {
       <h3>Salong :</h3><p> ${this.user.bookedShows[i].auditorium}</p> 
       <h3>Platser :</h3><p> ${this.user.bookedShows[i].seats}</p>
       </div>
+      <div class="cancel-btn-holder">
+      <button class="cancel-btn">Avboka</button>
+      </div>
       
-      <button class="cancel-btn">avboka</button> 
       </div>
       `)
     };
