@@ -21,7 +21,13 @@
 }
 
 .cancel-btn {
+  border: 1px solid rgb(63, 63, 63);
   width: 70px;
   height: 30px;
   box-shadow: rgba(0, 0, 0, 0.5);
+  background-color: rgb(247, 247, 247);
+}
+
+.cancel-btn:hover {
+  background-color: rgb(223, 223, 223);
 }

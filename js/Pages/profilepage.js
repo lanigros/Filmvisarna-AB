@@ -56,8 +56,9 @@ export default class ProfilePage {
 
 
   eventHandeler() {
-   
     window.onload = () => this.ticketLooper();
+
+    $('main').on('click', '.cancel-btn', (event) => cancelSelectedTicket(event));
   }
 
   ticketLooper() {
@@ -79,5 +80,12 @@ export default class ProfilePage {
       </div>
       `)
     };
+  }
+
+  cancelSelectedTicket(event) {
+
+        const selectedTicket = event.target;
+      console.log(selectedTicket.tagName)
+
   }
 }
