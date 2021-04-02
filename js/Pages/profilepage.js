@@ -58,10 +58,12 @@ export default class ProfilePage {
   eventHandeler() {
     window.onload = () => this.ticketLooper();
 
-    $('main').on('click', '.cancel-btn', (event) => cancelSelectedTicket(event));
+    $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
   ticketLooper() {
+    
+
      for (let i = 0; i < this.user.bookedShows.length; i++) {
       $('.bookings-text-container').append(/*html*/ `
       <div class="booked-tickets">
@@ -83,9 +85,9 @@ export default class ProfilePage {
   }
 
   cancelSelectedTicket(event) {
+    
+    let selectedInfo = $('.booked-tickets-info').text();
 
-        const selectedTicket = event.target;
-      console.log(selectedTicket.tagName)
-
+    console.log(selectedInfo);
   }
 }
