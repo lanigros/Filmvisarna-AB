@@ -5,6 +5,7 @@ export default class ProfilePage {
 
   constructor() {
     this.eventHandeler();
+
   }
 
 
@@ -55,39 +56,54 @@ export default class ProfilePage {
   }
 
 
+
+
   eventHandeler() {
     window.onload = () => this.ticketLooper();
 
     $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
+
   ticketLooper() {
     
 
-     for (let i = 0; i < this.user.bookedShows.length; i++) {
-      $('.bookings-text-container').append(/*html*/ `
+    for (let i = 0; i < this.user.bookedShows.length; i++) {
+      let bookedShow = this.user.bookedShows[i];
+     
+      $('.bookings-text-container').append(/*html*/ `     
       <div class="booked-tickets">
-
       <div class="booked-tickets-info">
-      <h3>Film :</h3> <p>${this.user.bookedShows[i].film}</p>
-      <h3>Datum :</h3><p>${this.user.bookedShows[i].date}</p> 
-      <h3>Tid :</h3><p> ${this.user.bookedShows[i].time}</p> 
-      <h3>Salong :</h3><p> ${this.user.bookedShows[i].auditorium}</p> 
-      <h3>Platser :</h3><p> ${this.user.bookedShows[i].seats}</p>
+      <h3>Film :</h3> <p>${bookedShow.film}</p>
+      <h3>Datum :</h3><p>${bookedShow.date}</p> 
+      <h3>Tid :</h3><p> ${bookedShow.time}</p> 
+      <h3>Salong :</h3><p> ${bookedShow.auditorium}</p> 
+      <h3>Platser :</h3><p> ${bookedShow.seats}</p>
       </div>
       <div class="cancel-btn-holder">
-      <button class="cancel-btn">Avboka</button>
-      </div>
-      
-      </div>
+      <button class="cancel-btn" value="${i}">Avboka</button>
+      </div>    
+      </div> 
       `)
     };
   }
 
+  
   cancelSelectedTicket(event) {
-    
-    let selectedInfo = $('.booked-tickets-info').text();
 
-    console.log(selectedInfo);
+    let selectedTicket = this.user.bookedShows[event.target.value];
+    console.log(selectedTicket)
+    
+    for (let i = 0; i < selectedTicket; i++){
+      console.log(selectedTicket)
+    }
   }
+
+   
+
+
+// ${this.user.bookedShows[i]}
+  
+
 }
+
