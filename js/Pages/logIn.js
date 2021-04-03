@@ -190,8 +190,8 @@ export default class LogIn {
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
-
-    if (sessionStorage.logInStore) {
+    console.log('tester loggedInOrNoT')
+    if (sessionStorage) {
 
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">

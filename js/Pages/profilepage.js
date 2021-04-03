@@ -8,7 +8,6 @@ export default class ProfilePage {
 
   }
 
-
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
     this.user = tempStore.currentTester;
@@ -57,16 +56,17 @@ export default class ProfilePage {
 
 
 
-
-  eventHandeler() {
-    window.onload = () => this.ticketLooper();
-
+    eventHandeler() {
+    
+    $('body').ready(this.ticketLooper());
     $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
 
+  
+
+
   ticketLooper() {
-    
 
     for (let i = 0; i < this.user.bookedShows.length; i++) {
       let bookedShow = this.user.bookedShows[i];
@@ -85,7 +85,8 @@ export default class ProfilePage {
       </div>    
       </div> 
       `)
-    };
+      };
+
   }
 
   
@@ -96,7 +97,7 @@ export default class ProfilePage {
     for (let i = 0; i < this.user.bookedShows.length; i++){
 
        if (selectedTicket == this.user.bookedShows[i]) {
-         delete this.user.bookedShows[i];
+         delete this.user.bookedShows[event.target.value];
          console.log('deleted the show');
       }
     }
