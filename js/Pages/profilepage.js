@@ -92,11 +92,15 @@ export default class ProfilePage {
   cancelSelectedTicket(event) {
 
     let selectedTicket = this.user.bookedShows[event.target.value];
-    console.log(selectedTicket)
     
-    for (let i = 0; i < selectedTicket; i++){
-      console.log(selectedTicket)
+    for (let i = 0; i < this.user.bookedShows.length; i++){
+
+       if (selectedTicket == this.user.bookedShows[i]) {
+         delete this.user.bookedShows[i];
+         console.log('deleted the show');
+      }
     }
+   
   }
 
    
