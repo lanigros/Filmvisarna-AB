@@ -22,7 +22,7 @@ export default class StartPage {
     calendar.render(this.schedule, this.movieInfo);
     this.buildUpCommingMovies();
     this.adBanner();
-
+    this.playingNow();
 
   }
 
@@ -66,12 +66,46 @@ export default class StartPage {
     `)
   }
 
-
   adBanner() {
     $('main').append(`
     <div class="ads-banner"></div>
     `)
   }
+
+  playingNow() {
+    $('main').append(/*html*/ `
+
+    <div class="playing-now-title"><h1>Spelas just NU!</h1></div>
+    <div class="playing-now-container">
+    
+    
+    <div class="divboxone">
+    <h3 class="divboxone-title">${this.movieInfo[0].title}</h3>
+    </div>
+    <div class="divboxtwo">
+    <h3 class="divboxtwo-title">${this.movieInfo[2].title}</h3>
+    </div>
+    <div class="divboxthree">
+    <h3 class="divboxthree-title">${this.movieInfo[3].title}</h3>
+    </div>
+    <div class="divboxfour">
+    <h3 class="divboxfour-title">${this.movieInfo[1].title}</h3>
+    </div>
+    <div class="divboxfive">
+    <h3 class="divboxfive-title">${this.movieInfo[4].title}</h3>
+    </div>
+    </div>
+    
+    `)
+    
+    // $('.divboxone').hover(function () {
+    //   $('.divboxone-title').fadeIn(200);
+    // }, function () {
+    //   $('.divboxone-title').fadeOut(200);
+    // });
+  }
+
+ 
 }
 
 
