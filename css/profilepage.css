@@ -176,7 +176,7 @@
 
 @media only screen and (max-width: 1024px) {
   .profile-page-container {
-    height: 99%;
+    height: 100%;
     grid-template-areas:
       "ui ui"
       "ub ub"
@@ -211,5 +211,51 @@
 
   .booked-tickets {
     width: 99%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .profile-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 15% 1fr;
+    grid-template-areas: "pp pt" "pi pi";
+  }
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+  .profile-wrapper {
+    text-align: start;
+  }
+
+  .profile-picture {
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+  }
+
+  .profile-title {
+    font-size: 20px;
+    align-self: flex-start;
+    justify-self: start;
+    margin-top: 15px;
+  }
+
+  .bookings-title {
+    font-size: 20px;
+  }
+  .booked-tickets-info {
+    height: auto;
+    width: 100%;
+  }
+  .cancel-btn-holder {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+
+  .bookings-wrapper {
+    grid-template-rows: 20% 1fr;
   }
 }

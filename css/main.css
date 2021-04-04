@@ -48,3 +48,12 @@ body {
 main {
   grid-area: c;
 }
+
+@media only screen and (max-width: 375px) {
+  body {
+    grid-template-areas:
+      "h h h "
+      "c c c"
+      "f f f";
+  }
+}

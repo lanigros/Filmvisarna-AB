@@ -99,8 +99,13 @@ export default class ProfilePage {
 
        if (selectedTicket == this.user.bookedShows[i]) {
         //  delete this.user.bookedShows[event.target.value];
-         this.user.bookedShows.remove();
+         let areYouSure = window.confirm("Är du säker på att du vill avboka?")
+         if (areYouSure) {
+          this.user.bookedShows.remove();
          console.log('deleted the show');
+         } else {
+           return;
+        }
       }
     }
    
