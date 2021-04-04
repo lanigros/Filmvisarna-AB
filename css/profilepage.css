@@ -1,4 +1,5 @@
 @import "./main.css";
+
 @import "./loginpage-tickets.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
@@ -23,7 +24,6 @@
   grid-area: ui;
   width: 100%;
   text-align: center;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 2.5fr 1.5fr 6fr;
@@ -172,4 +172,44 @@
 .options-account {
   background: rgb(182, 182, 182);
   width: 150px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .profile-page-container {
+    height: 99%;
+    grid-template-areas:
+      "ui ui"
+      "ub ub"
+      "ub ub";
+  }
+
+  .profile-wrapper {
+    border-right: none;
+    border-bottom: 1px solid #a0a0a0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "pp pt pi pi";
+    text-align: end;
+    padding: 1em;
+  }
+
+  .profile-title {
+    align-self: center;
+    padding: 0px;
+    font-size: 30px;
+    justify-self: flex-start;
+  }
+
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+
+  .profile-text-container > p {
+    font-size: 12px;
+  }
+
+  .booked-tickets {
+    width: 99%;
+  }
 }

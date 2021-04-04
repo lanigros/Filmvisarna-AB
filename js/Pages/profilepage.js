@@ -58,7 +58,8 @@ export default class ProfilePage {
 
     eventHandeler() {
     
-    $('body').ready(this.ticketLooper());
+    //$(this.ticketLooper());
+      $('main').on('click', () => this.ticketLooper());
     $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
@@ -97,7 +98,8 @@ export default class ProfilePage {
     for (let i = 0; i < this.user.bookedShows.length; i++){
 
        if (selectedTicket == this.user.bookedShows[i]) {
-         delete this.user.bookedShows[event.target.value];
+        //  delete this.user.bookedShows[event.target.value];
+         this.user.bookedShows.remove();
          console.log('deleted the show');
       }
     }

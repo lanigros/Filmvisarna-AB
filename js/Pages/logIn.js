@@ -110,7 +110,6 @@ export default class LogIn {
     let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
     await JSON._save('account.json', this.account);
-    console.log('New account was successfully created!')
     alert('Ditt konto har skapats!')
   }
 
@@ -132,7 +131,7 @@ export default class LogIn {
         tempStore.save();
 
         this.activeMember(this.activeUser);
-        // return false;
+        
 
         // if we were directed here from a booking page, return to booking page after logging in
         if (tempStore.bookingLoginRedirect === true) {
@@ -190,9 +189,9 @@ export default class LogIn {
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
-    console.log('tester loggedInOrNoT')
-    if (sessionStorage) {
-
+    
+    if (!sessionStorage) { return; }
+    else {
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
@@ -203,9 +202,6 @@ export default class LogIn {
         <button id="logOut">Logga ut</button>
         </div>
     `);
-    }
-    else {
-      return;
     }
   }
 
