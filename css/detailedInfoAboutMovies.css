@@ -26,7 +26,7 @@
   justify-content: flex-end;
 }
 
-.movie-banner > img{
+.movie-banner > img {
   height: 100%;
 }
 
@@ -65,13 +65,13 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
-.order-btn{
+.order-btn {
   margin: 10px 0 5px 0;
   font-family: "Josefin Sans", sans-serif;
   align-content: center;
   justify-content: center;
   /* height: 3.2em; */
-  border-radius: 10%;
+  border-radius: 5px;
   width: 10.5em;
   cursor: pointer;
   border: none;
@@ -83,7 +83,7 @@ p {
   padding: 1em;
 }
 
-.order-btn:hover{
+.order-btn:hover {
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
