@@ -32,7 +32,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 10% auto 19%;
+  grid-template-rows: minmax(min-content, 9%) auto 11%;
 
   grid-template-areas:
     "h h h "
@@ -48,4 +48,13 @@ body {
 
 main {
   grid-area: c;
+}
+
+@media only screen and (max-width: 375px) {
+  body {
+    grid-template-areas:
+      "h h h "
+      "c c c"
+      "f f f";
+  }
 }

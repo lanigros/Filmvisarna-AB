@@ -21,6 +21,9 @@ const contactUs = new ContactUs();
 const confirmation = new Confirmation();
 const profilepage = new ProfilePage();
 
+let temp = '';
+let movieTitle = '';
+let movieAuditorium, movieDate, movieTime;
 
 export default class Router {
 
@@ -45,6 +48,17 @@ export default class Router {
     // and we remove the # (hash) and any - (dashes)
     // so that something like #product-page would become productpage
     let name = window.location.hash.replace('-', '').replace('#', '');
+
+    temp = name.split('/'); // splitting the long string into an array 
+    name = temp[0]; // name is now detailedInfoAboutMovie
+
+    // This is for getting argument for detailed movie page
+    movieTitle = temp[1]; // store info to variables and then send those as arguments
+    movieAuditorium = temp[2];
+    movieDate = temp[3];
+    movieTime = temp[4];
+
+
     // we check if there is (not) a method with that name (below)
     if (!this[name]) {
       name = 'default'; // if there isn't we will use the method named default
@@ -100,11 +114,10 @@ export default class Router {
   }
 
   detailedInfoAboutMovie() {
-    return detailedInfoAboutMovie.render();
+    return detailedInfoAboutMovie.render(movieTitle, movieAuditorium, movieDate, movieTime); // send arguments so the system knows which movie was clicked
   }
 
   default() {
-    console.log("called from default in router");
     return startPage.render()
   }
 

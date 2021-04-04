@@ -9,34 +9,24 @@ export default class Calendar {
     this.eventHandeler();
   }
 
-  async read() {
-    this.schedule = await $.getJSON('/json/movieSchedule.json');
-    this.movieInfo = await $.getJSON('/json/movies.json');
-  }
-
-  async render() {
-
-    console.log("Called from start of async render in calendarpage")
-
-    //if (!this.schedule && !this.movieInfo) { // This code hides the calendar if you re-enter the page, thats why its out comment. // Mac
-    await this.read();
-    //}
-
+  render(schedule, movieInfo) {
+    this.schedule = schedule;
+    this.movieInfo = movieInfo;
     this.buildCalendar();
     buildStructurOfBothSalonsIntoCalendar();
-
-    console.log("Called from end of async render in calendarpage")
   }
 
   buildCalendar() {
 
     $("main").append(`
-    <div class="calendar-Container">
-          <div class="calendar"></div>        
-      </div >`);
 
-    $('.calendar').append(`<div class="selectedMonth_container"></div>`);
-    $('.selectedMonth_container').append(`<button class="btn_previousMonth"><</button>`);
+    <div class="calendar_title">Boka platser</div>
+    <div class="calendar-Container">      
+      <div class="calendar"></div>        
+    </div >`);
+
+    $('.calendar').html(`<div class="selectedMonth_container"></div>`);
+    $('.selectedMonth_container').html(`<button class="btn_previousMonth"><</button>`);
     $('.selectedMonth_container').append(`<div class="selectedMonth"> <p>${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
     $('.selectedMonth_container').append(`<button class="btn_nextMonth"> > </button>`);
 
@@ -63,6 +53,7 @@ export default class Calendar {
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
 
+    //Adding all movies that plays on the picked date into a temporarily array.
     this.schedule.forEach(movie => {
       if (movie.date === pickedDate) {
         temporarilyMovieList.push(movie);
@@ -75,6 +66,8 @@ export default class Calendar {
 
   pressingBtnPreviousMonth() {
 
+    console.log(pickedMonthInCalandar)
+
     if (pickedMonthInCalandar > 1 && pickedMonthInCalandar <= 13) {
 
       $('.day').replaceWith("");
@@ -85,14 +78,14 @@ export default class Calendar {
       $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)}</p> </div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
-
     }
-
   }
 
   pressingBtnNextMonth() {
 
-    if (pickedMonthInCalandar >= 1 && pickedMonthInCalandar < 12) {
+    console.log(pickedMonthInCalandar)
+
+    if (pickedMonthInCalandar > 0 && pickedMonthInCalandar < 12) {
 
       $('.day').replaceWith("");
       $('.notAvailable').replaceWith("");
@@ -101,11 +94,10 @@ export default class Calendar {
       $('.selectedMonth').html(`<div class="selectedMonth"><p> ${getThePickedMonth(pickedMonthInCalandar)} </p></div>`);
 
       this.renderDatesInCalendar(pickedMonthInCalandar);
-
     }
   }
 
-  //This function calculates how many days it should render per month. It also calculates what weekday the month starts with. 
+  //This function calculates how many days it should render per month. It also calculates what weekday a month starts with. 
   renderDatesInCalendar(selectedMonth) {
 
     let howManyDaysToLoop = getDaysInMonth(selectedMonth);
@@ -116,6 +108,7 @@ export default class Calendar {
 
     let day = 0;
 
+    //Adds empty "boxes" at start of the calendar 
     for (let i = howManyDaysToSkip; i > 0; i--) {
       $('.calendar').append(`<div class="notAvailable"></div>`);
     }

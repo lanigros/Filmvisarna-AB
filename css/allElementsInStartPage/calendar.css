@@ -1,4 +1,14 @@
-@import "/css/main.css";
+@import "./main.css";
+
+
+.calendar_title{
+
+  font-size: 30px;
+    font-weight: bold;
+    font-family: "Josefine Sans", sans-serif;
+    color: rgb(236, 236, 236);  
+    margin-top: 10%; 
+  }
 
 .calendar-Container {
   grid-area: c; /* grid from on main */
@@ -10,9 +20,11 @@
   grid-template-areas: "calendar salon";
   justify-content: space-between;
   font-family: Poppins;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 3%;
+  
+  margin-bottom: 5em;
 }
+
 
 /* --------- THE CALENDAR ------------ */
 
@@ -38,11 +50,7 @@ body > main > div.calendar-Container > div.calendar > div {
   text-align: center;
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.calendar
-  > div.selectedMonth_container {
+.selectedMonth_container {
   grid-column: 1 / 8;
   display: flex;
   justify-content: space-between;
@@ -50,7 +58,7 @@ body
   text-align: center;
 }
 
-body > main > div.calendar-Container > div.calendar > div.nameOfDay_container {
+.nameOfDay_container {
   grid-column: 1 / 8;
   display: flex;
   width: 100%;
@@ -58,13 +66,7 @@ body > main > div.calendar-Container > div.calendar > div.nameOfDay_container {
   align-items: center;
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.calendar
-  > div.selectedMonth_container
-  > div
-  > p {
+.selectedMonth_container> div > p {
   color: aliceblue;
   font-size: 20px;
   text-align: center;
@@ -95,17 +97,11 @@ body
   width: inherit;
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.calendar
-  > div.nameOfDay_container
-  > div
-  > p {
+.nameOfDay > p {
   color: rgb(14, 14, 14);
   background-color: rgba(255, 255, 255, 0.411);
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 120%;
 }
 
 body

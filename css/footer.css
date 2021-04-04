@@ -1,4 +1,4 @@
-@import "/css/main.css";
+@import "./main.css";
 
 footer {
   grid-area: f;
@@ -20,7 +20,7 @@ footer {
 }
 /* -------------------Selects all children below footer--------------------- */
 
-.footer_menu{
+.footer_menu {
   align-self: center;
 }
 
@@ -61,4 +61,11 @@ footer > div > div.footer_socialmedia {
   justify-content: space-around;
   align-self: center;
   width: 15%;
+}
+
+
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
 }

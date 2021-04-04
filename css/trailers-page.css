@@ -1,16 +1,16 @@
-@import "/css/main.css";
+@import "./main.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
-.trailer-wrapper {
-  margin-top: 4rem;
+.trailer-wrapper {  
   grid-area: c;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 25% 85%;
-  grid-template-areas:
-    "t . ."
+  grid-template-rows: 100%;
+  grid-template-areas:    
     "cs cs cs";
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .trailers {
@@ -21,10 +21,8 @@
   border-radius: 10px;
   font-family: Work Sans;
   font-size: 20px;
-
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3%;
+  border-radius: 10px;  
 }
 .trailers::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -43,12 +41,12 @@
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: rgb(134, 127, 127);
 }
-.trailer-wrapper > .title {
+.title {
   font-size: 30px;
   font-weight: bold;
   font-family: "Josefine Sans", sans-serif;
   color: rgb(236, 236, 236);
-  margin-top: 5rem;
+  margin-top: 10%;
   grid-area: t;
 }
 

@@ -1,0 +1,41 @@
+@import "./loginpage.css";
+
+@media only screen and (max-width: 1024px) {
+  .profile-page-container {
+    height: 99%;
+    grid-template-areas:
+      "ui ui"
+      "ub ub"
+      "ub ub";
+  }
+
+  .profile-wrapper {
+    border-right: none;
+    border-bottom: 1px solid #a0a0a0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "pp pt pi pi";
+    text-align: end;
+    padding: 1em;
+  }
+
+  .profile-title {
+    align-self: center;
+    padding: 0px;
+    font-size: 30px;
+    justify-self: flex-start;
+  }
+
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+
+  .profile-text-container > p {
+    font-size: 12px;
+  }
+
+  .booked-tickets {
+    width: 99%;
+  }
+}

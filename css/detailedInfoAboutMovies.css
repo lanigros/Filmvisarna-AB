@@ -1,8 +1,89 @@
-@import "/css/main.css";
+@import "./main.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap");
 
 .detailedInfoAboutMovie-Container {
   grid-area: c;
+}
+
+.banner_movie_container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 380px);
+  grid-template-areas:
+    "mb mb mb mdc mdc ."
+    "mb mb mb mtc mtc .";
+  padding: 3em;
+}
+
+.movie-banner {
+  grid-area: mb;
   width: 100%;
-  display: inline-block;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.movie-banner > img{
+  height: 100%;
+}
+
+.movie_title {
+  grid-area: mbt;
+}
+
+.movie_duration_lenght {
+  grid-area: mdl;
+}
+
+.movie_trailer_container {
+  grid-area: mtc;
+  display: flex;
+  align-items: flex-end;
+}
+
+.movie_desc_container {
+  grid-area: mdc;
+}
+
+.movie_desc_container > h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  color: #efefef;
+  font-size: 3em;
+  line-height: 1.1em;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.movie_desc_container > h3,
+h4,
+p {
+  color: #efefef;
+  font-family: "Open Sans", sans-serif;
+}
+
+.order-btn{
+  margin: 10px 0 5px 0;
+  font-family: "Josefin Sans", sans-serif;
+  align-content: center;
   justify-content: center;
+  /* height: 3.2em; */
+  border-radius: 10%;
+  width: 10.5em;
+  cursor: pointer;
+  border: none;
+  bottom: 1em;
+  right: 2em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  background-color: #2d2a2a;
+  padding: 1em;
+}
+
+.order-btn:hover{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
 }
