@@ -75,35 +75,60 @@ export default class StartPage {
   playingNow() {
     $('main').append(/*html*/ `
 
-    <div class="playing-now-title"><h1>Spelas just NU!</h1></div>
+      <div class="playing-now-title"><h1>Spelas just nu! <span>psst! Klicka på någon av bilderna för att läsa mer om dem!</span></h1></div>
     <div class="playing-now-container">
     
-    
-    <div class="divboxone">
-    <h3 class="divboxone-title">${this.movieInfo[0].title}</h3>
-    </div>
-    <div class="divboxtwo">
-    <h3 class="divboxtwo-title">${this.movieInfo[2].title}</h3>
-    </div>
-    <div class="divboxthree">
-    <h3 class="divboxthree-title">${this.movieInfo[3].title}</h3>
-    </div>
-    <div class="divboxfour">
-    <h3 class="divboxfour-title">${this.movieInfo[1].title}</h3>
-    </div>
-    <div class="divboxfive">
-    <h3 class="divboxfive-title">${this.movieInfo[4].title}</h3>
-    </div>
+        
+        <div class="divboxone">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[0].title}</div></div>
+        
+        </div>
+
+        <div class="divboxtwo">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[2].title}</div></div>
+        
+        </div>
+        
+
+        <div class="divboxthree">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[3].title}</div></div>
+        
+        </div>
+      
+
+        <div class="divboxfour">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[1].title}</div></div>
+        
+        </div>
+
+        <div class="divboxfive">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[4].title}</div></div>
+        
+        </div>
     </div>
     
     `)
     
-    // $('.divboxone').hover(function () {
-    //   $('.divboxone-title').fadeIn(200);
-    // }, function () {
-    //   $('.divboxone-title').fadeOut(200);
-    // });
+    $('.divboxone').click(function () {
+      window.location.href = '#detailedInfoAboutMovie/Lord%20of%20the%20Rings:%20The%20Fellowship%20of%20the%20Ring/Lilla%20Salongen/2021-04-17/19.00';
+    }),
+
+     $('.divboxtwo').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Inception/Lilla%20Salongen/2021-04-18/19.00';
+     }),
+      
+      $('.divboxthree').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Matrix/Stora%20Salongen/2021-04-18/21.00';
+      }),
+       $('.divboxfour').click(function () {
+    window.location.href='#detailedInfoAboutMovie/The%20Dark%20Knight/Stora%20Salongen/2021-04-17/17.00';
+       }),
+      $('.divboxfive').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Parasite/Stora%20Salongen/2021-04-17/21.00';
+      })
   }
+
+  
 
  
 }

@@ -1,5 +1,6 @@
 @import "./main.css";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
 .playing-now-container {
   grid-area: c;
@@ -18,8 +19,8 @@
 
 .playing-now-title {
   font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
-  font-family: "Josefine Sans", sans-serif;
   color: rgb(236, 236, 236);
 }
 
@@ -30,23 +31,10 @@
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-}
-.divboxone:hover {
-  backdrop-filter: brightness(0.8%);
-}
-
-.divboxone-title,
-.divboxtwo-title,
-.divboxthree-title,
-.divboxfour-title,
-.divboxfive-title {
-  color: white;
-  font-size: 30px;
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
-  letter-spacing: 2px;
-  line-height: 1.5em;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .divboxtwo {
@@ -56,6 +44,10 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 .divboxthree {
   grid-area: btr;
@@ -64,6 +56,10 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 .divboxfour {
   grid-area: bf;
@@ -72,6 +68,10 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 .divboxfive {
   grid-area: bfi;
@@ -80,4 +80,46 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.divbox-title {
+  color: white;
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+}
+
+.divboxone:hover .overlay {
+  opacity: 1;
+}
+.divboxtwo:hover .overlay {
+  opacity: 1;
+}
+.divboxthree:hover .overlay {
+  opacity: 1;
+}
+.divboxfour:hover .overlay {
+  opacity: 1;
+}
+.divboxfive:hover .overlay {
+  opacity: 1;
 }
