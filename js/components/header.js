@@ -2,8 +2,6 @@ export default class Header {
 
   render() {
 
-    let heightPercent = 80;
-
     this.buildHeaderStructure();
     this.buildSideNav();
     this.buildLogInButtons();
@@ -12,13 +10,15 @@ export default class Header {
 
   buildHeaderStructure() {
 
+    // onclick="document.getElementById('mySidenav').style.width = '30%';"
+
     $('header').html(`
 
     <div class="nav-container">        
           <nav class="main-nav">
             
               <div class="nav-hamburger">
-                <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.width = '440px';">
+                <a class="nav-hamburger-container" onclick="document.getElementById('mySidenav').style.visibility = 'visible';">
                   <img class="hamburger-btn" src="img/header/hamburger-icon.svg" alt="">
                 </a>
               </div>
@@ -41,24 +41,24 @@ export default class Header {
     $('header').append(`
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.width = '0';">&times;</a>
-        <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">&times;</a>
+        <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/alert-icon.svg" alt="">
           NYHETER
         </a>
-        <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/movie-icon.svg" alt="">
           FILMER
         </a>
-        <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/ticket-icon.svg" alt="">
           BILJETTER
         </a>
-        <a href="#" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/map-icon.svg" alt="">
           HITTA HIT
         </a>
-        <a href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">
+        <a href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
           LOGGA IN
         </a>
@@ -73,8 +73,8 @@ export default class Header {
     if (window.innerWidth > 760) {
       $('.nav-right-items').html(`
       <div class="logIn_container">    
-        <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a></div>
-        <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a></div>
+        <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
+        <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
       </div>       
       `)
 
@@ -84,6 +84,15 @@ export default class Header {
       $('.nav-right-items').html(`
       `)
     }
+  }
+
+  resizeHamburgerWidth() {
+    console.log("Rezise called")
+
+    if (window.innerWidth > 760) {
+
+    }
+
   }
 
 }

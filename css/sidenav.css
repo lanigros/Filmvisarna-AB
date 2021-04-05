@@ -1,13 +1,15 @@
 @import "./main.css";
 
 .sidenav {
+  display: block;
+  visibility: hidden;
   height: 100%;
-  width: 0; /* 0 width - change this with JavaScript */
+  width: 50vw; 
   position: fixed;
   background: #282727;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 108px;
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  /* transition: 0.5s;  0.5 second transition effect to slide in the sidenav */
   z-index: 999;
 }
 
@@ -21,7 +23,7 @@
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: #f9f7f7;
-  transition: 0.3s;
+  /* transition: 0.3s; */
   text-decoration: none;
   padding: 8px 8px 8px 64px;
   display: block;
@@ -50,4 +52,39 @@
 .alert-icon {
   width: 51px;
   height: 48.33px;
+}
+
+@media screen and (max-width: 760px ){
+.sidenav{
+  height: 100%;
+  width: 55vw;     
+}
+}
+
+@media screen and (max-width: 650px ){
+.sidenav{
+  height: 100%;
+  width: 65vw;     
+}
+}
+
+@media screen and (max-width: 620px ){
+.sidenav{
+  height: 100%;
+  width: 75vw;     
+}
+}
+
+@media screen and (max-width: 500px ){
+.sidenav{
+  height: 100%;
+  width: 85vw;     
+}
+}
+
+@media screen and (max-width: 460px ){
+.sidenav{
+  height: 60%;
+  width: 100vw;     
+}
 }
