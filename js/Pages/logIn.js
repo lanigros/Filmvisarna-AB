@@ -5,8 +5,8 @@ let loggedIn = false;
 
 export default class LogIn {
 
-  
- //Created a constructor that handels different kinds of events.
+
+  //Created a constructor that handels different kinds of events.
   constructor(changeListener) {
     this.changeListener = changeListener;
     this.regHandeler();
@@ -24,33 +24,33 @@ export default class LogIn {
   regHandeler() {
     $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
   }
-  
+
   //When pressing btn on login run this function
   logHandeler() {
     $('main').on('submit', '#log-form', (event) => this.logInUser(event));
   }
 
-    //When pressing btn on register run this function
+  //When pressing btn on register run this function
   logOutHandeler() {
     $('header').on('click', '#logOut', () => this.logOut());
   }
-    //When a change is made inside of the account ( such as tickets ), run this
+  //When a change is made inside of the account ( such as tickets ), run this
   changeHandler() {
     this.changeListener.on('account.json', () => this.updateAccount());
   }
-    //When browser refreshes, this function
+  //When browser refreshes, this function
   loggedInCheck() {
     window.onload = () => this.loggedInOrNot();
   }
 
 
   async render() {
-    
-    
+
+
     if (!this.account) {
       await this.read()
     }
-  
+
 
     return `
     
@@ -110,7 +110,6 @@ export default class LogIn {
     let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
     await JSON._save('account.json', this.account);
-    console.log('New account was successfully created!')
     alert('Ditt konto har skapats!')
   }
 
@@ -118,7 +117,7 @@ export default class LogIn {
 
   logInUser(event) {
     event.preventDefault();
-    
+
     let logEmail = $("#log-email").val();
     let logPswrd = $("#log-pswrd").val();
 
@@ -130,9 +129,15 @@ export default class LogIn {
 
         tempStore.currentTester = this.activeUser;
         tempStore.save();
-        
+
         this.activeMember(this.activeUser);
-        // return false;
+        
+
+        // if we were directed here from a booking page, return to booking page after logging in
+        if (tempStore.bookingLoginRedirect === true) {
+          document.location.href = '#booking';
+          return;
+        }
       }
     });
   }
@@ -145,7 +150,7 @@ export default class LogIn {
 
     else {
       console.log('logged on TRUE');
-    $('.nav-right-items').replaceWith( /*html*/ `
+      $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
         <p>Välkommen ${tempStore.currentTester.Name}!</p>
@@ -161,7 +166,9 @@ export default class LogIn {
   //When you log out, clear out the sessionstorage and return the navbar to normal.
   logOut() {
     loggedIn = false;
-    sessionStorage.clear();
+
+    delete sessionStorage.logInStore;
+
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
         <div>
@@ -172,13 +179,19 @@ export default class LogIn {
         </div>
       </div>     
     `);
+
+    // if you log out while on a booking page, return to the login page
+    if (document.location.href.includes('#booking')) {
+      document.location.href = '#logIn';
+      return;
+    }
   }
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
-
-    if (sessionStorage) {
     
+    if (!sessionStorage) { return; }
+    else {
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
@@ -189,13 +202,7 @@ export default class LogIn {
         <button id="logOut">Logga ut</button>
         </div>
     `);
-
     }
-
-    else {
-      return;
-    }
-
   }
 
   async updateAccount() {

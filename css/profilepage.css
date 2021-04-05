@@ -1,66 +1,60 @@
 @import "./main.css";
+
+@import "./loginpage-tickets.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
 .profile-page-container {
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   grid-area: c;
   display: grid;
   width: 100%;
-  height: 68vh;
+  height: 73vh;
   align-self: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 25% 75%;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    ". pd ."
-    "ui pd ub"
-    ". pd .";
+    "ui ub"
+    "ui ub"
+    "ui ub";
 }
 
 .profile-wrapper {
+  border-right: 1px solid #f3f3f3;
   grid-area: ui;
-  height: 34em;
   width: 100%;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-  border-radius: 13px;
   text-align: center;
-  padding: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 2.5fr 1.5fr 6fr;
   grid-template-areas:
+    ". pp ."
     ". pt ."
-    ". pi .";
+    "pi pi pi";
+}
+
+.profile-picture {
+  background-image: url(/img/profile/profile-red.jpg);
+  background-size: contain;
+  align-self: center;
+  justify-self: center;
+  grid-area: pp;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #a0a0a0;
 }
 
 .bookings-wrapper {
   grid-area: ub;
   width: 100%;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-  border-radius: 13px;
-  max-height: 34em;
   padding: 1em;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 26% 74%;
   grid-template-areas:
-    ". bwt ."
-    ". bwti .";
-}
-
-.profile-divider {
-  align-self: center;
-  grid-area: pd;
-  height: 50vh;
-  width: 5px;
-  justify-self: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 10%,
-    rgb(255, 255, 255) 50%,
-    rgba(255, 255, 255, 0) 90%,
-    rgba(255, 255, 255, 0) 100%
-  );
+    "bwt . ."
+    "bwti bwti bwti";
 }
 
 .profile-title {
@@ -76,16 +70,19 @@
 }
 
 .profile-text-container {
+  border-top: 1px solid #f3f3f3;
   grid-area: pi;
+  width: 100%;
   font-family: "Roboto", sans-serif;
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
-  height: 30%;
+
   padding: 1em;
 }
 
 .profile-text-container > p {
   font-size: 15px;
+  margin-top: 10px;
 }
 
 .bookings-title {
@@ -106,7 +103,7 @@
   color: rgb(241, 241, 241);
   letter-spacing: 1px;
   overflow: auto;
-  max-height: 24em;
+
   scroll-behavior: smooth;
 }
 
@@ -117,9 +114,10 @@
 .booked-tickets {
   background-color: rgba(255, 255, 255, 0.411);
   margin-top: 10px;
-  transition: background-color 1s linear;
+  transition: background-color 0.5s linear;
   text-indent: 10px;
   padding: 10px;
+  /* width: 50%; */
 }
 
 .booked-tickets:hover {
@@ -152,4 +150,112 @@
   height: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: rgb(134, 127, 127);
+}
+
+.remove-account,
+.options-account {
+  margin-top: 2em;
+  text-transform: uppercase;
+  border: none;
+  height: 30px;
+  width: 120px;
+  background: rgb(241, 241, 241);
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+.remove-account {
+  background-color: rgb(131, 24, 5);
+}
+
+.options-account {
+  background: rgb(182, 182, 182);
+  width: 150px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .profile-page-container {
+    height: 100%;
+    grid-template-areas:
+      "ui ui"
+      "ub ub"
+      "ub ub";
+  }
+
+  .profile-wrapper {
+    border-right: none;
+    border-bottom: 1px solid #a0a0a0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "pp pt pi pi";
+    text-align: end;
+    padding: 1em;
+  }
+
+  .profile-title {
+    align-self: center;
+    padding: 0px;
+    font-size: 30px;
+    justify-self: flex-start;
+  }
+
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+
+  .profile-text-container > p {
+    font-size: 12px;
+  }
+
+  .booked-tickets {
+    width: 99%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .profile-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 15% 1fr;
+    grid-template-areas: "pp pt" "pi pi";
+  }
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+  .profile-wrapper {
+    text-align: start;
+  }
+
+  .profile-picture {
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+  }
+
+  .profile-title {
+    font-size: 20px;
+    align-self: flex-start;
+    justify-self: start;
+    margin-top: 15px;
+  }
+
+  .bookings-title {
+    font-size: 20px;
+  }
+  .booked-tickets-info {
+    height: auto;
+    width: 100%;
+  }
+  .cancel-btn-holder {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+
+  .bookings-wrapper {
+    grid-template-rows: 20% 1fr;
+  }
 }

@@ -1,6 +1,8 @@
 import Calendar from '../components/elementsInStartPage/calendar.js';
+import PlayingNow from '../components/elementsInStartPage/playing-now.js';
 
 const calendar = new Calendar();
+const playingNow = new PlayingNow();
 
 export default class StartPage {
 
@@ -20,7 +22,7 @@ export default class StartPage {
     calendar.render(this.schedule, this.movieInfo);
     this.buildUpCommingMovies();
     this.adBanner();
-
+    this.playingNow();
 
   }
 
@@ -64,12 +66,71 @@ export default class StartPage {
     `)
   }
 
-
   adBanner() {
     $('main').append(`
     <div class="ads-banner"></div>
     `)
   }
+
+  playingNow() {
+    $('main').append(/*html*/ `
+
+      <div class="playing-now-title"><h1>Spelas just nu! <span>psst! Klicka på någon av bilderna för att läsa mer om dem!</span></h1></div>
+    <div class="playing-now-container">
+    
+        
+        <div class="divboxone">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[0].title}</div></div>
+        
+        </div>
+
+        <div class="divboxtwo">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[2].title}</div></div>
+        
+        </div>
+        
+
+        <div class="divboxthree">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[3].title}</div></div>
+        
+        </div>
+      
+
+        <div class="divboxfour">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[1].title}</div></div>
+        
+        </div>
+
+        <div class="divboxfive">
+        <div class="overlay"><div class="divbox-title">${this.movieInfo[4].title}</div></div>
+        
+        </div>
+    </div>
+    
+    `)
+    
+    $('.divboxone').click(function () {
+      window.location.href = '#detailedInfoAboutMovie/Lord%20of%20the%20Rings:%20The%20Fellowship%20of%20the%20Ring/Lilla%20Salongen/2021-04-17/19.00';
+    }),
+
+     $('.divboxtwo').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Inception/Lilla%20Salongen/2021-04-18/19.00';
+     }),
+      
+      $('.divboxthree').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Matrix/Stora%20Salongen/2021-04-18/21.00';
+      }),
+       $('.divboxfour').click(function () {
+    window.location.href='#detailedInfoAboutMovie/The%20Dark%20Knight/Stora%20Salongen/2021-04-17/17.00';
+       }),
+      $('.divboxfive').click(function () {
+    window.location.href='#detailedInfoAboutMovie/Parasite/Stora%20Salongen/2021-04-17/21.00';
+      })
+  }
+
+  
+
+ 
 }
 
 

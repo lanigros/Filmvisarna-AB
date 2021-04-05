@@ -1,14 +1,13 @@
 @import "./main.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
-
-.calendar_title{
-
+.calendar_title {
   font-size: 30px;
-    font-weight: bold;
-    font-family: "Josefine Sans", sans-serif;
-    color: rgb(236, 236, 236);  
-    margin-top: 10%; 
-  }
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgb(236, 236, 236);
+  margin-top: 10%;
+}
 
 .calendar-Container {
   grid-area: c; /* grid from on main */
@@ -21,10 +20,9 @@
   justify-content: space-between;
   font-family: Poppins;
   margin-top: 3%;
-  
+
   margin-bottom: 5em;
 }
-
 
 /* --------- THE CALENDAR ------------ */
 
@@ -66,7 +64,7 @@ body > main > div.calendar-Container > div.calendar > div {
   align-items: center;
 }
 
-.selectedMonth_container> div > p {
+.selectedMonth_container > div > p {
   color: aliceblue;
   font-size: 20px;
   text-align: center;
@@ -175,12 +173,11 @@ body > main > div.calendar-Container > div.bothSalons-container {
   height: 10%;
   background-color: rgba(255, 255, 255, 0.123);
   color: aliceblue;
-
+  text-decoration: none;
   cursor: pointer;
   border: none;
   border-radius: 30px;
   outline-style: none;
-
   margin-left: 5%;
 }
 

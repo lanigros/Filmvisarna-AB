@@ -74,13 +74,7 @@ nav .nav-right-items {
   height: 100%;  
   border: 1px solid #ede8e8;
   box-sizing: border-box;
-  
-}
-
-.nav-container a {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;    
+  border-radius: 5px;
 }
 
 .nav-create-container {

@@ -16,19 +16,19 @@ export default class Confirmation {
           </div>
           <div class="row">
             <h2>Film: </h2>
-            <p>${this.tempStore.bookingShowingDetails.film}</p>
+            <p> ${this.tempStore.bookingShowingDetails.film}</p>
           </div>
           <div class="row">
             <h2>Datum: </h2>
-            <p>${this.tempStore.bookingShowingDetails.date}</p>
+            <p> ${this.tempStore.bookingShowingDetails.date}</p>
           </div>
           <div class="row">
             <h2>Tid: </h2>
-            <p>${this.tempStore.bookingShowingDetails.time}</p>
+            <p> ${this.tempStore.bookingShowingDetails.time}</p>
           </div>
           <div class="row">
             <h2>Salong: </h2>
-            <p>${this.tempStore.bookingShowingDetails.auditorium}</p>
+            <p> ${this.tempStore.bookingShowingDetails.auditorium}</p>
           </div>
             <div class="row">
             <h2>Plats: </h2>
@@ -37,7 +37,7 @@ export default class Confirmation {
     for (let i = 0; i < this.tempStore.bookingLatestBookedSeats.length; i++) {
       if (i === 0) {
         layout += /*html*/`
-          <p>${this.tempStore.bookingLatestBookedSeats[i]}</p>
+          <p> ${this.tempStore.bookingLatestBookedSeats[i]}</p>
         `;
       } else {
         layout += /*html*/`
