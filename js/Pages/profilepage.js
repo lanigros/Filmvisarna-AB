@@ -1,27 +1,31 @@
 import tempStore from '../tempStore.js';
+import FileFunctions from '../fileFunctions.js';
 
 export default class ProfilePage {
-
-
-  constructor() {
-    this.eventHandeler();
-
-  }
 
   async read() {
     this.currentUser = await $.getJSON("./json/account.json");
     this.user = tempStore.currentTester;
   }
 
+  constructor() {
+    this.eventHandeler();
+    this.ticketLooper(this.user)
+  }
+
+  
+
 
   async render() {
-
+   
     if (!this.currentUser) {
       await this.read();
     }
     if (!this.user) {
       await this.read();
-    } 
+    }
+
+    
 
     return /*html*/ `
     
@@ -49,28 +53,24 @@ export default class ProfilePage {
               
           </div>
           </div>
+         
     </div>
+     
     `
   
   }
 
-
-
-    eventHandeler() {
-    
-    //$(this.ticketLooper());
-      $('main').on('click', () => this.ticketLooper());
+  eventHandeler() {
+   $('main').load(() => this.ticketLooper(this.user))
     $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
 
-  
 
-
-  ticketLooper() {
-
-    for (let i = 0; i < this.user.bookedShows.length; i++) {
-      let bookedShow = this.user.bookedShows[i];
+   ticketLooper() {
+    
+    for (let i = 0; i < tempStore.currentTester.bookedShows.length; i++) {
+      let bookedShow = tempStore.currentTester.bookedShows[i];
      
       $('.bookings-text-container').append(/*html*/ `     
       <div class="booked-tickets">
@@ -86,36 +86,63 @@ export default class ProfilePage {
       </div>    
       </div> 
       `)
-      };
+    };
 
   }
 
-  
-  cancelSelectedTicket(event) {
+  //Start the cancelSelectedTicket, should remove the ticket, and also reverse the booked seats to "unbooked".
+  async cancelSelectedTicket(event) {
 
+    //defining accounts to the account.json file
+    let accounts = await $.getJSON("./json/account.json");
+
+    //selected this is basically the selected ticket that you chose from your bookingslist
     let selectedTicket = this.user.bookedShows[event.target.value];
     
-    for (let i = 0; i < this.user.bookedShows.length; i++){
+    //start the loop and go on as many times as there are accounts
+    for (let i = 0; i < accounts.length; i++) {
 
-       if (selectedTicket == this.user.bookedShows[i]) {
-        //  delete this.user.bookedShows[event.target.value];
-         let areYouSure = window.confirm("Är du säker på att du vill avboka?")
-         if (areYouSure) {
-          this.user.bookedShows.remove();
-         console.log('deleted the show');
-         } else {
-           return;
+      //If the email inside of account.json is equal to the email of the logged in user
+      if (accounts[i].Email === tempStore.currentTester.Email) {
+
+        //Start this for-loop that goes on for as many tickets(booked shows) that are inside of the logged in account
+        for (let j = 0; j < accounts[i].bookedShows.length; j++) {
+
+          //if the title,date,time and auditorium are the same as the selected ticket then..
+          if (accounts[i].bookedShows[j].film === selectedTicket.film && accounts[i].bookedShows[j].date === selectedTicket.date && accounts[i].bookedShows[j].time === selectedTicket.time &&
+            accounts[i].bookedShows[j].auditorium === selectedTicket.auditorium) {
+            
+            /*-- update the booking file --*/
+            // get the booking file name and load it
+            let bookingFile = FileFunctions.getBookingFile
+              (selectedTicket.film, selectedTicket.auditorium, selectedTicket.date, selectedTicket.time);
+
+            let booking = await $.getJSON('./json/booking/' + bookingFile);
+            
+            // set every relevant booked ticket for this user to 0 in the booking file
+            for (let k = 0; k < accounts[i].bookedShows[j].seats.length; k++) {
+              let temp = accounts[i].bookedShows[j].seats[k].split(' '); // split the ticket number so that we can use it as an index in the seating chart (ex. "A 1" == {0, 0})
+              booking[0].seating[temp[0].charCodeAt(0) - 65][temp[1] - 1] = 0;
+            }
+            // save the booking back to the file
+            JSON._save('/booking/' + bookingFile, booking);
+            
+            /*-- update the account JSON file --*/
+            accounts[i].bookedShows.splice(j, 1);
+            await JSON._save('account.json', accounts);
+            
+            /*-- update the session storage --*/
+            tempStore.currentTester.bookedShows.splice(j, 1);
+            tempStore.save();
+            break;
+            }
         }
+        break;
       }
     }
-   
-  }
-
-   
 
 
-// ${this.user.bookedShows[i]}
-  
+    
 
+    }
 }
-
