@@ -254,6 +254,8 @@ export default class Booking {
       price: (this.tempStore.bookingChildAdultRetiree[0] * 65) + (this.tempStore.bookingChildAdultRetiree[1] * 85) + (this.tempStore.bookingChildAdultRetiree[2] * 75)
     });
 
+    bookedShows.seats.sort(); // sort the seating tickets for easier readability
+
     /* create an array of all accounts and add the latest booking information to the appropriate account */
     let accounts = await this.addTicketArray(bookedShows);
     /* save all accounts back to accounts JSON */
@@ -315,37 +317,48 @@ export default class Booking {
   async updateAdminJSON(bookedShows) {
     let adminJSON = await JSON._load('admin.json');
 
-    /* loop through every user to find the appropriate one */
+    /* loop through every booking and see if there already exists a booking for this user/showing */
     for (let i = 0; i < adminJSON.length; i++) {
-      if (adminJSON[i].Email === tempStore.currentTester.Email) {
-        let identical = false;
-        /* loop through all of their booked shows to see if there is an identical matching */
-        for (let j = 0; j < adminJSON[i].bookedShows.length; j++) {
-          if (adminJSON[i].bookedShows[j].film === bookedShows.film && adminJSON[i].bookedShows[j].auditorium === bookedShows.auditorium && adminJSON[i].bookedShows[j].date === bookedShows.date && adminJSON[i].bookedShows[j].time === bookedShows.time) {
-            /* if there is an identical show matching, simply add the ticket IDs to that seating array */
-            for (let k = 0; k < bookedShows.seats.length; k++) {
-              adminJSON[i].bookedShows[j].seats.push(bookedShows.seats[k]);
-            }
-            adminJSON[i].bookedShows[j].seats.sort();
-            adminJSON[i].bookedShows[j].price += bookedShows.price;
-            identical = true;
-          }
+      if (adminJSON[i].Email === tempStore.currentTester.Email && adminJSON[i].film === bookedShows.film && adminJSON[i].auditorium === bookedShows.auditorium && adminJSON[i].date === bookedShows.date && adminJSON[i].time === bookedShows.time) {
+        /* if there is a booking, update that booking with this session's additional booking information */
+        for (let j = 0; j < bookedShows.seats.length; j++) {
+          adminJSON[i].seats.push(bookedShows.seats[j]);
         }
-        /* if there is not an identical show matching, then add new show information to the admin json */
-        if (!identical) {
-          adminJSON[i].bookedShows.push(bookedShows);
-        }
+        adminJSON[i].seats.sort();
+        adminJSON[i].price += bookedShows.price;
         await JSON._save('admin.json', adminJSON);
         return;
       }
     }
 
-    /* if the user has not booked a show yet, we need to add them and the booking information to the admin.json file */
-    let newUser = ({
-      Email: tempStore.currentTester.Email,
-      bookedShows: [bookedShows]
-    });
-    adminJSON.push(newUser);
+    /* if there was not a booking for the user/showing, create a new one and add it to admin.json */
+    bookedShows.Email = tempStore.currentTester.Email;
+    adminJSON.push(bookedShows);
+
+    /* a compare function for sorting the entire adminJSON variable */
+    function compare(a, b) {
+      if (a.Email.localeCompare(b.Email) < 0) {
+        return -1;
+      }
+      if (a.Email.localeCompare(b.Email) > 0) {
+        return 1;
+      }
+      if (a.date < b.date) {
+        return -1;
+      }
+      if (a.date > b.date) {
+        return 1;
+      }
+      if (a.time < b.time) {
+        return -1;
+      }
+      if (a.time > b.time) {
+        return -1;
+      }
+      return 0;
+    }
+
+    adminJSON.sort(compare); // sort adminJSON for future readability
     await JSON._save('admin.json', adminJSON);
   }
 
