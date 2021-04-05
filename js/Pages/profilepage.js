@@ -10,6 +10,7 @@ export default class ProfilePage {
 
   constructor() {
     this.eventHandeler();
+  
   }
 
   
@@ -23,8 +24,6 @@ export default class ProfilePage {
     if (!this.user) {
       await this.read();
     }
-    
-    this.ticketLooper();
     
 
     return /*html*/ `
@@ -44,10 +43,11 @@ export default class ProfilePage {
                 </div>
           </div>
          
+          
           <div class="bookings-wrapper">
-            <h1 class="bookings-title">bokningar</h1>
+            <h1 class="bookings-title">bokningar</h1><button class="show-tickets">visa mina bokningar</button>
             <div class="bookings-text-container">
-            
+              
             </div>
           </div>
           </div>
@@ -59,16 +59,16 @@ export default class ProfilePage {
   }
 
   eventHandeler() {
+    $('main').on('click', '.show-tickets', () => this.ticketLooper());
     $('main').on('click', '.cancel-btn', (event) => this.cancelSelectedTicket(event));
   }
 
 
 
-   ticketLooper() {
-    
+  ticketLooper() {
+     
     for (let i = 0; i < tempStore.currentTester.bookedShows.length; i++) {
       let bookedShow = tempStore.currentTester.bookedShows[i];
-     
       $('.bookings-text-container').append(/*html*/ `     
       <div class="booked-tickets">
       <div class="booked-tickets-info">
@@ -84,6 +84,8 @@ export default class ProfilePage {
       </div> 
       `)
     };
+     
+    
 
   }
 

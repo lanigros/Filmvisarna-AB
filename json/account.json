@@ -6,17 +6,6 @@
     "Lastname": "Testsson",
     "bookedShows": [
       {
-        "auditorium": "Lilla Salongen",
-        "film": "Inception",
-        "date": "2021-04-27",
-        "time": "19.00",
-        "seats": [
-          "F 12",
-          "F 11"
-        ],
-        "price": 170
-      },
-      {
         "auditorium": "Stora Salongen",
         "film": "Inception",
         "date": "2021-05-02",

@@ -44,6 +44,10 @@ export default class StartPage {
       </div>
     
     `)
+
+    $('.trailer-btn').click(function () {
+      window.location.href = '#detailedInfoAboutMovie/Lord%20of%20the%20Rings:%20The%20Fellowship%20of%20the%20Ring/Lilla%20Salongen/2021-04-17/19.00';
+    })
   }
 
   buildUpCommingMovies() {
