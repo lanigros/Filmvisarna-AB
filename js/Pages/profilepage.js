@@ -10,21 +10,21 @@ export default class ProfilePage {
 
   constructor() {
     this.eventHandeler();
-  
+
   }
 
-  
+
 
 
   async render() {
-   
+
     if (!this.currentUser) {
       await this.read();
     }
     if (!this.user) {
       await this.read();
     }
-    
+
 
     return /*html*/ `
     
@@ -55,7 +55,7 @@ export default class ProfilePage {
     </div>
      
     `
-  
+
   }
 
   eventHandeler() {
@@ -65,8 +65,29 @@ export default class ProfilePage {
 
 
 
-  ticketLooper() {
-     
+  async ticketLooper() {
+
+    /* if logged in as admin, show all bookings */
+    if (tempStore.currentTester.Email === 'admin@filmvisarna.se') {
+      let admin = await $.getJSON("./json/admin.json");
+
+      for (let i = 0; i < admin.length; i++) {
+        $('.bookings-text-container').append(/*html*/ `     
+          <div class="booked-tickets">
+          <div class="booked-tickets-info">
+          <h3>Film :</h3> <p>${admin[i].film}</p>
+          <h3>Datum :</h3><p>${admin[i].date}</p> 
+          <h3>Tid :</h3><p> ${admin[i].time}</p> 
+          <h3>Salong :</h3><p> ${admin[i].auditorium}</p>
+          <h3>Platser :</h3><p> ${admin[i].seats}</p>
+          <h3>Användare :</h3><p> ${admin[i].Email}</p>
+          </div>
+          </div>
+        `)
+      }
+      return;
+    }
+
     for (let i = 0; i < tempStore.currentTester.bookedShows.length; i++) {
       let bookedShow = tempStore.currentTester.bookedShows[i];
       $('.bookings-text-container').append(/*html*/ `     
@@ -84,8 +105,8 @@ export default class ProfilePage {
       </div> 
       `)
     };
-     
-    
+
+
 
   }
 
@@ -97,7 +118,7 @@ export default class ProfilePage {
 
     //selected this is basically the selected ticket that you chose from your bookingslist
     let selectedTicket = this.user.bookedShows[event.target.value];
-    
+
     //start the loop and go on as many times as there are accounts
     for (let i = 0; i < accounts.length; i++) {
 
@@ -110,14 +131,14 @@ export default class ProfilePage {
           //if the title,date,time and auditorium are the same as the selected ticket then..
           if (accounts[i].bookedShows[j].film === selectedTicket.film && accounts[i].bookedShows[j].date === selectedTicket.date && accounts[i].bookedShows[j].time === selectedTicket.time &&
             accounts[i].bookedShows[j].auditorium === selectedTicket.auditorium) {
-            
+
             /*-- update the booking file --*/
             // get the booking file name and load it
             let bookingFile = FileFunctions.getBookingFile
               (selectedTicket.film, selectedTicket.auditorium, selectedTicket.date, selectedTicket.time);
 
             let booking = await $.getJSON('./json/booking/' + bookingFile);
-            
+
             // set every relevant booked ticket for this user to 0 in the booking file
             for (let k = 0; k < accounts[i].bookedShows[j].seats.length; k++) {
               let temp = accounts[i].bookedShows[j].seats[k].split(' '); // split the ticket number so that we can use it as an index in the seating chart (ex. "A 1" == {0, 0})
@@ -125,23 +146,23 @@ export default class ProfilePage {
             }
             // save the booking back to the file
             JSON._save('/booking/' + bookingFile, booking);
-            
+
             /*-- update the account JSON file --*/
             accounts[i].bookedShows.splice(j, 1);
             await JSON._save('account.json', accounts);
-            
+
             /*-- update the session storage --*/
             tempStore.currentTester.bookedShows.splice(j, 1);
             tempStore.save();
             break;
-            }
+          }
         }
         break;
       }
     }
 
 
-    
 
-    }
+
+  }
 }
