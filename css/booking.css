@@ -28,7 +28,8 @@
 
 /* style the row asking user to select their seat */
 .text-row {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 8px;
   display: flex; /* center the content */
   justify-content: center; /* center the content */
 }
@@ -51,14 +52,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 102px;
+  width: 122px;
   height: 40px;
   border: 1px solid black;
 }
 
 .button-row .booking-btn#exp-booking-btn {
   padding: 13px;
-  width: 220px;
+  width: 232px;
 }
 
 .button-row .booking-btn:hover {
