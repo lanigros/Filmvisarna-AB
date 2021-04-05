@@ -145,7 +145,17 @@ export default class ProfilePage {
               booking[0].seating[temp[0].charCodeAt(0) - 65][temp[1] - 1] = 0;
             }
             // save the booking back to the file
-            JSON._save('/booking/' + bookingFile, booking);
+            await JSON._save('/booking/' + bookingFile, booking);
+
+            /*-- update admin.json --*/
+            let admin = await $.getJSON('./json/admin.json');
+            for (let k = 0; k < admin.length; k++) {
+              if (admin[k].Email === tempStore.currentTester.Email && admin[k].film === selectedTicket.film && admin[k].auditorium === selectedTicket.auditorium && admin[k].date === selectedTicket.date && admin[k].time === selectedTicket.time) {
+                admin.splice(k, 1);
+                await JSON._save('admin.json', admin);
+                break;
+              }
+            }
 
             /*-- update the account JSON file --*/
             accounts[i].bookedShows.splice(j, 1);
