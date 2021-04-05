@@ -88,5 +88,12 @@
         "price": 170
       }
     ]
+  },
+  {
+    "Email": "admin@filmvisarna.com",
+    "Password": "admin",
+    "Name": "Admin",
+    "Lastname": "Admin",
+    "bookedShows": []
   }
 ]
