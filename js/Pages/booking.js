@@ -1,5 +1,6 @@
-import tempStore from '../tempStore.js';
-import bookingTempStore from '../bookingTempStore.js';
+import tempStore from '../tempStore.js'; // session storage variable for logged-in user
+import bookingTempStore from '../bookingTempStore.js'; // session storage variable for booking information
+import BookingUtilityFunctions from '../bookingUtilityFunctions.js'; // utility functions used for booking calculations and actions
 
 export default class Booking {
 
@@ -34,7 +35,7 @@ export default class Booking {
     }
     // if this is a new/different booking file, reset session variables
     if (bookingTempStore.bookingFileHasChanged) {
-      await this.resetBookingSessionVariables();
+      await BookingUtilityFunctions.resetBookingSessionVariables();
     }
     // if the user is not logged in, go to login page
     if (!tempStore.currentTester) {
@@ -43,20 +44,9 @@ export default class Booking {
       document.location.href = "#logIn";
       return;
     }
-
     await this.read(bookingTempStore.bookingFile);
-
     /*-- return the actual text that we can use to render the page --*/
     return this.returnRenderText();
-  }
-
-  /* resets the booking session variables if we want to begin with a new booking */
-  async resetBookingSessionVariables() {
-    bookingTempStore.latestBookedSeats = []; // contains tickets that are being or were recently booked
-    bookingTempStore.childAdultRetiree = [0, 0, 0]; // contains the number of child (index 0), adult (index 1), and retiree (index 2) tickets being booked
-    bookingTempStore.unconfirmedSeatingSelection = (await JSON._load(bookingTempStore.bookingFile))[0].seating; // contains the seating chart not yet saved to the JSON (including the user's selections)
-    bookingTempStore.bookingFileHasChanged = false;
-    bookingTempStore.save();
   }
 
   /* returns the whole render html for the page */
@@ -89,12 +79,11 @@ export default class Booking {
     layout += /*html*/`
         </div>
         <div class="button-row">
-          ${this.bookingPriceButton()}
+          ${BookingUtilityFunctions.bookingPriceButton()}
         </div>
         <div class="buffer"></div>
       </div>
     `
-
     return layout;
   }
 
@@ -113,10 +102,10 @@ export default class Booking {
         if (bookingTempStore.showingDetails.seating[i][j] === 2) {
           // if there is a discrepancy between the session storage and the JSON, correct the session storage
           if (bookingTempStore.unconfirmedSeatingSelection[i][j] !== 2) {
-            this.remove(bookingTempStore.latestBookedSeats, id); // remove the ticket id that is no longer available
+            BookingUtilityFunctions.remove(bookingTempStore.latestBookedSeats, id); // remove the ticket id that is no longer available
             bookingTempStore.unconfirmedSeatingSelection[i][j] = 2; // mark the seat as unavailable
             bookingTempStore.save();
-            this.subtractPerson(); // remove a person from the age-selection buttons
+            BookingUtilityFunctions.subtractPerson(); // remove a person from the age-selection buttons
           }
           layout += /*html*/`
             <input type="checkbox" id='${id}' disabled>
@@ -138,7 +127,6 @@ export default class Booking {
         </div>
       `
     }
-
     return layout;
   }
 
@@ -181,17 +169,16 @@ export default class Booking {
     index = index.split(" ");
     index[0] = index[0].charCodeAt(0) - 65;
     index[1]--;
-
     //update the status of the checkbox (seat) in the seating chart array
     if (checkbox.disabled == true) {
       bookingTempStore.unconfirmedSeatingSelection[index[0]][index[1]] = 2;
-      this.remove(bookingTempStore.latestBookedSeats, seatID);
+      BookingUtilityFunctions.remove(bookingTempStore.latestBookedSeats, seatID);
     } else if (checkbox.checked == true) {
       bookingTempStore.unconfirmedSeatingSelection[index[0]][index[1]] = 1;
       bookingTempStore.latestBookedSeats.push(seatID);
     } else {
       bookingTempStore.unconfirmedSeatingSelection[index[0]][index[1]] = 0;
-      this.remove(bookingTempStore.latestBookedSeats, seatID);
+      BookingUtilityFunctions.remove(bookingTempStore.latestBookedSeats, seatID);
     }
     bookingTempStore.save();
   }
@@ -199,22 +186,19 @@ export default class Booking {
   /* Complete all session storage and JSON actions after clicking the "confirm booking" button */
   async confirmBookingJSON() {
     // determine if there was a booking conflict
-    await this.conflictingBookingExists();
+    this.conflictingBooking = await BookingUtilityFunctions.conflictingBookingExists();
     if (this.conflictingBooking) {
       document.location.href = "#booking";
       return;
     }
-
     // if no bookings were made, simply reload page
     if (bookingTempStore.latestBookedSeats.length < 1) {
       document.location.href = "#booking";
       return;
     }
-
     // now, since there are no conflits, turn any unconfirmed bookings into confirmed bookings in session storage and save to the appropriate booking JSON
-    this.confirmBookingsInArrays();
+    BookingUtilityFunctions.confirmBookingsInArrays();
     await JSON._save(bookingTempStore.bookingFile, [bookingTempStore.showingDetails]);
-
     // create an object with the booking information
     let bookedShow = ({
       auditorium: bookingTempStore.showingDetails.auditorium,
@@ -226,11 +210,9 @@ export default class Booking {
     });
     bookedShow.seats.sort(); // sort the seating tickets for easier readability
 
-    /* Update account.json file with this booking */
-    await this.updateAccountsJSON(bookedShow);
+    await BookingUtilityFunctions.updateAccountsJSON(bookedShow); // Update account.json file with this booking
 
-    /* Update admin.json file with this booking */
-    await this.updateAdminJSON(bookedShow);
+    await BookingUtilityFunctions.updateAdminJSON(bookedShow); // Update admin.json file with this booking
 
     // reset session variables
     bookingTempStore.latestBookedSeats = [];
@@ -238,124 +220,7 @@ export default class Booking {
     bookingTempStore.save();
   }
 
-  /* determines if there's a conflicting booking and sets this.conflictingBooking to 'true' if so */
-  async conflictingBookingExists() {
-    await this.read(); // make sure that our data is up-to-date with the JSON
-
-    this.conflictingBooking = false;
-
-    /* first, loop through array and determine if there are any booking conflicts */
-    for (let i = 0; i < bookingTempStore.unconfirmedSeatingSelection.length; i++) {
-      for (let j = 0; j < bookingTempStore.unconfirmedSeatingSelection[i].length; j++) {
-        let id = String.fromCharCode(65 + i) + " " + (j + 1);
-        if (bookingTempStore.unconfirmedSeatingSelection[i][j] === 1) {
-          if (bookingTempStore.showingDetails.seating[i][j] === 2) {
-            this.remove(bookingTempStore.latestBookedSeats, id); // remove the conflicting ticket from our ticket array
-            this.conflictingBooking = true;
-          }
-        }
-      }
-    }
-    bookingTempStore.save();
-  }
-
-  /* change all unconfirmed bookings in the unconfirmed booking and booking information arrays to confirmed */
-  confirmBookingsInArrays() {
-    for (let i = 0; i < bookingTempStore.unconfirmedSeatingSelection.length; i++) {
-      for (let j = 0; j < bookingTempStore.unconfirmedSeatingSelection[i].length; j++) {
-        if (bookingTempStore.unconfirmedSeatingSelection[i][j] === 1) {
-          bookingTempStore.unconfirmedSeatingSelection[i][j] = 2;
-          bookingTempStore.showingDetails.seating[i][j] = 2;
-        }
-      }
-    }
-    bookingTempStore.save();
-  }
-
-  /* search the account.json file for the appropriate user and add booking details to their bookedShows variable, then save the updated info to the account.json file */
-  async updateAccountsJSON(bookedShow) {
-    let accounts = await JSON._load('account.json');
-
-    for (let i = 0; i < accounts.length; i++) {
-      /* find active user in account.json */
-      if (accounts[i].Email === tempStore.currentTester.Email) {
-        /* if there are already bookings for this showing, append most recent booking */
-        let identical = false;
-        for (let j = 0; j < accounts[i].bookedShows.length; j++) {
-          if (accounts[i].bookedShows[j].auditorium === bookedShow.auditorium && accounts[i].bookedShows[j].film === bookedShow.film && accounts[i].bookedShows[j].date === bookedShow.date && accounts[i].bookedShows[j].time === bookedShow.time) {
-            for (let k = 0; k < bookedShow.seats.length; k++) {
-              accounts[i].bookedShows[j].seats.push(bookedShow.seats[k]);
-            }
-            accounts[i].bookedShows[j].seats.sort();
-            accounts[i].bookedShows[j].price += bookedShow.price; // update the price rather than overwrite or ignore it
-            identical = true;
-          }
-        }
-        /* if there are no other bookings for this showing, simply add the booking information to the account */
-        if (!identical) {
-          accounts[i].bookedShows.push(bookedShow);
-        }
-
-        tempStore.currentTester = accounts[i]; // save booking to logged-in user session storage
-        tempStore.save();
-
-        await JSON._save('account.json', accounts);
-        return;
-      }
-    }
-
-    return;
-  }
-
-  /* A function to load and update the admin.json file with a new booking */
-  async updateAdminJSON(bookedShow) {
-    let adminJSON = await JSON._load('admin.json');
-
-    /* loop through every booking and see if there already exists a booking for this user/showing */
-    for (let i = 0; i < adminJSON.length; i++) {
-      if (adminJSON[i].Email === tempStore.currentTester.Email && adminJSON[i].film === bookedShow.film && adminJSON[i].auditorium === bookedShow.auditorium && adminJSON[i].date === bookedShow.date && adminJSON[i].time === bookedShow.time) {
-        /* if there is a booking, update that booking with this session's additional booking information */
-        for (let j = 0; j < bookedShow.seats.length; j++) {
-          adminJSON[i].seats.push(bookedShow.seats[j]);
-        }
-        adminJSON[i].seats.sort();
-        adminJSON[i].price += bookedShow.price;
-        await JSON._save('admin.json', adminJSON);
-        return;
-      }
-    }
-
-    /* if there was not a booking for the user/showing, create a new one and add it to admin.json */
-    bookedShow.Email = tempStore.currentTester.Email;
-    adminJSON.push(bookedShow);
-
-    adminJSON.sort(this.compareBookingObjects); // sort adminJSON for future readability
-    await JSON._save('admin.json', adminJSON);
-  }
-
-  /* a compare function for sorting booking objects for the admin.json file */
-  compareBookingObjects(a, b) {
-    if (a.Email.localeCompare(b.Email) < 0) {
-      return -1;
-    }
-    if (a.Email.localeCompare(b.Email) > 0) {
-      return 1;
-    }
-    if (a.date < b.date) {
-      return -1;
-    }
-    if (a.date > b.date) {
-      return 1;
-    }
-    if (a.time < b.time) {
-      return -1;
-    }
-    if (a.time > b.time) {
-      return -1;
-    }
-    return 0;
-  }
-
+  /* updates the age boxes when someone clicks on a seat checkbox */
   updateAgeField(event) {
     let checkbox = event.target;
     /* if a box is checked, add an adult ticket */
@@ -371,10 +236,9 @@ export default class Booking {
       }
     }
     bookingTempStore.save();
-
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
-    $('.button-row').html(this.bookingPriceButton());
+    $('.button-row').html(BookingUtilityFunctions.bookingPriceButton());
   }
 
   updateAgeMinus(event) {
@@ -391,10 +255,9 @@ export default class Booking {
       bookingTempStore.childAdultRetiree[0]++;
     }
     bookingTempStore.save();
-
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
-    $('.button-row').html(this.bookingPriceButton());
+    $('.button-row').html(BookingUtilityFunctions.bookingPriceButton());
   }
 
   updateAgePlus(event) {
@@ -427,47 +290,9 @@ export default class Booking {
       }
     }
     bookingTempStore.save();
-
     /* re-render the ticket-type button totals */
     $('.age-btn-row').html(this.ageButtons());
-    $('.button-row').html(this.bookingPriceButton());
-  }
-
-
-  /* used to remove someone from the age array if needed */
-  subtractPerson() {
-    if (bookingTempStore.childAdultRetiree[1] > 0) {
-      bookingTempStore.childAdultRetiree[1]--;
-    } else if (bookingTempStore.childAdultRetiree[0] > 0) {
-      bookingTempStore.childAdultRetiree[0]--;
-    } else if (bookingTempStore.childAdultRetiree[2] > 0) {
-      bookingTempStore.childAdultRetiree[2]--;
-    }
-    bookingTempStore.save();
-  }
-
-  /* calculates the current price of tickets and returns how the booking button should display */
-  bookingPriceButton() {
-    let price = 0;
-    price += bookingTempStore.childAdultRetiree[0] * 65;
-    price += bookingTempStore.childAdultRetiree[1] * 85;
-    price += bookingTempStore.childAdultRetiree[2] * 75;
-
-    /* re-render the booking button */
-    if (price === 0) {
-      return /*html*/`<a class="booking-btn" href="#confirmation">BOKA NU</a>`;
-    } else {
-      return /*html*/`<a class="booking-btn" href="#confirmation" id="exp-booking-btn">BOKA NU (${price} kr)</a>`;
-    }
-  }
-
-  /* utility function for removing a value from an array */
-  remove(array, value) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] === value) {
-        array.splice(i, 1);
-      }
-    }
+    $('.button-row').html(BookingUtilityFunctions.bookingPriceButton());
   }
 
 }
