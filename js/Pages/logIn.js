@@ -68,7 +68,10 @@ export default class LogIn {
               </form>
           </div>
           <input type="submit" value="Logga in" id="log-btn">
-          <h4 class="social-media-title"> eller med </h4>
+          <div class="social-media-title">
+          <div class="title-line"></div>
+          <h4>eller med</h4>
+          <div class="title-line"></div></div>
           <div class="social-media-login">
               <div class="icon-wrapper face"><a href="#" class="fa fa-facebook"><h4>Facebook</h4></a></div>
 
@@ -81,7 +84,8 @@ export default class LogIn {
       <div class="Login-Divider"></div>
 
       <div class="Register-wrapper">
-        <div class="Title-Container"><h1>Nytt konto</h1></div>
+        <div class="Title-Container"><h1>Nytt konto</h1>
+        </div>
       
               <div class="Input-Container">
                 <form id="reg-form">

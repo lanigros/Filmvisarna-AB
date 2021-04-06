@@ -25,6 +25,7 @@
   height: 30px;
   box-shadow: rgba(0, 0, 0, 0.5);
   background-color: rgb(247, 247, 247);
+  border-radius: 15px;
 }
 
 .cancel-btn:hover {

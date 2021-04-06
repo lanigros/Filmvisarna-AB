@@ -1,5 +1,7 @@
-@import "./main.css";
-@import "./loginpage-tickets.css";
+@import url("./main.css");
+@import url("./loginpage-tickets.css");
+@import "./loginpage-media.css";
+
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
 
@@ -123,6 +125,7 @@
   border-radius: 19px;
   background: none;
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 #log-btn:hover {
@@ -143,6 +146,7 @@
   border-radius: 19px;
   background: none;
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 #crt-btn:hover {
@@ -197,7 +201,7 @@
   display: flex;
   justify-content: space-around;
   align-content: center;
-  width: 70%;
+  width: 80%;
   justify-self: center;
 }
 .social-media-login > h2 {
@@ -226,6 +230,7 @@ a.fa.fa-twitter {
   height: 100%;
   border-radius: 19px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 a.fa.fa-twitter:hover {
@@ -248,6 +253,7 @@ a.fa.fa-google {
   height: 100%;
   border-radius: 19px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 a.fa.fa-facebook {
   display: flex;
@@ -255,9 +261,22 @@ a.fa.fa-facebook {
   height: 100%;
   border-radius: 19px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .social-media-title {
   grid-area: smt;
-  color: #7a7a7a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.social-media-title > .title-line {
+  width: 7em;
+  height: 1px;
+  background-color: #636363;
+}
+
+.social-media-title > h4 {
+  color: #636363;
 }
