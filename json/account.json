@@ -4,7 +4,18 @@
     "Password": "test",
     "Name": "Kajsa",
     "Lastname": "Testsson",
-    "bookedShows": []
+    "bookedShows": [
+      {
+        "auditorium": "Lilla Salongen",
+        "film": "Parasite",
+        "date": "2021-04-15",
+        "time": "19.00",
+        "seats": [
+          "A 1"
+        ],
+        "price": 85
+      }
+    ]
   },
   {
     "Email": "admin@filmvisarna.se",
