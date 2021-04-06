@@ -11,8 +11,8 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
-    "mb mb mb mdc mdc ."
-    "mb mb mb mtc mtc .";
+    "mb mb mb mdc mdc mdc"
+    "mb mb mb mtc mtc mtc";
   padding: 3em;
 }
 
