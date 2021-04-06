@@ -60,7 +60,7 @@ main {
 }
 
 /* Yang: temp size for testing */
-@media only screen and (max-width: 768px), (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   body {
     grid-template-areas:
       "h h h "
