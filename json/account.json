@@ -4,20 +4,7 @@
     "Password": "test",
     "Name": "Kajsa",
     "Lastname": "Testsson",
-    "bookedShows": [
-      {
-        "auditorium": "Stora Salongen",
-        "film": "Inception",
-        "date": "2021-05-02",
-        "time": "21.00",
-        "seats": [
-          "C 5",
-          "C 6",
-          "C 7"
-        ],
-        "price": 255
-      }
-    ]
+    "bookedShows": []
   },
   {
     "Email": "admin@filmvisarna.se",

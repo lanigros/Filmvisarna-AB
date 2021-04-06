@@ -1,2 +1,4 @@
-
 node_modules
+/json/booking
+/json/account.json
+/json/admin.json

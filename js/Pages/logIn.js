@@ -131,10 +131,12 @@ export default class LogIn {
         tempStore.save();
 
         this.activeMember(this.activeUser);
-        
+
 
         // if we were directed here from a booking page, return to booking page after logging in
         if (tempStore.bookingLoginRedirect === true) {
+          tempStore.bookingLoginRedirect = false; // we no longer need to be redirected since we're logged in
+          tempStore.save();
           document.location.href = '#booking';
           return;
         }
@@ -189,7 +191,7 @@ export default class LogIn {
 
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
-    
+
     if (!sessionStorage) { return; }
     else {
       $('.nav-right-items').replaceWith( /*html*/ `
