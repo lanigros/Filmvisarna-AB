@@ -7,12 +7,12 @@
 
 .banner_movie_container {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 380px);
+  gap: 3em;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
-    "mb mb mb mdc mdc ."
-    "mb mb mb mtc mtc .";
+    ". mb mb mb mdc mdc ."
+    ". mb mb mb mtc mtc .";
   padding: 3em;
 }
 
@@ -27,7 +27,8 @@
 }
 
 .movie-banner > img {
-  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .movie_title {
@@ -66,7 +67,7 @@ p {
 }
 
 .order-btn {
-  margin: 10px 0 5px 0;
+  margin: 1vh 0 5px 0;
   font-family: "Josefin Sans", sans-serif;
   align-content: center;
   justify-content: center;
@@ -87,3 +88,6 @@ p {
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
+
+
+
