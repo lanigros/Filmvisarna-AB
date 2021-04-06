@@ -68,7 +68,7 @@ export default class LogIn {
               </form>
           </div>
           <input type="submit" value="Logga in" id="log-btn">
-          <h2> eller med </h2>
+          <h4 class="social-media-title"> eller med </h4>
           <div class="social-media-login">
               <div class="icon-wrapper face"><a href="#" class="fa fa-facebook"><h4>Facebook</h4></a></div>
 

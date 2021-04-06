@@ -31,13 +31,14 @@
 
   grid-area: lw;
   display: grid;
-  height: 75%;
+  height: 100%;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 0.2fr 1fr;
   grid-template-areas:
     ". lwt ."
     ". i ."
     ". lgbtn ."
+    ". smt ."
     "smlg smlg smlg";
 }
 
@@ -45,7 +46,7 @@
   align-self: center;
   grid-area: rc;
   display: grid;
-  height: 75%;
+  height: 100%;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
@@ -196,6 +197,8 @@
   display: flex;
   justify-content: space-around;
   align-content: center;
+  width: 70%;
+  justify-self: center;
 }
 .social-media-login > h2 {
   color: #efefef;
@@ -221,18 +224,40 @@ a.fa.fa-twitter {
   display: flex;
   justify-content: space-evenly;
   height: 100%;
+  border-radius: 19px;
   align-items: center;
+}
+
+a.fa.fa-twitter:hover {
+  transition: 0.4s ease-in-out;
+  background-color: #55acee;
+}
+
+a.fa.fa-facebook:hover {
+  transition: 0.4s ease-in-out;
+  background-color: #3b5998;
+}
+a.fa.fa-google:hover {
+  transition: 0.4s ease-in-out;
+  background-color: #dd4b39;
 }
 
 a.fa.fa-google {
   display: flex;
   justify-content: space-evenly;
   height: 100%;
+  border-radius: 19px;
   align-items: center;
 }
 a.fa.fa-facebook {
   display: flex;
   justify-content: space-evenly;
   height: 100%;
+  border-radius: 19px;
   align-items: center;
+}
+
+.social-media-title {
+  grid-area: smt;
+  color: #7a7a7a;
 }
