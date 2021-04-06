@@ -47,7 +47,7 @@ export default class DetailedInfoAboutMovie {
         <div class="banner_movie_container">    
         <div class="movie-banner"><img src="${currentMovie.images}"></div>
         <div class="movie_trailer_container">
-          <iframe width="560" height="349" src="${currentMovie.youtubeTrailers + '?autoplay=1&mute=1'}" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
+          <iframe width="98%" height="100%" src="${currentMovie.youtubeTrailers + '?autoplay=1&mute=1'}" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="movie_desc_container">
         <h1>${currentMovie.title}</h1>
