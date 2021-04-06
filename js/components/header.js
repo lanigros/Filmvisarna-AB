@@ -10,8 +10,6 @@ export default class Header {
 
   buildHeaderStructure() {
 
-    // onclick="document.getElementById('mySidenav').style.width = '30%';"
-
     $('header').html(`
 
     <div class="nav-container">        
@@ -58,7 +56,7 @@ export default class Header {
           <img class="alert-icon" src="img/side-nav/map-icon.svg" alt="">
           HITTA HIT
         </a>
-        <a href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
+        <a class="logInBtnHamburgerMenu" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
           LOGGA IN
         </a>
@@ -78,11 +76,18 @@ export default class Header {
       </div>       
       `)
 
+      $('.active-User-Container').css("display", "flex");
+
     }
 
-    if (window.innerWidth <= 760) {
+    if (window.outerWidth <= 760) {
+      console.log("HIDDEN")
       $('.nav-right-items').html(`
       `)
+
+      $('.active-User-Container').css("display", "none");
+      $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
+
     }
   }
 

@@ -64,6 +64,7 @@ export default class Calendar {
 
   }
 
+  //Pressing previous month button in calendar module.
   pressingBtnPreviousMonth() {
 
     console.log(pickedMonthInCalandar)
