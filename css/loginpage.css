@@ -220,7 +220,7 @@
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 376px) {
     .Login-Container {
       width: 100%;
       grid-template-columns: 1fr;
