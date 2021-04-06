@@ -22,12 +22,12 @@ export default class LogIn {
 
   //When pressing btn on register run this function
   regHandeler() {
-    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
+    $('main').on('click', '#crt-btn', (event) => this.createNewUser(event));
   }
 
   //When pressing btn on login run this function
   logHandeler() {
-    $('main').on('submit', '#log-form', (event) => this.logInUser(event));
+    $('main').on('click', '#log-btn', (event) => this.logInUser(event));
   }
 
   //When pressing btn on register run this function
@@ -52,10 +52,10 @@ export default class LogIn {
     }
 
 
-    return `
+    return /*html*/ `
     
     <div class="Login-Container">
-      
+
       <div class="Login-wrapper">
           <div class="Title-Container"><h1>login</h1></div>
         
@@ -65,15 +65,21 @@ export default class LogIn {
                 <br>
                 <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
                 <br>
-                <input type="submit" value="Logga in" id="log-btn">
               </form>
           </div>
+          <input type="submit" value="Logga in" id="log-btn">
+          <h2> eller med </h2>
+          <div class="social-media-login">
+              <div class="icon-wrapper face"><a href="#" class="fa fa-facebook"><h4>Facebook</h4></a></div>
+
+              <div class="icon-wrapper google"><a href="#" class="fa fa-google"><h4>Google</h4></a></div>
+              
+              <div class="icon-wrapper twitter"><a href="#" class="fa fa-twitter"><h4>Twitter</h4></a></div>
+              </div>
       </div>
-    
 
-      <div class="box-divider"></div>
+      <div class="Login-Divider"></div>
 
-  
       <div class="Register-wrapper">
         <div class="Title-Container"><h1>Nytt konto</h1></div>
       
@@ -87,9 +93,9 @@ export default class LogIn {
                   <br>
                   <input type="Text" placeholder="Efternamn" id="lname" name="lname" required>
                   <br>
-                  <input type="submit" value="Skapa" id="crt-btn">
                 </form>
               </div>
+              <input type="submit" value="Skapa" id="crt-btn">
           </div>
         </div>
       </div>

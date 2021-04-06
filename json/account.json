@@ -25,5 +25,12 @@
     "Name": "Admin",
     "Lastname": "Admin",
     "bookedShows": []
+  },
+  {
+    "Email": "jedimind@live.se",
+    "Password": "test",
+    "Name": "Luke",
+    "Lastname": "Skywalker",
+    "bookedShows": []
   }
 ]
