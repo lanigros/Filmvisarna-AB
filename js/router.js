@@ -11,11 +11,13 @@ import ContactUs from "./Pages/contactUS.js";
 import Confirmation from "./Pages/confirmation.js";
 import ProfilePage from "./Pages/profilepage.js";
 
+// import tempStore (session storage variable)
+import bookingTempStore from "./bookingTempStore.js";
 
 // instanciate to reuse instances of pages
 const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
-const booking = new Booking(changeListener);
+const booking = new Booking();
 const logIn = new LogIn(changeListener);
 const contactUs = new ContactUs();
 const confirmation = new Confirmation();
@@ -33,8 +35,6 @@ export default class Router {
     // main renders on location hash change
     // register the event listener for that:
     window.onhashchange = () => this.setCurrentPage(selector);
-    // add variable to read and save session storage
-    this.setSessionStorage();
     // a global variable used when rendering the correct booking information
     this.bookingJSONFile;
     // create an event listener for the buttons linking to the booking page
@@ -70,24 +70,12 @@ export default class Router {
   }
 
   ////////////////
-  // Create variable to read and save session storage
-  setSessionStorage() {
-    this.tempStore = {};
-    try {
-      this.tempStore = JSON.parse(sessionStorage.store);
-    } catch (e) { }
-    this.tempStore.save = function () {
-      sessionStorage.store = JSON.stringify(this);
-    }
-  }
-
   // Set the booking file being accessed in the session storage and declare if the booking file is different
   async setBookingFile(event) {
-    if (!(this.tempStore.bookingFile === 'booking/' + event.target.id)) {
-      changeListener.remove(this.tempStore.bookingFile);
-      this.tempStore.bookingFile = 'booking/' + event.target.id;
-      this.tempStore.bookingFileHasChanged = true;
-      this.tempStore.save();
+    if (!(bookingTempStore.bookingFile === 'booking/' + event.target.id)) {
+      bookingTempStore.bookingFile = 'booking/' + event.target.id;
+      bookingTempStore.bookingFileHasChanged = true;
+      bookingTempStore.save();
     }
   }
 

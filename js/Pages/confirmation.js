@@ -1,8 +1,9 @@
+import bookingTempStore from '../bookingTempStore.js';
+
 export default class Confirmation {
 
   render() {
-    this.setSessionStorage();
-    if (!this.tempStore.bookingFile || this.tempStore.bookingLatestBookedSeats.length < 1) {
+    if (!bookingTempStore.bookingFile || bookingTempStore.latestBookedSeats.length < 1) {
       document.location.href = "#profilepage";
       return;
     }
@@ -16,32 +17,32 @@ export default class Confirmation {
           </div>
           <div class="row">
             <h2>Film: </h2>
-            <p> ${this.tempStore.bookingShowingDetails.film}</p>
+            <p> ${bookingTempStore.showingDetails.film}</p>
           </div>
           <div class="row">
             <h2>Datum: </h2>
-            <p> ${this.tempStore.bookingShowingDetails.date}</p>
+            <p> ${bookingTempStore.showingDetails.date}</p>
           </div>
           <div class="row">
             <h2>Tid: </h2>
-            <p> ${this.tempStore.bookingShowingDetails.time}</p>
+            <p> ${bookingTempStore.showingDetails.time}</p>
           </div>
           <div class="row">
             <h2>Salong: </h2>
-            <p> ${this.tempStore.bookingShowingDetails.auditorium}</p>
+            <p> ${bookingTempStore.showingDetails.auditorium}</p>
           </div>
             <div class="row">
             <h2>Plats: </h2>
     `;
 
-    for (let i = 0; i < this.tempStore.bookingLatestBookedSeats.length; i++) {
+    for (let i = 0; i < bookingTempStore.latestBookedSeats.length; i++) {
       if (i === 0) {
         layout += /*html*/`
-          <p> ${this.tempStore.bookingLatestBookedSeats[i]}</p>
+          <p> ${bookingTempStore.latestBookedSeats[i]}</p>
         `;
       } else {
         layout += /*html*/`
-          <p>, ${this.tempStore.bookingLatestBookedSeats[i]}</p>
+          <p>, ${bookingTempStore.latestBookedSeats[i]}</p>
         `;
       }
     }
@@ -55,16 +56,6 @@ export default class Confirmation {
     `;
 
     return layout;
-  }
-
-  setSessionStorage() {
-    this.tempStore = {};
-    try {
-      this.tempStore = JSON.parse(sessionStorage.store);
-    } catch (e) { }
-    this.tempStore.save = function () {
-      sessionStorage.store = JSON.stringify(this);
-    }
   }
 
 }
