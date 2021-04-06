@@ -78,6 +78,15 @@ export default class Header {
 
       $('.active-User-Container').css("display", "flex");
 
+      if (sessionStorage.logInStore) {
+
+        $('.logInBtnHamburgerMenu').html(`
+          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
+          MINA SIDOR
+        `)
+        $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
+      }
+
     }
 
     if (window.outerWidth <= 760) {
@@ -86,7 +95,17 @@ export default class Header {
       `)
 
       $('.active-User-Container').css("display", "none");
-      $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
+
+
+      if (sessionStorage.logInStore) {
+
+        $('.logInBtnHamburgerMenu').html(`
+          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
+          MINA SIDOR
+        `)
+        $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
+      }
+
 
     }
   }
