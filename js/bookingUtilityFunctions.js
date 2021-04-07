@@ -115,14 +115,8 @@ export default class BookingUtilityFunctions {
     await JSON._save('admin.json', adminJSON);
   }
 
-  /* a compare function for sorting booking objects for the admin.json file */
+  /* A compare function for sorting booking objects for the admin.json file. Sort by booking date/time/movie and then by user email */
   static compareBookingObjects(a, b) {
-    if (a.Email.localeCompare(b.Email) < 0) {
-      return -1;
-    }
-    if (a.Email.localeCompare(b.Email) > 0) {
-      return 1;
-    }
     if (a.date < b.date) {
       return -1;
     }
@@ -134,6 +128,12 @@ export default class BookingUtilityFunctions {
     }
     if (a.time > b.time) {
       return -1;
+    }
+    if (a.Email.localeCompare(b.Email) < 0) {
+      return -1;
+    }
+    if (a.Email.localeCompare(b.Email) > 0) {
+      return 1;
     }
     return 0;
   }
