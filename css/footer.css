@@ -57,6 +57,12 @@ footer a:hover {
   width: 15%;
 }
 
+@media only screen and (max-width: 1024px) {
+  .footer_menu {
+    column-count: 2;
+  }
+}
+
 @media screen and (max-width: 813px) {
   .footer_container * {
     display: block;
