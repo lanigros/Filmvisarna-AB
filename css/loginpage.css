@@ -141,7 +141,7 @@
 .active-User-Container {
   display: flex;
   align-content: center;
-  justify-content: space-around;
+  justify-content: flex-end;
   font-family: "Dosis", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -168,6 +168,8 @@
   height: 20px;
   width: 1px;
   background-color: rgb(238, 238, 238);
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 #logOut {

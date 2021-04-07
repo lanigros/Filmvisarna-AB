@@ -1,15 +1,13 @@
 export default class Header {
 
   render() {
-
     this.buildHeaderStructure();
     this.buildSideNav();
     this.buildLogInButtons();
-    $(window).resize(this.buildLogInButtons);
+    this.eventHandeler();
   }
 
   buildHeaderStructure() {
-
     $('header').html(`
 
     <div class="nav-container">        
@@ -23,16 +21,13 @@ export default class Header {
               <div class="nav-logo">
                 <a class="nav-logo-container" href="#">
                   <img class="logo" src="img/logo/Filmvisarna logo 2.png" alt="logo">
-                </a>
-            
+                </a>            
             </div>
             <div class="nav-right-items">              
             </div>
           </nav>       
-      </div>   
-    
+      </div>       
     `)
-
   }
 
   buildSideNav() {
@@ -42,27 +37,26 @@ export default class Header {
         <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">&times;</a>
         <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/alert-icon.svg" alt="">
-          NYHETER
+         <p>NYHETER</p>
         </a>
         <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/movie-icon.svg" alt="">
-          FILMER
+          <p>FILMER</p>
         </a>
         <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/ticket-icon.svg" alt="">
-          BILJETTER
+         <p>BILJETTER</p>
         </a>
         <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/map-icon.svg" alt="">
-          HITTA HIT
+          <p>HITTA HIT</p>
         </a>
         <a class="logInBtnHamburgerMenu" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
           <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
-          LOGGA IN
+          <p>LOGGA IN</p>
         </a>
 
-      </div>
-    
+      </div>    
     `)
   }
 
@@ -75,48 +69,44 @@ export default class Header {
         <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
       </div>       
       `)
-
       $('.active-User-Container').css("display", "flex");
-
-      if (sessionStorage.logInStore) {
-
-        $('.logInBtnHamburgerMenu').html(`
-          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
-          MINA SIDOR
-        `)
-        $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
-      }
-
     }
 
     if (window.outerWidth <= 760) {
-      console.log("HIDDEN")
       $('.nav-right-items').html(`
       `)
-
       $('.active-User-Container').css("display", "none");
-
-
-      if (sessionStorage.logInStore) {
-
-        $('.logInBtnHamburgerMenu').html(`
-          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
-          MINA SIDOR
-        `)
-        $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
-      }
-
-
     }
+  }
+
+  renderLogInBtnInHamburgerMenu() {
+
+    if (sessionStorage.logInStore) {
+
+      $('.logInBtnHamburgerMenu').html(`
+          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
+          <p>MINA SIDOR</p>
+        `)
+      $('.logInBtnHamburgerMenu').prop("href", "#profilepage");
+    }
+    else {
+      $('.logInBtnHamburgerMenu').html(`
+          <img class="alert-icon" src="img/side-nav/vector-icon.svg" alt="">
+          <p>LOGGA IN</p>
+        `)
+      $('.logInBtnHamburgerMenu').prop("href", "#logIn");
+    }
+  }
+
+  eventHandeler() {
+    $('header').on("click", ".hamburger-btn", () => this.renderLogInBtnInHamburgerMenu());
+    $(window).resize(this.buildLogInButtons);
   }
 
   resizeHamburgerWidth() {
     console.log("Rezise called")
 
     if (window.innerWidth > 760) {
-
     }
-
   }
-
 }

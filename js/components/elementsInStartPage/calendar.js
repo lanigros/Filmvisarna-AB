@@ -50,6 +50,8 @@ export default class Calendar {
 
   renderSaloonInfo(event) {
 
+    console.log(event)
+
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
 
