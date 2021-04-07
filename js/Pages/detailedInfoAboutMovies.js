@@ -61,7 +61,6 @@ export default class DetailedInfoAboutMovie {
         <p>Undertexter: ${currentMovie.subtitle}</p>
         <p>Regissör: ${currentMovie.director}</p>
         <p>Skådespelare: <br> ${currentMovie.actors}</p>
-        
         <br>
         <P>Nästa tillfälle: ${currentMovieSchedule.date}</P>
         <p>Salong: ${currentMovieSchedule.auditorium}</p>
