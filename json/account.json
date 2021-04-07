@@ -12,5 +12,12 @@
     "Name": "Admin",
     "Lastname": "Admin",
     "bookedShows": []
+  },
+  {
+    "Email": "test@hotmail.com",
+    "Password": "test",
+    "Name": "test",
+    "Lastname": "test",
+    "bookedShows": []
   }
 ]

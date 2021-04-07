@@ -103,10 +103,4 @@ export default class Header {
     $(window).resize(this.buildLogInButtons);
   }
 
-  resizeHamburgerWidth() {
-    console.log("Rezise called")
-
-    if (window.innerWidth > 760) {
-    }
-  }
 }

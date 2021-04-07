@@ -5,6 +5,7 @@
   visibility: hidden;
   height: 100%;
   max-width: 100%; 
+  width: 30vw;
   position: fixed;
   background: #282727;
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -30,6 +31,12 @@
   white-space: nowrap;
   max-width: 100%;
 }
+
+.sidenav p{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2vw;
+} 
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
@@ -60,28 +67,28 @@
 @media screen and (max-width: 760px ){
 .sidenav{
   height: 100%;
-  width: 55vw;     
+    
 }
 }
 
 @media screen and (max-width: 650px ){
 .sidenav{
   height: 100%;
-  width: 65vw;     
+      
 }
 }
 
 @media screen and (max-width: 620px ){
 .sidenav{
   height: 100%;
-  width: 75vw;     
+     
 }
 }
 
 @media screen and (max-width: 500px ){
 .sidenav{
   height: 100%;
-  width: 85vw;     
+      
 }
 }
 
