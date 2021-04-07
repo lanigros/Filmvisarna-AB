@@ -1,6 +1,6 @@
 @import url("./main.css");
 @import url("./loginpage-tickets.css");
-@import "./loginpage-media.css";
+@import url("./loginpage-media.css");
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
