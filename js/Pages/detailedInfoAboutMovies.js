@@ -47,8 +47,9 @@ export default class DetailedInfoAboutMovie {
         <div class="banner_movie_container">    
         <div class="movie-banner"><img src="${currentMovie.images}"></div>
         <div class="movie_trailer_container">
-          <iframe width="560" height="349" src="${currentMovie.youtubeTrailers + '?autoplay=1&mute=1'}" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
+          <iframe width="98%" height="100%" src="${currentMovie.youtubeTrailers + '?autoplay=1&mute=1'}" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
         </div>
+
         <div class="movie_desc_container">
         <h1>${currentMovie.title}</h1>
         <h3>${currentMovie.lenght}</h3>
@@ -56,9 +57,15 @@ export default class DetailedInfoAboutMovie {
         <h4>${currentMovie.rated}</h4>
         <p>${currentMovie.description}</p>
         <br>
-        <p>Salong: ${currentMovieSchedule.auditorium}</p>
+        <p>Språk: ${currentMovie.languages}</p>
+        <p>Undertexter: ${currentMovie.subtitle}</p>
+        <p>Regissör: ${currentMovie.director}</p>
+        <p>Skådespelare: <br> ${currentMovie.actors}</p>
+        <br>
         <P>Nästa tillfälle: ${currentMovieSchedule.date}</P>
+        <p>Salong: ${currentMovieSchedule.auditorium}</p>
         <P>Klockan: ${currentMovieSchedule.time}</P>
+        <br>
         <button class="order-btn">
         <a class="link-to-booking-page" href="#booking" id="${FileFunctions.getBookingFile(currentMovieSchedule.film, currentMovieSchedule.auditorium, currentMovieSchedule.date, currentMovieSchedule.time)}">Boka nu</a>
         </button>

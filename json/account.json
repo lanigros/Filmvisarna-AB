@@ -1,92 +1,16 @@
 [
   {
-    "Email": "test@test.se",
-    "Password": "test",
-    "Name": "test",
-    "Lastname": "test",
-    "bookedShows": [
-      {
-        "auditorium": "Stora Salongen",
-        "film": "The Dark Knight",
-        "date": "2021-04-25",
-        "time": "17.00",
-        "seats": [
-          "H 6",
-          "H 7"
-        ],
-        "price": 170
-      }
-    ]
-  },
-  {
-    "Email": "test@hotmail.com",
-    "Password": "test",
-    "Name": "test",
-    "Lastname": "test",
-    "bookedShows": [
-      {
-        "auditorium": "Lilla Salongen",
-        "film": "Inception",
-        "date": "2021-04-16",
-        "time": "19.00",
-        "seats": [
-          "D 5",
-          "D 6"
-        ]
-      }
-    ]
-  },
-  {
     "Email": "Kajsabajsa@live.se",
     "Password": "test",
     "Name": "Kajsa",
-    "Lastname": "Bajsson",
-    "bookedShows": [
-      {
-        "auditorium": "Stora Salongen",
-        "film": "Matrix",
-        "date": "2021-04-24",
-        "time": "21.00",
-        "seats": [
-          "H 7",
-          "H 8"
-        ],
-        "price": 170
-      },
-      {
-        "auditorium": "Lilla Salongen",
-        "film": "Parasite",
-        "date": "2021-04-25",
-        "time": "19.00",
-        "seats": [
-          "F 6",
-          "F 7"
-        ],
-        "price": 170
-      },
-      {
-        "auditorium": "Stora Salongen",
-        "film": "Inception",
-        "date": "2021-04-30",
-        "time": "21.00",
-        "seats": [
-          "H 7",
-          "H 8",
-          "A 1"
-        ],
-        "price": 235
-      },
-      {
-        "auditorium": "Stora Salongen",
-        "film": "The Dark Knight",
-        "date": "2021-04-23",
-        "time": "17.00",
-        "seats": [
-          "F 5",
-          "F 3"
-        ],
-        "price": 170
-      }
-    ]
+    "Lastname": "Testsson",
+    "bookedShows": []
+  },
+  {
+    "Email": "admin@filmvisarna.se",
+    "Password": "admin",
+    "Name": "Admin",
+    "Lastname": "Admin",
+    "bookedShows": []
   }
 ]

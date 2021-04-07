@@ -1,5 +1,4 @@
 @import "./main.css";
-
 @import "./loginpage-tickets.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap");
@@ -153,7 +152,8 @@
 }
 
 .remove-account,
-.options-account {
+.options-account,
+.show-tickets {
   margin-top: 2em;
   text-transform: uppercase;
   border: none;
@@ -163,6 +163,7 @@
   font-family: "Josefin Sans", sans-serif;
   color: white;
   font-size: 12px;
+  border-radius: 5px;
 }
 
 .remove-account {
@@ -172,6 +173,11 @@
 .options-account {
   background: rgb(182, 182, 182);
   width: 150px;
+}
+
+.show-tickets {
+  background: rgb(182, 182, 182);
+  height: 40px;
 }
 
 @media only screen and (max-width: 1024px) {

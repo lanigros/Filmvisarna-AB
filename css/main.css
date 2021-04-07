@@ -5,6 +5,7 @@
 @import "/css/allElementsInStartPage/calendar.css";
 @import "/css/allElementsInStartPage/ads-banner.css";
 @import "/css/allElementsInStartPage/playing-now-box.css";
+
 @import "header.css";
 @import "sidenav.css";
 @import "footer.css";
@@ -50,8 +51,30 @@ main {
   grid-area: c;
 }
 
+@media only screen and (max-width: 813px) {
+  body {
+    grid-template-areas:
+      "h h h "
+      "c c c"
+      "f f f";
+    grid-template-rows: minmax(min-content, 9%) auto 30%;
+  }
+}
+
+/* Yang: temp size for testing */
+@media only screen and (max-width: 768px) {
+  body {
+    grid-template-rows: minmax(min-content, 9%) auto 10%;
+    grid-template-areas:
+      "h h h "
+      "c c c"
+      "f f f";
+  }
+}
+
 @media only screen and (max-width: 375px) {
   body {
+    grid-template-rows: minmax(min-content, 9%) auto 10%;
     grid-template-areas:
       "h h h "
       "c c c"

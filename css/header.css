@@ -40,7 +40,6 @@ nav .nav-logo {
   grid-area: header_pos_center;
   display: flex;
   width: 100%;
-  
 }
 
 nav .nav-right-items {
@@ -55,16 +54,16 @@ nav .nav-right-items {
   color: #ede8e8;
   width: 100%;
   height: 60%;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
-.logIn_container{
+.logIn_container {
   display: flex;
   width: 100%;
   justify-content: flex-end;
 }
 
-.nav-login-btn{
+.nav-login-btn {
   margin-right: 5%;
 }
 
@@ -72,8 +71,8 @@ nav .nav-right-items {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
-  height: 100%;  
+  width: 100px;
+  height: 100%;
   border: 1px solid #ede8e8;
   box-sizing: border-box;
   border-radius: 5px;
@@ -83,7 +82,7 @@ nav .nav-right-items {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
+  width: 100px;
   height: 100%;
   background: #6c1e1e;
   border-radius: 5px;
@@ -99,67 +98,62 @@ nav .nav-right-items {
 
 @media screen and (max-width: 360px ){
   nav .nav-right-items{
+  box-shadow: 0px 0px 14px 4px rgba(15, 7, 6, 0.25);
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 360px) {
+  nav .nav-right-items {
     display: none;
   }
 }
 
-@media screen and (max-width: 1100px ){
-  .main-nav{
-    /* grid-template-columns: 1fr 10% 25% 1fr 20% 1fr;   */
-  }
-}
-
-
-
-@media screen and (max-width: 760px ){
-
+@media screen and (max-width: 760px) {
   .main-nav {
     display: grid;
-    grid-template-columns: 1fr 50% 5% 5% 20% 1fr;
-  } 
+    grid-template-columns: 1fr 50% 10% 20% 1fr;
+  }
 
   nav .nav-logo {
-    grid-area: header_pos_left;    
+    grid-area: header_pos_left;
     height: 100%;
     width: 100%;
   }
 
-  .nav-logo-container{
+  .nav-logo-container {
     display: flex;
     align-items: center;
     width: 100%;
     height: 100%;
   }
 
-  .logo{
+  .logo {
     max-width: 100%;
     max-height: 100%;
   }
-  
+
   nav .nav-hamburger {
     display: flex;
-    grid-area: header_pos_right;  
+    grid-area: header_pos_right;
     justify-content: flex-end;
+  }
 }
 
-}
+@media screen and (max-width: 400px) {
+  nav .nav-left-items {
+    grid-area: header_pos_right;
+    align-items: center;
+    width: 40%;
+  }
 
-@media screen and (max-width: 400px ){
-
-nav .nav-left-items {
-  grid-area: header_pos_right;
-  align-items: center;
-  width: 40%;
-}
-
-nav .nav-right-items {
-  grid-area: header_pos_left;
-
-}
+  nav .nav-right-items {
+    grid-area: header_pos_left;
+  }
 
 .logo {
   grid-area: header_pos_left;
   max-width: 100%;
   max-height: 100%;
   }
+}
 }

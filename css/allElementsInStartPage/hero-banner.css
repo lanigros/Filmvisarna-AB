@@ -76,3 +76,19 @@
   background-color: #2d2a2a;
   padding: 1em;
 }
+
+/*-- A media query to adjust the positioning and size for mobile devices --*/
+
+@media only screen and (max-width: 576px) {
+  .banner-title {
+    font-size: 14px;
+  }
+
+  .banner-desc {
+    width: 100%;
+  }
+
+  .trailer-btn {
+    justify-self: center;
+  }
+}

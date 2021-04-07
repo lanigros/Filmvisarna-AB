@@ -1,0 +1,28 @@
+[
+  {
+    "auditorium": "Lilla Salongen",
+    "film": "Inception",
+    "date": "2021-04-28",
+    "time": "19.00",
+    "seats": [
+      "F 1",
+      "F 2",
+      "F 3"
+    ],
+    "price": 255,
+    "Email": "jedimind@live.se"
+  },
+  {
+    "auditorium": "Stora Salongen",
+    "film": "The Dark Knight",
+    "date": "2021-04-30",
+    "time": "17.00",
+    "seats": [
+      "H 4",
+      "H 5",
+      "H 6"
+    ],
+    "price": 255,
+    "Email": "jedimind@live.se"
+  }
+]

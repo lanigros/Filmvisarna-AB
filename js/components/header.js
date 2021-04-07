@@ -31,7 +31,7 @@ export default class Header {
   }
 
   buildSideNav() {
-    $('header').append(`
+    $('header').append(/*html*/`
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">&times;</a>
@@ -63,7 +63,7 @@ export default class Header {
   buildLogInButtons() {
 
     if (window.innerWidth > 760) {
-      $('.nav-right-items').html(`
+      $('.nav-right-items').html(/*html*/`
       <div class="logIn_container">    
         <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
         <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>

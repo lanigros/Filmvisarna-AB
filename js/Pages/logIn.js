@@ -22,12 +22,12 @@ export default class LogIn {
 
   //When pressing btn on register run this function
   regHandeler() {
-    $('main').on('submit', '#reg-form', (event) => this.createNewUser(event));
+    $('main').on('click', '#crt-btn', (event) => this.createNewUser(event));
   }
 
   //When pressing btn on login run this function
   logHandeler() {
-    $('main').on('submit', '#log-form', (event) => this.logInUser(event));
+    $('main').on('click', '#log-btn', (event) => this.logInUser(event));
   }
 
   //When pressing btn on register run this function
@@ -51,10 +51,10 @@ export default class LogIn {
     }
 
 
-    return `
+    return /*html*/ `
     
     <div class="Login-Container">
-      
+
       <div class="Login-wrapper">
           <div class="Title-Container"><h1>login</h1></div>
         
@@ -64,17 +64,27 @@ export default class LogIn {
                 <br>
                 <input type="password" placeholder="Lösenord" id="log-pswrd" name="pswrd" required>
                 <br>
-                <input type="submit" value="Logga in" id="log-btn">
               </form>
           </div>
+          <input type="submit" value="Logga in" id="log-btn">
+          <div class="social-media-title">
+          <div class="title-line"></div>
+          <h4>eller med</h4>
+          <div class="title-line"></div></div>
+          <div class="social-media-login">
+              <div class="icon-wrapper face"><a href="#" class="fa fa-facebook"><h4>Facebook</h4></a></div>
+
+              <div class="icon-wrapper google"><a href="#" class="fa fa-google"><h4>Google</h4></a></div>
+              
+              <div class="icon-wrapper twitter"><a href="#" class="fa fa-twitter"><h4>Twitter</h4></a></div>
+              </div>
       </div>
-    
 
-      <div class="box-divider"></div>
+      <div class="Login-Divider"></div>
 
-  
       <div class="Register-wrapper">
-        <div class="Title-Container"><h1>Nytt konto</h1></div>
+        <div class="Title-Container"><h1>Nytt konto</h1>
+        </div>
       
               <div class="Input-Container">
                 <form id="reg-form">
@@ -86,9 +96,9 @@ export default class LogIn {
                   <br>
                   <input type="Text" placeholder="Efternamn" id="lname" name="lname" required>
                   <br>
-                  <input type="submit" value="Skapa" id="crt-btn">
                 </form>
               </div>
+              <input type="submit" value="Skapa" id="crt-btn">
           </div>
         </div>
       </div>
@@ -134,6 +144,8 @@ export default class LogIn {
 
         // if we were directed here from a booking page, return to booking page after logging in
         if (tempStore.bookingLoginRedirect === true) {
+          tempStore.bookingLoginRedirect = false; // we no longer need to be redirected since we're logged in
+          tempStore.save();
           document.location.href = '#booking';
           return;
         }
@@ -166,7 +178,8 @@ export default class LogIn {
   logOut() {
     loggedIn = false;
 
-    delete sessionStorage.logInStore;
+    delete tempStore.currentTester;
+    tempStore.save();
 
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
@@ -181,7 +194,13 @@ export default class LogIn {
 
     // if you log out while on a booking page, return to the login page
     if (document.location.href.includes('#booking')) {
-      document.location.href = '#logIn';
+      document.location.href = '#';
+      return;
+    }
+
+    // if you log out while on a profile page, return to the login page
+    if (document.location.href.includes('#profilepage')) {
+      document.location.href = '#';
       return;
     }
   }
