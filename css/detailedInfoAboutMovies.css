@@ -11,8 +11,8 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
-    "mb mb mb mdc mdc ."
-    "mb mb mb mtc mtc .";
+    "mb mb mb mdc mdc mdc"
+    "mb mb mb mtc mtc mtc";
   padding: 3em;
 }
 
@@ -29,14 +29,6 @@
 .movie-banner > img {
   min-height: 100%;
   min-width: 100%;
-}
-
-.movie_title {
-  grid-area: mbt;
-}
-
-.movie_duration_lenght {
-  grid-area: mdl;
 }
 
 .movie_trailer_container {
@@ -89,16 +81,12 @@ p {
   transition: all 0.5s ease-in-out;
 }
 
-@media only screen and (min-device-width : 768px) 
+@media only screen and (min-device-width : 320px) 
 and (max-device-width : 1024px) 
-and (orientation : portrait){
-    body {
-    grid-template-areas:
-      "h h h "
-      "c c c"
-      "f f f";
-  }
-
+and (orientation : portrait)
+, (min-device-width : 320px) 
+and (max-device-width : 768px) 
+and (orientation : landscape){
 
   .detailedInfoAboutMovie-Container {
     height: 100%;

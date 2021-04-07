@@ -75,6 +75,9 @@ footer a:hover {
     justify-content: center;
     margin-top: 10%;
   }
+  .footer_socialmedia img {
+    width: 20px;
+  }
 
   .footer_logo br {
     display: none;
@@ -82,5 +85,12 @@ footer a:hover {
 
   .footer_menu li {
     margin-top: 10%;
+  }
+  .footer_menu {
+    display: none;
+  }
+
+  .footer_logo img {
+    width: 100px;
   }
 }

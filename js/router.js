@@ -7,7 +7,7 @@ import StartPage from "./Pages/startpage.js";
 import DetailedInfoAboutMovie from "./Pages/detailedInfoAboutMovies.js";
 import Booking from "./pages/booking.js";
 import LogIn from "./Pages/logIn.js";
-import ContactUs from "./Pages/contactUS.js";
+
 import Confirmation from "./Pages/confirmation.js";
 import ProfilePage from "./Pages/profilepage.js";
 
@@ -19,7 +19,7 @@ const startPage = new StartPage();
 const detailedInfoAboutMovie = new DetailedInfoAboutMovie();
 const booking = new Booking();
 const logIn = new LogIn(changeListener);
-const contactUs = new ContactUs();
+
 const confirmation = new Confirmation();
 const profilepage = new ProfilePage();
 
@@ -107,11 +107,6 @@ export default class Router {
 
   default() {
     return startPage.render()
-  }
-
-
-  contactUs() {
-    return contactUs.render()
   }
 
 }
