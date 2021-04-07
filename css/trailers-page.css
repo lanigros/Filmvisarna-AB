@@ -45,7 +45,7 @@
   font-weight: bold;
   font-family: "Josefin Sans", sans-serif;
   color: rgb(236, 236, 236);
-  margin-top: 10%;
+  margin-top: 30%; /* Fixa med att lägga in titeln innuti trailer boxen för att kunna röra den som en enhet.*/
   grid-area: t;
 }
 

@@ -81,16 +81,11 @@ p {
   transition: all 0.5s ease-in-out;
 }
 
-@media only screen and (min-device-width : 320px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait)
-, (min-device-width : 320px) 
-and (max-device-width : 768px) 
-and (orientation : landscape){
-
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait),
+  (min-device-width: 320px) and (max-device-width: 768px) and (orientation: landscape) {
   .detailedInfoAboutMovie-Container {
     height: 100%;
-}
+  }
 
   .banner_movie_container {
     all: initial;
@@ -99,11 +94,11 @@ and (orientation : landscape){
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-        "mdc mdc mdc"
-        "mdc mdc mdc"
-        "mdc mdc mdc"
-        "tra tra tra";
-}
+      "mdc mdc mdc"
+      "mdc mdc mdc"
+      "mdc mdc mdc"
+      "tra tra tra";
+  }
 
   .movie-banner {
     all: initial;
@@ -115,12 +110,12 @@ and (orientation : landscape){
     opacity: 90%;
     background-color: Black;
     grid-area: mdc;
-}
+  }
   .movie-banner > img {
     max-height: 100%;
     max-width: 100%;
     opacity: 50%;
-}
+  }
 
   .movie_desc_container {
     all: initial;
@@ -128,27 +123,27 @@ and (orientation : landscape){
     text-align: center;
     margin: auto;
     padding: 5rem;
-}
+  }
 
   .movie_trailer_container {
     all: initial;
     grid-area: tra;
     padding: 2rem;
     background-color: black;
-}
+  }
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape){
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .banner_movie_container {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "mb mb mb mdc mdc mdc"
+      "mb mb mb mtc mtc mtc";
+  }
+}
 
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-areas:
-    "mb mb mb mdc mdc mdc"
-    "mb mb mb mtc mtc mtc";
-}
-}
+/* less than 576px -standing phone*/
+/*576px max - landscpae phone*/
+/*768 min max - standing ipad*/
+/*992px - landscape ipad*/
