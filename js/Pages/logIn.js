@@ -179,7 +179,8 @@ export default class LogIn {
   logOut() {
     loggedIn = false;
 
-    delete sessionStorage.logInStore;
+    delete tempStore.currentTester;
+    tempStore.save();
 
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
@@ -194,7 +195,13 @@ export default class LogIn {
 
     // if you log out while on a booking page, return to the login page
     if (document.location.href.includes('#booking')) {
-      document.location.href = '#logIn';
+      document.location.href = '#';
+      return;
+    }
+
+    // if you log out while on a profile page, return to the login page
+    if (document.location.href.includes('#profilepage')) {
+      document.location.href = '#';
       return;
     }
   }

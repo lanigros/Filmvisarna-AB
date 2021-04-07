@@ -21,7 +21,7 @@ export default class ProfilePage {
     if (!this.currentUser) {
       await this.read();
     }
-    if (!this.user) {
+    if (!this.user || this.user !== tempStore.currentTester) {
       await this.read();
     }
 
