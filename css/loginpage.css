@@ -240,6 +240,11 @@
       "ld"
       "rc";
   }
+
+  .Login-Divider {
+    height: 1px;
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 376px) {
