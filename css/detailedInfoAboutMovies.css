@@ -84,11 +84,9 @@ p {
 /* @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait),
   (min-device-width: 320px) and (max-device-width: 768px) and (orientation: landscape) { */
 
-  @media only Screen and
-    (max-width: 992px) and (min-width: 768px)
-    ,(max-width: 768px) and (min-width: 576px)
-    ,(max-width: 576px) {
-
+@media only Screen and (max-width: 992px) and (min-width: 768px),
+  (max-width: 768px) and (min-width: 576px),
+  (max-width: 576px) {
   .detailedInfoAboutMovie-Container {
     height: 100%;
   }
@@ -139,9 +137,8 @@ p {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)
-, (max-width: 1200px) and (min-width: 992px){
-
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+  (max-width: 1200px) and (min-width: 992px) {
   .banner_movie_container {
     gap: 1em;
   }
@@ -157,7 +154,7 @@ p {
     grid-area: mdc;
   }
 
-  .movie-banner{
+  .movie-banner {
     grid-area: mb;
   }
 
@@ -172,8 +169,6 @@ p {
       "mb mb mb mdc mdc mdc"
       "mb mb mb tra tra tra";
   }
-
-
 }
 
 /* less than 576px -standing phone*/
