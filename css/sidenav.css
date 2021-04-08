@@ -71,7 +71,11 @@
 @media screen and (max-width: 760px ){
 .sidenav{
   height: 100%;
-    
+  width: 50%;    
+}
+.sidenav p{
+  font-size: 4vw;
+  letter-spacing: 0.05em;
 }
 }
 
@@ -92,8 +96,13 @@
 @media screen and (max-width: 500px ){
 .sidenav{
   height: 100%;
-      
+  width: 100%;      
 }
+.sidenav p{
+  font-size: 10vw;
+  letter-spacing: 0.20em;
+}
+
 }
 
 @media screen and (max-width: 460px ){
