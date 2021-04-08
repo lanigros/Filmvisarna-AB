@@ -146,12 +146,10 @@ export default class Header {
 
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
-        <div>
-            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden'">LOGGA IN</a>
-        </div>
-        <div>
-          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'visible'">NYTT KONTO</a>
-        </div>
+        <div class="logIn_container">
+        <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
+        <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
+      </div>
       </div>     
     `);
 
