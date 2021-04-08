@@ -71,11 +71,6 @@
   }
 }
 
-@media only Screen and (max-width: 992px) and (min-width: 768px) {
-  .trailer-wrapper {
-  }
-}
-
 @media only Screen and (max-width: 576px) {
   .trailer-wrapper {
     grid-template-rows: 1fr 0.2fr 1fr 0.5fr;
