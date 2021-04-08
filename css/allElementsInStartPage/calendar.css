@@ -29,7 +29,7 @@
 
 /* --------- THE CALENDAR ------------ */
 
-body > main > div.calendar-Container > div.calendar {
+.calendar {
   grid-area: calendar;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -42,7 +42,7 @@ body > main > div.calendar-Container > div.calendar {
   padding: 10%;
 }
 
-body > main > div.calendar-Container > div.calendar > div {
+.calendar > div {
   height: 100%;
   width: 100%;
 
@@ -226,8 +226,12 @@ body
 @media only Screen and (max-width: 1200px) and (min-width: 992px) {
   .calendar {
     padding: 5%;
-    width: 84%;
+    width: 80%;
     justify-self: center;
+  }
+
+  .calendar_title{
+    text-align: center;
   }
 
   .calendar-Container {
@@ -247,6 +251,7 @@ body
 }
 
 @media only Screen and (max-width: 992px) and (min-width: 768px) {
+
   .calendar-Container {
     grid-template-rows: 60% 20em;
     grid-gap: 1em;
@@ -255,6 +260,20 @@ body
     grid-template-areas:
       "calendar"
       "salon";
+  }
+
+  .calendar_title{
+    text-align: center;
+  }
+
+  body > main > div.calendar-Container > div.calendar{
+    width: 80%;
+    margin: 0 auto;
+    padding: 5%;
+  }
+
+  .calendar_title{
+    text-align: center;
   }
 }
 
@@ -266,6 +285,15 @@ body
     grid-template-areas:
       "calendar"
       "salon";
+  }
+
+  body > main > div.calendar-Container > div.calendar{
+    width: 100%;
+    padding: 5%;
+  }
+
+  body > main > div.calendar_title{
+    text-align: center;
   }
 }
 
@@ -307,5 +335,6 @@ body
 
   body > main > div.calendar-Container > div.calendar {
     border-radius: 0px;
+    padding: 5%;
   }
 }
