@@ -43,3 +43,32 @@ body
 .txtholder-movieTitle-calendarSalon p {
   font-size: 20px;
 }
+
+/* ------ buttons  ------ */
+
+body > main > div.calendar-Container > div.calendar > div > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  outline-style: none;
+}
+
+body > main > div.calendar-Container > div.calendar > div {
+  border: none;
+  border-radius: 20px;
+}
+
+body
+  > main
+  > div.calendar-Container
+  > div.calendar
+  > div.selectedMonth_container
+  > button {
+  background-color: rgba(255, 255, 255, 0.411);
+  color: aliceblue;
+  outline: none;
+}
