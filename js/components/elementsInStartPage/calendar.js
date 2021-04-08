@@ -69,8 +69,6 @@ export default class Calendar {
   //Pressing previous month button in calendar module.
   pressingBtnPreviousMonth() {
 
-    console.log(pickedMonthInCalandar)
-
     if (pickedMonthInCalandar > 1 && pickedMonthInCalandar <= 13) {
 
       $('.day').replaceWith("");
@@ -123,14 +121,12 @@ export default class Calendar {
 
       const weekend = isWeekend(day);
 
-      //Converts the date to format "2021-04-01" wich is needed for JSON
+      //Converts the date to format "2021-04-01" wich is needed for comparing with JSON
       let datum = new Date(getCurrentYear(), selectedMonth - 1, day + 1).toISOString().split('T')[0];
 
       dates.push(datum);
 
       $('.calendar').append(`<div class="day ${weekend ? "weekend" : ""}"> <button value="${datum}" class="btn-show-calender">${day}</button> </div>`);
-
-
     }
   }
 
