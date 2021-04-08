@@ -1,4 +1,5 @@
 @import "./main.css";
+@import "./calendar2.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
 .calendar_title {
@@ -14,9 +15,11 @@
   display: grid;
   width: 100%;
   height: auto;
+
   grid-template-columns: 30% 70%;
   grid-template-rows: 100%;
   grid-template-areas: "calendar salon";
+
   justify-content: space-between;
   font-family: Poppins;
   margin-top: 3%;
@@ -166,6 +169,11 @@ body > main > div.calendar-Container > div.bothSalons-container {
   display: flex;
   justify-content: space-evenly;
   border-radius: 10px;
+  /* grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "bigs"
+    "littles"; */
 }
 
 .btn-salon-calendar {
@@ -215,48 +223,89 @@ body
   margin-bottom: 10%;
 }
 
-.txtholder-movieTime-calendarSalon {
-  display: inline-flex;
-  font-size: 15px;
-  margin-top: 8px;
-  margin-bottom: 15px;
+@media only Screen and (max-width: 1200px) and (min-width: 992px) {
+  .calendar {
+    padding: 5%;
+    width: 84%;
+    justify-self: center;
+  }
+
+  .calendar-Container {
+    grid-template-rows: 60% 20em;
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65% 20em;
+    grid-template-areas:
+      "calendar"
+      "salon";
+  }
+
+  .bothSalons-Container {
+    justify-content: space-between;
+    display: grid;
+  }
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.bothSalons-container
-  > div.little-salon-container {
-  background-color: rgba(255, 255, 255, 0.123);
+@media only Screen and (max-width: 992px) and (min-width: 768px) {
+  .calendar-Container {
+    grid-template-rows: 60% 20em;
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65% 20em;
+    grid-template-areas:
+      "calendar"
+      "salon";
+  }
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.bothSalons-container
-  > div.big-salon-container {
-  background-color: rgba(255, 255, 255, 0.123);
+@media only Screen and (max-width: 768px) and (min-width: 576px) {
+  .calendar-Container {
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65% 20em;
+    grid-template-areas:
+      "calendar"
+      "salon";
+  }
 }
 
-body
-  > main
-  > div.calendar-Container
-  > div.bothSalons-container
-  > div.big-salon-container
-  > p {
-  margin-bottom: 5px;
-}
+@media only Screen and (max-width: 576px) {
+  .calendar-Container {
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 20em;
+    grid-template-areas:
+      "calendar"
+      "salon";
+  }
 
-.txtholder-movieDate-calendarSalon {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
+  body > main > div.calendar-Container > div.bothSalons-container {
+    grid-area: salon;
+    display: grid;
+    grid-gap: 1em;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20em 20em;
+    grid-template-areas:
+      "bigs"
+      "littles";
+  }
 
-.txtholder-time-calendarSalon {
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
+  body > main > div.calendar-Container > div.bothSalons-container > div {
+    width: 100%;
+    border-radius: 0px;
+  }
 
-.txtholder-movieTitle-calendarSalon p {
-  font-size: 20px;
+  div.little-salon-container {
+    grid-area: littles;
+  }
+
+  div.big-salon-container {
+    grid-area: bigs;
+  }
+
+  body > main > div.calendar-Container > div.calendar {
+    border-radius: 0px;
+  }
 }

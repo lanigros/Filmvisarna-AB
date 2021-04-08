@@ -1,0 +1,45 @@
+.txtholder-movieTime-calendarSalon {
+  display: inline-flex;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.little-salon-container {
+  background-color: rgba(255, 255, 255, 0.123);
+}
+
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.big-salon-container {
+  background-color: rgba(255, 255, 255, 0.123);
+}
+
+body
+  > main
+  > div.calendar-Container
+  > div.bothSalons-container
+  > div.big-salon-container
+  > p {
+  margin-bottom: 5px;
+}
+
+.txtholder-movieDate-calendarSalon {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.txtholder-time-calendarSalon {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.txtholder-movieTitle-calendarSalon p {
+  font-size: 20px;
+}
