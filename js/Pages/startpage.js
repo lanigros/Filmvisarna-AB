@@ -54,7 +54,7 @@ export default class StartPage {
     $("main").append(/*html*/ `
       
        <div class="trailer-wrapper">
-       <div class="title">Kommande Filmer</div>
+       <div class="trailer-title">Kommande Filmer</div>
             <div class="trailers">
               <div class="item"><img src="img/movieImg/joker.jpg"></div>
               <div class="item"><img src="img/movieImg/avangers.jpg"></div>

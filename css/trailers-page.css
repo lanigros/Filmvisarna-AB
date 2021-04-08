@@ -8,7 +8,7 @@
   grid-template-rows: 0.5fr 0.2fr 1fr 0.5fr;
   grid-template-areas:
     ". . ."
-    "cmt . ."
+    "cmt cmt cmt"
     "cms cms cms"
     ". . .";
 }
@@ -39,11 +39,12 @@
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: rgb(134, 127, 127);
 }
-.trailer-wrapper > .title {
+.trailer-title {
   grid-area: cmt;
   font-size: 40px;
   font-weight: bold;
   width: 100%;
+  height: auto;
   font-family: "Josefin Sans", sans-serif;
   color: rgb(236, 236, 236);
   text-align: left;
@@ -51,41 +52,18 @@
 }
 
 .trailers .item {
-  grid-area: cs;
   display: inline-block;
-  flex: 0 0 auto;
   border-radius: 10px;
 }
 
-@media only screen and(max-width: 992px) {
-  .trailer-wrapper {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 0.2fr 1fr 0.5fr;
-    grid-template-areas:
-      ". . ."
-      ". cmt ."
-      "cms cms cms"
-      ". . .";
-  }
-
-  .trailer-wrapper > .title {
-    text-align: center;
-    width: 100%;
-  }
-
-  .trailers {
-    width: 80%;
+@media screen and(max-width:1200px) {
+  body > main > div.trailer-wrapper > div.trailer-title {
+    color: black;
   }
 }
 
+@media only screen and(max-width: 992px) {
+}
+
 @media only screen and(max-width: 576px) {
-  .trailer-wrapper {
-    margin-top: 20rem;
-    grid-template-areas:
-      ". . ."
-      "ctm ctm ctm"
-      "cms cms cms"
-      ". . .";
-    grid-template-rows: 1fr 0.2fr 1fr 0.5fr;
-  }
 }
