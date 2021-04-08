@@ -24,13 +24,7 @@ export default class DetailedInfoAboutMovie {
       }
     }
 
-    // console.log(auditorium + ' ' + date + ' ' + time);
-    // console.log(this.movieDetail[0].auditorium + ' ' + this.movieDetail[0].date + ' ' + this.movieDetail[0].time);
-    console.log(this.movieDetail[0].film);
-    console.log(movie.replaceAll('%20', ' '));
-
     // In order to compare elements, we need to replace the space and -
-
     for (let i = 0; i < this.movieDetail.length; i++) {
       if (movie.replaceAll('%20', ' ').toLowerCase() === this.movieDetail[i].film.toLowerCase()
         && auditorium.replaceAll('%20', ' ') === this.movieDetail[i].auditorium
