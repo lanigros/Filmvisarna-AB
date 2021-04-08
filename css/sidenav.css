@@ -59,6 +59,10 @@
     justify-content: flex-end;
 }
 
+.logOutBtnHamburgerMenu p{
+  color: red;
+}
+
 .alert-icon {
   width: 51px;
   height: 48.33px;
