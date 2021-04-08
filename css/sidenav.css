@@ -39,7 +39,7 @@
 } 
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+.sidenav p:hover {
   color: #858282;
 }
 
@@ -95,11 +95,11 @@
 
 @media screen and (max-width: 500px ){
 .sidenav{
-  height: 100%;
+  height: 80%;
   width: 100%;      
 }
 .sidenav p{
-  font-size: 10vw;
+  font-size: 8vw;
   letter-spacing: 0.20em;
 }
 
