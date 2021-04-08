@@ -10,7 +10,6 @@ export default class ProfilePage {
 
   constructor() {
     this.eventHandeler();
-
   }
 
 
