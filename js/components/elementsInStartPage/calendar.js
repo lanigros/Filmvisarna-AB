@@ -50,6 +50,8 @@ export default class Calendar {
 
   renderSaloonInfo(event) {
 
+    console.log(event)
+
     let pickedDate = event.target.value;
     let temporarilyMovieList = [];
 
@@ -64,6 +66,7 @@ export default class Calendar {
 
   }
 
+  //Pressing previous month button in calendar module.
   pressingBtnPreviousMonth() {
 
     console.log(pickedMonthInCalandar)

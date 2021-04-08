@@ -5,8 +5,6 @@
 @import "/css/allElementsInStartPage/calendar.css";
 @import "/css/allElementsInStartPage/ads-banner.css";
 @import "/css/allElementsInStartPage/playing-now-box.css";
-
-@import "header.css";
 @import "sidenav.css";
 @import "footer.css";
 @import "loginpage.css";
@@ -15,6 +13,7 @@
 @import "booking.css";
 @import "confirmation.css";
 @import "profilepage.css";
+@import "header.css";
 
 * {
   margin: 0;
@@ -52,23 +51,31 @@ main {
 }
 
 /* Yang: we only need one now, temp fix, followed the bootstrap rule here and added a ipad landscape condition*/
-@media only screen and (max-width: 992px)
-,(max-width: 1024px) and (orientation: landscape) {
+
+@media only screen and (max-width: 992px),
+  (max-width: 1024px) and (orientation: landscape) {
   body {
     grid-template-areas:
       "h h h "
       "c c c"
       "f f f";
-    grid-template-rows: minmax(min-content, 9%) auto 30%;
+    grid-template-rows: minmax(min-content, 9%) auto 10%;
   }
 }
 
-/* @media only screen and (max-width: 375px) {
+@media only screen and (max-width: 375px),
+  (max-width: 812px) and (orientation: landscape) {
   body {
-    grid-template-rows: minmax(min-content, 9%) auto 10%;
+    grid-template-rows: minmax(min-content, 9%) auto 20%;
     grid-template-areas:
       "h h h "
       "c c c"
       "f f f";
   }
-} */
+}
+
+@media only screen and (max-width: 375px) {
+  body {
+    grid-template-rows: minmax(min-content, 9%) auto 10%;
+  }
+}

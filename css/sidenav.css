@@ -1,53 +1,113 @@
 @import "./main.css";
 
 .sidenav {
+  display: block;
+  visibility: hidden;
   height: 100%;
-  width: 0; /* 0 width - change this with JavaScript */
+  max-width: 100%; 
+  width: 30vw;
   position: fixed;
   background: #282727;
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 108px;
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  padding-top: 1%;
+  /* transition: 0.5s;  0.5 second transition effect to slide in the sidenav */
   z-index: 999;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  font-family: Cocogoose;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 3vw;
   line-height: 34px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: #f9f7f7;
-  transition: 0.3s;
+  /* transition: 0.3s; */
   text-decoration: none;
-  padding: 8px 8px 8px 64px;
+  padding: 3% 3% 3% 3%;
   display: block;
   white-space: nowrap;
+  max-width: 100%;
 }
 
+.sidenav p{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2vw;
+} 
+
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+.sidenav p:hover {
   color: #858282;
 }
 
 .sidenav img {
-  margin-right: 40px;
+  margin-right: 1vw;
   vertical-align: middle;
 }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  display: flex;
+    /* position: absolute; */
+    /* top: 0; */
+    /* right: 0; */
+    font-size: 36px;
+    /* margin-left: 0px; */
+    justify-content: flex-end;
+}
+
+.logOutBtnHamburgerMenu p{
+  color: red;
 }
 
 .alert-icon {
   width: 51px;
   height: 48.33px;
+}
+
+@media screen and (max-width: 760px ){
+.sidenav{
+  height: 100%;
+  width: 50%;    
+}
+.sidenav p{
+  font-size: 4vw;
+  letter-spacing: 0.05em;
+}
+}
+
+@media screen and (max-width: 650px ){
+.sidenav{
+  height: 100%;
+      
+}
+}
+
+@media screen and (max-width: 620px ){
+.sidenav{
+  height: 100%;
+     
+}
+}
+
+@media screen and (max-width: 500px ){
+.sidenav{
+  height: 80%;
+  width: 100%;      
+}
+.sidenav p{
+  font-size: 8vw;
+  letter-spacing: 0.20em;
+}
+
+}
+
+@media screen and (max-width: 460px ){
+.sidenav{
+  height: 60%;
+  width: 100vw;     
+}
 }

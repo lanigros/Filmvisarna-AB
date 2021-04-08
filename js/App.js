@@ -8,7 +8,7 @@ export default class App {
     // render partials
 
     // header renders now
-    
+
     $('header').html(new Header().render());
 
     // main renders in its router, on instanciation

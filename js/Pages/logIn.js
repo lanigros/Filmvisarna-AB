@@ -43,7 +43,6 @@ export default class LogIn {
     window.onload = () => this.loggedInOrNot();
   }
 
-
   async render() {
 
 
@@ -185,10 +184,10 @@ export default class LogIn {
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
         <div>
-            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">LOGGA IN</a>
+            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden'">LOGGA IN</a>
         </div>
         <div>
-          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.width = '0';">NYTT KONTO</a>
+          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'visible'">NYTT KONTO</a>
         </div>
       </div>     
     `);
@@ -209,7 +208,10 @@ export default class LogIn {
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
 
-    if (!sessionStorage) { return; }
+    if (!sessionStorage) {
+      return;
+    }
+
     else {
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
