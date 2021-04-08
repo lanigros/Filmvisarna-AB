@@ -63,20 +63,22 @@ export default class Header {
   buildLogInButtons() {
 
     if (window.innerWidth > 760) {
+
       $('.nav-right-items').html(/*html*/`
       <div class="logIn_container">    
         <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
         <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
       </div>       
       `)
-      $('.active-User-Container').css("display", "flex");
-    }
 
-    if (window.outerWidth <= 760) {
-      $('.nav-right-items').html(`
-      `)
-      $('.active-User-Container').css("display", "none");
-    }
+         //$('.active-User-Container').css("display", "flex");
+     }
+
+    // if (window.outerWidth <= 760) {
+    //   $('.nav-right-items').html(`
+    //   `)
+    //   $('.active-User-Container').css("display", "none");
+    // }
   }
 
   renderLogInBtnInHamburgerMenu() {

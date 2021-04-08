@@ -5,8 +5,6 @@
 @import "/css/allElementsInStartPage/calendar.css";
 @import "/css/allElementsInStartPage/ads-banner.css";
 @import "/css/allElementsInStartPage/playing-now-box.css";
-
-@import "header.css";
 @import "sidenav.css";
 @import "footer.css";
 @import "loginpage.css";
@@ -15,6 +13,7 @@
 @import "booking.css";
 @import "confirmation.css";
 @import "profilepage.css";
+@import "header.css";
 
 * {
   margin: 0;
