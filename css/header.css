@@ -18,7 +18,7 @@ header {
 
 .main-nav {
   display: grid;
-  grid-template-columns: 1fr 10% 25% 2fr 20% 1fr;
+  grid-template-columns: 1fr 10% 25% 1fr 20% 1fr;
   grid-template-rows: 100%;
   align-items: center;
   width: 100%;
