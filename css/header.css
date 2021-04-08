@@ -66,6 +66,10 @@ nav .nav-right-items {
   margin-right: 5%;
 }
 
+.hamburger-btn:hover{
+  cursor: pointer;
+}
+
 .nav-login-container {
   display: flex;
   justify-content: center;
