@@ -2,11 +2,6 @@
 @import "./calendar2.css";
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap");
 
-.a{
-        text-decoration: none;
-      color: inherit;
-}
-
 .calendar_title {
   font-size: 30px;
   font-weight: 700;
