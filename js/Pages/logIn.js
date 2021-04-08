@@ -5,7 +5,6 @@ let loggedIn = false;
 
 export default class LogIn {
 
-
   //Created a constructor that handels different kinds of events.
   constructor(changeListener) {
     this.changeListener = changeListener;
@@ -118,7 +117,9 @@ export default class LogIn {
 
     let newUserInfo = ({ Email: newEmail, Password: newPswrd, Name: newName, Lastname: newLastName, bookedShows });
     this.account.push(newUserInfo);
+
     await JSON._save('account.json', this.account);
+
     alert('Ditt konto har skapats!')
   }
 
@@ -160,7 +161,7 @@ export default class LogIn {
     if (!loggedIn) { return }
 
     else {
-      console.log('logged on TRUE');
+    
       $('.nav-right-items').replaceWith( /*html*/ `
         <div class="active-User-Container">
         <div class="menu-divider"></div>
@@ -183,11 +184,9 @@ export default class LogIn {
 
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
-        <div>
-            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden'">LOGGA IN</a>
-        </div>
-        <div>
-          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'visible'">NYTT KONTO</a>
+        <div class="logIn_container">
+          <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
+          <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
         </div>
       </div>     
     `);
@@ -208,7 +207,7 @@ export default class LogIn {
   //If the page refreshes, and the sessionstorage still is active, renderout the active account.
   loggedInOrNot() {
 
-    if (!sessionStorage) {
+    if (!tempStore.currentTester) {
       return;
     }
 

@@ -1,5 +1,17 @@
 [
   {
+    "auditorium": "Stora Salongen",
+    "film": "Matrix",
+    "date": "2021-04-23",
+    "time": "21.00",
+    "seats": [
+      "F 6",
+      "F 7"
+    ],
+    "price": 170,
+    "Email": "Kajsabajsa@live.se"
+  },
+  {
     "auditorium": "Lilla Salongen",
     "film": "Inception",
     "date": "2021-04-28",

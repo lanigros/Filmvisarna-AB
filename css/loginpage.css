@@ -233,6 +233,17 @@
     height: 100%;
     transform: translate(0px, 0px);
     border-radius: 0px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5% 1fr;
+    grid-template-areas:
+      "lw"
+      "ld"
+      "rc";
+  }
+
+  .Login-Divider {
+    height: 1px;
+    width: 90%;
   }
 }
 
