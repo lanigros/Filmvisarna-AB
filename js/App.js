@@ -5,7 +5,7 @@ import Footer from './components/footer.js';
 export default class App {
 
   constructor() {
-    // render partials
+    // render partials  
 
     // header renders now
 
