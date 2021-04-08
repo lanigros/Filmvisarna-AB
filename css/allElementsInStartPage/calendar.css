@@ -238,7 +238,6 @@ body
 
 @media only Screen and (max-width: 576px) {
   .calendar-Container {
-    margin-bottom: 13em;
     grid-gap: 1em;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 20em;
