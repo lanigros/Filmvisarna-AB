@@ -60,7 +60,7 @@ export default class Booking {
         </div>
         <div class="screen-row">
           <div></div>
-          <h1>SKÄRM</h1>
+          <h1>BIODUK</h1>
           <div></div>
         </div>
         <div class="seating-rows-container">

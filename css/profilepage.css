@@ -5,10 +5,12 @@
 
 .profile-page-container {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   grid-area: c;
   display: grid;
   width: 100%;
   height: 73vh;
+  border-radius: 10px;
   align-self: center;
   grid-template-columns: 25% 75%;
   grid-template-rows: repeat(3, 1fr);
@@ -220,6 +222,52 @@
   }
 }
 
+@media only screen and (max-width: 576px) {
+  .profile-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 15% 1fr;
+    grid-template-areas: "pp pt" "pi pi";
+  }
+  .profile-text-container {
+    border-top: none;
+    align-self: center;
+  }
+  .profile-wrapper {
+    text-align: center;
+  }
+
+  .profile-picture {
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+  }
+
+  .profile-title {
+    font-size: 20px;
+    align-self: flex-start;
+    justify-self: start;
+    margin-top: 15px;
+  }
+
+  .bookings-title {
+    font-size: 20px;
+  }
+  .booked-tickets-info {
+    height: auto;
+    width: 100%;
+  }
+  .cancel-btn-holder {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+
+  .bookings-wrapper {
+    grid-template-rows: 20% 1fr;
+  }
+}
+
 @media only screen and (max-width: 375px) {
   .profile-wrapper {
     grid-template-columns: repeat(2, 1fr);
@@ -231,7 +279,7 @@
     align-self: center;
   }
   .profile-wrapper {
-    text-align: start;
+    text-align: center;
   }
 
   .profile-picture {
