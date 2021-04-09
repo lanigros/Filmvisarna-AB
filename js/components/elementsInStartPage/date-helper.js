@@ -12,7 +12,6 @@ const getDayName = day => {
 //This returns how many days in total it is in current month
 function getDaysInMonth(month) {
   return new Date(2021, month, 0).getDate();
-
 }
 
 function getCurrentMonthInString() {

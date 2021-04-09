@@ -48,7 +48,7 @@ export default class Header {
             <img class="alert-icon" src="img/side-nav/movie-icon.svg" alt="">
             <p>FILMER</p>
           </a>
-          <a href="#" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
+          <a href="#bookTickets" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">
             <img class="alert-icon" src="img/side-nav/ticket-icon.svg" alt="">
           <p>BILJETTER</p>
           </a>
@@ -106,7 +106,6 @@ export default class Header {
       </div>       
       `)
       $('.active-User-Container').css("display", "flex");
-
     }
 
     if (window.outerWidth <= 760) {
@@ -146,10 +145,12 @@ export default class Header {
 
     $('.active-User-Container').replaceWith( /*html*/ `
       <div class="nav-right-items">
-        <div class="logIn_container">
-        <div class="nav-login-btn"><a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">LOGGA IN</a></div>
-        <div><a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden';">NYTT KONTO</a></div>
-      </div>
+        <div>
+            <a class="nav-login-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'hidden'">LOGGA IN</a>
+        </div>
+        <div>
+          <a class="nav-create-container" href="#logIn" onclick="document.getElementById('mySidenav').style.visibility = 'visible'">NYTT KONTO</a>
+        </div>
       </div>     
     `);
 
